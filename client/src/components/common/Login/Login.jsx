@@ -64,7 +64,7 @@ const LoginForm = () => {
                         <option value="Others">Others</option>
                     </select>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit">Signin</button>
             </form>
             {errorMessage && <p>{errorMessage}</p>}
         </div>
