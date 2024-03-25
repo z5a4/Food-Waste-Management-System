@@ -23,7 +23,7 @@ const transporterSchema = new mongoose.Schema({
     required: true,
   },
   mobileNo: {
-    type: Number, // Changed to Number
+    type: String, // Changed to Number
     required: true,
   },
   email: {
@@ -31,7 +31,7 @@ const transporterSchema = new mongoose.Schema({
     required: true,
   },
   rentRate: {
-    type: Number, // Changed to Number
+    type: String, // Changed to Number
     required: true,
   },
 });

@@ -18,11 +18,19 @@ const Volunteer = () => {
         <table className="table border-only-outside">
           <tbody>
             <tr>
+            <th>
+                <div className="mb-3">
+                  <label htmlFor="volunteerid" className="form-label">VolunteerId:</label>
+                  <input type="text" name="volunteerId" value={formData.volunteerId} onChange={handleInputChange} className="form-control" />
+                  {errors.name && <span className="text-danger">{errors.volunteerId}</span>}
+                </div>
+              </th>
+              
               <th>
                 <div className="mb-3">
-                  <label htmlFor="name" className="form-label">Name:</label>
-                  <input type="text" name="name" value={formData.name} onChange={handleInputChange} className="form-control" />
-                  {errors.name && <span className="text-danger">{errors.name}</span>}
+                  <label htmlFor="name" className="form-label">Volunteer Name:</label>
+                  <input type="text" name="volunteerName" value={formData.volunteerName} onChange={handleInputChange} className="form-control" />
+                  {errors.name && <span className="text-danger">{errors.volunteerName}</span>}
                 </div>
               </th>
               <th>
@@ -37,7 +45,7 @@ const Volunteer = () => {
               <th colSpan="2">
                 <div className="mb-3">
                   <label htmlFor="address" className="form-label">Address:</label>
-                  <input type="text" name="address" value={formData.address} onChange={handleInputChange} className="form-control" />
+                  <input type="text" name="volunteeraddress" value={formData.volunteeraddress} onChange={handleInputChange} className="form-control" />
                   {errors.address && <span className="text-danger">{errors.address}</span>}
                 </div>
               </th>
@@ -53,8 +61,8 @@ const Volunteer = () => {
             <th>
                 <div className="mb-3">
                   <label htmlFor="mobileNo" className="form-label">Mobile no:</label>
-                  <input type="text" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} className="form-control" />
-                  {errors.mobileNo && <span className="text-danger">{errors.mobileNo}</span>}
+                  <input type="text" name="volunteermobileNo" value={formData.volunteermobileNo} onChange={handleInputChange} className="form-control" />
+                  {errors.mobileNo && <span className="text-danger">{errors.volunteermobileNo}</span>}
                 </div>
             </th>
             </tr>

@@ -3,12 +3,12 @@ import Axios from 'axios';
 
 const FVolunteer = () => {
   const [formData, setFormData] = useState({
-    id: '',
-    name: '',
+    volunteerId: '',
+    volunteerName: '',
     dateOfBirth: '', // New field for Date of Birth
-    address: '',
+    volunteeraddress: '',
     email: '',
-    mobileNo: '',
+   volunteermobileNo: '',
     username: '',
     password: '',
     securityQuestion: '',
@@ -31,43 +31,11 @@ const FVolunteer = () => {
     });
   };
 
-  const validateForm = () => {
-    let isValid = true;
-    let newErrors = {};
-
-    if (!formData.name) {
-      newErrors.name = 'Name is required';
-      isValid = false;
-    }
-
-    if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Valid email is required';
-      isValid = false;
-    }
-
-    if (!formData.mobileNo || !/^\d{10}$/.test(formData.mobileNo)) {
-      newErrors.mobileNo = 'Valid 10-digit mobile number is required';
-      isValid = false;
-    }
-
-    if (!formData.dateOfBirth) {
-      newErrors.dateOfBirth = 'Date of Birth is required';
-      isValid = false;
-    }
-
-    if (!formData.securityQuestion) {
-      newErrors.securityQuestion = 'Security question is required';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
+   
       try {
         const response = await Axios.post('http://localhost:5000/api/volunteer-table', formData);
         alert(response.data.message);
@@ -76,9 +44,10 @@ const FVolunteer = () => {
         alert('Registration failed. Please try again.');
       }
     }
-  };
+  
 
   return { formData, errors, handleInputChange, handleSubmit };
+
 };
 
 export default FVolunteer;

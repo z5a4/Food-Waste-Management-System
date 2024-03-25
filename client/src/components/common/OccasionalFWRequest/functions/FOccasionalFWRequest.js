@@ -7,6 +7,7 @@ const FRegularFWRequest = () => {
     description: '',
     requesterName:'',
     address: '',
+    landmark: '',
     email: '',
     mobileNo: '',
     date: '', // New field for Date of Birth
@@ -36,6 +37,7 @@ const FRegularFWRequest = () => {
           description:'',
           requesterName: '',
           address: '',
+          landmark:'',
           mobileNo: '',
           email:'',
           date: '',

@@ -1,4 +1,5 @@
 import './App.css'
+import {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -91,17 +92,28 @@ import ODeleteMember from './components/others/Member/pages/ODeleteMember';
 
 import { Typography } from '@material-tailwind/react'
 
-
-
+import Skeleton from './Skeleton';
 
 function App() {
   
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Display skeleton for 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
 
   return (
     <>
+{loading ? (
+        <Skeleton /> // Render the skeleton while loading
+      ) : (
     <Router>
       <Routes>
-
         {/*Admin Bio-Gas Route*/}
         <Route path="/admin" element={<Admin/>} />
         <Route path="/adminviewbiogas" element={<AdminViewBiogas/>}/>
@@ -196,13 +208,14 @@ function App() {
 
       </Routes>
     </Router>
-     
+    )}  
 
 
 
 <div className='details'>
 
 </div>
+
     </>
   )
 }

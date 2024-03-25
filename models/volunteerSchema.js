@@ -1,12 +1,12 @@
 const mongoose=require('mongoose');
 
 const volunteerSchema = new mongoose.Schema({
-    id: String,
-    name: String,
+    volunteerId: String,
+    volunteerName: String,
     dateOfBirth: Date,
-    address: String,
+    volunteeraddress: String,
     email: String,
-    mobileNo: String,
+    volunteermobileNo: String,
     username: String,
     password: String,
     securityQuestion: String,

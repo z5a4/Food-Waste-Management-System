@@ -77,6 +77,13 @@ const OccasionalFWRequest = () => {
                               </th>
             </tr>
             <tr>
+              <th colSpan="2">
+                <label htmlFor="landmark" className="form-label">landmark:</label>
+                <input type="text" name="landmark" value={formData.landmark} onChange={handleInputChange} className="form-control" style={{ width: '100%' }} />
+                              </th>
+            </tr>
+           
+            <tr>
               <th>
                 <label htmlFor="email" className="form-label">Email:</label>
                 <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="form-control" />

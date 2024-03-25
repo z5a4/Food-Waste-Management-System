@@ -47,6 +47,8 @@ app.use('/',foodWasteRequestRoutes);
 app.use('/',RegularFWRequestRoutes);
 app.use('/',OccasionalFWRequestRoutes);
 app.use('/',ScheduleRoutes);
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
