@@ -1,19 +1,16 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Typography, Input, Button } from "@material-tailwind/react";
 import FRegularFWRequest from '../functions/FRegularFWRequest';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RegularFWRequest = () => {
   const { formData, requestId, handleInputChange, handleSubmit } = FRegularFWRequest();
   const navigate = useNavigate();
 
- // Function to format the current date as "YYYY-MM-DD"
-  // Function to format the current date as "YYYY-MM-DD"
   const getCurrentDate = () => {
     const now = new Date();
     now.setDate(now.getDate() - 1); // Subtract one day from the current date
 
-   
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
     const day = String(now.getDate()).padStart(2, '0');
@@ -25,81 +22,55 @@ const RegularFWRequest = () => {
   };
 
   useEffect(() => {
-    // Set formData.date to the current date when the component mounts
     const currentDate = getCurrentDate();
     handleInputChange({ target: { name: 'date', value: currentDate } });
-  }, []); // Empty dependency array ensures this useEffect runs only once on mount
-
-
-
+  }, []);
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Regular Food Waste Request</h1>
+      <Typography variant="h1" className="text-center mb-4 font-bold">Regular Food Waste Request</Typography>
       <form onSubmit={handleSubmit}>
-        <table className="table border-only-outside">
-          <tbody>
-            <tr>
-              <th>
-                <label htmlFor="reqID" className="form-label">Request ID:</label>
-                <input type="text" name="requestId" value={requestId} readOnly className="form-control" />
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <label htmlFor="Oname" className="form-label">Organisation Name:</label>
-                <input type="text" name="organisationName" value={formData.organisationName} onChange={handleInputChange} className="form-control" />
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <label htmlFor="Rname" className="form-label">Requester Name:</label>
-                <input type="text" name="requesterName" value={formData.requesterName} onChange={handleInputChange} className="form-control" />
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <label htmlFor="Tdate" className="form-label">Date :</label>
-                <input type="date" name="date" value={formData.date} readOnly className="form-control" />
-              </th>
-            </tr>
-            <tr>
-              <th colSpan="2">
-                <label htmlFor="address" className="form-label">Address:</label>
-                <input type="text" name="address" value={formData.address} onChange={handleInputChange} className="form-control" style={{ width: '100%' }} />
-              </th>
-            </tr>
-           
-           
-            <tr>
-              <th>
-                <label htmlFor="email" className="form-label">Email:</label>
-                <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="form-control" />
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <label htmlFor="mobileNo" className="form-label">Mobile No:</label>
-                <input type="tel" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} className="form-control" />
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <label htmlFor="aaproxqty" className="form-label">Approx Quantity : </label>
-                <input type="text" name="approxQuantity" value={formData.approxQuantity} onChange={handleInputChange} className="form-control" />
-              </th>
-            </tr>
-            <tr>
-              <th colSpan="2" className="text-center">
-                <button type="submit" className="btn btn-danger btn-lg me-2">Request</button>
-                <button type="button" className="btn btn-secondary btn-lg" onClick={handleBack}>Back</button>
-              </th>
-            </tr>
-          </tbody>
-        </table>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="reqID" className="block text-sm font-medium text-gray-700 font-bold">Request ID:</label>
+            <Input type="text" name="requestId" value={requestId} readOnly />
+          </div>
+          <div>
+            <label htmlFor="Oname" className="block text-sm font-medium text-gray-700 font-bold">Organisation Name:</label>
+            <Input type="text" name="organisationName" value={formData.organisationName} onChange={handleInputChange} />
+          </div>
+          <div>
+            <label htmlFor="Rname" className="block text-sm font-medium text-gray-700 font-bold">Requester Name:</label>
+            <Input type="text" name="requesterName" value={formData.requesterName} onChange={handleInputChange} />
+          </div>
+          <div>
+            <label htmlFor="Tdate" className="block text-sm font-medium text-gray-700 font-bold">Date :</label>
+            <Input type="date" name="date" value={formData.date} readOnly />
+          </div>
+          <div>
+            <label htmlFor="address" className="block text-sm font-medium text-gray-700 font-bold">Address:</label>
+            <Input type="text" name="address" value={formData.address} onChange={handleInputChange} />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 font-bold">Email:</label>
+            <Input type="email" name="email" value={formData.email} onChange={handleInputChange} />
+          </div>
+          <div>
+            <label htmlFor="mobileNo" className="block text-sm font-medium text-gray-700 font-bold">Mobile No:</label>
+            <Input type="tel" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} />
+          </div>
+          <div>
+            <label htmlFor="aaproxqty" className="block text-sm font-medium text-gray-700 font-bold">Approx Quantity:</label>
+            <Input type="text" name="approxQuantity" value={formData.approxQuantity} onChange={handleInputChange} />
+          </div>
+        </div>
+        <div className="text-center mt-6">
+          <Button type="submit" color="green" size="lg" className='mr-2'>Request</Button>
+          <Button type="button" color="blue" size="lg" onClick={handleBack}>Back</Button>
+        </div>
       </form>
     </div>
-  );
+  )
 };
 
 export default RegularFWRequest;
