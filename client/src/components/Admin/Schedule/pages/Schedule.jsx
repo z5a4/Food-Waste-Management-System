@@ -58,6 +58,7 @@ const Schedule = () => {
                             <th>Mobile No</th>
                             <th>Email</th>
                             <th>approxQuantity</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +73,13 @@ const Schedule = () => {
                                 <td>{request.mobileNo}</td>
                                 <td>{request.email}</td>
                                 <td>{request.approxQuantity}</td>
+                                <td> <td>
+                                    <select onChange={(e) => window.location.href=e.target.value}>
+                                        <option value="">Select</option>
+                                        <option value="/route1">Route 1</option>
+                                        <option value="/route2">Route 2</option>
+                                    </select>
+                                </td></td>
                             </tr>
                         ))}
                     </tbody>

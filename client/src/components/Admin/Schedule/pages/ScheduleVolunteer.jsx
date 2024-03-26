@@ -35,11 +35,11 @@ function ScheduleVolunteer() {
         <tbody>
           {volunteers.map(volunteer => (
             <tr key={volunteer._id}>
-              <td>{volunteer.id}</td>
-              <td>{volunteer.name}</td>
+              <td>{volunteer.volunteerId}</td>
+              <td>{volunteer.volunteerName}</td>
               <td>{volunteer.email}</td>
-              <td>{volunteer.mobileNo}</td>
-              <td>{volunteer.address}</td>
+              <td>{volunteer.volunteermobileNo}</td>
+              <td>{volunteer.volunteeraddress}</td>
               <td>{volunteer.dateOfBirth}</td>
               <td>{volunteer.username}</td>
               <td>{volunteer.password}</td>
