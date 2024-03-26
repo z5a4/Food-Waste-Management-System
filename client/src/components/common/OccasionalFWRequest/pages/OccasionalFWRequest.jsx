@@ -76,12 +76,7 @@ const OccasionalFWRequest = () => {
                 <input type="text" name="address" value={formData.address} onChange={handleInputChange} className="form-control" style={{ width: '100%' }} />
                               </th>
             </tr>
-            <tr>
-              <th colSpan="2">
-                <label htmlFor="landmark" className="form-label">landmark:</label>
-                <input type="text" name="landmark" value={formData.landmark} onChange={handleInputChange} className="form-control" style={{ width: '100%' }} />
-                              </th>
-            </tr>
+           
            
             <tr>
               <th>

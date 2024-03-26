@@ -14,7 +14,8 @@ const FoodWasteRequestForm = () => {
 
 
   const handleSubmit = async (e) => {
-    e.preventhefault();
+    e.preventDefault(); // Corrected spelling
+
 
     try {
       console.log('Submitting form data:', formData);

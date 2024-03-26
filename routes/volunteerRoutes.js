@@ -9,7 +9,9 @@ router.get('/api/volunteer-tables',VolunteerController.getVolunteers);
 
 router.put('/api/volunteer/:id', VolunteerController.updateVolunteer);
 
-router.delete('/api/volunteer/:id',VolunteerController.deleteVolunteer)
+router.delete('/api/volunteer/:id',VolunteerController.deleteVolunteer);
+
+router.get('/api/volunteer/:volunteerId',VolunteerController.getVolunteerData);
 
 
 module.exports = router;

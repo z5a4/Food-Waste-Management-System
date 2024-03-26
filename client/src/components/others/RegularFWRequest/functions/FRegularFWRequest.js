@@ -6,7 +6,7 @@ const FRegularFWRequest = () => {
     organisationName: '',
     requesterName:'',
     address: '',
-    landmark:'',
+  
     email: '',
     mobileNo: '',
     date: '',
@@ -32,7 +32,7 @@ const FRegularFWRequest = () => {
         organisationName: '',
         requesterName:'',
         address: '',
-        landmark:'',
+       
         email:'',
         mobileNo: '',
         date: '',

@@ -1,4 +1,6 @@
 const Registration = require('../models/registrationSchema'); // Import the existing schema
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 exports.loginUser = async (req, res) => {
   const { username, password, category } = req.body;
@@ -62,3 +64,8 @@ exports.logout = (req, res) => {
       res.status(500).json({ error: 'Failed to logout' });
   }
 };
+
+
+// controllers/authController.js
+
+

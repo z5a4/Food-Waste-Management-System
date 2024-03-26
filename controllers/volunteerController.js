@@ -60,4 +60,23 @@ exports.deleteVolunteer = async (req, res) => {
   }
 };
 
+exports.getVolunteerData = async (req, res) => {
+  const { VolunteerId } = req.params;
 
+  try {
+    const VolunteerData = await Volunteer.findOne({ VolunteerId });
+
+    if (VolunteerData) {
+      res.json({
+        volunteerName: VolunteerData.volunteerName,
+        volunteeraddress: VolunteerData.volunteeraddress,
+        volunteermobileNo: VolunteerData.volunteermobileNo,
+      });
+    } else {
+      res.status(404).json({ error: 'Volunteer not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching data from database:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};

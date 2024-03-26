@@ -110,6 +110,18 @@ const TransporterForm = () => {
               {errors.email && <span className="text-danger">{errors.email}</span>}
             </th>
             <th>
+              <label htmlFor="address" className="form-label">Address :</label>
+              <input
+                type="text"
+                className="form-control"
+                id="address"
+                name="address"
+                value={formData.address}
+                onChange={handleInputChange}
+              />
+              {errors.rentRate && <span className="text-danger">{errors.rentRate}</span>}
+            </th>
+            <th>
               <label htmlFor="rentRate" className="form-label">Rent Rate:</label>
               <input
                 type="text"

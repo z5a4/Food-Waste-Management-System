@@ -14,6 +14,6 @@ router.put('/api/transporters/:id',transporterController.updateTransporter);
 
 router.delete('/api/transporters/:id',transporterController.deleteTransporter);
 
-
+router.get('/api/Transporter/:transporterId',transporterController.getTransporterData);
 
 module.exports = router;

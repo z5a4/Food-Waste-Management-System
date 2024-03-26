@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Tooltip,
+} from "@material-tailwind/react";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle, faEnvelope, faPhone, faBuilding, faUser, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -52,16 +62,77 @@ const handleLogout = async () => {
 
   return (
     <>
-    <div className='space'><br></br></div>
     {userData && (
                 <div>
-                    <p>Username: {userData.username}</p>
-                    <p>Email: {userData.email}</p>
-                    <p>Mobile No: {userData.mobileNo}</p>
-                    <p>Orgnaisation Name:{userData.organisationName} </p>
-                    <p>Requester Name:{userData.name} </p>
-                    <p>Address:{userData.address} </p>
-                </div>
+    
+    <Card className="mx-auto" style={{ maxWidth: '400px' }}>
+      <CardBody className="text-center">
+        <Typography variant="h4" color="blue-gray" className="mb-2">
+        <FontAwesomeIcon icon={faUserCircle} className="mr-2" /> 
+        {userData.username}
+        </Typography>
+        <br></br>
+        <Typography color="blue-gray" className="font-medium" textGradient>
+        <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+                {userData.email}
+        </Typography>
+        <br></br>
+        <Typography color="blue-gray" className="font-medium" textGradient>
+                <FontAwesomeIcon icon={faPhone} className="mr-2" /> {userData.mobileNo}
+              </Typography>
+              <br />
+              <Typography color="blue-gray" className="font-medium" textGradient>
+                <FontAwesomeIcon icon={faBuilding} className="mr-2" /> {userData.organisationName}
+              </Typography>
+              <br />
+              <Typography color="blue-gray" className="font-medium" textGradient>
+                <FontAwesomeIcon icon={faUser} className="mr-2" /> {userData.name}
+              </Typography>
+              <br />
+              <Typography color="blue-gray" className="font-medium" textGradient>
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> {userData.address}
+              </Typography>
+      
+
+
+      </CardBody>
+      <CardFooter className="flex justify-center gap-7 pt-2">
+        <Tooltip content="Like">
+          <Typography
+            as="a"
+            href="#facebook"
+            variant="lead"
+            color="blue"
+            textGradient
+          >
+            <i className="fab fa-facebook" />
+          </Typography>
+        </Tooltip>
+        <Tooltip content="Follow">
+          <Typography
+            as="a"
+            href="#twitter"
+            variant="lead"
+            color="light-blue"
+            textGradient
+          >
+            <i className="fab fa-twitter" />
+          </Typography>
+        </Tooltip>
+        <Tooltip content="Follow">
+          <Typography
+            as="a"
+            href="#instagram"
+            variant="lead"
+            color="purple"
+            textGradient
+          >
+            <i className="fab fa-instagram" />
+          </Typography>
+        </Tooltip>
+      </CardFooter>
+    </Card>
+      </div>
             )}
 
 
@@ -79,3 +150,6 @@ const handleLogout = async () => {
 };
 
 export default Profile;
+
+
+ 

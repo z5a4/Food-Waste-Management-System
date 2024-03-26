@@ -11,6 +11,7 @@ const FTransporterForm = () => {
     mobileNo: '',
     email: '',
     rentRate: '',
+    address: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -67,7 +68,10 @@ const FTransporterForm = () => {
       newErrors.email = 'Valid email is required';
       isValid = false;
     }
-
+    if (!formData.address) {
+      newErrors.address = 'Address is required';
+      isValid = false;
+    }
     if (!formData.rentRate || isNaN(formData.rentRate) || formData.rentRate <= 0) {
       newErrors.rentRate = 'Valid Rent Rate is required';
       isValid = false;

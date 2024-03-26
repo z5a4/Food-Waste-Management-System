@@ -94,6 +94,10 @@ import { Typography } from '@material-tailwind/react'
 
 import Skeleton from './Skeleton';
 
+import RouteForm from './components/Admin/Route/pages/RouteForm';
+import AdminViewRoute from './components/Admin/Route/pages/ViewRoute';
+
+
 function App() {
   
   const [loading, setLoading] = useState(true);
@@ -114,6 +118,9 @@ function App() {
       ) : (
     <Router>
       <Routes>
+      
+        <Route path='/adminrouteform' element={<RouteForm/>}/>
+        <Route path='/adminviewroute' element={<AdminViewRoute/>}/>
         {/*Admin Bio-Gas Route*/}
         <Route path="/admin" element={<Admin/>} />
         <Route path="/adminviewbiogas" element={<AdminViewBiogas/>}/>

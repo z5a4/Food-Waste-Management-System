@@ -34,6 +34,10 @@ const transporterSchema = new mongoose.Schema({
     type: String, // Changed to Number
     required: true,
   },
+  address: {
+    type: String,
+    required: true,
+  },
 });
 
 const Transporter = mongoose.model('Transporter', transporterSchema);

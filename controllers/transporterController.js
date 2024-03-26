@@ -67,4 +67,27 @@ exports.deleteTransporter = async (req, res) => {
 };
 
 
+exports.getTransporterData = async (req, res) => {
+  const { transporterId } = req.params;
+
+  try {
+    const TransporterData = await Transporter.findOne({ transporterId });
+
+    if (TransporterData) {
+      res.json({
+        vehicleNo: TransporterData.vehicleNo,
+        driverName: TransporterData.driverName,
+        licenseNo: TransporterData.licenseNo,
+        rentRate: TransporterData.rentRate,
+        mobileNo: TransporterData.mobileNo,
+        address:TransporterData.address,
+      });
+    } else {
+      res.status(404).json({ error: 'Transporter not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching data from database:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
 

@@ -10,4 +10,6 @@ router.get('/api/user', LoginController.getUserDetails);
 
 router.post('/api/logout', LoginController.logout);
 
+
+
 module.exports = router;

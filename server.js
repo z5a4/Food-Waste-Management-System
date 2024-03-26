@@ -16,6 +16,7 @@ const foodWasteRequestRoutes=require('./routes/foodWasteRequestRoutes');
 const RegularFWRequestRoutes=require('./routes/RegularFWRequestRoutes');
 const OccasionalFWRequestRoutes=require('./routes/OccasionalFWRequestRoutes');
 const ScheduleRoutes=require('./routes/ScheduleRoutes');
+const routeRoutes=require('./routes/routeRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -47,7 +48,7 @@ app.use('/',foodWasteRequestRoutes);
 app.use('/',RegularFWRequestRoutes);
 app.use('/',OccasionalFWRequestRoutes);
 app.use('/',ScheduleRoutes);
-
+app.use('/',routeRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
