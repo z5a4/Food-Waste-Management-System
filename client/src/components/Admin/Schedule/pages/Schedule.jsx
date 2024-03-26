@@ -77,7 +77,7 @@ const Schedule = () => {
                                     <select onChange={(e) => window.location.href=e.target.value}>
                                         <option value="">Select</option>
                                         <option value="/route1">Route 1</option>
-                                        <option value="/route2">Route 2</option>
+                                        <option value="/route2">Route2</option>
                                     </select>
                                 </td></td>
                             </tr>
