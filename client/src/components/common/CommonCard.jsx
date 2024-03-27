@@ -8,7 +8,7 @@ import {
    
   export function CommonCard() {
     return (
-      <Card className="mt-6 w-96">
+      <Card className="mt-6 w-96 shadow-xl shadow-blue-gray-900/50">
         <CardBody>
           <Typography variant="h5" color="amber" className="mb-2">
             How do you want to help us today ?

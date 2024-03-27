@@ -13,7 +13,7 @@ import {
   
   export function CommonService() {
     return (
-      <Card className="mt-6 w-96">
+      <Card className="mt-6 w-96 shadow-xl shadow-blue-gray-900/50">
         <CardHeader color="green" className="relative h-70">
           <img
             src={hamburgerImage}
@@ -40,7 +40,7 @@ import {
 
   export function CommonService1() {
     return (
-      <Card className="mt-6 w-96">
+      <Card className="mt-6 w-96 shadow-xl shadow-blue-gray-900/50">
         <CardHeader color="cyan" className="relative h-70">
           <img
             src={FarmerImage}
@@ -67,7 +67,7 @@ import {
 
   export function CommonService2() {
     return (
-      <Card className="mt-6 w-96">
+      <Card className="mt-6 w-96 shadow-xl shadow-blue-gray-900/50">
         <CardHeader color="yellow" className="relative h-70">
           <img
             src={memberImage}
