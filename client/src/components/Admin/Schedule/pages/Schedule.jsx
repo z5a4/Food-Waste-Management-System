@@ -4,14 +4,15 @@ import FSchedule from '../functions/FSchedule';
 import ScheduleTransporter from './ScheduleTransporter';
 import ScheduleVolunteer from './ScheduleVolunteer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import RouteSelect from './RouteSelect'; // Import RouteSelect component
 
 const Schedule = () => {
     const [combinedRequests, setCombinedRequests] = useState([]);
-    const [error, setError] = useState(null);
+   const [error, setError] = useState(null);
     const { fetchCombinedRequests, handleInputChange, handleSubmit , totalRequestCount} = FSchedule();
     const [showVolunteer, setShowVolunteer] = useState(false);
     const [showTransporter, setShowTransporter] = useState(false);
-
+ 
     useEffect(() => {
         async function fetchData() {
             try {
@@ -21,10 +22,19 @@ const Schedule = () => {
                 setError(error.message);
             }
         }
+    
+       
+    
         fetchData();
-        const intervalId = setInterval(fetchData, 60000); // Fetch data every minute
+        
+    
+        const intervalId = setInterval(() => {
+            fetchData();
+        }, 60000); // Fetch data every minute
+    
         return () => clearInterval(intervalId);
     }, [fetchCombinedRequests]);
+    
 
     const handleViewVolunteer = () => {
         setShowVolunteer(true);
@@ -36,6 +46,7 @@ const Schedule = () => {
         setShowVolunteer(false);
     };
 
+   
     return (
         <>
             <div className="container mt-5 pt-5">
@@ -58,6 +69,7 @@ const Schedule = () => {
                             <th>Mobile No</th>
                             <th>Email</th>
                             <th>approxQuantity</th>
+                            <th>Add Route</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -73,13 +85,11 @@ const Schedule = () => {
                                 <td>{request.mobileNo}</td>
                                 <td>{request.email}</td>
                                 <td>{request.approxQuantity}</td>
-                                <td> <td>
-                                    <select onChange={(e) => window.location.href=e.target.value}>
-                                        <option value="">Select</option>
-                                        <option value="/route1">Route 1</option>
-                                        <option value="/route2">Route2</option>
-                                    </select>
-                                </td></td>
+                                <td>
+                                   <RouteSelect />
+                                                        
+                              </td>
+                                <td>Add</td>
                             </tr>
                         ))}
                     </tbody>

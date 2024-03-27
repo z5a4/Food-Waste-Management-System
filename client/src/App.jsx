@@ -96,6 +96,7 @@ import Skeleton from './Skeleton';
 
 import RouteForm from './components/Admin/Route/pages/RouteForm';
 import AdminViewRoute from './components/Admin/Route/pages/ViewRoute';
+import RouteSelect from './components/Admin/Schedule/pages/RouteSelect';
 
 
 function App() {
@@ -118,7 +119,7 @@ function App() {
       ) : (
     <Router>
       <Routes>
-      
+      <Route path="/routeselect" element={<RouteSelect/>}/>
         <Route path='/adminrouteform' element={<RouteForm/>}/>
         <Route path='/adminviewroute' element={<AdminViewRoute/>}/>
         {/*Admin Bio-Gas Route*/}
