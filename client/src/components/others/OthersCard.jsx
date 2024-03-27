@@ -34,7 +34,7 @@ import {
           <Typography color="gray" className="mb-8 font-normal">
             Click below to make your food waste request...
           </Typography>
-          <a href="#" className="inline-block">
+          <a className="inline-block">
             <OthersCollapse/>
           </a>
         </CardBody>
@@ -54,7 +54,7 @@ import {
             Click below to get free slurry for you... We will validate your 
             request, and you can get slurry once in 15 days...
           </Typography>
-          <a href="#" className="inline-block">
+          <a className="inline-block">
             <OthersCollapse1/>
           </a>
         </CardBody>
@@ -96,7 +96,7 @@ import {
             <Typography color="gray" className="mb-8 font-normal">
               Click below become our member...
             </Typography>
-            <a href="#" className="inline-block">
+            <a className="inline-block">
               <OthersCollapse2/>
             </a>
           </CardBody>

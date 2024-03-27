@@ -16,13 +16,6 @@ export function OthersCollapse() {
 
   const toggleOpen = () => setOpen((cur) => !cur);
 
-  useEffect(() => {
-    if (open) {
-      // Scroll to the top of the component when it's opened
-      contentRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [open]);
-
   const handleClickInside = (e) => {
     e.preventDefault();
     e.target.focus({ preventScroll: true });
@@ -32,7 +25,7 @@ export function OthersCollapse() {
     <>
       <Button color="green" onClick={toggleOpen}>Food Waste Request</Button>
       <Collapse open={open}>
-        <div ref={contentRef}>
+        <div>
           <Card className="my-4 mx-auto w-auto">
             <CardBody onClick={handleClickInside}>
               <Typography>
@@ -52,20 +45,17 @@ export function OthersCollapse1() {
   
     const toggleOpen = () => setOpen((cur) => !cur);
   
-    useEffect(() => {
-      if (open) {
-        // Scroll to the top position of the collapse content
-        contentRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, [open]);
-  
+    const handleClickInside = (e) => {
+      e.preventDefault();
+      e.target.focus({ preventScroll: true });
+    };
     return (
       <>
         <Button color="green" onClick={toggleOpen}>Slurry Request</Button>
         <Collapse open={open}>
-          <div ref={contentRef} style={{ overflow: 'hidden' }}>
+          <div style={{ overflow: 'hidden' }}>
             <Card className="my-4 mx-auto w-auto">
-              <CardBody>
+              <CardBody onClick={handleClickInside}>
                 <Typography>
                   <FarmerRequest />
                 </Typography>
@@ -83,13 +73,6 @@ export function OthersCollapse1() {
   
     const toggleOpen = () => setOpen((cur) => !cur);
   
-    useEffect(() => {
-      if (open) {
-        // Scroll to the top of the component when it's opened
-        contentRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    }, [open]);
-  
     const handleClickInside = (e) => {
       e.preventDefault();
       e.target.focus({ preventScroll: true });
@@ -99,7 +82,7 @@ export function OthersCollapse1() {
       <>
         <Button color="green" onClick={toggleOpen}>Become member</Button>
         <Collapse open={open}>
-          <div ref={contentRef}>
+          <div>
             <Card className="my-4 mx-auto w-auto">
               <CardBody onClick={handleClickInside}>
                 <Typography>
