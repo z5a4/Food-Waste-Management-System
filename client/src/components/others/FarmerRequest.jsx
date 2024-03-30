@@ -102,19 +102,19 @@ const FarmerRequest = () => {
                 <div className="grid grid-cols-2 gap-4">
                     <div>
                         <Typography tag="label" className="block text-sm font-bold text-gray-700">Farmer Name:</Typography>
-                        <Input type="text" name="farmerName" value={farmerRequest.farmerName} onChange={handleChange} />
+                        <Input variant='standard' type="text" name="farmerName" value={farmerRequest.farmerName} onChange={handleChange} />
                     </div>
                     <div>
                         <Typography tag="label" className="block text-sm font-bold text-gray-700">Phone Number:</Typography>
-                        <Input type="text" name="mobileNo" value={farmerRequest.mobileNo} onChange={handleChange} />
+                        <Input variant='standard' type="text" name="mobileNo" value={farmerRequest.mobileNo} onChange={handleChange} />
                     </div>
                     <div>
                         <Typography tag="label" className="block text-sm font-bold text-gray-700">Address:</Typography>
-                        <Input type="text" name="address" value={farmerRequest.address} onChange={handleChange} />
+                        <Input variant='standard' type="text" name="address" value={farmerRequest.address} onChange={handleChange} />
                     </div>
                     <div>
                         <Typography tag="label" className="block text-sm font-bold text-gray-700">Date:</Typography>
-                        <Input type="date" name="date" value={farmerRequest.date} onChange={handleChange} />
+                        <Input variant='standard' type="date" name="date" value={farmerRequest.date} onChange={handleChange} />
                     </div>
                 </div>
                 <div className="mt-4">

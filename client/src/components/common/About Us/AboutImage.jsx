@@ -1,5 +1,5 @@
 import About from "../Images/About.jpg";
-import About2 from "../Images/foodwaste2.jpg";
+import About2 from "../Images/foodwaste4.jpg";
 
 export function AboutImage() {
     return (

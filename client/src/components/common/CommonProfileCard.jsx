@@ -9,7 +9,7 @@ import {
    
   export function CommonProfileCard() {
     return (
-      <Card className="w-96">
+      <Card className="w-96 shadow-xl shadow-blue-gray-900/50">
         <CardHeader floated={false} className="h-40">
           <img src="https://wallpapercave.com/wp/wp10400986.jpg" alt="profile-picture" />
         </CardHeader>
@@ -28,7 +28,7 @@ import {
 
   export function CommonProfileCard1() {
     return (
-      <Card className="w-96">
+      <Card className="w-96 shadow-xl shadow-blue-gray-900/50">
         <CardHeader floated={false} className="h-40">
           <img src="https://wallpapercave.com/wp/wp2024213.jpg" alt="profile-picture" />
         </CardHeader>

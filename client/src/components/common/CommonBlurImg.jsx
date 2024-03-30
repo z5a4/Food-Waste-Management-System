@@ -2,7 +2,7 @@ import { Typography } from "@material-tailwind/react";
  
 export function CommonBlurImg() {
   return (
-    <figure className="relative h-96 w-full mb-12">
+    <figure className="relative h-96 w-full mb-12 shadow-xl shadow-blue-gray-900/50">
       <img
         className="h-full w-full rounded-xl object-cover object-center"
         src="https://wallpapercave.com/wp/wp10401140.jpg"

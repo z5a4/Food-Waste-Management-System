@@ -40,12 +40,9 @@ export function AboutParagraph3() {
       <Typography variant="h1" className="mt-12 font-bold text-4xl text-amber-500">About DVT (Divyang Vikas Trust) </Typography>
       
       <Typography variant="lead" className="mt-6 ml-16 mr-16 mb-12 pl-15 pr-15 item-center"  style={{ textAlign: 'justify-center' }}>
-       DVT is an NGO based organization established in 2017 which engaged in empowering
+       DVT is an NGO based organization, founded by <strong>MR. NILESH MEHTA</strong> and established in 2017 which engaged in empowering
        handicaps and other disabled persons. They provide training, various camps, marriage 
        bureau service for handicap and disabled person etc. for the society.
-       <br></br>
-       Founder: - <span style={{ fontWeight: 'bold' }}>Mr. Nilesh Mehta</span>
-
       </Typography>
       </>
     );
