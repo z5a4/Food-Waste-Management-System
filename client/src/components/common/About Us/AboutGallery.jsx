@@ -41,7 +41,7 @@ import {
   export function AboutGallery() {
     const data = [
       {
-        label: "Section 1",
+        label: "Gallery 1",
         value: "1",
         images: [
           {
@@ -65,7 +65,7 @@ import {
         ],
       },
       {
-        label: "Section 2",
+        label: "Gallery 2",
         value: "2",
         images: [
           {
@@ -89,7 +89,7 @@ import {
         ],
       },
       {
-        label: "Section 3",
+        label: "Gallery 3",
         value: "3",
         images: [
           {
@@ -113,7 +113,7 @@ import {
         ],
       },
       {
-        label: "Section 4",
+        label: "Gallery 4",
         value: "4",
         images: [
           {
@@ -137,7 +137,7 @@ import {
         ],
       },
       {
-        label: "Section 5",
+        label: "Gallery 5",
         value: "5",
         images: [
           {

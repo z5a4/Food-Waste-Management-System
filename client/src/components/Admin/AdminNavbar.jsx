@@ -18,15 +18,15 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
-  Bars4Icon,
-  GlobeAmericasIcon,
-  NewspaperIcon,
-  PhoneIcon,
-  RectangleGroupIcon,
-  SquaresPlusIcon,
-  SunIcon,
-  TagIcon,
   UserGroupIcon,
+  BuildingOffice2Icon,
+  CurrencyRupeeIcon,
+  UserPlusIcon,
+  InboxArrowDownIcon,
+  ArrowDownOnSquareIcon,
+  UserIcon,
+  TruckIcon,
+  HandRaisedIcon
 } from "@heroicons/react/24/solid";
 
 
@@ -35,7 +35,7 @@ const navListMenuItems = [
   {
     title: "Bio-Waste",
     description: "Find the perfect solution for your needs.",
-    icon: SquaresPlusIcon,
+    icon: BuildingOffice2Icon,
     href:"/adminviewbiogas",
     
   },
@@ -46,45 +46,45 @@ const navListMenuItems = [
     href:"/adminviewmember",
   },
   {
-    title: "Regular Food Waste",
-    description: "Find the perfect solution for your needs.",
-    icon: Bars4Icon,
-    href:"/adminviewregularFWRequest",
-  },
-  {
-    title: "Farmer",
-    description: "Learn how we can help you achieve your goals.",
-    icon: SunIcon,
-    href:"/adminviewfarmer",
-  },
-  {
     title: "Donation",
     description: "Reach out to us for assistance or inquiries",
-    icon: GlobeAmericasIcon,
+    icon: CurrencyRupeeIcon,
     href:"/adminviewdonation",
   },
   {
     title: "Registration",
     description: "Find the perfect solution for your needs.",
-    icon: PhoneIcon,
+    icon: UserPlusIcon,
     href:"/adminviewregistration",
+  },
+  {
+    title: "Regular Food Waste",
+    description: "Find the perfect solution for your needs.",
+    icon: InboxArrowDownIcon,
+    href:"/adminviewregularFWRequest",
   },
   {
     title: "Occasional Food Waste Request",
     description: "Read insightful articles, tips, and expert opinions.",
-    icon: NewspaperIcon,
+    icon: ArrowDownOnSquareIcon,
     href:"/adminviewoccasionalFWrequest",
+  },
+  {
+    title: "Farmer",
+    description: "Learn how we can help you achieve your goals.",
+    icon: UserIcon,
+    href:"/adminviewfarmer",
   },
   {
     title: "Transporter",
     description: "Find the perfect solution for your needs.",
-    icon: RectangleGroupIcon,
+    icon: TruckIcon,
     href:"/adminviewtransporter",
   },
   {
     title: "Volunteers",
     description: "Explore limited-time deals and bundles",
-    icon: TagIcon,
+    icon: HandRaisedIcon,
     href:"/adminviewvolunteer",
   },
 ];
@@ -130,17 +130,17 @@ function NavListMenu() {
         open={isMenuOpen}
         handler={setIsMenuOpen}
         offset={{ mainAxis: 20 }}
-        placement="bottom"
+        placement="top"
         allowHover={true}
       >
         <MenuHandler>
-          <Typography as="div" variant="small" className="font-medium">
+          <Typography as="div" variant="h6" className="font-h6">
             <ListItem
               className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Master-Table
+              <strong>Master-Table</strong>
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -176,9 +176,9 @@ function NavList() {
       <Typography
         as="a"
         href="#"
-        variant="small"
+        variant="h6"
         color="blue-gray"
-        className="font-medium"
+        className="font-h6"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">Request</ListItem>
         
@@ -186,9 +186,9 @@ function NavList() {
       <Typography
         as="a"
         href="/uschedule"
-        variant="small"
+        variant="h6"
         color="blue-gray"
-        className="font-medium"
+        className="font-h6"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">Slurry</ListItem>
       </Typography>
@@ -196,9 +196,9 @@ function NavList() {
       <Typography
         as="a"
         href="/schedule"
-        variant="small"
+        variant="h6"
         color="blue-gray"
-        className="font-medium"
+        className="font-h6"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Schedule
@@ -208,9 +208,9 @@ function NavList() {
       <Typography
         as="a"
         href="#"
-        variant="small"
+        variant="h6"
         color="blue-gray"
-        className="font-medium"
+        className="font-h6"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Reports
@@ -236,8 +236,9 @@ function AdminNavbar() {
         <Typography
           as="a"
           href="#"
-          variant="h6"
+          variant="h5"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+          color="brown"
         >
           Food Waste Management System
         </Typography>
@@ -245,7 +246,7 @@ function AdminNavbar() {
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
-        <Button variant="gradient" size="sm">
+        <Button color="light-green" variant="gradient" size="sm">
             Donate Now
           </Button>
         </div>
@@ -265,7 +266,7 @@ function AdminNavbar() {
       <Collapse open={openNav}>
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-          <Button variant="gradient" size="sm" fullWidth>
+          <Button color="light-green" variant="gradient" size="sm" fullWidth>
             Donate Now
           </Button>
         </div>
