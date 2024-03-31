@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 const currentScheduleModel = new mongoose.Schema({
-  requestID: { type: String, required: true },
+  requestId: { type: String, required: true },
   organizationName: { type: String },
   description: { type: String },
   requesterName: { type: String, required: true },

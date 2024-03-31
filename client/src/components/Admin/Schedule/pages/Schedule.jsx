@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FSchedule from '../functions/FSchedule';
-import ScheduleTransporter from './ScheduleTransporter';
-import ScheduleVolunteer from './ScheduleVolunteer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+import ViewRoute from '../../Route/pages/ViewRoute'; // Import ViewRoute component
 import RouteSelect from './RouteSelect'; // Import RouteSelect component
 
 const Schedule = () => {
     const [combinedRequests, setCombinedRequests] = useState([]);
+    const [showRoute, setShowRoute] = useState(false);
    const [error, setError] = useState(null);
-    const { fetchCombinedRequests, handleInputChange, handleSubmit , totalRequestCount} = FSchedule();
-    const [showVolunteer, setShowVolunteer] = useState(false);
-    const [showTransporter, setShowTransporter] = useState(false);
+    const { fetchCombinedRequests, handleInputChange,  totalRequestCount} = FSchedule();
+    
  
     useEffect(() => {
         async function fetchData() {
@@ -36,15 +36,25 @@ const Schedule = () => {
     }, [fetchCombinedRequests]);
     
 
-    const handleViewVolunteer = () => {
-        setShowVolunteer(true);
-        setShowTransporter(false);
+    const handleViewRoute = () => {
+        setShowRoute(true);
+        setShowRoute(false);
+    };
+  
+    const handleAddToCurrentSchedule = async (requestData) => {
+        try {
+            // Send the requestData to the server
+            const response = await axios.post('http://localhost:5000/api/currentschedule', requestData);
+            // Display a success message or update UI as needed
+            alert(response.data.message);
+        } catch (error) {
+            console.error('Error adding to current schedule:', error);
+            // Display an error message or update UI as needed
+            alert('Failed to add request to current schedule. Please try again.');
+        }
     };
 
-    const handleViewTransporter = () => {
-        setShowTransporter(true);
-        setShowVolunteer(false);
-    };
+
 
    
     return (
@@ -86,22 +96,23 @@ const Schedule = () => {
                                 <td>{request.email}</td>
                                 <td>{request.approxQuantity}</td>
                                 <td>
-                                   <RouteSelect />
+                                <RouteSelect/>
                                                         
                               </td>
-                                <td>Add</td>
-                            </tr>
+                              <td>
+                              <button type='button' onClick={() => handleAddToCurrentSchedule(request)}>Add</button>
+                                </td>
+                             </tr>
                         ))}
                     </tbody>
                 </table>
-              
                 <div className="text-center mt-3">
-                    <button onClick={handleViewVolunteer} className="btn btn-primary me-2">View Volunteer</button>
-                    <button onClick={handleViewTransporter} className="btn btn-primary">View Transporter</button>
-                </div>
+                    <button onClick={handleViewRoute} className="btn btn-primary me-2">View Route</button>
+                    </div>
 
-                {showVolunteer && <ScheduleVolunteer />}
-                {showTransporter && <ScheduleTransporter />}
+                {showRoute && <ViewRoute />}
+               
+              
             </div>
            
         </>
