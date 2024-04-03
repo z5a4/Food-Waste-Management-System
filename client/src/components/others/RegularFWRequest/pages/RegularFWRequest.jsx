@@ -32,35 +32,35 @@ const RegularFWRequest = () => {
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label htmlFor="reqID" className="block text-sm font-medium text-gray-700 font-bold">Request ID:</label>
+            <label htmlFor="reqID" className="block text-sm font-bold text-gray-700">Request ID:</label>
             <Input variant='standard' type="text" name="requestId" value={requestId} readOnly />
           </div>
           <div>
-            <label htmlFor="Oname" className="block text-sm font-medium text-gray-700 font-bold">Organisation Name:</label>
+            <label htmlFor="Oname" className="block text-sm font-bold text-gray-700 font-bold">Organisation Name:</label>
             <Input variant='standard' type="text" name="organisationName" value={formData.organisationName} onChange={handleInputChange} />
           </div>
           <div>
-            <label htmlFor="Rname" className="block text-sm font-medium text-gray-700 font-bold">Requester Name:</label>
+            <label htmlFor="Rname" className="block text-sm font-bold text-gray-700 font-bold">Requester Name:</label>
             <Input variant='standard' type="text" name="requesterName" value={formData.requesterName} onChange={handleInputChange} />
           </div>
           <div>
-            <label htmlFor="Tdate" className="block text-sm font-medium text-gray-700 font-bold">Date :</label>
+            <label htmlFor="Tdate" className="block text-sm font-bold text-gray-700 font-bold">Date :</label>
             <Input variant='standard' type="date" name="date" value={formData.date} readOnly />
           </div>
           <div>
-            <label htmlFor="address" className="block text-sm font-medium text-gray-700 font-bold">Address:</label>
+            <label htmlFor="address" className="block text-sm font-bold text-gray-700 font-bold">Address:</label>
             <Input variant='standard' type="text" name="address" value={formData.address} onChange={handleInputChange} />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 font-bold">Email:</label>
+            <label htmlFor="email" className="block text-sm font-bold text-gray-700 font-bold">Email:</label>
             <Input variant='standard' type="email" name="email" value={formData.email} onChange={handleInputChange} />
           </div>
           <div>
-            <label htmlFor="mobileNo" className="block text-sm font-medium text-gray-700 font-bold">Mobile No:</label>
+            <label htmlFor="mobileNo" className="block text-sm font-bold text-gray-700 font-bold">Mobile No:</label>
             <Input variant='standard' type="tel" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} />
           </div>
           <div>
-            <label htmlFor="aaproxqty" className="block text-sm font-medium text-gray-700 font-bold">Approx Quantity:</label>
+            <label htmlFor="aaproxqty" className="block text-sm font-bold text-gray-700 font-bold">Approx Quantity:</label>
             <Input variant='standard' type="text" name="approxQuantity" value={formData.approxQuantity} onChange={handleInputChange} />
           </div>
         </div>
