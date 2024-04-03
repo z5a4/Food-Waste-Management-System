@@ -17,6 +17,7 @@ const RegularFWRequestRoutes=require('./routes/RegularFWRequestRoutes');
 const OccasionalFWRequestRoutes=require('./routes/OccasionalFWRequestRoutes');
 const ScheduleRoutes=require('./routes/ScheduleRoutes');
 const routeRoutes=require('./routes/routeRoutes');
+const CurrentScheduleRoutes = require('./routes/CurrentScheduleRoutes'); // Add this line
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -49,6 +50,8 @@ app.use('/',RegularFWRequestRoutes);
 app.use('/',OccasionalFWRequestRoutes);
 app.use('/',ScheduleRoutes);
 app.use('/',routeRoutes);
+app.use('/', CurrentScheduleRoutes); // Add this line
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

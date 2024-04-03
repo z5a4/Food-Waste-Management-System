@@ -30,8 +30,8 @@ import {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-          <Button color="green" className="mr-2">Regular</Button>
-          <Button color="green" className="ml-2">Occasional</Button>
+          <Button color="green" className="mr-2"><a href="/login"> Regular</a></Button>
+          <Button color="green" className="ml-2"><a href="/common/occasionalFWrequest">Occasional</a></Button>
         </CardFooter>
       </Card>
     );
@@ -84,7 +84,7 @@ import {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-        <Button color="yellow" className="text-white">Click here</Button>
+        <Button color="yellow" className="text-white"><a href="/login">Click here</a></Button>
         </CardFooter>
       </Card>
     );

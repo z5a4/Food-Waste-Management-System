@@ -1,6 +1,9 @@
 import React,{useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ScheduleTransporter from '../../Schedule/pages/ScheduleTransporter';
+import ScheduleVolunteer from '../../Schedule/pages/ScheduleVolunteer';
+
 import FRouteForm from '../functions/FRouteForm';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
@@ -8,10 +11,24 @@ const RouteForm = () => {
   const { formData, handleChange } = FRouteForm();
   const navigate = useNavigate();
   const [routeId, setRouteId] = useState('');
+  const [showVolunteer, setShowVolunteer] = useState(false);
+    const [showTransporter, setShowTransporter] = useState(false);
+    
 
   const handleBack = () => {
     navigate('/admin');
   };
+
+  const handleViewVolunteer = () => {
+    setShowVolunteer(true);
+    setShowTransporter(false);
+};
+
+const handleViewTransporter = () => {
+    setShowTransporter(true);
+    setShowVolunteer(false);
+};
+
 
 
   const handleSubmit = async (e) => {
@@ -208,6 +225,19 @@ const RouteForm = () => {
           </tbody>
         </table>
       </form>
+
+
+
+
+      <div className="text-center mt-3">
+                    <button onClick={handleViewVolunteer} className="btn btn-primary me-2">View Volunteer</button>
+                    <button onClick={handleViewTransporter} className="btn btn-primary">View Transporter</button>
+                </div>
+
+                {showVolunteer && <ScheduleVolunteer />}
+                {showTransporter && <ScheduleTransporter />}
+
+
     </div>
   );
 };

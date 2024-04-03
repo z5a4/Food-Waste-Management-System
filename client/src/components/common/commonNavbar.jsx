@@ -72,7 +72,9 @@ export function CommonNavbar() {
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-">
           <Button variant="text" size="sm" className="hidden lg:inline-block">
+            <a href="/login">
             <span>Sign-In</span>
+            </a>
           </Button>
           <Button
             variant="gradient"

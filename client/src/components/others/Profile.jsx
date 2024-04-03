@@ -35,43 +35,23 @@ function Profile()  {
 }, []);
 
 
-const handleLogout = async () => {
-  try {
-    // Disable back navigation
-    window.history.pushState(null, null, window.location.pathname);
-    window.addEventListener('popstate', () => {
-      window.history.pushState(null, null, window.location.pathname);
-    });
-
-    const response = await axios.post('http://localhost:5000/api/logout');
-    if (response.status === 200) {
-      // Redirect to login page after successful logout
-      navigate('/');
-    } else {
-      console.error('Logout failed:', response.data.error);
-    }
-  } catch (error) {
-    console.error('Error during logout:', error);
-  } finally {
-    // Re-enable back navigation
-    window.removeEventListener('popstate', () => {
-      window.history.pushState(null, null, window.location.pathname);
-    });
-  }
-};
 
   return (
     <>
     {userData && (
                 <div>
     
-    <Card className="mx-auto" style={{ maxWidth: '400px' }}>
+    <Card className="mx-auto" style={{ maxWidth: '600px' }}>
       <CardBody className="text-center">
+        <FontAwesomeIcon icon={faUserCircle} className="mr-2"/> 
+        
         <Typography variant="h4" color="blue-gray" className="mb-2">
-        <FontAwesomeIcon icon={faUserCircle} className="mr-2" /> 
         {userData.username}
         </Typography>
         <br></br>
+        <Typography variant="h6" color="green" className="mb-2">Personal Information
+        </Typography>
+        
         <Typography color="blue-gray" className="font-medium" textGradient>
         <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
                 {userData.email}
