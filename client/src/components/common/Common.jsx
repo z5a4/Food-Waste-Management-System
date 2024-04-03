@@ -27,7 +27,7 @@ function Common()  {
       <div className="space"><br></br></div>
       <CommonBlurImg/>
       <div className="space"><br></br></div>
-      <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+      <div className="flex flex-col md:flex-row gap-4 justify-center items-center" id="commonService">
       <CommonService/>
       <CommonService1/>
       <CommonService2/>

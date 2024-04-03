@@ -13,6 +13,8 @@ const FSchedule = () => {
         email: '',
         address: '',
         approxQuantity: '',
+        routeName: '', // Add routeName field
+       
     });
 
 
@@ -70,21 +72,20 @@ const FSchedule = () => {
         }
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
+    const handleSubmit = async (requestToAdd) => {
         try {
-            // Send the form data to the server
-            const response = await axios.post('http://localhost:5000/api/schedule', formData);
+            // Send the requestToAdd object to the server
+            const response = await axios.post('http://localhost:5000/api/currentschedule', requestToAdd);
 
             // Display a success message
             alert(response.data.message);
         } catch (error) {
             console.error('Error submitting form:', error);
             // Display an error message
-            alert('Transporter creation failed. Please try again.');
+            alert('Failed to add request to current schedule. Please try again.');
         }
     };
+
 
     return {
         handleInputChange,
