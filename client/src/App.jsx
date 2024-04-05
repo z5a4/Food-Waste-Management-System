@@ -57,9 +57,13 @@ import AdminDeleteVolunteer from './components/Admin/Volunteer/pages/DeleteVolun
 
 {/*Admin-Occasional FW Request */}
 import AdminViewOccasionlFWRequest from './components/Admin/AdminOccasionalFWRequest/pages/ViewOccasionalFWRequest'
+import AdminUpdateOccasionalFWRequest from './components/Admin/AdminOccasionalFWRequest/pages/UpdateOccasionalFWRequest'
+import AdminDeleteOccasionalFWRequest from './components/Admin/AdminOccasionalFWRequest/pages/DeleteOccasionalFWRequest'
  
 {/*Admin-Regular FW Request */}
 import AdminViewRegularFWRequest from './components/Admin/AdminRegularFWRequest/pages/AdminViewRegularFWRequest';
+import AdminUpdateRegularFWRequest from './components/Admin/AdminRegularFWRequest/pages/AdminUpdateRegularFWRequest';
+import AdminDeleteRegularFWRequest from './components/Admin/AdminRegularFWRequest/pages/AdminDeleteRegularFWRequest';
 
 
 {/*Common.jsx Import*/}
@@ -176,9 +180,13 @@ function App() {
       
       {/*Admin Occasional FW Request */}
       <Route path="/adminviewoccasionalFWrequest" element={<AdminViewOccasionlFWRequest/>}/>
+      <Route path="/update/Occasional/:id" element={<AdminUpdateOccasionalFWRequest/>}/>
+      <Route path="/delete/Occasional/:id" element={<AdminDeleteOccasionalFWRequest/>}/>
       
       {/*Admin View Regular FW Request */}
       <Route path="/adminviewregularFWRequest" element={<AdminViewRegularFWRequest/>}/>
+      <Route path="/update/Regular/:id" element={<AdminUpdateRegularFWRequest/>}/>
+      <Route path="/delete/Regular/:id" element={<AdminDeleteRegularFWRequest/>}/>
 
 
 

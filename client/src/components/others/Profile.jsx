@@ -120,7 +120,6 @@ function Profile()  {
    <div className='space'><br></br></div>
        
 <div className='space'><br></br></div>
-<button type='submit' onClick={handleLogout}>Logout</button>
 
 
      

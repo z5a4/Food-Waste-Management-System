@@ -11,4 +11,7 @@ router.get('/api/Regular/schedule-datewise',RegularFWRequesController.ScheduleRe
 
 router.put('/api/Regular/:id',RegularFWRequesController.updateRegularFWRequest);
 
+router.put('/api/Regular/:id',RegularFWRequesController.deleteRegularFWRequest);
+
+
 module.exports = router;

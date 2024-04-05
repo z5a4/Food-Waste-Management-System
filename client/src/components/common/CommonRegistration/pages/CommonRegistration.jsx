@@ -2,13 +2,15 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FCommonRegistrationForm from '../functions/FCommonRegistration';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Alert} from '@material-tailwind/react'; 
 
 const CommonRegistrationForm = () => {
-  const { formData, handleChange, handleSubmit } = FCommonRegistrationForm();
+  const { formData, handleChange, handleSubmit,errorMessage,showAlert,regid } = FCommonRegistrationForm();
+ 
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/adminviewfarmer');
+    navigate('/');
   };
 
   return (
@@ -35,7 +37,7 @@ const CommonRegistrationForm = () => {
                     </tr>
                     <tr>
                         <td><label htmlFor="regid">Registration ID:</label></td>
-                        <td><input type="text" id="regid" name="regid" value={formData.regid} onChange={handleChange} required /></td>
+                        <td><input type="text" id="regid" name="regid" value={regid} onChange={handleChange} readOnly/></td>
                     </tr>
                     <tr>
                         <td><label htmlFor="name">Name:</label></td>
@@ -84,6 +86,10 @@ const CommonRegistrationForm = () => {
         </table>
         <button type="submit">Submit</button>
       </form>
+      <br></br>
+                    {errorMessage &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">{errorMessage}</Alert>}
+                    <br></br>
+                    {showAlert &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">Please fill in all fields</Alert>} {/* Conditionally render the alert */}
     </div>
   );
 };
