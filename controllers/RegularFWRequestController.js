@@ -42,6 +42,26 @@ exports.updateRegularFWRequest = async (req, res) => {
 };
 
 
+// Delete registration
+exports.deleteRegularFWRequest = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const RegularFWRequest = await RegularFWRequestModel.findByIdAndDelete(id);
+
+    if (!RegularFWRequest) {
+      return res.status(404).json({ message: 'RegularFWRequest not found' });
+    }
+
+    res.status(200).json({ message: 'RegularFWRequest deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting RegularFWRequest:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
+
 //fetch according to yesterday date
 exports.ScheduleRegular = async(req,res)=>{
 

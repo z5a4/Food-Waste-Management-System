@@ -1,17 +1,17 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import FUpdateOccasionalFWRequest from '../functions/FUpdateOccasionalFWRequest';
+import FUpdateRegularFWRequest from '../functions/FAdminUpdateRegularFWRequest';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
-function UpdateOccasionalFWRequest() {
+function UpdateRegularFWRequest() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { OccasionalFWRequest } = location.state;
-  const { formData, handleChange, handleSubmit } = FUpdateOccasionalFWRequest(OccasionalFWRequest, navigate);
+  const { RegularFWRequest } = location.state;
+  const { formData, handleChange, handleSubmit } = FUpdateRegularFWRequest(RegularFWRequest, navigate);
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Edit OccasionalFWRequest</h1>
+      <h1 className="text-center mb-4">Edit RegularFWRequest</h1>
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
           <tbody className='text-center'>
@@ -37,8 +37,8 @@ function UpdateOccasionalFWRequest() {
               <td><input type="text" name="address" value={formData.address} onChange={handleChange} className="form-control" /></td>
             </tr>
             <tr>
-              <th><label className="form-label">description :</label></th>
-              <td><input type="text" name="description" value={formData.description} onChange={handleChange} className="form-control" /></td>
+              <th><label className="form-label">Organisation Name :</label></th>
+              <td><input type="text" name="description" value={formData.organisationName} onChange={handleChange} className="form-control" /></td>
             </tr>
             <tr>
               <th><label className="form-label">Requester_Name:</label></th>
@@ -60,4 +60,4 @@ function UpdateOccasionalFWRequest() {
   );
 }
 
-export default UpdateOccasionalFWRequest;
+export default UpdateRegularFWRequest;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
-import { Input, Button } from '@material-tailwind/react';
+import { Input, Button,Typography} from '@material-tailwind/react';
+import {Alert} from '@material-tailwind/react'
 import loginimg from "../Images/login.png";
 
 const LoginForm = () => {
@@ -12,6 +13,7 @@ const LoginForm = () => {
         category: '',
     });
     const [errorMessage, setErrorMessage] = useState('');
+    const [showAlert, setShowAlert] = useState(false); // State for controlling alert visibility
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,6 +25,11 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // Basic client-side validation
+        if (!formData.username || !formData.password || !formData.category) {
+            setShowAlert(true); // Show the alert
+            return;
+        }
 
         try {
             const response = await axios.post('http://localhost:5000/api/login', formData, { withCredentials: true });
@@ -37,8 +44,8 @@ const LoginForm = () => {
                 setErrorMessage(response.data.message);
             }
         } catch (error) {
-            console.error('Error during login:', error);
-            setErrorMessage('Internal server error');
+           // console.error('Error during login:', error);
+            setErrorMessage('Invalid Credentials. Please try again.');
         }
     };
 
@@ -55,15 +62,15 @@ const LoginForm = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label htmlFor="username" className="block mb-1">Username:</label>
-                            <Input variant='standard' type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
+                            <Input variant='standard' type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
                         </div>
                         <div className="mb-4">
                             <label htmlFor="password" className="block mb-1">Password:</label>
-                            <Input variant='standard' type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                            <Input variant='standard' type="password" id="password" name="password" value={formData.password} onChange={handleChange}  />
                         </div>
                         <div className="mb-4">
                             <label htmlFor="category" className="block mb-1">Category:</label>
-                            <select id="category" name="category" value={formData.category} onChange={handleChange} required className="w-full p-2 border border-gray-300 rounded">
+                            <select id="category" name="category" value={formData.category} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded">
                                 <option value="">Select Category</option>
                                 <option value="Hotel">Hotel</option>
                                 <option value="Hostel">Hostel</option>
@@ -73,7 +80,11 @@ const LoginForm = () => {
                         </div>
                         <Button type="submit" color="blue" size="lg">Login</Button>
                     </form>
-                    {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
+                    <Typography color="blue-gray" className="mt-4">Don't have an account ? <a href='/commonregistration' className="font-medium text-gray-600">Sign-Up</a></Typography>
+                    <br></br>
+                    {errorMessage &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">{errorMessage}</Alert>}
+                    <br></br>
+                    {showAlert &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">Please fill in all fields</Alert>} {/* Conditionally render the alert */}
                 </div>
             </div>
         </div>
