@@ -2,12 +2,11 @@ import  { useState } from 'react';
 import Axios from 'axios';
 
 const FRegularFWRequest = () => {
+  const [requestId, setrequestId] = useState('');
   const [formData, setFormData] = useState({
-    requestId: '',
     description: '',
     requesterName:'',
     address: '',
-   
     email: '',
     mobileNo: '',
     date: '', // New field for Date of Birth
@@ -31,13 +30,13 @@ const FRegularFWRequest = () => {
         try {
         const response = await Axios.post('http://localhost:5000/api/Occasional-fw', formData);
         alert(response.data.message);
+        setrequestId(response.data.requestId);
+            
 
         setFormData({
-          requestId: '',
           description:'',
           requesterName: '',
           address: '',
-          
           mobileNo: '',
           email:'',
           date: '',
@@ -48,13 +47,13 @@ const FRegularFWRequest = () => {
 
 
       } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('Registration failed. Please try again.');
+        console.error('Error submitting Occasional Request:', error);
+        alert('Request Failed. Please try again.');
       }
     }
 
 
-  return { formData, handleInputChange, handleSubmit };
+  return { formData, handleInputChange, handleSubmit,requestId};
 };
 
 export default FRegularFWRequest;

@@ -6,39 +6,11 @@ function Skeleton() {
       <Typography
         as="div"
         variant="paragraph"
-        className="mb-2 h-2 lg:w-100 rounded-full bg-gray-300"
+        className="mb-2 h-20 lg:w-100 rounded-full bg-gray-300"
       >
         &nbsp;
       </Typography>
       
-      <Typography
-        as="div"
-        variant="paragraph"
-        className="mb-2 h-2 lg:w-100 rounded-full bg-gray-300"
-      >
-        &nbsp;
-      </Typography>
-      <Typography
-        as="div"
-        variant="paragraph"
-        className="mb-2 h-2 lg:w-100 rounded-full bg-gray-300"
-      >
-        &nbsp;
-      </Typography>
-      <Typography
-        as="div"
-        variant="paragraph"
-        className="mb-2 h-2 lg:w-100 rounded-full bg-gray-300"
-      >
-        &nbsp;
-      </Typography>
-      <Typography
-        as="div"
-        variant="paragraph"
-        className="mb-2 h-2 lg:w-100 rounded-full bg-gray-300"
-      >
-        &nbsp;
-      </Typography>
       
       <div className="flex justify-center items-center mt-5">
         <div className="grid h-64 lg:h-96 w-100 lg:w-100 place-items-center rounded-lg bg-gray-300">
