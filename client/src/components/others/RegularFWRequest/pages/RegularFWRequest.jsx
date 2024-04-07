@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Input, Button } from "@material-tailwind/react";
 import FRegularFWRequest from '../functions/FRegularFWRequest';
@@ -6,7 +7,7 @@ import AdminNavbar from '../../../Admin/AdminNavbar';
 import Footer from '../../../Footer/Footer';
 
 const RegularFWRequest = () => {
-  const { formData, requestId, handleInputChange, handleSubmit } = FRegularFWRequest();
+  const { formData, requestId, handleInputChange } = FRegularFWRequest();
   const navigate = useNavigate();
 
   const getCurrentDate = () => {
@@ -19,14 +20,32 @@ const RegularFWRequest = () => {
     return `${year}-${month}-${day}`;
   };
 
-  const handleBack = () => {
-    navigate('/');
-  };
-
   useEffect(() => {
     const currentDate = getCurrentDate();
     handleInputChange({ target: { name: 'date', value: currentDate } });
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/slurryRequest', formData);
+      console.log("Response:", response.data); 
+      
+      if (response.data.message) {
+        console.log(response.data.message); // Navigate to the home page after successful submission
+      } else {
+        throw new Error('Request submission failed.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred. Please try again.');
+    }
+  };
+
+  const handleBack = () => {
+    navigate('/');
+  };
 
   return (
     <div>

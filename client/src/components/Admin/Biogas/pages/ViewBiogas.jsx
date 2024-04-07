@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FViewBiogas from '../functions/FViewBiogas';
+<<<<<<< Updated upstream
 import { Button, Typography } from '@material-tailwind/react';
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 
+=======
+import { Button } from '@material-tailwind/react'; // Import Material Tailwind Button
+>>>>>>> Stashed changes
 
 
 const ViewBiogas = () => {
@@ -42,7 +46,7 @@ const ViewBiogas = () => {
         </Link>
       </div>
       {error && <p className="text-red-500">{error}</p>}
-      <table className="table-auto w-full border rounded">
+      <table className="table-auto w-full border border-collapse rounded">
         <thead className="bg-gray-800 text-white">
           <tr>
             <th className="px-4 py-2">ID</th>
@@ -66,6 +70,10 @@ const ViewBiogas = () => {
               <td className="border px-4 py-2">
                 <div className="flex justify-center">
                   <Button
+<<<<<<< Updated upstream
+=======
+                    className='mr-2'
+>>>>>>> Stashed changes
                     color="green"
                     size="sm"
                     onClick={() => handleUpdate(biogas)}
