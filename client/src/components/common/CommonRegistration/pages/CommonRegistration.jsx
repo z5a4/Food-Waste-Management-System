@@ -15,6 +15,9 @@ const CommonRegistrationForm = () => {
 
   return (
     <div className="container mt-5">
+        {errorMessage &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">{errorMessage}</Alert>}
+                    <br></br>
+        {showAlert &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">Please fill in all fields</Alert>} {/* Conditionally render the alert */}
       <h1 className="text-center mb-4">Register..</h1>
       <form onSubmit={handleSubmit} className="container mt-4">
         <table className="table border-only-outside rounded">
@@ -87,9 +90,7 @@ const CommonRegistrationForm = () => {
         <button type="submit">Submit</button>
       </form>
       <br></br>
-                    {errorMessage &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">{errorMessage}</Alert>}
-                    <br></br>
-                    {showAlert &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">Please fill in all fields</Alert>} {/* Conditionally render the alert */}
+                  
     </div>
   );
 };

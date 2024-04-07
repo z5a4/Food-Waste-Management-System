@@ -4,7 +4,7 @@ import FOccasionalFWFWRequest from '../functions/FOccasionalFWRequest';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const OccasionalFWRequest = () => {
-  const { formData, handleInputChange, handleSubmit } = FOccasionalFWFWRequest();
+  const { formData, handleInputChange, handleSubmit,requestId } = FOccasionalFWFWRequest();
   const navigate = useNavigate();
 
 
@@ -43,7 +43,7 @@ const OccasionalFWRequest = () => {
             <tr>
             <th>
                 <label htmlFor="reqID" className="form-label">Request ID:</label>
-                <input type="text" name="requestId" value={formData.requestId} onChange={handleInputChange} className="form-control" />
+                <input type="text" name="requestId" value={requestId} readOnly onChange={handleInputChange} className="form-control" />
                 
               </th>
              </tr>

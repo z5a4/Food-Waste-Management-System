@@ -76,6 +76,21 @@ const FCommonRegistrationForm = () => {
             // Display a success message
             alert(response.data.message);
             setregid(response.data.regid);
+            
+            setFormData({
+            category: '',
+            organisationName: '',
+            name: '',
+            address: '',
+            dateOfBirth: '',
+            email: '',
+            mobileNo: '',
+            username: '',
+            password: '',
+            securityQuestion: '',
+            answer: '',
+                });
+        
           } catch (error) {
             console.error('Error submitting form:', error);
             // Display an error message
