@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button,Typography } from '@material-tailwind/react';
 import FViewRegistrations from '../functions/FViewRegistration';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+
 
 function ViewRegistrations() {
   const { registrations, error } = FViewRegistrations();
@@ -15,56 +17,68 @@ function ViewRegistrations() {
   const handleDelete = (registration) => {
     navigate(`/delete/${registration._id}`, { state: { registration } });
   };
-  
+
   return (
     <>
-    <div className="container mt-5 pt-5">
-      
-      <h1 className="text-center">Registrations</h1>
-      <div className="d-flex justify-content-center mb-3">
-  <Link to="/register" className="btn btn-danger btn-lg me-2">Add New</Link>
-  <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
-</div>
-      {error && <p className="text-danger">{error}</p>}
-      <table className="table table-striped border rounded">
-        <thead className="table-dark text-center">
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile No</th>
-            <th>Address</th>
-            <th>Date of Birth</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Security Question</th>
-            <th>Answer</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {registrations.map(registration => (
-            <tr key={registration._id}>
-              <td>{registration.name}</td>
-              <td>{registration.email}</td>
-              <td>{registration.mobileNo}</td>
-              <td>{registration.address}</td>
-              <td>{registration.dateOfBirth}</td>
-              <td>{registration.username}</td>
-              <td>{registration.password}</td>
-              <td>{registration.securityQuestion}</td>
-              <td>{registration.answer}</td>
-              <td>
-              <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" onClick={() => handleUpdate(registration)}> Edit</button>
-                  <button type="button" className="btn btn-secondary" onClick={() => handleDelete(registration)}> Delete</button>
-                </div>
-              </td>
+    <AdminNavbar/>
+      <div className="container mt-4 pt-4">
+        <Typography variant='h3' className="text-center mb-3">Registrations</Typography>
+        <div className="flex justify-center mb-3">
+          <Link to="/commonregistration">
+            <Button className='mr-2' color="green" >
+              Add New
+            </Button>
+          </Link>
+          <Link to="/admin">
+            <Button color="light-blue" >
+              Back
+            </Button>
+          </Link>
+        </div>
+        {error && <p className="text-red-500">{error}</p>}
+        <table className="table-auto w-full text-center">
+          <thead className="bg-gray-800 text-white">
+            <tr>
+              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2">Email</th>
+              <th className="px-4 py-2">Mobile No</th>
+              <th className="px-4 py-2">Address</th>
+              <th className="px-4 py-2">Date of Birth</th>
+              <th className="px-4 py-2">Username</th>
+              <th className="px-4 py-2">Password</th>
+              <th className="px-4 py-2">Security Question</th>
+              <th className="px-4 py-2">Answer</th>
+              <th className="px-4 py-2">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    
+          </thead>
+          <tbody>
+            {registrations.map(registration => (
+              <tr key={registration._id} className="text-center">
+                <td className="px-4 py-2">{registration.name}</td>
+                <td className="px-4 py-2">{registration.email}</td>
+                <td className="px-4 py-2">{registration.mobileNo}</td>
+                <td className="px-4 py-2">{registration.address}</td>
+                <td className="px-4 py-2">{registration.dateOfBirth}</td>
+                <td className="px-4 py-2">{registration.username}</td>
+                <td className="px-4 py-2">{registration.password}</td>
+                <td className="px-4 py-2">{registration.securityQuestion}</td>
+                <td className="px-4 py-2">{registration.answer}</td>
+                <td className="px-4 py-2">
+                  <div className="flex justify-center">
+                    <Button color="green" size="sm" className="me-2" onClick={() => handleUpdate(registration)}>
+                      Edit
+                    </Button>
+                    <Button color="light-blue" size="sm" onClick={() => handleDelete(registration)}>
+                      Delete
+                    </Button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <Footer/>
     </>
   );
 }

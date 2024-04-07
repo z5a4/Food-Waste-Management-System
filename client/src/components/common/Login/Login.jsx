@@ -78,7 +78,8 @@ const LoginForm = () => {
                                 <option value="Others">Others</option>
                             </select>
                         </div>
-                        <Button type="submit" color="blue" size="lg">Login</Button>
+                        <Button className='mr-2' type="submit" color="blue" size="lg">Login</Button>
+                        <Button type="button" color="blue" size="lg">Forgot Password</Button>
                     </form>
                     <Typography color="blue-gray" className="mt-4">Don't have an account ? <a href='/commonregistration' className="font-medium text-gray-600">Sign-Up</a></Typography>
                     <br></br>

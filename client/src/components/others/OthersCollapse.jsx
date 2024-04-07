@@ -3,7 +3,6 @@ import {
   Collapse,
   Button,
   Card,
-  Typography,
   CardBody,
 } from "@material-tailwind/react";
 import RegularFWRequest from "./RegularFWRequest/pages/RegularFWRequest";
@@ -20,6 +19,10 @@ export function OthersCollapse() {
     e.preventDefault();
     e.target.focus({ preventScroll: true });
   };
+  const handleSubmit = async (formData) => {
+    // Handle form submission here, e.g., make API call
+    console.log(formData);
+  };
 
   return (
     <>
@@ -28,9 +31,7 @@ export function OthersCollapse() {
         <div>
           <Card className="my-4 mx-auto w-auto">
             <CardBody onClick={handleClickInside}>
-              <Typography>
-                <RegularFWRequest />
-              </Typography>
+                <RegularFWRequest onSubmit={handleSubmit} />
             </CardBody>
           </Card>
         </div>
@@ -49,6 +50,10 @@ export function OthersCollapse1() {
       e.preventDefault();
       e.target.focus({ preventScroll: true });
     };
+
+   
+
+
     return (
       <>
         <Button color="green" onClick={toggleOpen}>Slurry Request</Button>
@@ -56,9 +61,7 @@ export function OthersCollapse1() {
           <div style={{ overflow: 'hidden' }}>
             <Card className="my-4 mx-auto w-auto">
               <CardBody onClick={handleClickInside}>
-                <Typography>
                   <FarmerRequest />
-                </Typography>
               </CardBody>
             </Card>
           </div>
@@ -85,9 +88,7 @@ export function OthersCollapse1() {
           <div>
             <Card className="my-4 mx-auto w-auto">
               <CardBody onClick={handleClickInside}>
-                <Typography>
                   <OMember />
-                </Typography>
               </CardBody>
             </Card>
           </div>

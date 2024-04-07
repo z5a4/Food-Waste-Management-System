@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useNavigate } from 'react-router-dom';
 import FViewMember from '../functions/FViewMember';
+import { Button, Typography } from '@material-tailwind/react'; // Import Material Tailwind components
+import AdminNavbar from '../../AdminNavbar'; // Assuming you have an AdminNavbar component
+import Footer from '../../../Footer/Footer'; // Assuming you have a Footer component
 
 function ViewMember() {
   const { members, error } = FViewMember();
@@ -18,47 +19,51 @@ function ViewMember() {
   
   return (
     <>
+    <AdminNavbar />
     <div className="container mt-5 pt-5">
-      
-      <h1 className="text-center">Members</h1>
-      <div className="d-flex justify-content-center mb-3">
-  <Link to="/adminmemberform" className="btn btn-danger btn-lg me-2">Add New</Link>
-  <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
-</div>
-      {error && <p className="text-danger">{error}</p>}
-      <table className="table table-striped border rounded">
-        <thead className="table-dark text-center">
+      <Typography variant="h3" className="text-center mb-3">Members</Typography>
+      <div className="flex justify-center mb-3">
+        <Link to="/adminmemberform">
+          <Button color="green" size="lg" className="me-2">Add New</Button>
+        </Link>
+        <Link to="/admin">
+          <Button color="light-blue" size="lg">Back</Button>
+        </Link>
+      </div>
+      {error && <p className="text-red-500">{error}</p>}
+      <table className="table-auto w-full border rounded">
+        <thead className="bg-gray-800 text-white text-center">
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile No</th>
-            <th>Address</th>
-            <th>Date of Birth</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Security Question</th>
-            <th>Answer</th>
-            <th>Actions</th>
+            <th className="px-4 py-2">ID</th>
+            <th className="px-4 py-2">Name</th>
+            <th className="px-4 py-2">Email</th>
+            <th className="px-4 py-2">Mobile No</th>
+            <th className="px-4 py-2">Address</th>
+            <th className="px-4 py-2">Date of Birth</th>
+            <th className="px-4 py-2">Username</th>
+            <th className="px-4 py-2">Password</th>
+            <th className="px-4 py-2">Security Question</th>
+            <th className="px-4 py-2">Answer</th>
+            <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-center">
           {members.map(member => (
             <tr key={member._id}>
-              <td>{member.id}</td>
-              <td>{member.name}</td>
-              <td>{member.email}</td>
-              <td>{member.mobileNo}</td>
-              <td>{member.address}</td>
-              <td>{member.dateOfBirth}</td>
-              <td>{member.username}</td>
-              <td>{member.password}</td>
-              <td>{member.securityQuestion}</td>
-              <td>{member.answer}</td>
-              <td>
-                <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" onClick={() => handleUpdate(member)}> Edit</button>
-                  <button type="button" className="btn btn-secondary" onClick={() => handleDelete(member)}> Delete</button>
+              <td className="border px-4 py-2">{member.id}</td>
+              <td className="border px-4 py-2">{member.name}</td>
+              <td className="border px-4 py-2">{member.email}</td>
+              <td className="border px-4 py-2">{member.mobileNo}</td>
+              <td className="border px-4 py-2">{member.address}</td>
+              <td className="border px-4 py-2">{member.dateOfBirth}</td>
+              <td className="border px-4 py-2">{member.username}</td>
+              <td className="border px-4 py-2">{member.password}</td>
+              <td className="border px-4 py-2">{member.securityQuestion}</td>
+              <td className="border px-4 py-2">{member.answer}</td>
+              <td className="border px-4 py-2">
+                <div className="flex justify-center">
+                  <Button color="green" size="sm" className="me-2" onClick={() => handleUpdate(member)}>Edit</Button>
+                  <Button color="light-blue" size="sm" onClick={() => handleDelete(member)}>Delete</Button>
                 </div>
               </td>
             </tr>
@@ -66,7 +71,7 @@ function ViewMember() {
         </tbody>
       </table>
     </div>
-    
+    <Footer />
     </>
   );
 }

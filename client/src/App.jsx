@@ -102,6 +102,8 @@ import RouteForm from './components/Admin/Route/pages/RouteForm';
 import AdminViewRoute from './components/Admin/Route/pages/ViewRoute';
 import RouteSelect from './components/Admin/Schedule/pages/RouteSelect';
 
+import FarmerRequest from './components/others/FarmerRequest';
+
 
 function App() {
   
@@ -217,6 +219,8 @@ function App() {
       <Route path="/others/oviewmembers" element={<OViewMember/>}/>
       <Route path="/others/oupdatememebers" element={<OUpdateMember/>}/>
       <Route path="/others/odeletemembers" element={<ODeleteMember/>}/>
+
+      <Route path='/request' element={<FarmerRequest/>}/>
 
 
 

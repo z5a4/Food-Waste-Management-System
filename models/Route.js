@@ -2,27 +2,28 @@ const mongoose = require('mongoose');
 const LastRequestId = require('./LastRequestId'); 
 const routeSchema = new mongoose.Schema({
   routeId:
-   {
+  {
     type: String,
     unique: true,
   },
   routeName:
-   {
+  {
     type: String,
     required: true,
   },
   routeLandmark:
-   {
+  {
     type: String,
     required: true,
   },
   transporterId:
-   {
+  {
     type: String,
     required:true, // Change to String type
    
   },
-  date:{
+  date:
+  {
     type: Date,
     default: Date.now,
     
@@ -36,7 +37,7 @@ const routeSchema = new mongoose.Schema({
     type: String, // Change to String type
   },
   transportervehicleNo:
-   {
+  {
     type: String, // Change to String type
   },
   transporterlicenseNo: 
@@ -44,11 +45,11 @@ const routeSchema = new mongoose.Schema({
     type: String, // Change to String type
   },
   transporteraddress:
-   {
+  {
     type: String, // Change to String type
   },
   transporterrentRate:
-   {
+  {
     type: String, // Change to String type
   },
   volunteerId: 

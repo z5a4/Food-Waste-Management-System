@@ -1,6 +1,10 @@
 import React from 'react';
 import FDeleteMember from '../functions/FDeleteMember';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import { Link } from 'react-router-dom';
+import { Typography, Button, Input } from '@material-tailwind/react'; // Import Material Tailwind components
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+
 
 function DeleteMember() {
   const { member, handleDelete } = FDeleteMember();
@@ -10,36 +14,45 @@ function DeleteMember() {
   }
 
   return (
+    <>
+    <AdminNavbar/>
     <div className="container mt-5">
-      <h1 className="text-center">Delete Member</h1>
+      <Typography variant="h3" className="text-center">Delete Member</Typography>
       <form onSubmit={handleDelete} className="mt-4">
-        <table className="table table-bordered">
+        <table className="table-auto w-full border rounded">
           <tbody className='text-center'>
             <tr>
               <th>Name:</th>
-              <td><input type="text" value={member.name} disabled className="form-control" /></td>
+              <td><Input type="text" value={member.name} disabled className="form-control" /></td>
             </tr>
             <tr>
               <th>Email:</th>
-              <td><input type="email" value={member.email} disabled className="form-control" /></td>
+              <td><Input type="email" value={member.email} disabled className="form-control" /></td>
             </tr>
             <tr>
               <th>Mobile No:</th>
-              <td><input type="text" value={member.mobileNo} disabled className="form-control" /></td>
+              <td><Input type="text" value={member.mobileNo} disabled className="form-control" /></td>
             </tr>
             <tr>
               <th>Address:</th>
-              <td><input type="text" value={member.address} disabled className="form-control" /></td>
+              <td><Input type="text" value={member.address} disabled className="form-control" /></td>
             </tr>
             <tr>
               <td colSpan="2" className="text-center">
-                <button type="submit" className="btn btn-danger btn-lg">Delete</button>
+                <Button type="submit" color="green" size="lg">Delete</Button>
+                <Link to="/adminviewmember">
+                <Button className='ml-2' color="light-blue">
+                  Back
+                </Button>
+                </Link>
               </td>
             </tr>
           </tbody>
         </table>
       </form>
     </div>
+    <Footer/>
+    </>
   );
 }
 
