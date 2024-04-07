@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FAdminViewRegularFWRequest from '../functions/FAdminViewRegularFWRequest';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+import { Typography, Button } from '@material-tailwind/react';
 
 const AdminViewRegularFWRequest = () => {
-  const [RegularFWRequestS, setRegularFWRequest] = useState([]);
+  const [regularFWRequests, setRegularFWRequests] = useState([]);
   const [error, setError] = useState(null);
   const { fetchRegularRequest, handleUpdate, handleDelete } = FAdminViewRegularFWRequest();
   
@@ -12,7 +14,7 @@ const AdminViewRegularFWRequest = () => {
     async function fetchData() {
       try {
         const data = await fetchRegularRequest();
-        setRegularFWRequest(data);
+        setRegularFWRequests(data);
       } catch (error) {
         setError(error.message);
       }
@@ -22,51 +24,59 @@ const AdminViewRegularFWRequest = () => {
 
   return (
     <>
-    <div className="container mt-5 pt-5">
-      
-      <h1 className="text-center">Regular FW Request Table</h1>
-      <div className="d-flex justify-content-center mb-3">
-  <Link to="/adminRegularFWRequestform" className="btn btn-danger btn-lg me-2">Add New</Link>
-  <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
-</div>
-      {error && <p className="text-danger">{error}</p>}
-      <table className="table table-striped border rounded">
-        <thead className="table-dark text-center">
-          <tr>
-            <th>Request ID</th>
-            <th>Organisation Name</th>
-            <th>Requester Name</th>
-            <th>Date</th>
-            <th>Address</th>
-            <th>Mobile No</th>
-            <th>Email</th>
-            <th>approxQuantity</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {RegularFWRequestS.map(RegularFWRequest => (
-            <tr key={RegularFWRequest._id}>
-              <td>{RegularFWRequest.requestId}</td>
-              <td>{RegularFWRequest.organisationName}</td>
-              <td>{RegularFWRequest.requesterName}</td>
-              <td>{RegularFWRequest.date}</td>
-              <td>{RegularFWRequest.address}</td>
-              <td>{RegularFWRequest.mobileNo}</td>
-              <td>{RegularFWRequest.email}</td>
-              <td>{RegularFWRequest.approxQuantity}</td>
-              <td>
-                <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" onClick={() => handleUpdate(RegularFWRequest)}> Edit</button>
-                  <button type="button" className="btn btn-secondary" onClick={() => handleDelete(RegularFWRequest)}> Delete</button>
-                </div>
-              </td>
+      <AdminNavbar />
+      <div className="container mt-4 pt-4">
+        <Typography variant='h3' className="text-center mb-4">Regular FW Request Table</Typography>
+        <div className="flex justify-center mb-3">
+        <Link to="/others/regularfwrequest">
+          <Button color="green" className="mr-2">
+            Add New
+          </Button>
+        </Link>
+        <Link to="/admin">
+          <Button color="light-blue">
+            Back
+          </Button>
+        </Link>
+        </div>
+        {error && <p className="text-danger">{error}</p>}
+        <table className="table table-striped border rounded">
+          <thead className="table-dark text-center">
+            <tr>
+              <th>Request ID</th>
+              <th>Organisation Name</th>
+              <th>Requester Name</th>
+              <th>Date</th>
+              <th>Address</th>
+              <th>Mobile No</th>
+              <th>Email</th>
+              <th>approxQuantity</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    
+          </thead>
+          <tbody>
+            {regularFWRequests.map(regularFWRequest => (
+              <tr key={regularFWRequest._id}>
+                <td>{regularFWRequest.requestId}</td>
+                <td>{regularFWRequest.organisationName}</td>
+                <td>{regularFWRequest.requesterName}</td>
+                <td>{regularFWRequest.date}</td>
+                <td>{regularFWRequest.address}</td>
+                <td>{regularFWRequest.mobileNo}</td>
+                <td>{regularFWRequest.email}</td>
+                <td>{regularFWRequest.approxQuantity}</td>
+                <td>
+                  <div className="d-flex">
+                    <Button color='green' size='sm' className=" me-2" onClick={() => handleUpdate(regularFWRequest)}>Edit</Button>
+                    <Button color='light-blue' size='sm'  onClick={() => handleDelete(regularFWRequest)}>Delete</Button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <Footer />
     </>
   );
 };

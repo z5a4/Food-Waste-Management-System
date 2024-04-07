@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FViewBiogas from '../functions/FViewBiogas';
-import { Button } from '@material-tailwind/react'; // Import Material Tailwind Button
-import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
+import { Button, Typography } from '@material-tailwind/react';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+
+
 
 const ViewBiogas = () => {
   const [biogases, setBiogas] = useState([]);
@@ -22,16 +25,18 @@ const ViewBiogas = () => {
   }, [fetchBiogas]);
 
   return (
-    <div className="container mt-5 pt-5">
-      <h1 className="text-center text-3xl font-bold mb-3">Bio-Gas Plant</h1>
+    <>
+    <AdminNavbar/>
+    <div className="container mt-4 pt-4">
+    <Typography variant='h3' className="text-center mb-4">Bio-Gas Plant</Typography>
       <div className="flex justify-center mb-3">
         <Link to="/adminbiogasform">
-          <Button color="green" size="lg" className="me-2">
+          <Button color="green" className="mr-2">
             Add New
           </Button>
         </Link>
         <Link to="/admin">
-          <Button color="blue" size="lg">
+          <Button color="light-blue">
             Back
           </Button>
         </Link>
@@ -60,22 +65,21 @@ const ViewBiogas = () => {
               <td className="border px-4 py-2">{biogas.biogasSlurryLimit}</td>
               <td className="border px-4 py-2">
                 <div className="flex justify-center">
-                  <button
-                    type="button"
-                    className="btn me-2"
-                    color='green'
+                  <Button
+                    color="green"
+                    size="sm"
                     onClick={() => handleUpdate(biogas)}
+                    className="mr-2"
                   >
                     Edit
-                  </button>
-                  <button
-                    type="button"
-                    className="btn"
-                    color='blue'
+                  </Button>
+                  <Button
+                    color="blue"
+                    size="sm"
                     onClick={() => handleDelete(biogas)}
                   >
                     Delete
-                  </button>
+                  </Button>
                 </div>
               </td>
             </tr>
@@ -83,6 +87,8 @@ const ViewBiogas = () => {
         </tbody>
       </table>
     </div>
+    <Footer/>
+    </>
   );
 };
 

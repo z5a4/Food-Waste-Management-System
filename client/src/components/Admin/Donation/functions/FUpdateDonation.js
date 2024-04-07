@@ -8,13 +8,9 @@ const FUpdateDonation = (donation, navigate) => {
         description: donation.description || '',
         donationDate: donation.donationDate || '',
         donorName: donation.donorName || '',
-        donorGender: donation.donorGender || '',
-        donorNationality: donation.donorNationality || '',
         donorAddress: donation.donorAddress || '',
         donorMobileNo: donation.donorMobileNo || '',
         donorEmail: donation.donorEmail || '',
-        donorPANNo: donation.donorPANNo || '',
-        donorAadharNo: donation.donorAadharNo || '',
         donationPaymentMode: donation.donationPaymentMode || '',
         donationAmount: donation.donationAmount || '',
       });
