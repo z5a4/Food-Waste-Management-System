@@ -6,18 +6,24 @@ import { Button, Typography, Input } from '@material-tailwind/react';
 import 'tailwindcss/tailwind.css'; 
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
+import {Alert} from '@material-tailwind/react';
+
 
 
 function UpdateBiogas() {
   const location = useLocation();
   const navigate = useNavigate();
   const { biogas } = location.state;
-  const { formData, handleChange, handleSubmit } = FUpdateBiogas(biogas, navigate);
+  const { formData, handleChange, handleSubmit,errorMessage,showAlert } = FUpdateBiogas(biogas, navigate);
 
   return (
     <>
     <AdminNavbar/>
     <div className="container mt-5"> 
+         {errorMessage && <Alert color="red">{errorMessage}</Alert>}
+        <br />
+        {showAlert && <Alert color="red">Please fill in all fields</Alert>}
+     
       <Typography variant='h3' className="text-center mb-4">Update Biogas</Typography>
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
