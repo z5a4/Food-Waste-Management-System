@@ -4,10 +4,12 @@ import { Input, Button, Typography } from '@material-tailwind/react';
 import FBioGasForm from '../functions/FBioGasForm';
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
+import {Alert} from '@material-tailwind/react';
 
 const BioGasForm = () => {
-  const { formData, errors, handleInputChange, handleSubmit } = FBioGasForm();
+  const { formData,  handleInputChange, handleSubmit,errorMessage } = FBioGasForm();
   const navigate = useNavigate();
+  const [open, setOpen] = React.useState(true);
 
   const handleBack = () => {
     navigate('/adminviewbiogas');
@@ -16,6 +18,15 @@ const BioGasForm = () => {
   return (
     <>
       <AdminNavbar />
+      <div className='pt-3 content-center pr-32 pl-32'>
+         {errorMessage && <Alert  open={open}
+        onClose={() => setOpen(false)}
+        animate={{
+          mount: { y: 0 },
+          unmount: { y: 100 },
+        }} className="rounded-none border-l-4 border-[#c92e2e] bg-[#dcc0c1] font-medium text-[#c92e2e]">{errorMessage}.Please fill in all fields</Alert>}
+       
+     </div>
       <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
         <Typography variant='h3' className="text-center mb-4">Add Biogas Plant</Typography>
         <form onSubmit={handleSubmit}>
@@ -31,7 +42,7 @@ const BioGasForm = () => {
                     onChange={handleInputChange}
                     size="md"
                     placeholder="Biogas ID"
-                    error={errors.biogasId}
+                   
                     variant="standard"
                   />
                 </td>
@@ -46,7 +57,6 @@ const BioGasForm = () => {
                     onChange={handleInputChange}
                     size="md"
                     placeholder="Biogas Name"
-                    error={errors.biogasName}
                     variant="standard"
                   />
                 </td>
@@ -61,7 +71,6 @@ const BioGasForm = () => {
                     onChange={handleInputChange}
                     size="md"
                     placeholder="Biogas Address"
-                    error={errors.biogasAddress}
                     variant="standard"
                   />
                 </td>
@@ -76,7 +85,6 @@ const BioGasForm = () => {
                     onChange={handleInputChange}
                     size="md"
                     placeholder="Biogas Mobile No"
-                    error={errors.biogasMobileNo}
                     variant="standard"
                   />
                 </td>
@@ -91,7 +99,6 @@ const BioGasForm = () => {
                     onChange={handleInputChange}
                     size="md"
                     placeholder="Biogas Email"
-                    error={errors.biogasEmail}
                     variant="standard"
                   />
                 </td>
@@ -106,7 +113,6 @@ const BioGasForm = () => {
                     onChange={handleInputChange}
                     size="md"
                     placeholder="Biogas Slurry Limit"
-                    error={errors.biogasSlurryLimit}
                     variant="standard"
                   />
                 </td>
@@ -114,15 +120,16 @@ const BioGasForm = () => {
             </tbody>
           </table>
           <div className="text-center mt-4">
-            <Button type="submit" color="green" size="md" className="me-2">
+            <Button type="submit" color="green" size="md" className="me-2" onClick={() => setOpen(true)}>
               Create Biogas
             </Button>
-            <Button type="button" color="light-blue" size="md" onClick={handleBack}>
+           <Button type="button" color="light-blue" size="md" onClick={handleBack}>
               Back
             </Button>
           </div>
         </form>
       </div>
+    
       <Footer />
     </>
   );

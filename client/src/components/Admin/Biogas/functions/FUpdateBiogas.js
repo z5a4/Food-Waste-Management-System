@@ -12,8 +12,7 @@ const FUpdateBiogas = (biogas, navigate) => {
    
   });
 
-  const [errors, setErrors] = useState({});
-
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,67 +20,64 @@ const FUpdateBiogas = (biogas, navigate) => {
       ...prevState,
       [name]: value
     }));
-    setErrors({
-      ...errors,
-      [name]: '',
-    });
-  };
-
+  } 
       
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false); // State for controlling alert visibility
+
 
   
 
-  const validateForm = () => {
-    let isValid = true;
-    const newErrors = {};
+  const { biogasEmail, biogasMobileNo,biogasAddress,biogasName } = formData;
+  const mobileNoRegex = /^[6-9]\d{9}$/;
+ 
+  
+  if (!biogasEmail.includes('@')) {
+      setShowAlert(true);
+      setErrorMessage('Invalid Email format.');
+      return;
+  }
 
-    // Example validation rules, adjust as needed
-    if (!formData.biogasId) {
-      newErrors.biogasId = 'Biogas ID is required';
-      isValid = false;
-    }
+  if (!biogasMobileNo.match(mobileNoRegex)) {
+      setShowAlert(true);
+      setErrorMessage('Invalid mobile number format.');
+      return;
+  }
 
-    if (!formData.biogasName) {
-      newErrors.biogasName = 'Biogas Name is required';
-      isValid = false;
-    }
+  if (biogasAddress== '') {
+      setShowAlert(true);
+      setErrorMessage('Provide Address Properly !.');
+      return;
+  }
 
-    if (!formData.biogasAddress) {
-      newErrors.biogasAddress = 'Biogas Address is required';
-      isValid = false;
-    }
+  if (biogasName.match(/[0-9!@#$%^&*]/)) {
+    setShowAlert(true);
+    setErrorMessage('Biogas Plant Name should not contain any digits or special characters.');
+    return;
+}
 
-    if (!formData.biogasMobileNo || !/^\d{10}$/.test(formData.biogasMobileNo)) {
-      newErrors.biogasMobileNo = 'Valid 10-digit Biogas Mobile No is required';
-      isValid = false;
-    }
-
-    if (!formData.biogasEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.biogasEmail)) {
-      newErrors.biogasEmail = 'Valid email is required';
-      isValid = false;
-    }
-
-    if (!formData.biogasSlurryLimit || isNaN(formData.biogasSlurryLimit) || formData.biogasSlurryLimit <= 0) {
-      newErrors.biogasSlurryLimit = 'Valid Biogas Slurry Limit is required';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.put(`http://localhost:5000/api/biogas/${biogas._id}`, formData);
       // Redirect to the biogass list after successful update
+      setFormData({
+        biogasId: '',
+  biogasName: '',
+  biogasAddress: '',
+  biogasMobileNo: '',
+  biogasEmail: '',
+  biogasSlurryLimit: '',
+      });
+
       navigate('/adminviewbiogas');
     } catch (error) {
       console.error('Error updating biogas:', error);
     }
   };
 
-  return { formData, handleChange, handleSubmit };
+  return { formData, handleChange, handleSubmit,errorMessage,showAlert };
 };
 
 export default FUpdateBiogas;

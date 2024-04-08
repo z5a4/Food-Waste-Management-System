@@ -13,6 +13,9 @@ const FRegularFWRequest = () => {
     approxQuantity: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false); // State for controlling alert visibility
+
  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -54,7 +57,7 @@ const FRegularFWRequest = () => {
     }
 
 
-  return { formData, handleInputChange, handleSubmit,requestId};
+  return { formData, handleInputChange, handleSubmit,requestId,errorMessage,showAlert};
 };
 
 export default FRegularFWRequest;

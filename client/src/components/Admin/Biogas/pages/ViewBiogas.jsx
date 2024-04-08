@@ -5,6 +5,10 @@ import { Button, Typography } from '@material-tailwind/react';
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46c89b4bbb8ecfd41c008ed3f8bfab1543379f2b
 
 const ViewBiogas = () => {
   const [biogases, setBiogas] = useState([]);
@@ -65,7 +69,10 @@ const ViewBiogas = () => {
               <td className="border px-4 py-2">
                 <div className="flex justify-center">
                   <Button
+<<<<<<< HEAD
                     className='mr-2'
+=======
+>>>>>>> 46c89b4bbb8ecfd41c008ed3f8bfab1543379f2b
                     color="green"
                     size="sm"
                     onClick={() => handleUpdate(biogas)}
