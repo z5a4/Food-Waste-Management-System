@@ -3,8 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Input, Button } from "@material-tailwind/react";
 import FRegularFWRequest from '../functions/FRegularFWRequest';
-import AdminNavbar from '../../../Admin/AdminNavbar';
-import Footer from '../../../Footer/Footer';
 
 const RegularFWRequest = () => {
   const { formData, requestId, handleInputChange } = FRegularFWRequest();
@@ -49,7 +47,6 @@ const RegularFWRequest = () => {
 
   return (
     <div>
-      <AdminNavbar />
       <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
         <Typography variant="h3" className="text-center mb-4">Regular Food Waste Request</Typography>
         <form onSubmit={handleSubmit}>
@@ -127,7 +124,6 @@ const RegularFWRequest = () => {
           </div>
         </form>
       </div>
-      <Footer />
     </div>
   )
 };

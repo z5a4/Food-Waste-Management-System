@@ -1,8 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import FViewFarmer from '../functions/FViewFarmer';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+import { Typography, Button } from '@material-tailwind/react';
+
 
 function ViewFarmer() {
   const { farmers, error } = FViewFarmer();
@@ -18,45 +21,53 @@ function ViewFarmer() {
   
   return (
     <>
-    
-    <div className="container mt-5 pt-5">
-      <h1 className="text-center">Farmers</h1>
-      <div className="d-flex justify-content-center mb-3">
-  <Link to="/adminfarmerform" className="btn btn-danger btn-lg me-2">Add New</Link>
-  <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
-</div>
-      {error && <p className="text-danger">{error}</p>}
-      <table className="table table-striped border rounded">
-        <thead className="table-dark text-center">
+    <AdminNavbar/>
+    <div className="container mt-4 pt-4">
+      <Typography variant='h3' className="text-center mb-3">Farmers</Typography>
+      <div className="flex justify-center mb-3">
+      <Link to="/adminfarmerform">
+          <Button color="green" className="mr-2">
+            Add New
+          </Button>
+        </Link>
+        <Link to="/admin">
+          <Button color="light-blue">
+            Back
+          </Button>
+        </Link>
+      </div>
+      {error && <p className="text-red-500">{error}</p>}
+      <table className="table-auto w-full bg-white border-collapse border border-gray-300">
+        <thead className="bg-gray-800 text-white">
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile No</th>
-            <th>Address</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Security Question</th>
-            <th>Answer</th>
-            <th>Actions</th>
+            <th className="px-4 py-2">ID</th>
+            <th className="px-4 py-2">Name</th>
+            <th className="px-4 py-2">Email</th>
+            <th className="px-4 py-2">Mobile No</th>
+            <th className="px-4 py-2">Address</th>
+            <th className="px-4 py-2">Username</th>
+            <th className="px-4 py-2">Password</th>
+            <th className="px-4 py-2">Security Question</th>
+            <th className="px-4 py-2">Answer</th>
+            <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {farmers.map(farmer => (
             <tr key={farmer._id}>
-              <td>{farmer.farmerId}</td>
-              <td>{farmer.farmerName}</td>
-              <td>{farmer.farmerEmail}</td>
-              <td>{farmer.farmerMobileNo}</td>
-              <td>{farmer.farmerAddress}</td>
-              <td>{farmer.farmerUsername}</td>
-              <td>{farmer.farmerPassword}</td>
-              <td>{farmer.farmerSecurityQuestion}</td>
-              <td>{farmer.farmerAnswer}</td>
-              <td>
-                <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" onClick={() => handleUpdate(farmer)}> Edit</button>
-                  <button type="button" className="btn btn-secondary" onClick={() => handleDelete(farmer)}>Delete</button>
+              <td className="border px-4 py-2">{farmer.farmerId}</td>
+              <td className="border px-4 py-2">{farmer.farmerName}</td>
+              <td className="border px-4 py-2">{farmer.farmerEmail}</td>
+              <td className="border px-4 py-2">{farmer.farmerMobileNo}</td>
+              <td className="border px-4 py-2">{farmer.farmerAddress}</td>
+              <td className="border px-4 py-2">{farmer.farmerUsername}</td>
+              <td className="border px-4 py-2">{farmer.farmerPassword}</td>
+              <td className="border px-4 py-2">{farmer.farmerSecurityQuestion}</td>
+              <td className="border px-4 py-2">{farmer.farmerAnswer}</td>
+              <td className="border px-4 py-2">
+                <div className="flex">
+                  <Button color='green' size='sm' className="me-2" onClick={() => handleUpdate(farmer)}>Edit</Button>
+                  <Button color='light-blue' size='sm'  onClick={() => handleDelete(farmer)}>Delete</Button>
                 </div>
               </td>
             </tr>
@@ -64,7 +75,7 @@ function ViewFarmer() {
         </tbody>
       </table>
     </div>
-    
+    <Footer/>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHome, FaCircleNotch } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
 import {
   Navbar,
@@ -41,17 +41,6 @@ export function CommonNavbar() {
     <BsPersonLinesFill size={18} color="Black" /> 
     <a href="/aboutUs" className="flex items-center">
        About Us
-    </a>
-      </Typography>
-      <Typography
-    as="li"
-    variant="h6"
-    color="blue-gray"
-    className="flex items-center gap-x-2 p-2 font-h6"
-    >
-    <FaCircleNotch size={18} color="Black" /> 
-    <a href="#" className="flex items-center">
-       Services
     </a>
       </Typography>
     </ul>

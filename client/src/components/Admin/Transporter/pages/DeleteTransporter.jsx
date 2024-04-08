@@ -1,61 +1,69 @@
 import React from 'react';
 import FDeleteTransporter from '../functions/FDeleteTransporter';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Input, Typography } from '@material-tailwind/react';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+
 
 function DeleteTransporter() {
   const { transporter, handleDelete } = FDeleteTransporter();
 
   if (!transporter) {
-    return <p>Transporter not found</p>;
+    return <p className="text-center mt-5">Transporter not found</p>;
   }
 
   return (
+    <>
+    <AdminNavbar/>
     <div className="container mt-5">
-      <h1 className='text-center'>Delete transporter</h1>
-      <form onSubmit={handleDelete} className='mt-4'>
+      <Typography className="text-center mb-4">Delete transporter</Typography>
+      <form onSubmit={handleDelete} className="mt-4">
         <table className="table table-bordered">
           <tbody className='text-center'>
             <tr>
-              <th><label>Transporter ID:</label></th>
-              <th><input type="text" value={transporter.transporterId} disabled className='form-control' /></th>
+              <td><label className="font-bold">Transporter ID:</label></td>
+              <td><Input type="text" value={transporter.transporterId} disabled /></td>
             </tr>
             <tr>
-              <th><label>Vehicle No:</label></th>
-              <th><input type="text" value={transporter.vehicleNo} disabled className='form-control' /></th>
+              <td><label className="font-bold">Vehicle No:</label></td>
+              <td><Input type="text" value={transporter.vehicleNo} disabled /></td>
             </tr>
             <tr>
-              <th><label>Vehicle Type:</label></th>
-              <th><input type="text" value={transporter.vehicleType} disabled className='form-control' /></th>
+              <td><label className="font-bold">Vehicle Type:</label></td>
+              <td><Input type="text" value={transporter.vehicleType} disabled /></td>
             </tr>
             <tr>
-              <th><label>Driver Name:</label></th>
-              <th><input type="text" value={transporter.driverName} disabled className='form-control' /></th>
+              <td><label className="font-bold">Driver Name:</label></td>
+              <td><Input type="text" value={transporter.driverName} disabled /></td>
             </tr>
             <tr>
-              <th><label>License No:</label></th>
-              <th><input type="text" value={transporter.licenseNo} disabled className='form-control' /></th>
+              <td><label className="font-bold">License No:</label></td>
+              <td><Input type="text" value={transporter.licenseNo} disabled /></td>
             </tr>
             <tr>
-              <th><label>Mobile No:</label></th>
-              <th><input type="text" value={transporter.mobileNo} disabled className='form-control' /></th>
+              <td><label className="font-bold">Mobile No:</label></td>
+              <td><Input type="text" value={transporter.mobileNo} disabled /></td>
             </tr>
             <tr>
-              <th><label>Email:</label></th>
-              <th><input type="text" value={transporter.email} disabled className='form-control' /></th>
+              <td><label className="font-bold">Email:</label></td>
+              <td><Input type="text" value={transporter.email} disabled /></td>
             </tr>
             <tr>
-              <th><label>Rent Rate:</label></th>
-              <th><input type="text" value={transporter.rentRate} disabled className='form-control' /></th>
+              <td><label className="font-bold">Rent Rate:</label></td>
+              <td><Input type="text" value={transporter.rentRate} disabled /></td>
             </tr>
             <tr>
-              <th colSpan="2" className="text-center">
-                <button type="submit" className="btn btn-danger btn-lg">Delete</button>
-              </th>
+              <td colSpan="2" className="text-center">
+                <Button type="submit" color="green" size="lg">Delete</Button>
+                <Button color="light-blue" size="lg" className="ms-4" onClick={() => window.history.back()}>Back</Button>
+              </td>
             </tr>
           </tbody>
         </table>
       </form>
     </div>
+    <Footer/>
+    </>
   );
 }
 

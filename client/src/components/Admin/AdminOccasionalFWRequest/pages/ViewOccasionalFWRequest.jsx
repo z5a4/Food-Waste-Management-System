@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FViewOccasionalFWRequest from '../functions/FViewOccasionalFWRequest';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'tailwindcss/tailwind.css';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+import { Typography, Button } from '@material-tailwind/react';
 
 const ViewOccasionalFWRequest = () => {
   const [OccasionalFWRequestS, setOccasionalFWRequest] = useState([]);
@@ -22,51 +25,59 @@ const ViewOccasionalFWRequest = () => {
 
   return (
     <>
-    <div className="container mt-5 pt-5">
-      
-      <h1 className="text-center">OccasionalFWRequest Table</h1>
-      <div className="d-flex justify-content-center mb-3">
-  <Link to="/adminOccasionalFWRequestform" className="btn btn-danger btn-lg me-2">Add New</Link>
-  <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
-</div>
-      {error && <p className="text-danger">{error}</p>}
-      <table className="table table-striped border rounded">
-        <thead className="table-dark text-center">
-          <tr>
-            <th>Request ID</th>
-            <th>Description</th>
-            <th>Requester Name</th>
-            <th>Date</th>
-            <th>Address</th>
-            <th>Mobile No</th>
-            <th>Email</th>
-            <th>approxQuantity</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {OccasionalFWRequestS.map(OccasionalFWRequest => (
-            <tr key={OccasionalFWRequest._id}>
-              <td>{OccasionalFWRequest.requestId}</td>
-              <td>{OccasionalFWRequest.description}</td>
-              <td>{OccasionalFWRequest.requesterName}</td>
-              <td>{OccasionalFWRequest.date}</td>
-              <td>{OccasionalFWRequest.address}</td>
-              <td>{OccasionalFWRequest.mobileNo}</td>
-              <td>{OccasionalFWRequest.email}</td>
-              <td>{OccasionalFWRequest.approxQuantity}</td>
-              <td>
-                <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" onClick={() => handleUpdate(OccasionalFWRequest)}> Edit</button>
-                  <button type="button" className="btn btn-secondary" onClick={() => handleDelete(OccasionalFWRequest)}> Delete</button>
-                </div>
-              </td>
+    <AdminNavbar/>
+      <div className="container mt-4 pt-4">
+        <Typography variant='h3' className="text-center mb-3">OccasionalFWRequest Table</Typography>
+        <div className="flex justify-center mb-3">
+        <Link to="/adminOccasionalFWRequestform">
+          <Button color="green" className="mr-2">
+            Add New
+          </Button>
+        </Link>
+        <Link to="/admin">
+          <Button color="light-blue">
+            Back
+          </Button>
+        </Link>
+        </div>
+        {error && <p className="text-red-500">{error}</p>}
+        <table className="table-auto w-full bg-white border-collapse border border-gray-300">
+          <thead className="bg-gray-800 text-white">
+            <tr>
+              <th className="py-2 px-4">Request ID</th>
+              <th className="py-2 px-4">Description</th>
+              <th className="py-2 px-4">Requester Name</th>
+              <th className="py-2 px-4">Date</th>
+              <th className="py-2 px-4">Address</th>
+              <th className="py-2 px-4">Mobile No</th>
+              <th className="py-2 px-4">Email</th>
+              <th className="py-2 px-4">approxQuantity</th>
+              <th className="py-2 px-4">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    
+          </thead>
+          <tbody>
+            {OccasionalFWRequestS.map(OccasionalFWRequest => (
+              <tr key={OccasionalFWRequest._id}>
+                <td className="py-2 px-4">{OccasionalFWRequest.requestId}</td>
+                <td className="py-2 px-4">{OccasionalFWRequest.description}</td>
+                <td className="py-2 px-4">{OccasionalFWRequest.requesterName}</td>
+                <td className="py-2 px-4">{OccasionalFWRequest.date}</td>
+                <td className="py-2 px-4">{OccasionalFWRequest.address}</td>
+                <td className="py-2 px-4">{OccasionalFWRequest.mobileNo}</td>
+                <td className="py-2 px-4">{OccasionalFWRequest.email}</td>
+                <td className="py-2 px-4">{OccasionalFWRequest.approxQuantity}</td>
+                <td className="py-2 px-4">
+                  <div className="flex">
+                    <button type="button" className="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onClick={() => handleUpdate(OccasionalFWRequest)}> Edit</button>
+                    <button type="button" className="bg-gray-500 text-white px-4 py-2 rounded-md" onClick={() => handleDelete(OccasionalFWRequest)}> Delete</button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <Footer/>
     </>
   );
 };

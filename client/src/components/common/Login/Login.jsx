@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Input, Button,Typography} from '@material-tailwind/react';
 import {Alert} from '@material-tailwind/react'
 import loginimg from "../Images/login.png";
+import { CommonNavbar } from '../commonNavbar';
+import Footer from '../../Footer/Footer';
 
 const LoginForm = () => {
     const navigate = useNavigate(); // Initialize useNavigate hook
@@ -50,6 +52,8 @@ const LoginForm = () => {
     };
 
     return (
+        <>
+        <CommonNavbar/>
         <div className="container mx-auto mt-8 mr-4 ml-4">
             <div className="flex flex-col md:flex-row border border-gray-300 rounded-md">
                 <div className="md:w-1/2 p-4 border-r border-gray-300">
@@ -78,7 +82,7 @@ const LoginForm = () => {
                                 <option value="Others">Others</option>
                             </select>
                         </div>
-                        <Button className='mr-2' type="submit" color="blue" size="lg">Login</Button>
+                        <Button className='mr-2' type="submit" color="green" size="lg">Login</Button>
                         <Button type="button" color="blue" size="lg">Forgot Password</Button>
                     </form>
                     <Typography color="blue-gray" className="mt-4">Don't have an account ? <a href='/commonregistration' className="font-medium text-gray-600">Sign-Up</a></Typography>
@@ -89,6 +93,8 @@ const LoginForm = () => {
                 </div>
             </div>
         </div>
+        <Footer/>
+        </>
     );
 };
 
