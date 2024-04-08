@@ -3,12 +3,12 @@ import axios from 'axios';
 
 const FUpdateVolunteer = (volunteer, navigate) => {
   const [formData, setFormData] = useState({
-    id: volunteer.id || '',
-    name: volunteer.name || '',
+    id: volunteer.volunteerId || '',
+    name: volunteer.volunteerName || '',
     dateOfBirth: volunteer.dateOfBirth || '',
-    address: volunteer.address || '',
+    address: volunteer.volunteeraddress || '',
     email: volunteer.email || '',
-    mobileNo: volunteer.mobileNo || '',
+    mobileNo: volunteer.volunteermobileNo || '',
     username: volunteer.username || '',
     password: volunteer.password || '',
     securityQuestion: volunteer.securityQuestion || '',

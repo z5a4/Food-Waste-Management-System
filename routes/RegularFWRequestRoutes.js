@@ -11,11 +11,13 @@ router.get('/api/Regular/schedule-datewise',RegularFWRequesController.ScheduleRe
 
 router.put('/api/Regular/:id',RegularFWRequesController.updateRegularFWRequest);
 
-<<<<<<< Updated upstream
 router.put('/api/Regular/:id',RegularFWRequesController.deleteRegularFWRequest);
 
 
 module.exports = router;
-=======
+<<<<<<< HEAD
+
 module.exports = router;
->>>>>>> Stashed changes
+
+=======
+>>>>>>> 46c89b4bbb8ecfd41c008ed3f8bfab1543379f2b

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FViewBiogas from '../functions/FViewBiogas';
-<<<<<<< Updated upstream
 import { Button, Typography } from '@material-tailwind/react';
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 
+<<<<<<< HEAD
 =======
-import { Button } from '@material-tailwind/react'; // Import Material Tailwind Button
->>>>>>> Stashed changes
 
+>>>>>>> 46c89b4bbb8ecfd41c008ed3f8bfab1543379f2b
 
 const ViewBiogas = () => {
   const [biogases, setBiogas] = useState([]);
@@ -70,14 +69,13 @@ const ViewBiogas = () => {
               <td className="border px-4 py-2">
                 <div className="flex justify-center">
                   <Button
-<<<<<<< Updated upstream
-=======
+<<<<<<< HEAD
                     className='mr-2'
->>>>>>> Stashed changes
+=======
+>>>>>>> 46c89b4bbb8ecfd41c008ed3f8bfab1543379f2b
                     color="green"
                     size="sm"
                     onClick={() => handleUpdate(biogas)}
-                    className="mr-2"
                   >
                     Edit
                   </Button>

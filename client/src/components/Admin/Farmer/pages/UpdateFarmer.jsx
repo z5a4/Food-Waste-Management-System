@@ -1,7 +1,9 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FUpdateFarmer from '../functions/FUpdateFarmer';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+import { Button, Typography, Input } from '@material-tailwind/react';
 
 function UpdateFarmer() {
   const location = useLocation();
@@ -10,116 +12,120 @@ function UpdateFarmer() {
   const { formData, handleChange, handleSubmit } = FUpdateFarmer(farmer, navigate);
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center mb-4">Edit Farmer Details..</h1>
+    <>
+    <div className="container mt-5">
+      <Typography variant='h3' className="text-center mb-4">Edit Farmer Details..</Typography>
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
           <tbody className='text-center'>
             <tr>
-              <th scope="row">Farmer Name:</th>
+              <th className="font-bold">Farmer Name:</th>
               <td>
-                <input
+                <Input
+                  variant='standard'
                   type="text"
                   name="farmerName"
                   value={formData.farmerName}
                   onChange={handleChange}
-                  className="form-control"
                 />
               </td>
             </tr>
             <tr>
-              <th scope="row">Email:</th>
+              <th className="font-bold">Email:</th>
               <td>
-                <input
+                <Input
+                  variant='standard'
                   type="email"
                   name="farmerEmail"
                   value={formData.farmerEmail}
                   onChange={handleChange}
-                  className="form-control"
                 />
               </td>
             </tr>
             <tr>
-              <th scope="row">Mobile No:</th>
+              <th className="font-bold">Mobile No:</th>
               <td>
-                <input
+                <Input
+                  variant='standard'
                   type="text"
                   name="farmerMobileNo"
                   value={formData.farmerMobileNo}
                   onChange={handleChange}
-                  className="form-control"
                 />
               </td>
             </tr>
             <tr>
-              <th scope="row">Address:</th>
+              <th className="font-bold">Address:</th>
               <td>
-                <input
+                <Input
+                  variant='standard'
                   type="text"
                   name="farmerAddress"
                   value={formData.farmerAddress}
                   onChange={handleChange}
-                  className="form-control"
                 />
               </td>
             </tr>
             <tr>
-              <th scope="row">Username:</th>
+              <th className="font-bold">Username:</th>
               <td>
-                <input
+                <Input
+                  variant='standard'
                   type="text"
                   name="farmerUsername"
                   value={formData.farmerUsername}
                   onChange={handleChange}
-                  className="form-control"
                 />
               </td>
             </tr>
             <tr>
-              <th scope="row">Password:</th>
+              <th className="font-bold">Password:</th>
               <td>
-                <input
+                <Input
+                  variant='standard'
                   type="password"
                   name="farmerPassword"
                   value={formData.farmerPassword}
                   onChange={handleChange}
-                  className="form-control"
                 />
               </td>
             </tr>
             <tr>
-              <th scope="row">Security Question:</th>
+              <th className="font-bold">Security Question:</th>
               <td>
-                <input
+                <Input
+                  variant='standard'
                   type="text"
                   name="farmerSecurityQuestion"
                   value={formData.farmerSecurityQuestion}
                   onChange={handleChange}
-                  className="form-control"
                 />
               </td>
             </tr>
             <tr>
-              <th scope="row">Answer:</th>
+              <th className="font-bold">Answer:</th>
               <td>
-                <input
+                <Input
+                  variant='standard'
                   type="text"
                   name="farmerAnswer"
                   value={formData.farmerAnswer}
                   onChange={handleChange}
-                  className="form-control"
                 />
               </td>
             </tr>
             <tr>
               <td colSpan="2" className="text-center">
-                <button type="submit" className="btn btn-danger btn-lg" onClick={handleSubmit}>Confirm</button>
+                <Button color='green' size='lg' className="me-2">Confirm</Button>
+                <Button color="light-blue" size="lg"  onClick={() => window.history.back()}>Back</Button>
               </td>
             </tr>
           </tbody>
         </table>
       </form>
     </div>
+    <Footer/>
+    </>
   );
 }
 

@@ -1,11 +1,12 @@
-import { Carousel, Typography, Button } from "@material-tailwind/react";
+import React from 'react';
+import { Carousel, Typography, Button } from '@material-tailwind/react';
 import foodwaste from './Images/Foodwaste.jpg';
 import farmer2 from './Images/farmer2.jpg';
 import Slurry from './Images/slurry2.jpg';
- 
+
 export function CommonCarousel() {
   return (
-    <Carousel className="rounded-xl">
+    <Carousel autoplay interval={2000} className="rounded-xl">
       <div className="relative h-100">
         <img
           src={foodwaste}
@@ -26,8 +27,8 @@ export function CommonCarousel() {
               color="white"
               className="mb-12 opacity-80"
             >
-              We collect food waste from various Hotels, Hostels, 
-              Restuarants and Wedding venues. You can give your food waste to us
+              We collect food waste from various Hotels, Hostels,
+              Restaurants and Wedding venues. You can give your food waste to us
               to help our farmers.
             </Typography>
           </div>
@@ -53,8 +54,8 @@ export function CommonCarousel() {
               color="white"
               className="mb-12 opacity-80"
             >
-              Our transporters and volunteers will deliver the foodwaste to 
-              Biogas plant. They will collect the waste from each place. And 
+              Our transporters and volunteers will deliver the food waste to
+              Biogas plant. They will collect the waste from each place. And
               the biogas will convert the food waste into slurry.
             </Typography>
           </div>
@@ -80,8 +81,8 @@ export function CommonCarousel() {
               color="white"
               className="mb-12 opacity-80"
             >
-              Farmers will get slurry once in 15 days. And I will 
-              be free of cost. So register yourself and get free 
+              Farmers will get slurry once in 15 days. And I will
+              be free of cost. So register yourself and get free
               slurry. Our goal is to help farmers.
             </Typography>
           </div>

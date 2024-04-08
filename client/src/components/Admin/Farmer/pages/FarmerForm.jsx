@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FFarmerForm from '../functions/FFarmerForm';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Typography, Button, Input } from '@material-tailwind/react';
 
 const FarmerForm = () => {
   const { formData, errors, handleInputChange, handleSubmit } = FFarmerForm();
@@ -12,108 +12,121 @@ const FarmerForm = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Register..</h1>
+    <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
+      <Typography variant='h3' className="text-center mb-4">Register..</Typography>
       <form onSubmit={handleSubmit} className="container mt-4">
-        <table className="table border-only-outside rounded">
+        <table className="table table-bordered">
           <tbody>
             <tr>
-              <th>
-                <label htmlFor="farmerId" className="form-label">Farmer ID:</label>
-                <input
+              <td>
+                <label htmlFor="farmerId" className="form-label font-bold">Farmer ID:</label>
+                </td><td>
+                <Input
+                  variant='standard'
                   type="text"
-                  className="form-control"
                   id="farmerId"
                   name="farmerId"
                   value={formData.farmerId}
                   onChange={handleInputChange}
                 />
                 {errors.farmerId && <span className="text-danger">{errors.farmerId}</span>}
-              </th>
-              <th>
-                <label htmlFor="farmerName" className="form-label">Farmer Name:</label>
-                <input
+              </td>
+              </tr>
+              <tr>
+              <td>
+                <label htmlFor="farmerName" className="form-label font-bold">Farmer Name:</label>
+                </td><td>
+                <Input
+                  variant='standard'
                   type="text"
-                  className="form-control"
                   id="farmerName"
                   name="farmerName"
                   value={formData.farmerName}
                   onChange={handleInputChange}
                 />
                 {errors.farmerName && <span className="text-danger">{errors.farmerName}</span>}
-              </th>
+              </td>
             </tr>
             <tr>
-              <th>
-                <label htmlFor="farmerMobileNo" className="form-label">Farmer Mobile No:</label>
-                <input
+              <td>
+                <label htmlFor="farmerMobileNo" className="form-label font-bold">Farmer Mobile No:</label>
+                </td><td>
+                <Input
+                  variant='standard'
                   type="text"
-                  className="form-control"
                   id="farmerMobileNo"
                   name="farmerMobileNo"
                   value={formData.farmerMobileNo}
                   onChange={handleInputChange}
                 />
                 {errors.farmerMobileNo && <span className="text-danger">{errors.farmerMobileNo}</span>}
-              </th>
-              <th>
-                <label htmlFor="farmerEmail" className="form-label">Farmer Email:</label>
-                <input
+              </td>
+              </tr>
+              <tr>
+              <td>
+                <label htmlFor="farmerEmail" className="form-label font-bold">Farmer Email:</label>
+                </td><td>
+                <Input
+                  variant='standard'
                   type="email"
-                  className="form-control"
                   id="farmerEmail"
                   name="farmerEmail"
                   value={formData.farmerEmail}
                   onChange={handleInputChange}
                 />
                 {errors.farmerEmail && <span className="text-danger">{errors.farmerEmail}</span>}
-              </th>
+              </td>
             </tr>
             <tr>
-  <th colSpan="2">
-    <label htmlFor="farmerAddress" className="form-label">Farmer Address:</label>
-    <input
-      type="text"
-      className="form-control"
-      id="farmerAddress"
-      name="farmerAddress"
-      value={formData.farmerAddress}
-      onChange={handleInputChange}
-      style={{ width: '100%' }}
-    />
-    {errors.farmerAddress && <span className="text-danger">{errors.farmerAddress}</span>}
-  </th>
-</tr>
-
-            <tr>
-              <th>
-                <label htmlFor="farmerUsername" className="form-label">Farmer Username:</label>
-                <input
+              <td>
+                <label htmlFor="farmerAddress" className="form-label font-bold">Farmer Address:</label>
+                </td><td>
+                <Input
+                  variant='standard'
                   type="text"
-                  className="form-control"
+                  id="farmerAddress"
+                  name="farmerAddress"
+                  value={formData.farmerAddress}
+                  onChange={handleInputChange}
+                  style={{ widtd: '100%' }}
+                />
+                {errors.farmerAddress && <span className="text-danger">{errors.farmerAddress}</span>}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="farmerUsername" className="form-label font-bold">Farmer Username:</label>
+                </td><td>
+                <Input
+                  variant='standard'
+                  type="text"
                   id="farmerUsername"
                   name="farmerUsername"
                   value={formData.farmerUsername}
                   onChange={handleInputChange}
                 />
                 {errors.farmerUsername && <span className="text-danger">{errors.farmerUsername}</span>}
-              </th>
-              <th>
-                <label htmlFor="farmerPassword" className="form-label">Farmer Password:</label>
-                <input
+              </td>
+              </tr>
+              <tr>
+              <td>
+                <label htmlFor="farmerPassword" className="form-label font-bold">Farmer Password:</label>
+                </td><td>
+                <Input
+                  variant='standard'
                   type="password"
-                  className="form-control"
                   id="farmerPassword"
                   name="farmerPassword"
                   value={formData.farmerPassword}
                   onChange={handleInputChange}
                 />
                 {errors.farmerPassword && <span className="text-danger">{errors.farmerPassword}</span>}
-              </th>
+              </td>
             </tr>
             <tr>
-              <th>
-                <label htmlFor="farmerSecurityQuestion" className="form-label">Farmer Security Question:</label>
+              <td>
+                <label htmlFor="farmerSecurityQuestion" className="form-label font-bold">Farmer Security Question:</label>
+                </td><td>
                 <select
                   className="form-select"
                   id="farmerSecurityQuestion"
@@ -127,24 +140,27 @@ const FarmerForm = () => {
                   <option value="favSport">Favorite Sport</option>
                 </select>
                 {errors.farmerSecurityQuestion && <span className="text-danger">{errors.farmerSecurityQuestion}</span>}
-              </th>
-              <th>
-                <label htmlFor="farmerAnswer" className="form-label">Farmer Answer:</label>
-                <input
+              </td>
+              </tr>
+              <tr>
+              <td>
+                <label htmlFor="farmerAnswer" className="form-label font-bold">Farmer Answer:</label>
+                </td><td>
+                <Input
+                  variant='standard'
                   type="text"
-                  className="form-control"
                   id="farmerAnswer"
                   name="farmerAnswer"
                   value={formData.farmerAnswer}
                   onChange={handleInputChange}
                 />
                 {errors.farmerAnswer && <span className="text-danger">{errors.farmerAnswer}</span>}
-              </th>
+              </td>
             </tr>
             <tr>
               <td colSpan="2" className="text-center">
-                <button type="submit" className="btn btn-danger btn-lg me-2" onClick={handleSubmit}>Confirm</button>
-                <button type="button" className="btn btn-secondary btn-lg" onClick={handleBack}>Back</button>
+                <Button type="submit" color='green' size='lg' className="me-2" onClick={handleSubmit}>Confirm</Button>
+                <Button color='light-blue' size='lg' onClick={handleBack}>Back</Button>
               </td>
             </tr>
           </tbody>

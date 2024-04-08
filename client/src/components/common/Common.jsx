@@ -18,9 +18,7 @@ function Common()  {
        <CommonCarousel/>
        <div className="space"><br></br></div>
        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-        <CommonCard />
-        <CommonProfileCard />
-        <CommonProfileCard1/>
+       
       </div>
       <div className="space"><br></br></div>
       <CommonParagraph/>

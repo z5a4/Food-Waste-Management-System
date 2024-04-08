@@ -1,8 +1,27 @@
 import { Typography } from "@material-tailwind/react";
- 
+import styled, { keyframes } from 'styled-components';
+
+// Define a keyframe animation for the bounce effect
+const bounceAnimation = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+`;
+
+// Styled component for the figure with animation applied
+const BouncingFigure = styled.figure`
+  animation: ${bounceAnimation} 1s ease infinite;
+`;
+
 export function CommonBlurImg() {
   return (
-    <figure className="relative h-96 w-full mb-12 shadow-xl shadow-blue-gray-900/50">
+    <BouncingFigure className="relative h-96 w-full mb-12 shadow-xl shadow-blue-gray-900/50">
       <img
         className="h-full w-full rounded-xl object-cover object-center"
         src="https://wallpapercave.com/wp/wp10401140.jpg"
@@ -18,6 +37,6 @@ export function CommonBlurImg() {
           </Typography>
         </div>
       </figcaption>
-    </figure>
+    </BouncingFigure>
   );
 }

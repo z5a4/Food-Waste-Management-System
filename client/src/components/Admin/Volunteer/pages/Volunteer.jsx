@@ -1,116 +1,172 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FVolunteer from '../functions/FVolunteer';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import { Button, Input, Typography } from '@material-tailwind/react'; 
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+
 
 const Volunteer = () => {
   const { formData, errors, handleInputChange, handleSubmit } = FVolunteer();
   const navigate = useNavigate();
 
-  const handleBack  = () => {
-    navigate('/adminviewvolunteers');
+  const handleBack = () => {
+    navigate('/adminviewvolunteer');
   };
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Register Volunteer</h1>
+    <>
+    <AdminNavbar/>
+    <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
+      <Typography variant='h3' className="text-center mb-4">Register Volunteer</Typography>
       <form onSubmit={handleSubmit}>
-        <table className="table border-only-outside">
+        <table className="table table-bordered">
           <tbody>
             <tr>
-            <th>
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="volunteerid" className="form-label">VolunteerId:</label>
-                  <input type="text" name="volunteerId" value={formData.volunteerId} onChange={handleInputChange} className="form-control" />
-                  {errors.name && <span className="text-danger">{errors.volunteerId}</span>}
+                  <label htmlFor="volunteerid" className="font-bold form-label">VolunteerId:</label>
                 </div>
-              </th>
-              
-              <th>
+              </td>
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="name" className="form-label">Volunteer Name:</label>
-                  <input type="text" name="volunteerName" value={formData.volunteerName} onChange={handleInputChange} className="form-control" />
-                  {errors.name && <span className="text-danger">{errors.volunteerName}</span>}
+                  <Input variant='standard' type="text" name="volunteerId" value={formData.volunteerId} onChange={handleInputChange} placeholder="Enter Volunteer ID" />
+                  {errors.name && <span className="text-red-500">{errors.volunteerId}</span>}
                 </div>
-              </th>
-              <th>
-                <div className="mb-3">
-                  <label htmlFor="dateOfBirth" className="form-label">Date of Birth:</label>
-                  <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} className="form-control" />
-                  {errors.dateOfBirth && <span className="text-danger">{errors.dateOfBirth}</span>}
-                </div>
-              </th>
+              </td>
             </tr>
             <tr>
-              <th colSpan="2">
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="address" className="form-label">Address:</label>
-                  <input type="text" name="volunteeraddress" value={formData.volunteeraddress} onChange={handleInputChange} className="form-control" />
-                  {errors.address && <span className="text-danger">{errors.address}</span>}
+                  <label htmlFor="name" className="font-bold form-label">Volunteer Name:</label>
                 </div>
-              </th>
+              </td>
+              <td>
+                <div className="mb-3">
+                  <Input variant='standard' type="text" name="volunteerName" value={formData.volunteerName} onChange={handleInputChange} placeholder="Enter Volunteer Name" />
+                  {errors.name && <span className="text-red-500">{errors.volunteerName}</span>}
+                </div>
+              </td>
             </tr>
             <tr>
-            <th>
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email:</label>
-                  <input type="text" name="email" value={formData.email} onChange={handleInputChange} className="form-control" />
-                  {errors.email && <span className="text-danger">{errors.email}</span>}
+                  <label htmlFor="dateOfBirth" className="font-bold form-label">Date of Birth:</label>
                 </div>
-            </th>
-            <th>
+              </td>
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="mobileNo" className="form-label">Mobile no:</label>
-                  <input type="text" name="volunteermobileNo" value={formData.volunteermobileNo} onChange={handleInputChange} className="form-control" />
-                  {errors.mobileNo && <span className="text-danger">{errors.volunteermobileNo}</span>}
+                  <Input variant='standard' type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} placeholder="Select Date of Birth" />
+                  {errors.dateOfBirth && <span className="text-red-500">{errors.dateOfBirth}</span>}
                 </div>
-            </th>
+              </td>
             </tr>
             <tr>
-              <th>
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="username" className="form-label">Username:</label>
-                  <input type="text" name="username" value={formData.username} onChange={handleInputChange} className="form-control" />
-                  {errors.username && <span className="text-danger">{errors.username}</span>}
+                  <label htmlFor="address" className="font-bold form-label">Address:</label>
                 </div>
-              </th>
-              <th>
+              </td>
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password:</label>
-                  <input type="password" name="password" value={formData.password} onChange={handleInputChange} className="form-control" />
-                  {errors.password && <span className="text-danger">{errors.password}</span>}
+                  <Input variant='standard' type="text" name="volunteeraddress" value={formData.volunteeraddress} onChange={handleInputChange} placeholder="Enter Address" />
+                  {errors.address && <span className="text-red-500">{errors.address}</span>}
                 </div>
-              </th>
+              </td>
             </tr>
             <tr>
-              <th>
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="securityQuestion" className="form-label">Security Question:</label>
+                  <label htmlFor="email" className="font-bold form-label">Email:</label>
+                </div>
+              </td>
+              <td>
+                <div className="mb-3">
+                  <Input variant='standard' type="text" name="email" value={formData.email} onChange={handleInputChange} placeholder="Enter Email" />
+                  {errors.email && <span className="text-red-500">{errors.email}</span>}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="mb-3">
+                  <label htmlFor="mobileNo" className="font-bold form-label">Mobile no:</label>
+                </div>
+              </td>
+              <td>
+                <div className="mb-3">
+                  <Input variant='standard' type="text" name="volunteermobileNo" value={formData.volunteermobileNo} onChange={handleInputChange} placeholder="Enter Mobile No" />
+                  {errors.mobileNo && <span className="text-red-500">{errors.volunteermobileNo}</span>}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="mb-3">
+                  <label htmlFor="username" className="font-bold form-label">Username:</label>
+                </div>
+              </td>
+              <td>
+                <div className="mb-3">
+                  <Input variant='standard' type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder="Enter Username" />
+                  {errors.username && <span className="text-red-500">{errors.username}</span>}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="mb-3">
+                  <label htmlFor="password" className="font-bold form-label">Password:</label>
+                </div>
+              </td>
+              <td>
+                <div className="mb-3">
+                  <Input variant='standard' type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Enter Password" />
+                  {errors.password && <span className="text-red-500">{errors.password}</span>}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="mb-3">
+                  <label htmlFor="securityQuestion" className="font-bold form-label">Security Question:</label>
+                </div>
+              </td>
+              <td>
+                <div className="mb-3">
                   <select name="securityQuestion" value={formData.securityQuestion} onChange={handleInputChange} className="form-select">
                     <option value="">Select Security Question</option>
                     <option value="favFood">Favorite Food</option>
                     <option value="favHobby">Favorite Hobby</option>
                     <option value="favSport">Favorite Sport</option>
                   </select>
-                  {errors.securityQuestion && <span className="text-danger">{errors.securityQuestion}</span>}
+                  {errors.securityQuestion && <span className="text-red-500">{errors.securityQuestion}</span>}
                 </div>
-              </th>
-              <th>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <div className="mb-3">
-                  <label htmlFor="answer" className="form-label">Answer:</label>
-                  <input type="text" name="answer" value={formData.answer} onChange={handleInputChange} className="form-control" />
-                  {errors.answer && <span className="text-danger">{errors.answer}</span>}
+                  <label htmlFor="answer" className="font-bold form-label">Answer:</label>
                 </div>
-              </th>
+              </td>
+              <td>
+                <div className="mb-3">
+                  <Input variant='standard' type="text" name="answer" value={formData.answer} onChange={handleInputChange} placeholder="Enter Answer" />
+                  {errors.answer && <span className="text-red-500">{errors.answer}</span>}
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
-        <div className="text-center">
-          <button type="submit" className="btn btn-danger btn-lg me-2">Register Volunteer</button>
-          <button type="button" className="btn btn-secondary btn-lg" onClick={handleBack}>Back</button>
+        <div className="text-center mt-4">
+          <Button type="submit" color="green" size="lg" className="me-2">Register Volunteer</Button>
+          <Button color="light-blue" size="lg" onClick={handleBack}>Back</Button>
         </div>
       </form>
     </div>
+    <Footer/>
+    </>
   );
 };
 

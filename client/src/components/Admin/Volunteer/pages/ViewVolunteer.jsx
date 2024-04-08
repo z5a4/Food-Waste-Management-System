@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useNavigate } from 'react-router-dom';
 import FViewVolunteer from '../functions/FViewVolunteer';
+import { Button, Typography } from '@material-tailwind/react';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
+
 
 function ViewVolunteer() {
   const { volunteers, error } = FViewVolunteer();
@@ -18,47 +20,51 @@ function ViewVolunteer() {
   
   return (
     <>
-    <div className="container mt-5 pt-5">
-      
-      <h1 className="text-center">Volunteer</h1>
-      <div className="d-flex justify-content-center mb-3">
-  <Link to="/adminvolunteerform" className="btn btn-danger btn-lg me-2">Add New</Link>
-  <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
-</div>
-      {error && <p className="text-danger">{error}</p>}
-      <table className="table table-striped border rounded">
-        <thead className="table-dark text-center">
+    <AdminNavbar/>
+    <div className="container mt-4 pt-4">
+      <Typography variant='h3' className="text-center mb-3">Volunteer</Typography>
+      <div className="flex justify-center mb-3">
+        <Link to="/adminvolunteerform">
+          <Button color="green" size="lg" className="me-2">Add New</Button>
+        </Link>
+        <Link to="/admin">
+          <Button color="light-blue" size="lg">Back</Button>
+        </Link>
+      </div>
+      {error && <p className="text-red-500">{error}</p>}
+      <table className="table-auto w-full border border-collapse rounded">
+        <thead className="bg-gray-700 text-white text-center">
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile No</th>
-            <th>Address</th>
-            <th>Date of Birth</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Security Question</th>
-            <th>Answer</th>
-            <th>Actions</th>
+            <th className="px-4 py-2">ID</th>
+            <th className="px-4 py-2">Name</th>
+            <th className="px-4 py-2">Email</th>
+            <th className="px-4 py-2">Mobile No</th>
+            <th className="px-4 py-2">Address</th>
+            <th className="px-4 py-2">Date of Birth</th>
+            <th className="px-4 py-2">Username</th>
+            <th className="px-4 py-2">Password</th>
+            <th className="px-4 py-2">Security Question</th>
+            <th className="px-4 py-2">Answer</th>
+            <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {volunteers.map(volunteer => (
-            <tr key={volunteer._id}>
-              <td>{volunteer.id}</td>
-              <td>{volunteer.name}</td>
-              <td>{volunteer.email}</td>
-              <td>{volunteer.mobileNo}</td>
-              <td>{volunteer.address}</td>
-              <td>{volunteer.dateOfBirth}</td>
-              <td>{volunteer.username}</td>
-              <td>{volunteer.password}</td>
-              <td>{volunteer.securityQuestion}</td>
-              <td>{volunteer.answer}</td>
-              <td>
-                <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" onClick={() => handleUpdate(volunteer)}> Edit</button>
-                  <button type="button" className="btn btn-secondary" onClick={() => handleDelete(volunteer)}> Delete</button>
+            <tr key={volunteer._id} className="text-center">
+              <td className="border px-4 py-2">{volunteer.volunteerId}</td>
+              <td className="border px-4 py-2">{volunteer.volunteerName}</td>
+              <td className="border px-4 py-2">{volunteer.email}</td>
+              <td className="border px-4 py-2">{volunteer.volunteermobileNo}</td>
+              <td className="border px-4 py-2">{volunteer.volunteeraddress}</td>
+              <td className="border px-4 py-2">{volunteer.dateOfBirth}</td>
+              <td className="border px-4 py-2">{volunteer.username}</td>
+              <td className="border px-4 py-2">{volunteer.password}</td>
+              <td className="border px-4 py-2">{volunteer.securityQuestion}</td>
+              <td className="border px-4 py-2">{volunteer.answer}</td>
+              <td className="border px-4 py-2">
+                <div className="flex justify-center">
+                  <Button color="green" onClick={() => handleUpdate(volunteer)} className="me-2">Edit</Button>
+                  <Button color="light-blue" onClick={() => handleDelete(volunteer)}>Delete</Button>
                 </div>
               </td>
             </tr>
@@ -66,7 +72,7 @@ function ViewVolunteer() {
         </tbody>
       </table>
     </div>
-    
+    <Footer/>
     </>
   );
 }

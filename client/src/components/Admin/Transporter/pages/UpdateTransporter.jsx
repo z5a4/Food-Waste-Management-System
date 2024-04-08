@@ -1,7 +1,9 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FUpdateTransporter from '../functions/FUpdateTransporter';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Input, Typography } from '@material-tailwind/react';
+import AdminNavbar from '../../AdminNavbar';
+import Footer from '../../../Footer/Footer';
 
 function UpdateTransporter() {
   const location = useLocation();
@@ -10,52 +12,57 @@ function UpdateTransporter() {
   const { formData, handleChange, handleSubmit } = FUpdateTransporter(transporter, navigate);
 
   return (
+    <>
+    <AdminNavbar/>
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Edit Transporter</h1>
+      <Typography variant='h3' className="text-center mb-4">Edit Transporter</Typography>
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
           <tbody className='text-center'>
             <tr>
-              <th><label>Transporter ID:</label></th>
-              <th><input type="text" name="transporterId" value={formData.transporterId} onChange={handleChange} className="form-control" /></th>
+              <td><label className="font-bold">Transporter ID:</label></td>
+              <td><Input variant='standard' type="text" name="transporterId" value={formData.transporterId} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label>Vehicle No:</label></th>
-              <th><input type="text" name="vehicleNo" value={formData.vehicleNo} onChange={handleChange} className="form-control" /></th>
+              <td><label className="font-bold">Vehicle No:</label></td>
+              <td><Input variant='standard' type="text" name="vehicleNo" value={formData.vehicleNo} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label>Vehicle Type:</label></th>
-              <th><input type="text" name="vehicleType" value={formData.vehicleType} onChange={handleChange} className="form-control" /></th>
+              <td><label className="font-bold">Vehicle Type:</label></td>
+              <td><Input variant='standard' type="text" name="vehicleType" value={formData.vehicleType} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label>Driver Name:</label></th>
-              <th><input type="text" name="driverName" value={formData.driverName} onChange={handleChange} className="form-control" /></th>
+              <td><label className="font-bold">Driver Name:</label></td>
+              <td><Input variant='standard' type="text" name="driverName" value={formData.driverName} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label>License No:</label></th>
-              <th><input type="text" name="licenseNo" value={formData.licenseNo} onChange={handleChange} className="form-control" /></th>
+              <td><label className="font-bold">License No:</label></td>
+              <td><Input variant='standard' type="text" name="licenseNo" value={formData.licenseNo} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label>Mobile No:</label></th>
-              <th><input type="text" name="mobileNo" value={formData.mobileNo} onChange={handleChange} className="form-control" /></th>
+              <td><label className="font-bold">Mobile No:</label></td>
+              <td><Input variant='standard' type="text" name="mobileNo" value={formData.mobileNo} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label>Email:</label></th>
-              <th><input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" /></th>
+              <td><label className="font-bold">Email:</label></td>
+              <td><Input variant='standard' type="email" name="email" value={formData.email} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label>Rent Rate:</label></th>
-              <th><input type="text" name="rentRate" value={formData.rentRate} onChange={handleChange} className="form-control" /></th>
+              <td><label className="font-bold">Rent Rate:</label></td>
+              <td><Input variant='standard' type="text" name="rentRate" value={formData.rentRate} onChange={handleChange} /></td>
             </tr>
             <tr>
               <td colSpan="2" className="text-center">
-                <button type="submit" className="btn btn-danger btn-lg">Confirm</button>
+                <Button type="submit" color="green" size="lg">Confirm</Button>
+                <Button color="light-blue" size="lg" className="ms-2" onClick={() => window.history.back()}>Back</Button>
               </td>
             </tr>
           </tbody>
         </table>
       </form>
     </div>
+    <Footer/>
+    </>
   );
 }
 
