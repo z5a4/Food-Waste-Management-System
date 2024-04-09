@@ -32,6 +32,11 @@ const RegularFWRequestModel = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  status: {
+    type: String,
+    default: 'Pending', // Default status set to "Pending"
+  },
+
   requestId: {
     type: String,
     

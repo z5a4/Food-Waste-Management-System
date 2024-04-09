@@ -4,16 +4,19 @@ import FSchedule from '../functions/FSchedule';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import ViewRoute from '../../Route/pages/ViewRoute'; // Import ViewRoute component
-import RouteSelect from './RouteSelect'; // Import RouteSelect component
+//import RouteSelect from './RouteSelect'; // Import RouteSelect component
 
 const Schedule = () => {
     const [combinedRequests, setCombinedRequests] = useState([]);
+    const [routes, setRoutes] = useState([]);
+    const [selectedRoutes, setSelectedRoutes] = useState('');  
     const [showRoute, setShowRoute] = useState(false);
    const [error, setError] = useState(null);
-    const { fetchCombinedRequests, handleInputChange,  totalRequestCount} = FSchedule();
+    const { fetchCombinedRequests, handleInputChange} = FSchedule();
     
  
     useEffect(() => {
+        
         async function fetchData() {
             try {
                 const combinedData = await fetchCombinedRequests();
@@ -33,27 +36,60 @@ const Schedule = () => {
         }, 60000); // Fetch data every minute
     
         return () => clearInterval(intervalId);
-    }, [fetchCombinedRequests]);
+
+
+    },[fetchCombinedRequests]);
+
+
+    // Fetch routes from the backend API
+  useEffect(() => {
+    async function fetchRoutes() {
+      try {
+        const response = await fetch('http://localhost:5000/api/routes/current'); // Assuming this is your backend route
+        const data = await response.json();
+        setRoutes(data.routeNames);
+      } catch (error) {
+        console.error('Error fetching routes:', error);
+      }
+    }
+
+    fetchRoutes();
+  }, []); // Empty dependency array to run the effect only once when the component mounts
+
     
 
     const handleViewRoute = () => {
         setShowRoute(true);
         setShowRoute(false);
     };
-  
-    const handleAddToCurrentSchedule = async (requestData) => {
-        try {
-            // Send the requestData to the server
-            const response = await axios.post('http://localhost:5000/api/currentschedule', requestData);
-            // Display a success message or update UI as needed
-            alert(response.data.message);
-        } catch (error) {
-            console.error('Error adding to current schedule:', error);
-            // Display an error message or update UI as needed
-            alert('Failed to add request to current schedule. Please try again.');
-        }
-    };
 
+  // Update handleRouteChange to store selected route for each request ID
+const handleRouteChange = (event, requestId) => {
+    setSelectedRoutes(prevState => ({
+      ...prevState,
+      [requestId]: event.target.value
+    }));
+  };
+
+  
+  const handleAddToCurrentSchedule = async (requestData) => {
+    try {
+        // Include the selected route in the requestData
+        const requestDataWithRoute = { ...requestData, routeName: selectedRoutes[requestData._id] };
+         
+// Update the status to "Approved"
+requestDataWithRoute.status = 'Approved';
+        // Send the updated requestData to the server
+        const response = await axios.post('http://localhost:5000/api/currentschedule', requestDataWithRoute);
+
+        // Display a success message or update UI as needed
+        alert(response.data.message);
+    } catch (error) {
+        console.error('Error adding to current schedule:', error);
+        // Display an error message or update UI as needed
+        alert('Failed to add request to current schedule. Please try again.');
+    }
+};
 
 
    
@@ -65,7 +101,6 @@ const Schedule = () => {
                     <Link to="/adminRegularFWRequestform" className="btn btn-danger btn-lg me-2">Add New</Link>
                     <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
                 </div>
-                <h1>Total Requests: {totalRequestCount}</h1>
                 {error && <p className="text-danger">{error}</p>}
                 <table className="table table-striped border rounded">
                     <thead className="table-dark text-center">
@@ -80,6 +115,7 @@ const Schedule = () => {
                             <th>Email</th>
                             <th>approxQuantity</th>
                             <th>Add Route</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -96,8 +132,18 @@ const Schedule = () => {
                                 <td>{request.email}</td>
                                 <td>{request.approxQuantity}</td>
                                 <td>
-                                <RouteSelect/>
-                                                        
+                                <label htmlFor={`routeSelect-${request._id}`}>Select Route:</label>
+      <select id={`routeSelect-${request._id}`} value={selectedRoutes[request._id] || ''} onChange={(e) => handleRouteChange(e, request._id)}>
+        <option value="">Select a route</option>
+        {routes.map((route, index) => (
+          <option key={index} value={route}>{route}</option>
+        ))}
+      </select>
+      {selectedRoutes[request._id] && <p>Selected Route: {selectedRoutes[request._id]}</p>}
+                            
+                              </td>
+                              <td>
+                                {request.status}
                               </td>
                               <td>
                               <button type='button' onClick={() => handleAddToCurrentSchedule(request)}>Add</button>

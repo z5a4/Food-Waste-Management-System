@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FDonationForm from '../functions/FDonationForm';
 import { Input, Button, Typography } from '@material-tailwind/react'; 
-import AdminNavbar from '../../AdminNavbar';
+import { CommonNavbar } from '../../../common/commonNavbar';
 import Footer from '../../../Footer/Footer';
 
 const DonationForm = () => {
@@ -10,12 +10,12 @@ const DonationForm = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/adminviewDonation');
+    navigate('/');
   };
   
   return (
     <>
-      <AdminNavbar/>
+      <CommonNavbar/>
       <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
         <Typography variant='h3' className="text-center mb-4">Donate Us..</Typography>
         <form onSubmit={handleSubmit}>
@@ -46,8 +46,8 @@ const DonationForm = () => {
                     className="form-select"
                   >
                     <option value="">select Donation Type</option>
-                    <option value="Cash">Cash</option>
-                    <option value="Kind">Non-Cash</option>
+                    <option value="Non-Monetary">Monetary</option>
+                    <option value="Non-Monetary">Non-Monetary</option>
                   </select>
                 </td>
               </tr>
@@ -120,25 +120,50 @@ const DonationForm = () => {
                   />
                 </td>
               </tr>
+              <Typography variant='h4' className="mb-2 mt-2">CARD-DETAILS</Typography>
+       
               <tr>
-                <td className="form-label font-bold">Donation Payment Mode:</td>
+                <td className="form-label font-bold">Card Number:</td>
                 <td>
-                  <select
-                    name="donationPaymentMode"
-                    value={formData.donationPaymentMode}
+                  <Input
+                    variant='standard'
+                    type="text"
+                    name="cardNumber"
+                    value={formData.cardNumber}
                     onChange={handleInputChange}
-                    error={errors.donationPaymentMode}
-                    className="form-select"
-                  >
-                    <option value="">Select Payment Mode</option>
-                    <option value="Credit Card">Credit Card</option>
-                    <option value="Debit Card">Debit Card</option>
-                    <option value="Net Banking">Net Banking</option>
-                    <option value="UPI">UPI</option>
-                    <option value="Other">Other</option>
-                  </select>
+                    placeholder="*********9786"
+                    error={errors.cardNumber}
+                  />
                 </td>
               </tr>
+              <tr><td className="form-label font-bold">Expiry:</td>
+                <td>
+                  <Input
+                    variant='standard'
+                    type="text"
+                    name="expiry"
+                    value={formData.expiry}
+                    onChange={handleInputChange}
+                    placeholder="MM/YY"
+                    error={errors.expiry}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="form-label font-bold">CVV</td>
+                <td>
+                  <Input
+                    variant='standard'
+                    type="text"
+                    name="cvv"
+                    value={formData.cvv}
+                    onChange={handleInputChange}
+                    placeholder="CVV"
+                    error={errors.cvv}
+                  />
+                  </td>
+              </tr>
+              
               <tr>
                 <td className="form-label font-bold">Donation Amount:</td>
                 <td>
@@ -148,7 +173,7 @@ const DonationForm = () => {
                     name="donationAmount"
                     value={formData.donationAmount}
                     onChange={handleInputChange}
-                    placeholder="Donation Amount"
+                    placeholder="In Rupees."
                     error={errors.donationAmount}
                   />
                 </td>
