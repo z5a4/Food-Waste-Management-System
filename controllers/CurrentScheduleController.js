@@ -1,4 +1,8 @@
 const CurrentScheduleModel = require('../models/CurrentScheduleModel');
+const RegularFWRequestModel = require('../models/RegularFWRequestModel');
+const OccasionalFWRequestModel = require('../models/OccasionalFWRequestModel');
+
+
 
 
 exports.createcurrentSchedule = async (req, res) => {
@@ -19,6 +23,21 @@ exports.addToCurrentSchedule = async (req, res) => {
       // Assuming the request body contains the data to be duplicated and stored
       const requestData = req.body;
 
+            
+     // Set the status to "Approved"
+     requestData.status = "Approved";
+
+     // Update status to "Approved" in both Regular and Occasional collections (assuming similar models and controllers)
+     await RegularFWRequestModel.findOneAndUpdate(
+         { _id: requestData._id },
+         { $set: { status: "Approved" } }
+     );
+     await OccasionalFWRequestModel.findOneAndUpdate(
+         { _id: requestData._id },
+         { $set: { status: "Approved" } }
+     );  
+
+      
       // Create a new document in the CurrentScheduleModel collection
       const duplicatedData = await CurrentScheduleModel.create(requestData);
 

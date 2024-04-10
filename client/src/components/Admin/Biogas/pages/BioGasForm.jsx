@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Input, Button, Typography } from '@material-tailwind/react';
 import FBioGasForm from '../functions/FBioGasForm';
 import AdminNavbar from '../../AdminNavbar';
@@ -8,12 +7,7 @@ import {Alert} from '@material-tailwind/react';
 
 const BioGasForm = () => {
   const { formData,  handleInputChange, handleSubmit,errorMessage } = FBioGasForm();
-  const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
-
-  const handleBack = () => {
-    navigate('/adminviewbiogas');
-  };
 
   return (
     <>
@@ -123,9 +117,7 @@ const BioGasForm = () => {
             <Button type="submit" color="green" size="md" className="me-2" onClick={() => setOpen(true)}>
               Create Biogas
             </Button>
-           <Button type="button" color="light-blue" size="md" onClick={handleBack}>
-              Back
-            </Button>
+            <Button color="light-blue" size="lg" onClick={() => window.history.back()}>Back</Button>
           </div>
         </form>
       </div>

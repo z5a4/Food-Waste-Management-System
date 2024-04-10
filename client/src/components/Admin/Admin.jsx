@@ -1,12 +1,11 @@
 // Admin.js
 import AdminNavbar from './AdminNavbar'
-import AdminCarousel from './AdminCarousel'
-import AdminCard from './AdminCard'
-import AdminCard1 from './AdminCard1'
+import { AdminReportCard, AdminReportCard1 } from './AdminReportCard'
 import Footer1 from '../Footer/Footer1'
 import Footer from '../Footer/Footer'
-import LineChart from './LineChart'
-import BarChart from './BarChart'
+
+
+import { Typography } from '@material-tailwind/react';
 
 function Admin()  {
 
@@ -14,11 +13,16 @@ function Admin()  {
     <>
     
        <AdminNavbar/>
-<div className='space'><br></br></div>
-<LineChart/>
-<div className='space'><br></br></div>
-<BarChart/>
-<div className='space'><br></br></div>
+       <div className='space'><br></br></div>
+       <Typography variant='h3' className="text-center mb-2">Reports</Typography>
+       <div className='space'><br></br></div>
+       <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+      <AdminReportCard/>
+      <AdminReportCard1/>
+      </div>
+      <div className='space'><br></br></div>
+
+      <div className='space'><br></br></div>
 
 <Footer1/>
 <div className='space'><br></br></div>

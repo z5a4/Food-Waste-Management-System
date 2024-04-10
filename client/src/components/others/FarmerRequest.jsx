@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-    Input,
-    Button,
-    Typography,
-    Alert,
-} from "@material-tailwind/react";
+import { Input, Button, Typography } from "@material-tailwind/react";
+import Footer from '../Footer/Footer';
 
 const FarmerRequest = () => {
     const [farmerRequest, setFarmerRequest] = useState({
@@ -96,35 +92,58 @@ const FarmerRequest = () => {
     };
 
     return (
-        <div className="container mx-auto mt-10">
-            <Typography variant="h1" className="text-center mb-4 font-bold">Slurry Request Form</Typography>
+        <>
+        <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
+            <Typography variant="h3" className="text-center mb-4">Slurry Request Form</Typography>
             <form onSubmit={handleSubmit} className="mt-4">
-                <div className="grid grid-cols-2 gap-4">
-                    <div>
-                        <Typography tag="label" className="block text-sm font-bold text-gray-700">Farmer Name:</Typography>
-                        <Input variant='standard' type="text" name="farmerName" value={farmerRequest.farmerName} onChange={handleChange} />
-                    </div>
-                    <div>
-                        <Typography tag="label" className="block text-sm font-bold text-gray-700">Phone Number:</Typography>
-                        <Input variant='standard' type="text" name="mobileNo" value={farmerRequest.mobileNo} onChange={handleChange} />
-                    </div>
-                    <div>
-                        <Typography tag="label" className="block text-sm font-bold text-gray-700">Address:</Typography>
-                        <Input variant='standard' type="text" name="address" value={farmerRequest.address} onChange={handleChange} />
-                    </div>
-                    <div>
-                        <Typography tag="label" className="block text-sm font-bold text-gray-700">Date:</Typography>
-                        <Input variant='standard' type="date" name="date" value={farmerRequest.date} onChange={handleChange} />
-                    </div>
-                </div>
+                <table className="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <Typography className="form-label font-bold">Farmer Name:</Typography>
+                            </td>
+                            <td>
+                                <Input variant='standard' type="text" name="farmerName" value={farmerRequest.farmerName} onChange={handleChange} placeholder="Enter Farmer Name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <Typography className="form-label font-bold">Phone Number:</Typography>
+                            </td>
+                            <td>
+                                <Input variant='standard' type="text" name="mobileNo" value={farmerRequest.mobileNo} onChange={handleChange} placeholder="Enter Phone Number" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <Typography className="form-label font-bold">Address:</Typography>
+                            </td>
+                            <td>
+                                <Input variant='standard' type="text" name="address" value={farmerRequest.address} onChange={handleChange} placeholder="Enter Address" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <Typography className="form-label font-bold">Date:</Typography>
+                            </td>
+                            <td>
+                                <Input variant='standard' type="date" name="date" value={farmerRequest.date} onChange={handleChange} placeholder="Select Date" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <div className="mt-4">
                     <Button type="button" color="green" onClick={calculateEligibleDate}>Check Eligible Date</Button>
                     <Button type="submit" color="blue" className="ml-2">Submit Request</Button>
+                    <Button color="green" size="lg" className="ms-2" onClick={() => window.history.back()}>Back</Button>
                 </div>
             </form>
+            <br></br>
             {eligibleDate && <p>Next eligible date for request: {eligibleDate}</p>}
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         </div>
+        <Footer/>
+        </>
     );
 };
 

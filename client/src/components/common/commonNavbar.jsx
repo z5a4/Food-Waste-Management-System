@@ -70,8 +70,8 @@ export function CommonNavbar() {
             size="sm"
             className="hidden lg:inline-block"
             color="light-green"
-          >
-            <span >Donate Us</span>
+          ><a href="/donationform">
+            <span >Donate Us</span></a>
           </Button>
         </div>
         <IconButton

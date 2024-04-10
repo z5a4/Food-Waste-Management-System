@@ -32,11 +32,19 @@ const donationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  donationPaymentMode: {
-    type: String,
-    enum: ['Credit Card', 'Debit Card', 'Net Banking', 'UPI', 'Other'],
-    required: true,
+  cardNumber:{
+    type:String,
+    required:true
   },
+  expiry:{
+    type:String,
+    required:true,
+  },
+  cvv:{
+    type:String,
+    required:true
+  },
+  
   donationAmount: {
     type: Number,
     required: true,

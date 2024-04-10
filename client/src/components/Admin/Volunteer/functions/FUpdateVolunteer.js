@@ -28,7 +28,7 @@ const FUpdateVolunteer = (volunteer, navigate) => {
     try {
       await axios.put(`http://localhost:5000/api/volunteer/${volunteer._id}`, formData);
       // Redirect to the registrations list after successful update
-      navigate('/admin');
+      window.history.back();
     } catch (error) {
       console.error('Error updating volunteer:', error);
     }

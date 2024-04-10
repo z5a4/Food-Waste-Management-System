@@ -5,11 +5,10 @@ const FRegularFWRequest = () => {
   const [formData, setFormData] = useState({
     organisationName: '',
     requesterName:'',
+    date: '',
     address: '',
-  
     email: '',
     mobileNo: '',
-    date: '',
     approxQuantity: '',
   });
   const [requestId, setRequestId] = useState('');
@@ -31,11 +30,10 @@ const FRegularFWRequest = () => {
       setFormData({
         organisationName: '',
         requesterName:'',
+        date: '',
         address: '',
-       
         email:'',
         mobileNo: '',
-        date: '',
         approxQuantity: ''
       });
     } catch (error) {

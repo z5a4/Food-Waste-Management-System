@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useState,useEffect } from 'react';
 
 const FSchedule = () => {
-    const [totalRequestCount, setTotalRequestCount] = useState(0);
     const [formData, setFormData] = useState({
         requestId: '',
         organisationName: '',
@@ -13,24 +12,13 @@ const FSchedule = () => {
         email: '',
         address: '',
         approxQuantity: '',
-        routeName: '', // Add routeName field
+        routeName: '',
+        status:'',// Add routeName field
        
     });
 
 
-    useEffect(() => {
-        const fetchTotalRequestCount = async () => {
-          try {
-            const response = await axios.get('http://localhost:5000/api/total-request-count');
-            setTotalRequestCount(response.data.totalCount);
-          } catch (error) {
-            console.error('Error fetching total request count:', error);
-          }
-        };
-    
-        fetchTotalRequestCount();
-      }, []);
-
+   
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -72,26 +60,12 @@ const FSchedule = () => {
         }
     };
 
-    const handleSubmit = async (requestToAdd) => {
-        try {
-            // Send the requestToAdd object to the server
-            const response = await axios.post('http://localhost:5000/api/currentschedule', requestToAdd);
-
-            // Display a success message
-            alert(response.data.message);
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            // Display an error message
-            alert('Failed to add request to current schedule. Please try again.');
-        }
-    };
-
+    
 
     return {
         handleInputChange,
-        handleSubmit,
         fetchCombinedRequests,
-        totalRequestCount,
+        
     };
 };
 

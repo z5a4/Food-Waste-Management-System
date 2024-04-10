@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FUpdateOccasionalFWRequest from '../functions/FUpdateOccasionalFWRequest';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import {Typography, Input, Button } from '@material-tailwind/react';
+import Footer from '../../../Footer/Footer';
 
 function UpdateOccasionalFWRequest() {
   const location = useLocation();
@@ -10,53 +11,56 @@ function UpdateOccasionalFWRequest() {
   const { formData, handleChange, handleSubmit } = FUpdateOccasionalFWRequest(OccasionalFWRequest, navigate);
 
   return (
+    <>
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Edit OccasionalFWRequest</h1>
+      <Typography variant='h3' className="text-center mb-4">Edit OccasionalFWRequest</Typography>
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
           <tbody className='text-center'>
             <tr>
               <th><label className="form-label">Request_Id:</label></th>
-              <td><input type="text" name="requestId" value={formData.requestId} onChange={handleChange} className="form-control" readOnly/></td>
+              <td><Input variant='standard' type="text" name="requestId" value={formData.requestId} onChange={handleChange} readOnly /></td>
             </tr>
             <tr>
               <th><label className="form-label">Date :</label></th>
-              <td><input type="date" name="date" value={formData.date} onChange={handleChange} className="form-control" /></td>
+              <td><Input variant='standard' type="date" name="date" value={formData.date} onChange={handleChange} /></td>
             </tr>
-            
             <tr>
               <th><label className="form-label">Email:</label></th>
-              <td><input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" /></td>
+              <td><Input variant='standard' type="email" name="email" value={formData.email} onChange={handleChange} /></td>
             </tr>
             <tr>
               <th><label className="form-label">Mobile No:</label></th>
-              <td><input type="text" name="mobileNo" value={formData.mobileNo} onChange={handleChange} className="form-control" /></td>
+              <td><Input variant='standard' type="text" name="mobileNo" value={formData.mobileNo} onChange={handleChange} /></td>
             </tr>
             <tr>
               <th><label className="form-label">Address:</label></th>
-              <td><input type="text" name="address" value={formData.address} onChange={handleChange} className="form-control" /></td>
+              <td><Input variant='standard' type="text" name="address" value={formData.address} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label className="form-label">description :</label></th>
-              <td><input type="text" name="description" value={formData.description} onChange={handleChange} className="form-control" /></td>
+              <th><label className="form-label">Description :</label></th>
+              <td><Input variant='standard' type="text" name="description" value={formData.description} onChange={handleChange} /></td>
             </tr>
             <tr>
-              <th><label className="form-label">Requester_Name:</label></th>
-              <td><input type="text" name="requesterName" value={formData.requesterName} onChange={handleChange} className="form-control" /></td>
+              <th><label className="form-label">Requester Name:</label></th>
+              <td><Input variant='standard' type="text" name="requesterName" value={formData.requesterName} onChange={handleChange} /></td>
             </tr>
             <tr>
               <th><label className="form-label">Approx Quantity :</label></th>
-              <td><input type="text" name="approxQuantity" value={formData.approxQuantity} onChange={handleChange} className="form-control" /></td>
+              <td><Input variant='standard' type="text" name="approxQuantity" value={formData.approxQuantity} onChange={handleChange} /></td>
             </tr>
             <tr>
               <td colSpan="2" className="text-center">
-                <button type="submit" className="btn btn-danger btn-lg">Confirm</button>
+                <Button type="submit" color="green" size="lg" className='me-2'>Confirm</Button>
+                <Button color="light-blue" size="lg" onClick={() => window.history.back()}>Back</Button>
               </td>
             </tr>
           </tbody>
         </table>
       </form>
     </div>
+    <Footer/>
+    </>
   );
 }
 
