@@ -1,0 +1,74 @@
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import UserFViewMember from '../functions/UserFViewMember';
+import { Button, Typography } from '@material-tailwind/react'; 
+import UserNavbar from '../../UserNavbar';
+import Footer from '../../../Footer/Footer'; 
+
+function UserViewMember() {
+  const { members, error } = UserFViewMember();
+  const navigate = useNavigate();
+
+  const handleUpdate = (member) => {
+    navigate(`/update/members/${member._id}`, { state: { member } });
+  };
+  
+  return (
+    <>
+    <UserNavbar />
+    <div className="container mt-5 pt-5">
+      <Typography variant="h3" className="text-center mb-3">Members</Typography>
+      <div className="flex justify-center mb-3">
+        <Link to="/usermemberform">
+          <Button color="green" size="lg" className="me-2">Add New</Button>
+        </Link>
+        <Link to="/user">
+          <Button color="light-blue" size="lg">Back</Button>
+        </Link>
+      </div>
+      {error && <p className="text-red-500">{error}</p>}
+      <table className="table-auto w-full border rounded">
+        <thead className="bg-gray-800 text-white text-center">
+          <tr>
+            <th className="px-4 py-2">ID</th>
+            <th className="px-4 py-2">Name</th>
+            <th className="px-4 py-2">Email</th>
+            <th className="px-4 py-2">Mobile No</th>
+            <th className="px-4 py-2">Address</th>
+            <th className="px-4 py-2">Date of Birth</th>
+            <th className="px-4 py-2">Username</th>
+            <th className="px-4 py-2">Password</th>
+            <th className="px-4 py-2">Security Question</th>
+            <th className="px-4 py-2">Answer</th>
+            <th className="px-4 py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody className="text-center">
+          {members.map(member => (
+            <tr key={member._id}>
+              <td className="border px-4 py-2">{member.id}</td>
+              <td className="border px-4 py-2">{member.name}</td>
+              <td className="border px-4 py-2">{member.email}</td>
+              <td className="border px-4 py-2">{member.mobileNo}</td>
+              <td className="border px-4 py-2">{member.address}</td>
+              <td className="border px-4 py-2">{member.dateOfBirth}</td>
+              <td className="border px-4 py-2">{member.username}</td>
+              <td className="border px-4 py-2">{member.password}</td>
+              <td className="border px-4 py-2">{member.securityQuestion}</td>
+              <td className="border px-4 py-2">{member.answer}</td>
+              <td className="border px-4 py-2">
+                <div className="flex justify-center">
+                  <Button color="green" size="sm" className="me-2" onClick={() => handleUpdate(member)}>Edit</Button>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <Footer />
+    </>
+  );
+}
+
+export default UserViewMember;

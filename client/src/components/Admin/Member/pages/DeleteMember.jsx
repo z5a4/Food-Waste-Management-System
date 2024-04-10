@@ -19,7 +19,7 @@ function DeleteMember() {
     <div className="container mt-5">
       <Typography variant="h3" className="text-center">Delete Member</Typography>
       <form onSubmit={handleDelete} className="mt-4">
-        <table className="table-auto w-full border rounded">
+        <table className="table table-bordered">
           <tbody className='text-center'>
             <tr>
               <th>Name:</th>
@@ -40,11 +40,7 @@ function DeleteMember() {
             <tr>
               <td colSpan="2" className="text-center">
                 <Button type="submit" color="green" size="lg">Delete</Button>
-                <Link to="/adminviewmember">
-                <Button className='ml-2' color="light-blue">
-                  Back
-                </Button>
-                </Link>
+                <Button color="light-blue" size="lg" className="ms-2" onClick={() => window.history.back()}>Back</Button>
               </td>
             </tr>
           </tbody>

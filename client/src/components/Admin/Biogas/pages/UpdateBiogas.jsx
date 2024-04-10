@@ -55,7 +55,7 @@ function UpdateBiogas() {
             <tr>
               <th colSpan="2" className="text-center">
                 <Button color="green" size="lg" type="submit">Confirm</Button>
-                <Button color="light-blue" size="lg" className="ms-4" onClick={() => window.history.back()}>Back</Button>
+                <Button color="light-blue" size="lg" className="ms-2" onClick={() => window.history.back()}>Back</Button>
               </th>
             </tr>
           </tbody>

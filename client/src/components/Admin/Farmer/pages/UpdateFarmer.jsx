@@ -116,7 +116,7 @@ function UpdateFarmer() {
             </tr>
             <tr>
               <td colSpan="2" className="text-center">
-                <Button color='green' size='lg' className="me-2">Confirm</Button>
+                <Button type='submit' color='green' size='lg' className="me-2">Confirm</Button>
                 <Button color="light-blue" size="lg"  onClick={() => window.history.back()}>Back</Button>
               </td>
             </tr>

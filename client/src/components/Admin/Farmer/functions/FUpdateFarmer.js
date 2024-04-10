@@ -27,7 +27,7 @@ const FUpdateFarmer = (farmer, navigate) => {
     try {
       await axios.put(`http://localhost:5000/api/Farmers/${farmer._id}`, formData);
       // Redirect to the registrations list after successful update
-      navigate('/adminviewfarmer');
+      window.history.back();
     } catch (error) {
       console.error('Error updating farmer:', error);
     }

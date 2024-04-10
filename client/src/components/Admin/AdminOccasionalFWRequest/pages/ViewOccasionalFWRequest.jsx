@@ -29,7 +29,7 @@ const ViewOccasionalFWRequest = () => {
       <div className="container mt-4 pt-4">
         <Typography variant='h3' className="text-center mb-3">OccasionalFWRequest Table</Typography>
         <div className="flex justify-center mb-3">
-        <Link to="/adminOccasionalFWRequestform">
+        <Link to="/common/occasionalFWrequest">
           <Button color="green" className="mr-2">
             Add New
           </Button>
@@ -68,8 +68,8 @@ const ViewOccasionalFWRequest = () => {
                 <td className="py-2 px-4">{OccasionalFWRequest.approxQuantity}</td>
                 <td className="py-2 px-4">
                   <div className="flex">
-                    <button type="button" className="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onClick={() => handleUpdate(OccasionalFWRequest)}> Edit</button>
-                    <button type="button" className="bg-gray-500 text-white px-4 py-2 rounded-md" onClick={() => handleDelete(OccasionalFWRequest)}> Delete</button>
+                    <Button color='green' size='sm' className="me-2" onClick={() => handleUpdate(OccasionalFWRequest)}> Edit</Button>
+                    <Button color='light-blue' size='sm' onClick={() => handleDelete(OccasionalFWRequest)}> Delete</Button>
                   </div>
                 </td>
               </tr>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const FViewMember = () => {
+const FViewFarmer = () => {
   const [farmers, setfarmers] = useState([]);
   const [error, setError] = useState(null);
 
@@ -21,4 +21,4 @@ const FViewMember = () => {
   return { farmers, error };
 };
 
-export default FViewMember;
+export default FViewFarmer;

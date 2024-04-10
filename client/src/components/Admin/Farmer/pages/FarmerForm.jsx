@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FFarmerForm from '../functions/FFarmerForm';
 import { Typography, Button, Input } from '@material-tailwind/react';
+import Footer from '../../../Footer/Footer';
 
 const FarmerForm = () => {
   const { formData, errors, handleInputChange, handleSubmit } = FFarmerForm();
@@ -12,6 +13,7 @@ const FarmerForm = () => {
   };
 
   return (
+    <>
     <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
       <Typography variant='h3' className="text-center mb-4">Register..</Typography>
       <form onSubmit={handleSubmit} className="container mt-4">
@@ -167,6 +169,8 @@ const FarmerForm = () => {
         </table>
       </form>
     </div>
+    <Footer/>
+    </>
   );
 };
 

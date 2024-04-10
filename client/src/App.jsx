@@ -10,11 +10,21 @@ import AdminBiogasForm from './components/Admin/Biogas/pages/BioGasForm'
 import AdminUpdateBiogasForm from './components/Admin/Biogas/pages/UpdateBiogas'
 import AdminDeleteBiogasForm from './components/Admin/Biogas/pages/DeleteBiogas'
 
+{/*User-BioGas-Import*/}
+import User from './components/User/User';
+import UserViewBiogas from './components/User/Biogas/pages/UserViewBiogas';
+import UserBioGasForm from './components/User/Biogas/pages/UserBioGasForm';
+
 {/*Admin-Donation-Import*/}
 import AdminViewDonation from './components/Admin/Donation/pages/ViewDonation'
 import AdminDonationForm from './components/Admin/Donation/pages/DonationForm'
 import AdminUpdateDonationForm from './components/Admin/Donation/pages/UpdateDonation'
 import AdminDeleteDonationForm from './components/Admin/Donation/pages/DeleteDonation'
+
+{/*User-Donation-Import*/}
+import UserViewDonation from './components/User/Donation/pages/UserViewDonation';
+import UserDonationForm from './components/User/Donation/pages/UserDonationForm';
+
 
 {/*Admin-Farmer-Import*/}
 import AdminViewFarmer from './components/Admin/Farmer/pages/ViewFarmer'
@@ -22,17 +32,29 @@ import AdminFarmerForm from './components/Admin/Farmer/pages/FarmerForm'
 import AdminUpdateFarmer from './components/Admin/Farmer/pages/UpdateFarmer'
 import AdminDeleteFarmer from './components/Admin/Farmer/pages/DeleteFarmer'
 
+{/*User-Farmer-Import*/}
+import UserViewFarmer from './components/User/Farmer/pages/UserViewFarmer';
+import UserFarmerForm from './components/User/Farmer/pages/UserFarmerForm';
+
 {/*Admin-Member-Import*/}
 import AdminViewMember from './components/Admin/Member/pages/ViewMember'
 import AdminMemberForm from './components/Admin/Member/pages/Member'
 import AdminUpdateMember from './components/Admin/Member/pages/UpdateMember'
 import AdminDeleteMember from './components/Admin/Member/pages/DeleteMember'
 
+{/*User-Member-Import*/}
+import UserViewMember from './components/User/Member/pages/UserViewMember';
+import UserMember from './components/User/Member/pages/UserMember';
+
 {/*Admin-Registration-Import*/}
 import AdminViewRegistration from './components/Admin/Registration/pages/ViewRegistration'
 //import AdminRegistrationForm from './components/common/Registration/pages/Member'
 import AdminUpdateRegistration from './components/Admin/Registration/pages/UpdateReg'
 import AdminDeleteRegistration from './components/Admin/Registration/pages/DeleteReg'
+
+{/*User-Registration-Import*/}
+import UserViewRegistrations from './components/User/Registration/pages/UserViewRegistration';
+import UserCommonRegistrationForm from './components/User/Registration/pages/UserCommonRegistration';
 
 
 {/*Admin-Source-Import*/}
@@ -47,6 +69,10 @@ import AdminTransporterForm from './components/Admin/Transporter/pages/Transport
 import AdminUpdateTransporter from './components/Admin/Transporter/pages/UpdateTransporter'
 import AdminDeleteTransporter from './components/Admin/Transporter/pages/DeleteTransporter'
 
+{/*User-Transporter-Import*/}
+import UserViewTransporter from './components/User/Transporter/pages/UserViewTransporter';
+import UserTransporterForm from './components/User/Transporter/pages/UserTransporterForm';
+
 
 {/*Admin-Volunteer-Import*/}
 import AdminViewVolunteer from './components/Admin/Volunteer/pages/ViewVolunteer'
@@ -54,17 +80,26 @@ import AdminVolunteerForm from './components/Admin/Volunteer/pages/Volunteer'
 import AdminUpdateVolunteer from './components/Admin/Volunteer/pages/UpdateVolunteer'
 import AdminDeleteVolunteer from './components/Admin/Volunteer/pages/DeleteVolunteer'
 
+{/*User-Volunteer-Import*/}
+import UserViewVolunteer from './components/User/Volunteer/pages/UserViewVolunteer';
+import UserVolunteer from './components/User/Volunteer/pages/UserVolunteer';
 
 {/*Admin-Occasional FW Request */}
 import AdminViewOccasionlFWRequest from './components/Admin/AdminOccasionalFWRequest/pages/ViewOccasionalFWRequest'
 import AdminUpdateOccasionalFWRequest from './components/Admin/AdminOccasionalFWRequest/pages/UpdateOccasionalFWRequest'
 import AdminDeleteOccasionalFWRequest from './components/Admin/AdminOccasionalFWRequest/pages/DeleteOccasionalFWRequest'
- 
+
+{/*User-Occasional FW Request */}
+import UserViewOccasionalFWRequest from './components/User/AdminOccasionalFWRequest/pages/UserViewOccasionalFWRequest';
+
+
 {/*Admin-Regular FW Request */}
 import AdminViewRegularFWRequest from './components/Admin/AdminRegularFWRequest/pages/AdminViewRegularFWRequest';
 import AdminUpdateRegularFWRequest from './components/Admin/AdminRegularFWRequest/pages/AdminUpdateRegularFWRequest';
 import AdminDeleteRegularFWRequest from './components/Admin/AdminRegularFWRequest/pages/AdminDeleteRegularFWRequest';
 
+{/*User-Regular FW Request */}
+import UserViewRegularFWRequest from './components/User/AdminRegularFWRequest/pages/UserViewRegularFWRequest';
 
 {/*Common.jsx Import*/}
 import Common from './components/common/Common';
@@ -72,6 +107,11 @@ import CommonRegistrationForm from './components/common/CommonRegistration/pages
 import LoginForm from './components/common/Login/Login';
 import Profile from './components/others/Profile';
 import About from './components/common/About Us/About';
+
+
+{/*Report Import*/}
+import ReportViewVolunteer from './components/Reports/Volunteer/ReportViewVolunteer';
+import ReportViewTransporter from './components/Reports/Transporter/ReportViewTransporter';
 
 
 
@@ -128,6 +168,7 @@ function App() {
       <Route path="/routeselect" element={<RouteSelect/>}/>
         <Route path='/adminrouteform' element={<RouteForm/>}/>
         <Route path='/adminviewroute' element={<AdminViewRoute/>}/>
+        
         {/*Admin Bio-Gas Route*/}
         <Route path="/admin" element={<Admin/>} />
         <Route path="/adminviewbiogas" element={<AdminViewBiogas/>}/>
@@ -135,12 +176,20 @@ function App() {
         <Route path="/update/biogas/:id" element={<AdminUpdateBiogasForm/>}/>
         <Route path="/delete/biogas/:id" element={<AdminDeleteBiogasForm/>}/>
 
+        {/*User Bio-Gas Route*/}
+        <Route path="/user" element={<User/>}/>
+        <Route path="/userviewbiogas" element={<UserViewBiogas/>}/>
+        <Route path="/userbiogasform" element={<UserBioGasForm/>}/>
 
         {/*Admin Donation Route*/}
         <Route path="/adminviewdonation" element={<AdminViewDonation/>}/>
         <Route path="/admindonationform" element={<AdminDonationForm/>}/>
         <Route path="/update/Donation/:id" element={<AdminUpdateDonationForm/>}/>
         <Route path="/delete/Donation/:id" element={<AdminDeleteDonationForm/>}/>
+
+        {/*User Donation Route*/}
+        <Route path="/userviewdonation" element={<UserViewDonation/>}/>
+        <Route path="/userdonationform" element={<UserDonationForm/>}/>
 
 
         {/*Admin Farmer Route*/}
@@ -149,17 +198,30 @@ function App() {
         <Route path="/update/farmers/:id" element={<AdminUpdateFarmer/>}/>
         <Route path="/delete/farmers/:id" element={<AdminDeleteFarmer/>}/>
 
+        {/*User Farmer Route*/}
+        <Route path="/userviewfarmer" element={<UserViewFarmer/>}/>
+        <Route path="/userfarmerform" element={<UserFarmerForm/>}/>
+
         {/*Admin Member Route*/}
         <Route path="/adminviewmember" element={<AdminViewMember/>}/>
         <Route path="/adminmemberform" element={<AdminMemberForm/>}/>
         <Route path="/update/members/:id" element={<AdminUpdateMember/>}/>
         <Route path="/delete/members/:id" element={<AdminDeleteMember/>}/>
 
+        {/*User Member Route*/}
+        <Route path="/userviewmember" element={<UserViewMember/>}/>
+        <Route path="/usermemberform" element={<UserMember/>}/>
+
+
         {/*Admin Registration Route*/}
         <Route path="/adminviewregistration" element={<AdminViewRegistration/>}/>
         {/*  <Route path="/adminmemberform" element={<AdminMemberForm/>}/>   */}
         <Route path="/update/:id" element={<AdminUpdateRegistration/>}/>
         <Route path="/delete/:id" element={<AdminDeleteRegistration/>}/>
+
+         {/*User Registration Route*/}
+         <Route path="/userviewregistration" element={<UserViewRegistrations/>}/>
+         <Route path="/usercommonregistration" element={<UserCommonRegistrationForm/>}/>
 
       {/*Admin Source Route*/}
         <Route path="/adminviewsource" element={<AdminViewSource/>}/>
@@ -173,22 +235,37 @@ function App() {
         <Route path="/update/transporter/:id" element={<AdminUpdateTransporter/>}/>
         <Route path="/delete/transporter/:id" element={<AdminDeleteTransporter/>}/>
 
+        {/*User Transporter Route*/}
+        <Route path="/userviewtransporter" element={<UserViewTransporter/>}/>
+        <Route path="/usertransporterform" element={<UserTransporterForm/>}/>
+
 
       {/*Admin Volunteer Route*/}
         <Route path="/adminviewvolunteer" element={<AdminViewVolunteer/>}/>
         <Route path="/adminvolunteerform" element={<AdminVolunteerForm/>}/>
         <Route path="/update/volunteer/:id" element={<AdminUpdateVolunteer/>}/>
         <Route path="/delete/volunteer/:id" element={<AdminDeleteVolunteer/>}/>
+
+        {/*User Volunteer Route*/}
+        <Route path="/userviewvolunteer" element={<UserViewVolunteer/>}/>
+        <Route path="/uservolunteerform" element={<UserVolunteer/>}/>
+
       
       {/*Admin Occasional FW Request */}
       <Route path="/adminviewoccasionalFWrequest" element={<AdminViewOccasionlFWRequest/>}/>
       <Route path="/update/Occasional/:id" element={<AdminUpdateOccasionalFWRequest/>}/>
       <Route path="/delete/Occasional/:id" element={<AdminDeleteOccasionalFWRequest/>}/>
-      
+
+       {/*User Occasional FW Request */}
+       <Route path="/userviewoccasionalFWrequest" element={<UserViewOccasionalFWRequest/>}/>
+
       {/*Admin View Regular FW Request */}
       <Route path="/adminviewregularFWRequest" element={<AdminViewRegularFWRequest/>}/>
       <Route path="/update/Regular/:id" element={<AdminUpdateRegularFWRequest/>}/>
       <Route path="/delete/Regular/:id" element={<AdminDeleteRegularFWRequest/>}/>
+
+      {/*User View Regular FW Request */}
+      <Route path="/userviewregularFWRequest" element={<UserViewRegularFWRequest/>}/>
 
 
 
@@ -222,6 +299,9 @@ function App() {
 
       <Route path='/request' element={<FarmerRequest/>}/>
 
+      {/*Report Route*/}
+      <Route path="/reportvolunteer" element={<ReportViewVolunteer/>}/>
+      <Route path="/reporttransporter" element={<ReportViewTransporter/>}/>
 
 
 

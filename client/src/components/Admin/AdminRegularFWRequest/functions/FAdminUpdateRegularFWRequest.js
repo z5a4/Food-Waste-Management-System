@@ -4,7 +4,7 @@ import axios from 'axios';
 const FUpdateRegularFWRequest = (RegularFWRequest, navigate) => {
   const [formData, setFormData] = useState({
     requestId: RegularFWRequest.requestId || '',
-    description: RegularFWRequest.description || '',
+    organisationName: RegularFWRequest.organisationName || '',
     date: RegularFWRequest.date || '',
     address: RegularFWRequest.address || '',
     email: RegularFWRequest.email || '',
@@ -27,7 +27,7 @@ const FUpdateRegularFWRequest = (RegularFWRequest, navigate) => {
     try {
       await axios.put(`http://localhost:5000/api/Regular/${RegularFWRequest._id}`, formData);
       // Redirect to the registrations list after successful update
-      navigate('/admin');
+      window.history.back();
     } catch (error) {
       console.error('Error updating RegularFWRequest:', error);
     }

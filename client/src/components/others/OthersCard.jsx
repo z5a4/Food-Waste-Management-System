@@ -34,9 +34,11 @@ import {
           <Typography color="gray" className="mb-8 font-normal">
             Click below to make your food waste request...
           </Typography>
-          <a className="inline-block">
-            <OthersCollapse/>
-          </a>
+          <a href="/others/regularfwrequest" className="inline-block">
+          <Button color="green" className="flex items-center gap-2">
+            Food waste request
+          </Button>
+        </a>
         </CardBody>
       </Card>
     );
@@ -54,9 +56,11 @@ import {
             Click below to get free slurry for you... We will validate your 
             request, and you can get slurry once in 15 days...
           </Typography>
-          <a className="inline-block">
-            <OthersCollapse1/>
-          </a>
+          <a href="/request" className="inline-block">
+          <Button color="green" className="flex items-center gap-2">
+            Slurry request
+          </Button>
+        </a>
         </CardBody>
         <CardHeader
           shadow={false}
@@ -96,8 +100,10 @@ import {
             <Typography color="gray" className="mb-8 font-normal">
               Click below become our member...
             </Typography>
-            <a className="inline-block">
-              <OthersCollapse2/>
+            <a href="/others/omembersform" className="inline-block">
+            <Button color="green" className="flex items-center gap-2">
+            Become member
+            </Button>
             </a>
           </CardBody>
         </Card>
