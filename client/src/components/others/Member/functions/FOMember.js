@@ -10,7 +10,8 @@ const FOMember = () => {
     mobileNo: '',
     username: '',
     password: '',
-    dateOfBirth: '', // New field for Date of Birth
+    dateOfBirth: '', 
+    BeVolunteer:'',// New field for Date of Birth
     securityQuestion: '',
     answer: '',
   });
