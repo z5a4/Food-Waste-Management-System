@@ -175,7 +175,7 @@ function NavList() {
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 ">
       <Typography
         as="a"
-        href="#"
+        href="/schedule"
         variant="h6"
         color="blue-gray"
         className="font-h6"
@@ -185,7 +185,7 @@ function NavList() {
       </Typography>
       <Typography
         as="a"
-        href="/uschedule"
+        href="#"
         variant="h6"
         color="blue-gray"
         className="font-h6"
@@ -195,7 +195,7 @@ function NavList() {
       <NavListMenu />
       <Typography
         as="a"
-        href="/schedule"
+        href="#"
         variant="h6"
         color="blue-gray"
         className="font-h6"

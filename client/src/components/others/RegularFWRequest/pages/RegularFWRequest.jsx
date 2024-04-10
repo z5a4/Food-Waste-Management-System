@@ -6,7 +6,8 @@ import FRegularFWRequest from '../functions/FRegularFWRequest';
 import Footer from '../../../Footer/Footer';
 
 const RegularFWRequest = () => {
-  const { formData, requestId, handleInputChange } = FRegularFWRequest();
+  const { formData, requestId, handleInputChange,handleSubmit } = FRegularFWRequest();
+  const navigate = useNavigate();
 
   const getCurrentDate = () => {
     const now = new Date();
@@ -23,22 +24,9 @@ const RegularFWRequest = () => {
     handleInputChange({ target: { name: 'date', value: currentDate } });
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post('http://localhost:5000/api/slurryRequest', formData);
-      console.log("Response:", response.data); 
-      
-      if (response.data.message) {
-        console.log(response.data.message); // Navigate to the home page after successful submission
-      } else {
-        throw new Error('Request submission failed.');
-      }
-    } catch (error) {
-      console.error(error);
-      alert('An error occurred. Please try again.');
-    }
+ 
+  const handleBack = () => {
+    navigate('/');
   };
 
   return (

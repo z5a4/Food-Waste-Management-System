@@ -183,7 +183,7 @@ function App() {
 
         {/*Admin Donation Route*/}
         <Route path="/adminviewdonation" element={<AdminViewDonation/>}/>
-        <Route path="/admindonationform" element={<AdminDonationForm/>}/>
+        <Route path="/donationform" element={<AdminDonationForm/>}/>
         <Route path="/update/Donation/:id" element={<AdminUpdateDonationForm/>}/>
         <Route path="/delete/Donation/:id" element={<AdminDeleteDonationForm/>}/>
 

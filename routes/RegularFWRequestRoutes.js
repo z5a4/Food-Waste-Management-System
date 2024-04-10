@@ -16,5 +16,3 @@ router.put('/api/Regular/:id',RegularFWRequesController.deleteRegularFWRequest);
 
 module.exports = router;
 
-module.exports = router;
-

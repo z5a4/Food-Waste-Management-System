@@ -31,10 +31,15 @@ const OccasionalFWRequestModel = new mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    default: 'Pending', // Default status set to "Pending"
+  },
   mobileNo: {
     type: Number,
     required: true,
   },
+  
   
   
 });

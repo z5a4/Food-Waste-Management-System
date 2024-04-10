@@ -10,7 +10,9 @@ const FDonationForm = () => {
     donorName: '',
     donorMobileNo: '',
     donorEmail: '',
-    donationPaymentMode: '',
+    cardNumber: '',
+    expiry: '',
+    cvv: '',
     donationAmount: '',
   });
 
@@ -39,11 +41,7 @@ const FDonationForm = () => {
       isValid = false;
     }
 
-    if (!formData.donationPaymentMode) {
-      newErrors.donationPaymentMode = 'Donation Payment Mode is required';
-      isValid = false;
-    }
-
+    
     if (!formData.donationAmount || isNaN(formData.donationAmount) || formData.donationAmount <= 0) {
       newErrors.donationAmount = 'Valid donation amount is required';
       isValid = false;
