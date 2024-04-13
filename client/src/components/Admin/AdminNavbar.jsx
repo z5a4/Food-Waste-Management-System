@@ -26,7 +26,8 @@ import {
   ArrowDownOnSquareIcon,
   UserIcon,
   TruckIcon,
-  HandRaisedIcon
+  HandRaisedIcon,
+ 
 } from "@heroicons/react/24/solid";
 
 
@@ -86,6 +87,24 @@ const navListMenuItems = [
     description: "Explore limited-time deals and bundles",
     icon: HandRaisedIcon,
     href:"/adminviewvolunteer",
+  },
+  {
+    title: "Admin",
+    description: "Explore limited-time deals and bundles",
+    icon: HandRaisedIcon,
+    href:"",
+  },
+  {
+    title: "Clerk",
+    description: "Explore limited-time deals and bundles",
+    icon: HandRaisedIcon,
+    href:"/",
+  },
+  {
+    title: "Route",
+    description: "Explore limited-time deals and bundles",
+    icon: HandRaisedIcon,
+    href:"/adminviewroute",
   },
 ];
  

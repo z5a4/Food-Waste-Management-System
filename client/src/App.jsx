@@ -141,6 +141,7 @@ import Skeleton from './Skeleton';
 import RouteForm from './components/Admin/Route/pages/RouteForm';
 import AdminViewRoute from './components/Admin/Route/pages/ViewRoute';
 import RouteSelect from './components/Admin/Schedule/pages/RouteSelect';
+import CurrentRoutes from './components/Admin/Route/pages/CurrentRoutes';
 
 import FarmerRequest from './components/others/FarmerRequest';
 
@@ -168,6 +169,7 @@ function App() {
       <Route path="/routeselect" element={<RouteSelect/>}/>
         <Route path='/adminrouteform' element={<RouteForm/>}/>
         <Route path='/adminviewroute' element={<AdminViewRoute/>}/>
+        <Route path='/viewcurrentroutes' element={<CurrentRoutes/>}/>
         
         {/*Admin Bio-Gas Route*/}
         <Route path="/admin" element={<Admin/>} />
