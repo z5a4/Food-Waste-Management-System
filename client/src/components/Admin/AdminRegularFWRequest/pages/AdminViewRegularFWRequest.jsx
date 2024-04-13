@@ -40,8 +40,8 @@ const AdminViewRegularFWRequest = () => {
         </Link>
         </div>
         {error && <p className="text-danger">{error}</p>}
-        <table className="table table-striped border rounded">
-          <thead className="table-dark text-center">
+        <table className="table-auto w-full border border-collapse rounded">
+          <thead className="bg-gray-800 text-white">
             <tr>
               <th>Request ID</th>
               <th>Organisation Name</th>

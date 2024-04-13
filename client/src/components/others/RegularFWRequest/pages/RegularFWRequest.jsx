@@ -37,14 +37,7 @@ const RegularFWRequest = () => {
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody>
-              <tr>
-                <td>
-                  <label htmlFor="reqID" className="block text-sm font-bold text-gray-700">Request ID:</label>
-                  </td>
-                  <td>
-                  <Input variant='standard' type="text" name="requestId" value={requestId} readOnly />
-                </td>
-                </tr>
+              
                 <tr>
                 <td>
                   <label htmlFor="Oname" className="block text-sm font-bold text-gray-700">Organisation Name:</label>

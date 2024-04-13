@@ -20,7 +20,7 @@ function ViewMember() {
   return (
     <>
     <AdminNavbar />
-    <div className="container mt-5 pt-5">
+    <div className="container mt-4 pt-4">
       <Typography variant="h3" className="text-center mb-3">Members</Typography>
       <div className="flex justify-center mb-3">
         <Link to="/adminmemberform">
@@ -31,8 +31,8 @@ function ViewMember() {
         </Link>
       </div>
       {error && <p className="text-red-500">{error}</p>}
-      <table className="table-auto w-full border rounded">
-        <thead className="bg-gray-800 text-white text-center">
+      <table className="table-auto w-full border border-collapse rounded">
+        <thead className="bg-gray-800 text-white">
           <tr>
             <th className="px-4 py-2">ID</th>
             <th className="px-4 py-2">Name</th>
@@ -41,9 +41,6 @@ function ViewMember() {
             <th className="px-4 py-2">Address</th>
             <th className="px-4 py-2">Date of Birth</th>
             <th className="px-4 py-2">Username</th>
-            <th className="px-4 py-2">Password</th>
-            <th className="px-4 py-2">Security Question</th>
-            <th className="px-4 py-2">Answer</th>
             <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
@@ -57,9 +54,7 @@ function ViewMember() {
               <td className="border px-4 py-2">{member.address}</td>
               <td className="border px-4 py-2">{member.dateOfBirth}</td>
               <td className="border px-4 py-2">{member.username}</td>
-              <td className="border px-4 py-2">{member.password}</td>
-              <td className="border px-4 py-2">{member.securityQuestion}</td>
-              <td className="border px-4 py-2">{member.answer}</td>
+              
               <td className="border px-4 py-2">
                 <div className="flex justify-center">
                   <Button color="green" size="sm" className="me-2" onClick={() => handleUpdate(member)}>Edit</Button>

@@ -36,6 +36,7 @@ const FRegularFWRequest = () => {
         mobileNo: '',
         approxQuantity: ''
       });
+      window.history.back();
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Registration failed. Please try again.');
