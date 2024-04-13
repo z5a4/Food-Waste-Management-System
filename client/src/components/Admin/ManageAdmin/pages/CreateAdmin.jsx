@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FCreateAdmin from '../functions/FCreateAdmin';
 import { Button, Input, Alert, Typography } from '@material-tailwind/react';
-import { AdminNavbar } from '../../AdminNavbar';
+import  AdminNavbar  from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 
 const CreateAdmin = () => {

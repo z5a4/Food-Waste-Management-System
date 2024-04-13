@@ -146,6 +146,10 @@ import CurrentRoutes from './components/Admin/Route/pages/CurrentRoutes';
 import FarmerRequest from './components/others/FarmerRequest';
 
 
+
+import CreateAdmin from './components/Admin/ManageAdmin/pages/CreateAdmin'
+
+
 function App() {
   
   const [loading, setLoading] = useState(true);
@@ -166,6 +170,7 @@ function App() {
       ) : (
     <Router>
       <Routes>
+        <Route path='/createadmin' element={<CreateAdmin/>}/>
       <Route path="/routeselect" element={<RouteSelect/>}/>
         <Route path='/adminrouteform' element={<RouteForm/>}/>
         <Route path='/adminviewroute' element={<AdminViewRoute/>}/>
