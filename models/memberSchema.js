@@ -1,16 +1,19 @@
 const monggose= require('mongoose');
 
 const memberSchema= new monggose.Schema({
-    id: String,
-    name: String,
-    dateOfBirth: Date,
-    address: String,
-    email: String,
-    mobileNo: String,
-    username: String,
-    password: String,
-    securityQuestion: String,
-    answer: String,
+    id: {type:String,
+        unique:true},
+    name:  {type:String},
+    dateOfBirth: {type:Date},
+    address: {type:String},
+    email: {type:String},
+    mobileNo: {type:String},
+    username:{type:String},
+    password: {type:String},
+    BeVolunteer:{type:String},
+
+    securityQuestion: {type:String},
+    answer: {type:String},
 
 });
 module.exports=monggose.model('memberschema',memberSchema);

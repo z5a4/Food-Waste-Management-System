@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import FSchedule from '../functions/FSchedule';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import ViewRoute from '../../Route/pages/ViewRoute'; // Import ViewRoute component
+import CurrentRoutes from '../../Route/pages/CurrentRoutes'; // Import ViewRoute component
 //import RouteSelect from './RouteSelect'; // Import RouteSelect component
 
 const Schedule = () => {
@@ -156,7 +156,7 @@ requestDataWithRoute.status = 'Approved';
                     <button onClick={handleViewRoute} className="btn btn-primary me-2">View Route</button>
                     </div>
 
-                {showRoute && <ViewRoute />}
+                {showRoute && <CurrentRoutes/>}
                
               
             </div>

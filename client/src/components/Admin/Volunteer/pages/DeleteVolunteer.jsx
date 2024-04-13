@@ -20,12 +20,21 @@ function DeleteVolunteer() {
       <form onSubmit={handleDelete}>
         <table className="table table-bordered">
           <tbody className='text-center'>
-            <tr>
+          <tr>
               <td>
-                <label htmlFor="id" className="font-bold form-label">ID:</label>
+                <label htmlFor="id" className="font-bold form-label">Voluneer ID:</label>
               </td>
               <td>
                 <Input type="text" value={volunteer.volunteerId} disabled className="form-control" />
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <label htmlFor="id" className="font-bold form-label"> Member ID:</label>
+              </td>
+              <td>
+                <Input type="text" value={volunteer.id} disabled className="form-control" />
               </td>
             </tr>
             <tr>

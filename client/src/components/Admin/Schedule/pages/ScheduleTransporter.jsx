@@ -43,11 +43,6 @@ function ScheduleTransporter() {
               <td>{transporter.mobileNo}</td>
               <td>{transporter.email}</td>
               <td>{transporter.rentRate}</td>
-              <td>
-                <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" >Add</button>
-                </div>
-              </td>
             </tr>
           ))}
         </tbody>

@@ -12,5 +12,7 @@ router.put('/api/members/:id', MemberController.updateMember);
 
 router.delete('/api/members/:id',MemberController.deleteMember);
 
+router.get('/api/Member/:id',MemberController.getMemberData);
+
 
 module.exports = router;
