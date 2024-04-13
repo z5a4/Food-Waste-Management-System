@@ -1,18 +1,39 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import FVolunteer from '../functions/FVolunteer';
+import Axios from 'axios';
 import { Button, Input, Typography } from '@material-tailwind/react'; 
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 
 
 const Volunteer = () => {
-  const { formData, errors, handleInputChange, handleSubmit } = FVolunteer();
+  const { formData, handleInputChange } = FVolunteer();
+  const [volunteerId, setvolunteerId] = useState('');
+  
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate('/adminviewvolunteer');
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+   
+      try {
+        const response = await Axios.post('http://localhost:5000/api/volunteer-table', formData);
+        alert(response.data.message);
+        setvolunteerId(response.data.volunteerId);
+        
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Volunteer Registration failed. Please try again.');
+      }
+    }
+  
+
+ 
 
   return (
     <>
@@ -30,11 +51,26 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="volunteerId" value={formData.volunteerId} onChange={handleInputChange} placeholder="Enter Volunteer ID" />
-                  {errors.name && <span className="text-red-500">{errors.volunteerId}</span>}
+                  <Input variant='standard' type="text" name="volunteerId" value={volunteerId} readOnly onChange={handleInputChange} placeholder="Enter Volunteer ID" />
+                 
                 </div>
               </td>
             </tr>
+
+            <tr>
+              <td>
+                <div className="mb-3">
+                  <label htmlFor="memberid" className="font-bold form-label">Member ID:</label>
+                </div>
+              </td>
+              <td>
+                <div className="mb-3">
+                  <Input variant='standard' type="text" name="id" value={formData.id} onChange={handleInputChange} placeholder="Enter Volunteer ID" />
+                    </div>
+              </td>
+            </tr>
+           
+
             <tr>
               <td>
                 <div className="mb-3">
@@ -44,7 +80,7 @@ const Volunteer = () => {
               <td>
                 <div className="mb-3">
                   <Input variant='standard' type="text" name="volunteerName" value={formData.volunteerName} onChange={handleInputChange} placeholder="Enter Volunteer Name" />
-                  {errors.name && <span className="text-red-500">{errors.volunteerName}</span>}
+                 
                 </div>
               </td>
             </tr>
@@ -56,8 +92,8 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} placeholder="Select Date of Birth" />
-                  {errors.dateOfBirth && <span className="text-red-500">{errors.dateOfBirth}</span>}
+                  <Input variant='standard' type="text" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} placeholder="Select Date of Birth" />
+                  
                 </div>
               </td>
             </tr>
@@ -70,7 +106,7 @@ const Volunteer = () => {
               <td>
                 <div className="mb-3">
                   <Input variant='standard' type="text" name="volunteeraddress" value={formData.volunteeraddress} onChange={handleInputChange} placeholder="Enter Address" />
-                  {errors.address && <span className="text-red-500">{errors.address}</span>}
+                  
                 </div>
               </td>
             </tr>
@@ -83,7 +119,7 @@ const Volunteer = () => {
               <td>
                 <div className="mb-3">
                   <Input variant='standard' type="text" name="email" value={formData.email} onChange={handleInputChange} placeholder="Enter Email" />
-                  {errors.email && <span className="text-red-500">{errors.email}</span>}
+                 
                 </div>
               </td>
             </tr>
@@ -96,7 +132,7 @@ const Volunteer = () => {
               <td>
                 <div className="mb-3">
                   <Input variant='standard' type="text" name="volunteermobileNo" value={formData.volunteermobileNo} onChange={handleInputChange} placeholder="Enter Mobile No" />
-                  {errors.mobileNo && <span className="text-red-500">{errors.volunteermobileNo}</span>}
+                 
                 </div>
               </td>
             </tr>
@@ -109,7 +145,7 @@ const Volunteer = () => {
               <td>
                 <div className="mb-3">
                   <Input variant='standard' type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder="Enter Username" />
-                  {errors.username && <span className="text-red-500">{errors.username}</span>}
+                 
                 </div>
               </td>
             </tr>
@@ -122,7 +158,7 @@ const Volunteer = () => {
               <td>
                 <div className="mb-3">
                   <Input variant='standard' type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Enter Password" />
-                  {errors.password && <span className="text-red-500">{errors.password}</span>}
+                 
                 </div>
               </td>
             </tr>
@@ -140,7 +176,7 @@ const Volunteer = () => {
                     <option value="favHobby">Favorite Hobby</option>
                     <option value="favSport">Favorite Sport</option>
                   </select>
-                  {errors.securityQuestion && <span className="text-red-500">{errors.securityQuestion}</span>}
+                  
                 </div>
               </td>
             </tr>
@@ -153,7 +189,7 @@ const Volunteer = () => {
               <td>
                 <div className="mb-3">
                   <Input variant='standard' type="text" name="answer" value={formData.answer} onChange={handleInputChange} placeholder="Enter Answer" />
-                  {errors.answer && <span className="text-red-500">{errors.answer}</span>}
+                  
                 </div>
               </td>
             </tr>

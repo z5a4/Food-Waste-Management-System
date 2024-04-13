@@ -24,7 +24,7 @@ const ViewRoute = () => {
     <div className="container mt-5 pt-5">
       <h1 className="text-center">Routes</h1>
       <div className="d-flex justify-content-center mb-3">
-        <Link to="/routeform" className="btn btn-danger btn-lg me-2">Add New</Link>
+        <Link to="/adminrouteform" className="btn btn-danger btn-lg me-2">Add New</Link>
         <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
       </div>
       {error && <p className="text-danger">{error}</p>}
@@ -37,14 +37,9 @@ const ViewRoute = () => {
             <th>Route Landmark</th>
             <th>Transporter ID</th>
             <th>Driver Name</th>
-            <th>Vehicle No</th>
-            <th>License No</th>
-            <th>Rent Rate</th>
             <th>Mobile No</th>
-            <th>Address</th>
             <th>Volunteer ID</th>
             <th>Volunteer Name</th>
-            <th>Volunteer Address</th>
             <th>Volunteer Mobile No</th>
             <th>Actions</th>
           </tr>
@@ -58,14 +53,9 @@ const ViewRoute = () => {
               <td>{route.routeLandmark}</td>
               <td>{route.transporterId}</td>
               <td>{route.transporterdriveName}</td>
-              <td>{route.transportervehicleNo}</td>
-              <td>{route.transporterlicenseNo}</td>
-              <td>{route.transporterrentRate}</td>
               <td>{route.transportermobileNo}</td>
-              <td>{route.transporteraddress}</td>
               <td>{route.volunteerId}</td>
               <td>{route.volunteerName}</td>
-              <td>{route.volunteeraddress}</td>
               <td>{route.volunteermobileNo}</td>
               <td>
                 <div className="d-flex">

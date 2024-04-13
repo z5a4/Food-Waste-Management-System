@@ -5,13 +5,16 @@ import ReportFViewVolunteer from './ReportFViewVolunteer';
 import VolunteerPrintView from './VolunteerPrintView';
 
 function ReportViewVolunteer() {
-  const { volunteers, totalRecords, error } = ReportFViewVolunteer();
+  const { volunteers, error } = ReportFViewVolunteer();
   const [searchName, setSearchName] = useState('');
   const [printViewData, setPrintViewData] = useState(null); // State variable to manage print view data
 
+  // Calculate the count of filtered volunteers
   const filteredVolunteers = volunteers.filter(volunteer => {
     return volunteer.volunteerName.toLowerCase().includes(searchName.toLowerCase());
   });
+
+  const totalRecords = filteredVolunteers.length; // Calculate the total count dynamically
 
   const handleSearchChange = (e) => {
     setSearchName(e.target.value);
@@ -26,17 +29,17 @@ function ReportViewVolunteer() {
     <>
       <div className="container mt-4 pt-4">
         <Typography variant='h3' className="text-center mb-3">Volunteer</Typography>
-        <Typography className="text-center mb-3">Total Volunteers: {totalRecords}</Typography>
+        <Typography variant='h6' color='green' className="text-center mb-3">Total Volunteers: {totalRecords}</Typography>
         <Button color="light-blue" size="lg" className='mb-2 me-2' onClick={() => window.history.back()}>Back</Button><br></br>
         <div className="flex items-center justify-center mb-3">
-      <Typography className="form-label font-bold mt-2 mr-2">Search Volunteer:</Typography>
-        <input 
-        type="text" 
-        placeholder="Search by name" 
-        value={searchName} 
-        onChange={handleSearchChange} 
-        className='form-control w-50 mb-2 mt-2'
-        />
+          <Typography className="form-label font-bold mt-2 mr-2">Search Volunteer:</Typography>
+          <input 
+            type="text" 
+            placeholder="Search by name" 
+            value={searchName} 
+            onChange={handleSearchChange} 
+            className='form-control w-50 mb-2 mt-2'
+          />
         </div>
         {error && <p className="text-red-500">{error}</p>}
         <table className="table-auto w-full border border-collapse rounded">

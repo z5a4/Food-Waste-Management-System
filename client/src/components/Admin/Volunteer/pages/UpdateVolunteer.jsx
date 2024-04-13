@@ -20,12 +20,21 @@ function UpdateVolunteer() {
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
           <tbody className='text-center'>
-            <tr>
+          <tr>
               <td>
-                <label htmlFor="id" className="font-bold form-label">ID:</label>
+                <label htmlFor="id" className="font-bold form-label">Volunteer ID:</label>
               </td>
               <td>
-                <Input variant='standard' type="text" name="id" value={formData.id} onChange={handleChange} placeholder="Enter ID" />
+                <Input variant='standard' type="text" name="volunteerId" value={formData.volunteerId} readOnly onChange={handleChange} placeholder="Enter ID" />
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <label htmlFor="id" className="font-bold form-label">Member ID:</label>
+              </td>
+              <td>
+                <Input variant='standard' type="text" name="id" value={formData.id} readOnly onChange={handleChange} placeholder="Enter ID" />
               </td>
             </tr>
             <tr>
@@ -33,7 +42,7 @@ function UpdateVolunteer() {
                 <label htmlFor="name" className="font-bold form-label">Name:</label>
               </td>
               <td>
-                <Input variant='standard' type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Enter Name" />
+                <Input variant='standard' type="text" name="volunteerName" value={formData.volunteerName} onChange={handleChange} placeholder="Enter Name" />
               </td>
             </tr>
             <tr>
@@ -49,7 +58,7 @@ function UpdateVolunteer() {
                 <label htmlFor="address" className="font-bold form-label">Address:</label>
               </td>
               <td>
-                <Input variant='standard' type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Enter Address" />
+                <Input variant='standard' type="text" name="volunteeraddress" value={formData.volunteeraddress} onChange={handleChange} placeholder="Enter Address" />
               </td>
             </tr>
             <tr>
@@ -65,7 +74,7 @@ function UpdateVolunteer() {
                 <label htmlFor="mobileNo" className="font-bold form-label">Mobile No:</label>
               </td>
               <td>
-                <Input variant='standard' type="text" name="mobileNo" value={formData.mobileNo} onChange={handleChange} placeholder="Enter Mobile No" />
+                <Input variant='standard' type="text" name="volunteermobileNo" value={formData.volunteermobileNo} onChange={handleChange} placeholder="Enter Mobile No" />
               </td>
             </tr>
             <tr>

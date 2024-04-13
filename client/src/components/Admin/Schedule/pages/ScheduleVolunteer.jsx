@@ -45,11 +45,7 @@ function ScheduleVolunteer() {
               <td>{volunteer.password}</td>
               <td>{volunteer.securityQuestion}</td>
               <td>{volunteer.answer}</td>
-              <td>
-                <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" >Add</button>
-                </div>
-              </td>
+              
             
             </tr>
           ))}

@@ -112,6 +112,8 @@ import About from './components/common/About Us/About';
 {/*Report Import*/}
 import ReportViewVolunteer from './components/Reports/Volunteer/ReportViewVolunteer';
 import ReportViewTransporter from './components/Reports/Transporter/ReportViewTransporter';
+import ReportAdminViewRegularFWRequest from './components/Reports/Foodwaste Request/Regular/ReportViewRegularFWRequest';
+import ReportViewOccasionalFWRequest from './components/Reports/Foodwaste Request/Occasional/ReportViewOccasionalFWRequest';
 
 
 
@@ -141,6 +143,7 @@ import Skeleton from './Skeleton';
 import RouteForm from './components/Admin/Route/pages/RouteForm';
 import AdminViewRoute from './components/Admin/Route/pages/ViewRoute';
 import RouteSelect from './components/Admin/Schedule/pages/RouteSelect';
+import CurrentRoutes from './components/Admin/Route/pages/CurrentRoutes';
 
 import FarmerRequest from './components/others/FarmerRequest';
 
@@ -168,6 +171,7 @@ function App() {
       <Route path="/routeselect" element={<RouteSelect/>}/>
         <Route path='/adminrouteform' element={<RouteForm/>}/>
         <Route path='/adminviewroute' element={<AdminViewRoute/>}/>
+        <Route path='/viewcurrentroutes' element={<CurrentRoutes/>}/>
         
         {/*Admin Bio-Gas Route*/}
         <Route path="/admin" element={<Admin/>} />
@@ -302,7 +306,8 @@ function App() {
       {/*Report Route*/}
       <Route path="/reportvolunteer" element={<ReportViewVolunteer/>}/>
       <Route path="/reporttransporter" element={<ReportViewTransporter/>}/>
-
+      <Route path="/reportregularfoodwaste" element={<ReportAdminViewRegularFWRequest/>}/>
+      <Route path="/reportoccasionalfoodwaste" element={<ReportViewOccasionalFWRequest/>}/>
 
 
 

@@ -59,3 +59,30 @@ exports.deleteMember = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+
+exports.getMemberData = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const MemberData = await Member.findOne({ id });
+
+    if (MemberData) {
+      res.json({
+        name: MemberData.name,
+       email: MemberData.email,
+        mobileNo: MemberData.mobileNo,
+        address: MemberData.address,
+        mobileNo: MemberData.mobileNo,
+        address:MemberData.address,
+        dateOfBirth: MemberData.dateOfBirth,
+      });
+    } else {
+      res.status(404).json({ error: 'Member not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching data from database:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+

@@ -1,10 +1,31 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Input, Button, Typography } from '@material-tailwind/react';
 import FOMember from '../functions/FOMember';
 import Footer from '../../../Footer/Footer';
 
 const OMember = () => {
   const { formData, errors, handleInputChange, handleSubmit } = FOMember();
+  const [isVolunteerEnabled, setIsVolunteerEnabled] = useState(false);
+
+  useEffect(() => {
+    const calculateAge = (dateString) => {
+      const today = new Date();
+      const birthDate = new Date(dateString);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      return age;
+    };
+
+    if (formData.dateOfBirth) {
+      const age = calculateAge(formData.dateOfBirth);
+      setIsVolunteerEnabled(age >= 18);
+    }
+  }, [formData.dateOfBirth]);
 
   return (
     <>
@@ -13,13 +34,23 @@ const OMember = () => {
       <form onSubmit={handleSubmit} className="mt-4">
         <table className="table table-bordered">
           <tbody>
+          <tr>
+              <td>
+                <Typography className="form-label font-bold">Member ID:</Typography>
+              </td>
+              <td>
+                <Input variant="standard" type="text" name="id" value={formData.id} onChange={handleInputChange} />
+                
+              </td>
+            </tr>
+            
             <tr>
               <td>
                 <Typography className="form-label font-bold">Name:</Typography>
               </td>
               <td>
                 <Input variant="standard" type="text" name="name" value={formData.name} onChange={handleInputChange} />
-                {errors.name && <span className="text-red-500">{errors.name}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -28,7 +59,7 @@ const OMember = () => {
               </td>
               <td>
                 <Input variant="standard" type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} />
-                {errors.dateOfBirth && <span className="text-red-500">{errors.dateOfBirth}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -37,7 +68,7 @@ const OMember = () => {
               </td>
               <td>
                 <Input variant="standard" type="text" name="address" value={formData.address} onChange={handleInputChange} />
-                {errors.address && <span className="text-red-500">{errors.address}</span>}
+               
               </td>
             </tr>
             <tr>
@@ -46,7 +77,7 @@ const OMember = () => {
               </td>
               <td>
                 <Input variant="standard" type="email" name="email" value={formData.email} onChange={handleInputChange} />
-                {errors.email && <span className="text-red-500">{errors.email}</span>}
+               
               </td>
             </tr>
             <tr>
@@ -55,7 +86,7 @@ const OMember = () => {
               </td>
               <td>
                 <Input variant="standard" type="tel" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} />
-                {errors.mobileNo && <span className="text-red-500">{errors.mobileNo}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -64,7 +95,7 @@ const OMember = () => {
               </td>
               <td>
                 <Input variant="standard" type="text" name="username" value={formData.username} onChange={handleInputChange} />
-                {errors.username && <span className="text-red-500">{errors.username}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -73,7 +104,7 @@ const OMember = () => {
               </td>
               <td>
                 <Input variant="standard" type="password" name="password" value={formData.password} onChange={handleInputChange} />
-                {errors.password && <span className="text-red-500">{errors.password}</span>}
+               
               </td>
             </tr>
             <tr>
@@ -81,13 +112,13 @@ const OMember = () => {
                 <Typography className="form-label font-bold">Security Question:</Typography>
               </td>
               <td>
-                <select name="securityQuestion" value={formData.securityQuestion} onChange={handleInputChange} className="form-select">
+                <select name="securityQuestion" value={formData.securityQuestion} onChange={handleInputChange} className="form-select" >
                   <option value="">Select Security Question</option>
                   <option value="favFood">Favorite Food</option>
                   <option value="favHobby">Favorite Hobby</option>
                   <option value="favSport">Favorite Sport</option>
                 </select>
-                {errors.securityQuestion && <span className="text-red-500">{errors.securityQuestion}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -96,8 +127,20 @@ const OMember = () => {
               </td>
               <td>
                 <Input variant="standard" type="text" name="answer" value={formData.answer} onChange={handleInputChange} />
-                {errors.answer && <span className="text-red-500">{errors.answer}</span>}
+                
               </td>
+            </tr>
+            <tr>
+              <td>
+            <Typography className="form-label font-bold">Serve As Volunteer:</Typography>
+            </td>
+            <td>
+            <select name="BeVolunteer" value={formData.BeVolunteer} onChange={handleInputChange} className="form-select" disabled={!isVolunteerEnabled}>
+                  <option value="">Prefer Yes Or No</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+                       </td>
             </tr>
           </tbody>
         </table>

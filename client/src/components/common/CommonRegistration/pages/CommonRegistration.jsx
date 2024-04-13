@@ -16,7 +16,6 @@ const CommonRegistrationForm = () => {
   return (
     <>
       <CommonNavbar />
-      <AdminNavbar />
       <div className='mt-5'>
       {errorMessage && <Alert color="red">{errorMessage}</Alert>}
         <br />
