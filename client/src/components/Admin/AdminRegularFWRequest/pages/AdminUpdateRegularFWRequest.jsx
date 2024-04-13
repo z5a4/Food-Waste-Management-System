@@ -42,7 +42,7 @@ function UpdateRegularFWRequest() {
               </tr>
               <tr>
                 <th><label className="form-label">Organisation Name :</label></th>
-                <td><Input variant='standard' type="text" name="description" value={formData.organisationName} onChange={handleChange} /></td>
+                <td><Input variant='standard' type="text" name="organisationName" value={formData.organisationName} onChange={handleChange} /></td>
               </tr>
               <tr>
                 <th><label className="form-label">Requester_Name:</label></th>

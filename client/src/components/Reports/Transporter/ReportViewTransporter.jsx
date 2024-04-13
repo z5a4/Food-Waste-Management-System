@@ -25,15 +25,17 @@ function ReportViewTransporter() {
     <>
       <div className="container mt-5 pt-5">
         <Typography variant='h3' className="text-center mb-3">Transporter</Typography>
-        <div className="flex justify-center mb-3">
-          <Input 
+        <Typography variant='h6' color='green' className="text-center mb-3">Total Transporters: {filteredTransporters.length}</Typography>
+        <Button color="light-blue" size="lg" className='mb-2 me-2' onClick={() => window.history.back()}>Back</Button>
+        <div  className="flex items-center justify-center mb-3">
+          <Typography className="form-label font-bold mt-2 mr-2">Search Transporter:</Typography>
+          <input 
             type="text" 
             placeholder="Search by driver name" 
             value={searchName} 
             onChange={handleSearchChange} 
-            className="form-control mr-2"
+            className="form-control w-50 mb-2 mt-2"
           />
-          <Button color="light-blue" size="lg" className='mb-2 me-2' onClick={() => window.history.back()}>Back</Button>
         </div>
         {error && <p className="text-red-500">{error}</p>}
         <table className="table-auto border-collapse border border-black">
@@ -63,7 +65,7 @@ function ReportViewTransporter() {
                 <td className="border px-4 py-2">{transporter.rentRate}</td>
                 <td className="border px-4 py-2">
                   <div className="flex">
-                    <Button color="green" className="me-2" onClick={() => handleViewPrint(transporter)}>View Print</Button>
+                    <Button color="green" className="me-2" onClick={() => handleViewPrint(transporter)}>View</Button>
                   </div>
                 </td>
               </tr>

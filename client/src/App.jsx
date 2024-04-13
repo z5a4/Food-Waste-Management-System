@@ -112,6 +112,8 @@ import About from './components/common/About Us/About';
 {/*Report Import*/}
 import ReportViewVolunteer from './components/Reports/Volunteer/ReportViewVolunteer';
 import ReportViewTransporter from './components/Reports/Transporter/ReportViewTransporter';
+import ReportAdminViewRegularFWRequest from './components/Reports/Foodwaste Request/Regular/ReportViewRegularFWRequest';
+import ReportViewOccasionalFWRequest from './components/Reports/Foodwaste Request/Occasional/ReportViewOccasionalFWRequest';
 
 
 
@@ -309,7 +311,8 @@ function App() {
       {/*Report Route*/}
       <Route path="/reportvolunteer" element={<ReportViewVolunteer/>}/>
       <Route path="/reporttransporter" element={<ReportViewTransporter/>}/>
-
+      <Route path="/reportregularfoodwaste" element={<ReportAdminViewRegularFWRequest/>}/>
+      <Route path="/reportoccasionalfoodwaste" element={<ReportViewOccasionalFWRequest/>}/>
 
 
 

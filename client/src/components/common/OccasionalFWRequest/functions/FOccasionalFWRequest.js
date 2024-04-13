@@ -48,8 +48,7 @@ const FRegularFWRequest = () => {
         });
   
 
-
-
+      window.history.back();
       } catch (error) {
         console.error('Error submitting Occasional Request:', error);
         alert('Request Failed. Please try again.');

@@ -1,6 +1,6 @@
 // Admin.js
 import AdminNavbar from './AdminNavbar'
-import { AdminReportCard, AdminReportCard1 } from './AdminReportCard'
+import { AdminReportCard, AdminReportCard1, AdminReportCard2, AdminReportCard3 } from './AdminReportCard'
 import Footer1 from '../Footer/Footer1'
 import Footer from '../Footer/Footer'
 
@@ -14,14 +14,17 @@ function Admin()  {
     
        <AdminNavbar/>
        <div className='space'><br></br></div>
-       <Typography variant='h3' className="text-center mb-2">Reports</Typography>
+       <Typography variant='h3' className="text-center mt-4">Reports</Typography>
        <div className='space'><br></br></div>
        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
       <AdminReportCard/>
       <AdminReportCard1/>
+      <AdminReportCard2/>
       </div>
       <div className='space'><br></br></div>
-
+      <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+      <AdminReportCard3/>
+      </div>
       <div className='space'><br></br></div>
 
 <Footer1/>

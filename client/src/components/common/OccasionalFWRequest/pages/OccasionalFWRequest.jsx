@@ -34,24 +34,6 @@ const OccasionalFWRequest = () => {
           <tbody>
             <tr>
               <td>
-                <label htmlFor="reqID" className="form-label font-bold">
-                  Request ID:
-                </label>
-              </td>
-              <td>
-                <Input
-                  variant='standard'
-                  type="text"
-                  name="requestId"
-                  value={requestId}
-                  readOnly
-                  onChange={handleInputChange}
-                  placeholder="Enter Request ID"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <label htmlFor="desc" className="form-label font-bold">
                   Description
                 </label>
