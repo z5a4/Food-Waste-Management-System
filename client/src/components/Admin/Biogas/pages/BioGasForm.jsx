@@ -6,7 +6,7 @@ import Footer from '../../../Footer/Footer';
 import {Alert} from '@material-tailwind/react';
 
 const BioGasForm = () => {
-  const { formData,  handleInputChange, handleSubmit,errorMessage } = FBioGasForm();
+  const { formData,  handleInputChange, handleSubmit,errorMessage ,biogasId} = FBioGasForm();
   const [open, setOpen] = React.useState(true);
 
   return (
@@ -26,21 +26,7 @@ const BioGasForm = () => {
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody>
-              <tr>
-                <td className="form-label font-bold">Biogas ID:</td>
-                <td>
-                  <Input
-                    type="text"
-                    name="biogasId"
-                    value={formData.biogasId}
-                    onChange={handleInputChange}
-                    size="md"
-                    placeholder="Biogas ID"
-                   
-                    variant="standard"
-                  />
-                </td>
-              </tr>
+             
               <tr>
                 <td className="form-label font-bold">Biogas Name:</td>
                 <td>

@@ -2,29 +2,29 @@ import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const FDeleteclerk = () => {
+const FDeleteadmin = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { state } = location || {};
-  const { clerk } = state || {};
+  const { admin } = state || {};
 
   useEffect(() => {
-    if (!clerk) {
+    if (!admin) {
       console.error('Data not found or missing information.');
       navigate('/admin');
     }
-  }, [clerk, navigate]);
+  }, [admin, navigate]);
 
   
   const handleDelete = async () => {
     try {
-      if (!clerk) {
+      if (!admin) {
         console.error('Data not found or missing information.');
         navigate('/admin');
         return;
       }
 
-      await axios.delete(`http://localhost:5000/api/clerks/${clerk._id}`);
+      await axios.delete(`http://localhost:5000/api/admins/${admin._id}`);
       alert('Data Deleted!');
       navigate('/admin');
     } catch (error) {
@@ -32,7 +32,7 @@ const FDeleteclerk = () => {
     }
   };
 
-  return { clerk, handleDelete };
+  return { admin, handleDelete };
 };
 
-export default FDeleteclerk;
+export default FDeleteadmin;

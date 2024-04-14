@@ -15,7 +15,7 @@ function UpdateRegularFWRequest() {
     <div>
       <AdminNavbar />
       <div className="container mt-5">
-        <Typography variant='h3' className="text-center mb-4">Edit RegularFWRequest</Typography>
+        <Typography variant='h3' className="text-center mb-4">Edit Regular Food-Waste Request</Typography>
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody className='text-center'>

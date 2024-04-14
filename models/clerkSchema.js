@@ -1,17 +1,9 @@
-// registrationSchema.js
+// clerkSchema.js
 const mongoose = require('mongoose');
 const LastRequestId = require('./LastRequestId'); 
 
-const registrationSchema = new mongoose.Schema({
-  category: {
-    type: String,
-    required: true,
-  },
-  organisationName: {
-    type: String,
-    
-  },
-  regid: {
+const clerkSchema = new mongoose.Schema({
+  cid: {
     type: String,
     
     unique: true, // Assuming you want 'id' to be unique
@@ -55,27 +47,27 @@ const registrationSchema = new mongoose.Schema({
 });
 
 
-registrationSchema.pre('save', async function (next) {
+clerkSchema.pre('save', async function (next) {
   try {
     // Fetch the lastRequestId document for YourModel
-    let lastRequestIdDoc = await LastRequestId.findOne({ collectionName: 'Registration' });
+    let lastRequestIdDoc = await LastRequestId.findOne({ collectionName: 'Clerk' });
 
     // If no document found, create a new one with initial lastId
     if (!lastRequestIdDoc) {
-      lastRequestIdDoc = new LastRequestId({ collectionName: 'Registration', lastId: 'RG000' });
+      lastRequestIdDoc = new LastRequestId({ collectionName: 'Clerk', lastId: 'C000' });
       await lastRequestIdDoc.save();
     }
 
     // Generate new routeId based on lastId
     const lastIdNumber = parseInt(lastRequestIdDoc.lastId.slice(2)); // Extract the number part
     const newRouteIdNumber = lastIdNumber + 1;
-    const newregId = 'RG' + String(newRouteIdNumber).padStart(3, '0');
+    const newcid = 'C' + String(newRouteIdNumber).padStart(3, '0');
 
     // Set the routeId for the current document
-    this.regid = newregId;
+    this.cid = newcid;
 
     // Update the lastId for YourModel
-    lastRequestIdDoc.lastId = newregId;
+    lastRequestIdDoc.lastId = newcid;
     await lastRequestIdDoc.save();
 
     next();
@@ -84,6 +76,6 @@ registrationSchema.pre('save', async function (next) {
   }
 });
 
-const Registration = mongoose.model('Registration', registrationSchema);
+const Clerk = mongoose.model('Clerk', clerkSchema);
 
-module.exports = Registration;
+module.exports = Clerk;

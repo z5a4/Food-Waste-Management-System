@@ -34,7 +34,6 @@ function ViewMember() {
       <table className="table-auto w-full border border-collapse rounded">
         <thead className="bg-gray-800 text-white">
           <tr>
-            <th className="px-4 py-2">ID</th>
             <th className="px-4 py-2">Name</th>
             <th className="px-4 py-2">Email</th>
             <th className="px-4 py-2">Mobile No</th>
@@ -47,7 +46,6 @@ function ViewMember() {
         <tbody className="text-center">
           {members.map(member => (
             <tr key={member._id}>
-              <td className="border px-4 py-2">{member.id}</td>
               <td className="border px-4 py-2">{member.name}</td>
               <td className="border px-4 py-2">{member.email}</td>
               <td className="border px-4 py-2">{member.mobileNo}</td>

@@ -60,7 +60,6 @@ function UserViewVolunteer() {
               <td className="border px-4 py-2">
                 <div className="flex justify-center">
                   <Button color="green" onClick={() => handleUpdate(volunteer)} className="me-2">Edit</Button>
-                  <Button color="light-blue" onClick={() => handleDelete(volunteer)}>Delete</Button>
                 </div>
               </td>
             </tr>

@@ -37,7 +37,7 @@ const FCommonRegistrationForm = () => {
         const { dateOfBirth, email, mobileNo, organisationName, password } = formData;
         const currentDate = new Date().toISOString().split('T')[0];
         const mobileNoRegex = /^[6-9]\d{9}$/;
-        const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+        const passwordRegex = /^(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{8,}$/;
 
         if (new Date(dateOfBirth) > new Date(currentDate)) {
             setShowAlert(true);
@@ -100,4 +100,3 @@ const FCommonRegistrationForm = () => {
     return { formData, handleChange, handleSubmit ,errorMessage,showAlert,regid};
 }
 export default FCommonRegistrationForm;
-

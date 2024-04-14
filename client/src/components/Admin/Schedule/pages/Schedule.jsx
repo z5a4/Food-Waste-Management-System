@@ -98,40 +98,40 @@ requestDataWithRoute.status = 'Approved';
             <div className="container mt-5 pt-5">
                 <h1 className="text-center">Regular And Occasional FW Request Table</h1>
                 <div className="d-flex justify-content-center mb-3">
-                    <Link to="/adminRegularFWRequestform" className="btn btn-danger btn-lg me-2">Add New</Link>
-                    <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
+                    <Link to="/adminRegularFWRequestform" className="btn btn-danger btn-lg me-2" color="green">Add New</Link>
+                    <Link to="/admin" className="btn btn-danger btn-lg" color="light-blue">Back</Link>
                 </div>
                 {error && <p className="text-danger">{error}</p>}
-                <table className="table table-striped border rounded">
-                    <thead className="table-dark text-center">
+                <table className="table-auto w-full border border-collapse rounded">
+                    <thead className="bg-gray-800 text-white">
                         <tr>
-                            <th>Request ID</th>
-                            <th>Organisation Name</th>
-                            <th>Description</th>
-                            <th>Requester Name</th>
-                            <th>Date</th>
-                            <th>Address</th>
-                            <th>Mobile No</th>
-                            <th>Email</th>
-                            <th>approxQuantity</th>
-                            <th>Add Route</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th className="px-4 py-2" >Request ID</th>
+                            <th className="px-4 py-2">Organisation Name</th>
+                            <th className="px-4 py-2">Description</th>
+                            <th className="px-4 py-2">Requester Name</th>
+                            <th className="px-4 py-2">Date</th>
+                            <th className="px-4 py-2">Address</th>
+                            <th className="px-4 py-2">Mobile No</th>
+                            <th className="px-4 py-2">Email</th>
+                            <th className="px-4 py-2">approxQuantity</th>
+                            <th className="px-4 py-2">Add Route</th>
+                            <th className="px-4 py-2">Status</th>
+                            <th className="px-4 py-2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {combinedRequests.map(request => (
                             <tr key={request._id}>
-                                <td>{request.requestId}</td>
-                                <td>{request.organisationName || '-'}</td>
-                                <td>{request.description || '-'}</td>
-                                <td>{request.requesterName}</td>
-                                <td>{request.date}</td>
-                                <td>{request.address}</td>
-                                <td>{request.mobileNo}</td>
-                                <td>{request.email}</td>
-                                <td>{request.approxQuantity}</td>
-                                <td>
+                                <td className="border px-4 py-2">{request.requestId}</td>
+                                <td className="border px-4 py-2">{request.organisationName || '-'}</td>
+                                <td className="border px-4 py-2">{request.description || '-'}</td>
+                                <td className="border px-4 py-2">{request.requesterName}</td>
+                                <td className="border px-4 py-2">{request.date}</td>
+                                <td className="border px-4 py-2">{request.address}</td>
+                                <td className="border px-4 py-2">{request.mobileNo}</td>
+                                <td className="border px-4 py-2">{request.email}</td>
+                                <td className="border px-4 py-2">{request.approxQuantity}</td>
+                                <td className="border px-4 py-2">
                                 <label htmlFor={`routeSelect-${request._id}`}>Select Route:</label>
       <select id={`routeSelect-${request._id}`} value={selectedRoutes[request._id] || ''} onChange={(e) => handleRouteChange(e, request._id)}>
         <option value="">Select a route</option>
@@ -146,7 +146,7 @@ requestDataWithRoute.status = 'Approved';
                                 {request.status}
                               </td>
                               <td>
-                              <button type='button' onClick={() => handleAddToCurrentSchedule(request)}>Add</button>
+                              <button type='button'className='bg-green' onClick={() => handleAddToCurrentSchedule(request)}>Add</button>
                                 </td>
                              </tr>
                         ))}

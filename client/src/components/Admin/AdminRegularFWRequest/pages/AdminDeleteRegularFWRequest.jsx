@@ -15,7 +15,7 @@ function DeleteRegularFWRequest() {
     <div>
       <AdminNavbar />
       <div className="container mt-5">
-        <Typography variant='h3' className="text-center">Delete Regular FW_Request</Typography>
+        <Typography variant='h3' className="text-center">Delete Regular Foood-Waste Request</Typography>
         <form onSubmit={handleDelete} className="mt-4">
           <table className="table table-bordered">
             <tbody className='text-center'>

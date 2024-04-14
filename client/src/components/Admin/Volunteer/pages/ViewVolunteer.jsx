@@ -42,10 +42,6 @@ function ViewVolunteer() {
             <th className="px-4 py-2">Mobile No</th>
             <th className="px-4 py-2">Address</th>
             <th className="px-4 py-2">Date of Birth</th>
-            <th className="px-4 py-2">Username</th>
-            <th className="px-4 py-2">Password</th>
-            <th className="px-4 py-2">Security Question</th>
-            <th className="px-4 py-2">Answer</th>
             <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
@@ -59,10 +55,6 @@ function ViewVolunteer() {
               <td className="border px-4 py-2">{volunteer.volunteermobileNo}</td>
               <td className="border px-4 py-2">{volunteer.volunteeraddress}</td>
               <td className="border px-4 py-2">{volunteer.dateOfBirth}</td>
-              <td className="border px-4 py-2">{volunteer.username}</td>
-              <td className="border px-4 py-2">{volunteer.password}</td>
-              <td className="border px-4 py-2">{volunteer.securityQuestion}</td>
-              <td className="border px-4 py-2">{volunteer.answer}</td>
               <td className="border px-4 py-2">
                 <div className="flex justify-center">
                   <Button color="green" onClick={() => handleUpdate(volunteer)} className="me-2">Edit</Button>

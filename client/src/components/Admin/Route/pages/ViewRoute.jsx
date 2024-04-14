@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FViewRoute from '../functions/FViewRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from '@material-tailwind/react';
 
 const ViewRoute = () => {
   const [routes, setRoutes] = useState([]);
@@ -23,44 +24,52 @@ const ViewRoute = () => {
   return (
     <div className="container mt-5 pt-5">
       <h1 className="text-center">Routes</h1>
-      <div className="d-flex justify-content-center mb-3">
-        <Link to="/adminrouteform" className="btn btn-danger btn-lg me-2">Add New</Link>
-        <Link to="/admin" className="btn btn-danger btn-lg">Back</Link>
-      </div>
-      {error && <p className="text-danger">{error}</p>}
-      <table className="table table-striped border rounded">
-        <thead className="table-dark text-center">
+      <div className="flex justify-center mb-3">
+          <Link to="/adminrouteform">
+            <Button className='mr-2' color="green" >
+              Add New
+            </Button>
+          </Link>
+          <Link to="/admin">
+            <Button color="light-blue" >
+              Back
+            </Button>
+          </Link>
+        </div>
+        {error && <p className="text-danger">{error}</p>}
+      <table className="table-auto w-full text-center">
+        <thead className="bg-gray-800 text-white">
           <tr>
-            <th>Route ID</th>
-            <th>Date</th>
-            <th>Route Name</th>
-            <th>Route Landmark</th>
-            <th>Transporter ID</th>
-            <th>Driver Name</th>
-            <th>Mobile No</th>
-            <th>Volunteer ID</th>
-            <th>Volunteer Name</th>
-            <th>Volunteer Mobile No</th>
-            <th>Actions</th>
+            <th className="px-4 py-2">Route ID</th>
+            <th className="px-4 py-2">Date</th>
+            <th className="px-4 py-2">Route Name</th>
+            <th className="px-4 py-2">Route Landmark</th>
+            <th className="px-4 py-2">Transporter ID</th>
+            <th className="px-4 py-2">Driver Name</th>
+            <th className="px-4 py-2">Mobile No</th>
+            <th className="px-4 py-2">Volunteer ID</th>
+            <th className="px-4 py-2">Volunteer Name</th>
+            <th className="px-4 py-2">Volunteer Mobile No</th>
+            <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {routes.map(route => (
             <tr key={route._id}>
-              <td>{route.routeId}</td>
-              <td>{route.date}</td>
-              <td>{route.routeName}</td>
-              <td>{route.routeLandmark}</td>
-              <td>{route.transporterId}</td>
-              <td>{route.transporterdriveName}</td>
-              <td>{route.transportermobileNo}</td>
-              <td>{route.volunteerId}</td>
-              <td>{route.volunteerName}</td>
-              <td>{route.volunteermobileNo}</td>
-              <td>
-                <div className="d-flex">
-                  <button type="button" className="btn btn-danger me-2" onClick={() => handleUpdate(route)}>Edit</button>
-                  <button type="button" className="btn btn-secondary" onClick={() => handleDelete(route)}>Delete</button>
+              <td className="border px-4 py-2">{route.routeId}</td>
+              <td className="border px-4 py-2">{route.date}</td>
+              <td className="border px-4 py-2">{route.routeName}</td>
+              <td className="border px-4 py-2">{route.routeLandmark}</td>
+              <td className="border px-4 py-2">{route.transporterId}</td>
+              <td className="border px-4 py-2">{route.transporterdriveName}</td>
+              <td className="border px-4 py-2">{route.transportermobileNo}</td>
+              <td className="border px-4 py-2">{route.volunteerId}</td>
+              <td className="border px-4 py-2">{route.volunteerName}</td>
+              <td className="border px-4 py-2">{route.volunteermobileNo}</td>
+              <td className="border px-4 py-2">
+                <div className="flex justify-center">
+                  <Button type="button" color="green" size="sm" className="me-2" onClick={() => handleUpdate(route)}>Edit</Button>
+                  <Button type="button" color="light-blue" size="sm" className="me-2" onClick={() => handleDelete(route)}>Delete</Button>
                 </div>
               </td>
             </tr>

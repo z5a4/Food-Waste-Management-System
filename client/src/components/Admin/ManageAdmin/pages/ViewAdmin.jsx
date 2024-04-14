@@ -43,12 +43,8 @@ function Viewadmin() {
               <th className="px-4 py-2">Name</th>
               <th className="px-4 py-2">Email</th>
               <th className="px-4 py-2">Mobile No</th>
-              <th className="px-4 py-2">Address</th>
-              <th className="px-4 py-2">Date of Birth</th>
               <th className="px-4 py-2">Username</th>
               <th className="px-4 py-2">Password</th>
-              <th className="px-4 py-2">Security Question</th>
-              <th className="px-4 py-2">Answer</th>
               <th className="px-4 py-2">Actions</th>
             </tr>
           </thead>
@@ -59,12 +55,8 @@ function Viewadmin() {
                 <td className="px-4 py-2">{admin.name}</td>
                 <td className="px-4 py-2">{admin.email}</td>
                 <td className="px-4 py-2">{admin.mobileNo}</td>
-                <td className="px-4 py-2">{admin.address}</td>
-                <td className="px-4 py-2">{admin.dateOfBirth}</td>
                 <td className="px-4 py-2">{admin.username}</td>
                 <td className="px-4 py-2">{admin.password}</td>
-                <td className="px-4 py-2">{admin.securityQuestion}</td>
-                <td className="px-4 py-2">{admin.answer}</td>
                 <td className="px-4 py-2">
                   <div className="flex justify-center">
                     <Button color="green" size="sm" className="me-2" onClick={() => handleUpdate(admin)}>

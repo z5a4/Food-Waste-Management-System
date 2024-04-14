@@ -19,6 +19,7 @@ const ScheduleRoutes=require('./routes/ScheduleRoutes');
 const routeRoutes=require('./routes/routeRoutes');
 const CurrentScheduleRoutes = require('./routes/CurrentScheduleRoutes');
 const CreateAdmin=require('./routes/adminRoutes'); // Add this line
+const CreateClerk=require('./routes/clerkRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -37,6 +38,7 @@ app.use(bodyParser.json());
 connectDB();
 
 app.use('/',CreateAdmin);
+app.use('/',CreateClerk);
 app.use('/', registrationRoutes);
 app.use('/',loginRoutes);
 app.use('/', sourceTableRoutes);
