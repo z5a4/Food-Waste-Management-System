@@ -4,4 +4,6 @@ const CurrentscheduleController = require('../controllers/CurrentScheduleControl
 
 router.post('/api/currentschedule', CurrentscheduleController.addToCurrentSchedule);
 
+router.get('/api/schedulemain',CurrentscheduleController.ScheduleMain);
+
 module.exports = router;

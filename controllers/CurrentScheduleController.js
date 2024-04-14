@@ -1,10 +1,10 @@
 const CurrentScheduleModel = require('../models/CurrentScheduleModel');
-const RegularFWRequestModel = require('../models/RegularFWRequestModel');
+const RequestFWRequestModel = require('../models/RegularFWRequestModel');
 const OccasionalFWRequestModel = require('../models/OccasionalFWRequestModel');
 
 
 
-
+/*
 exports.createcurrentSchedule = async (req, res) => {
     try {
       const newCSchedule = new CurrentScheduleModel(req.body);
@@ -15,7 +15,9 @@ exports.createcurrentSchedule = async (req, res) => {
       res.status(500).json({ message: 'Current Schedule failed. Please try again.' });
     }
   };
-  
+  */
+
+
 
 // Controller to handle duplication of data and storing it in the currentschedulemodel
 exports.addToCurrentSchedule = async (req, res) => {
@@ -27,8 +29,8 @@ exports.addToCurrentSchedule = async (req, res) => {
      // Set the status to "Approved"
      requestData.status = "Approved";
 
-     // Update status to "Approved" in both Regular and Occasional collections (assuming similar models and controllers)
-     await RegularFWRequestModel.findOneAndUpdate(
+     // Update status to "Approved" in both Request and Occasional collections (assuming similar models and controllers)
+     await RequestFWRequestModel.findOneAndUpdate(
          { _id: requestData._id },
          { $set: { status: "Approved" } }
      );
@@ -49,3 +51,24 @@ exports.addToCurrentSchedule = async (req, res) => {
       res.status(500).json({ success: false, error: 'Failed to duplicate and store data' });
   }
 };
+
+
+
+
+
+//fetch according to yesterday date
+exports.ScheduleMain = async(req,res)=>{
+
+  try {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1); // Get yesterday's date
+    const formattedDate = currentDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+    const RequestFWRequests = await CurrentScheduleModel.find({ date: formattedDate });
+    res.json(RequestFWRequests);
+} catch (error) {
+    console.error('Error fetching Schedule:', error);
+    res.status(500).json({ error: 'Failed to fetch Request' });
+}
+};
+
+

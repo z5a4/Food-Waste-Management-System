@@ -98,7 +98,7 @@ const navListMenuItems = [
     title: "Clerk",
     description: "Explore limited-time deals and bundles",
     icon: HandRaisedIcon,
-    href:"/",
+    href:"/viewClerk",
   },
   {
     title: "Route",
@@ -214,7 +214,7 @@ function NavList() {
       <NavListMenu />
       <Typography
         as="a"
-        href="#"
+        href="/schedulemain"
         variant="h6"
         color="blue-gray"
         className="font-h6"

@@ -138,12 +138,12 @@ import ODeleteMember from './components/others/Member/pages/ODeleteMember';
 
 import { Typography } from '@material-tailwind/react'
 
-import Skeleton from './Skeleton';
 
 import RouteForm from './components/Admin/Route/pages/RouteForm';
 import AdminViewRoute from './components/Admin/Route/pages/ViewRoute';
 import RouteSelect from './components/Admin/Schedule/pages/RouteSelect';
 import CurrentRoutes from './components/Admin/Route/pages/CurrentRoutes';
+import ScheduleMain from './components/Admin/Schedule/pages/ScheduleMain'
 
 import FarmerRequest from './components/others/FarmerRequest';
 
@@ -152,35 +152,36 @@ import FarmerRequest from './components/others/FarmerRequest';
 import CreateAdmin from './components/Admin/ManageAdmin/pages/CreateAdmin'
 import ViewAdmin from './components/Admin/ManageAdmin/pages/ViewAdmin'
 import UpdateAdmin from './components/Admin/ManageAdmin/pages/UpdateAdmin'
+import Deleteadmin from './components/Admin/ManageAdmin/pages/DeleteAdmin'
+
+import CreateClerk from './components/Admin/ManageClerk/functions/FCreateClerk';
+import ViewClerk from './components/Admin/ManageClerk/pages/ViewClerk'
+import UpdateClerk from './components/Admin/ManageClerk/pages/UpdateClerk'
+import DeleteClerk from './components/Admin/ManageClerk/pages/DeleteCkerk'
 
 function App() {
   
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); // Display skeleton for 3 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
+ 
 
   return (
     <>
-{loading ? (
-        <Skeleton /> // Render the skeleton while loading
-      ) : (
     <Router>
       <Routes>
         <Route path='/createadmin' element={<CreateAdmin/>}/>
         <Route path='/viewadmin' element={<ViewAdmin/>}/>
         <Route path='/update/admin/:id' element={<UpdateAdmin/>}/>
+        <Route path='/delete/admin/:id' element={<Deleteadmin/>}/>
+
+        <Route path='/createClerk' element={<CreateClerk/>}/>
+        <Route path='/viewClerk' element={<ViewClerk/>}/>
+        <Route path='/update/clerk/:id' element={<UpdateClerk/>}/>
+        <Route path='/delete/clerk/:id' element={<DeleteClerk/>}/>
 
       <Route path="/routeselect" element={<RouteSelect/>}/>
         <Route path='/adminrouteform' element={<RouteForm/>}/>
         <Route path='/adminviewroute' element={<AdminViewRoute/>}/>
         <Route path='/viewcurrentroutes' element={<CurrentRoutes/>}/>
+        <Route path='/schedulemain' element={<ScheduleMain/>}/>
         
         {/*Admin Bio-Gas Route*/}
         <Route path="/admin" element={<Admin/>} />
@@ -322,7 +323,7 @@ function App() {
 
       </Routes>
     </Router>
-    )}  
+   
 
 
 

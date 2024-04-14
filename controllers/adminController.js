@@ -17,8 +17,8 @@ exports.registerUser = async (req, res) => {
 
 exports.getAdmins = async (req, res) => {
   try {
-    const Admins = await Admin.find();
-    res.json(Admins);
+    const admins = await Admin.find();
+    res.json(admins);
   } catch (error) {
     console.error('Error fetching Admins:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -31,13 +31,13 @@ exports.updateAdmin = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const Admin = await Admin.findByIdAndUpdate(id, req.body, { new: true });
+    const admin = await Admin.findByIdAndUpdate(id, req.body, { new: true });
 
-    if (!Admin) {
+    if (!admin) {
       return res.status(404).json({ message: 'Admin not found' });
     }
 
-    res.status(200).json(Admin);
+    res.status(200).json(admin);
   } catch (error) {
     console.error('Error updating Admin:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -49,9 +49,9 @@ exports.deleteAdmin = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const Admin = await Admin.findByIdAndDelete(id);
+    const admin = await Admin.findByIdAndDelete(id);
 
-    if (!Admin) {
+    if (!admin) {
       return res.status(404).json({ message: 'Admin not found' });
     }
 
