@@ -3,9 +3,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ScheduleTransporter from '../../Schedule/pages/ScheduleTransporter';
 import ScheduleVolunteer from '../../Schedule/pages/ScheduleVolunteer';
+import { Typography, Button } from '@material-tailwind/react';
+
 
 import FRouteForm from '../functions/FRouteForm';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+
 
 const RouteForm = () => {
   const { formData, handleChange } = FRouteForm();
@@ -47,10 +49,10 @@ const handleViewTransporter = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center">Food Waste Request Form</h1>
+    <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
+      <Typography variant='h3' className="text-center">Food Waste Request Form</Typography>
       <form onSubmit={handleSubmit} className="mt-4">
-        <table className="table border-only-outside rounded">
+        <table className="table table-bordered">
           <tbody>
             <tr>
               <th>
@@ -218,8 +220,8 @@ const handleViewTransporter = () => {
             </tr>
             <tr>
             <th colSpan="2" className="text-center">
-              <button type="submit" className="btn btn-danger btn-lg me-2" >Submit</button>
-              <button type="button" className="btn btn-secondary btn-lg" onClick={handleBack}>Back</button>
+              <Button type="submit" size='lg' color='green' className=" me-2" >Submit</Button>
+              <Button type="Button" size='lg' color='light-blue' onClick={handleBack}>Back</Button>
             </th>
           </tr>
           </tbody>
@@ -230,8 +232,8 @@ const handleViewTransporter = () => {
 
 
       <div className="text-center mt-3">
-                    <button onClick={handleViewVolunteer} className="btn btn-primary me-2">View Volunteer</button>
-                    <button onClick={handleViewTransporter} className="btn btn-primary">View Transporter</button>
+                    <Button onClick={handleViewVolunteer} size='lg' color='green' className=" me-2">View Volunteer</Button>
+                    <Button onClick={handleViewTransporter} size='lg' color='light-blue' >View Transporter</Button>
                 </div>
 
                 {showVolunteer && <ScheduleVolunteer />}

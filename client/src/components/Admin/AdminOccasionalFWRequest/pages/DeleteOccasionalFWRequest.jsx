@@ -13,7 +13,7 @@ function DeleteOccasionalFWRequest() {
   return (
     <>
     <div className="container mt-5">
-      <Typography variant='h3' className="text-center">Delete OccasionalFWRequest</Typography>
+      <Typography variant='h3' className="text-center">Delete Occasional Food-Waste Request</Typography>
       <form onSubmit={handleDelete} className="mt-4">
         <table className="table table-bordered">
           <tbody className='text-center'>

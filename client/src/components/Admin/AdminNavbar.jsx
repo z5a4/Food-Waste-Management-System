@@ -27,85 +27,88 @@ import {
   UserIcon,
   TruckIcon,
   HandRaisedIcon,
- MapPinIcon
+ MapPinIcon,
+ ServerStackIcon,
+ TableCellsIcon
 } from "@heroicons/react/24/solid";
 
 
  
 const navListMenuItems = [
   {
-    title: "Bio-Waste",
-    description: "Find the perfect solution for your needs.",
-    icon: BuildingOffice2Icon,
-    href:"/adminviewbiogas",
-    
+    title: "Admin",
+    description: "Dealing With Admin Roles ",
+    icon: ServerStackIcon,
+    href:"/viewadmin",
+  },
+  {
+    title: "Clerk",
+    description: "Managing Clerk And Details",
+    icon: TableCellsIcon,
+    href:"/viewClerk",
   },
   {
     title: "Member",
-    description: "Meet and learn about our dedication",
+    description: "Meet and learn about our Aim",
     icon: UserGroupIcon,
     href:"/adminviewmember",
   },
   {
-    title: "Donation",
-    description: "Reach out to us for assistance or inquiries",
-    icon: CurrencyRupeeIcon,
-    href:"/adminviewdonation",
-  },
-  {
     title: "Registration",
-    description: "Find the perfect solution for your needs.",
+    description: "Be the Reason For the Change.",
     icon: UserPlusIcon,
     href:"/adminviewregistration",
   },
   {
-    title: "Regular Food Waste",
-    description: "Find the perfect solution for your needs.",
+    title: "Regular Request",
+    description: "Take a Look Up For Regular.",
     icon: InboxArrowDownIcon,
     href:"/adminviewregularFWRequest",
   },
   {
-    title: "Occasional Food Waste Request",
-    description: "Read insightful articles, tips, and expert opinions.",
+    title: "Occasional Request",
+    description: "Get More Occasional.",
     icon: ArrowDownOnSquareIcon,
     href:"/adminviewoccasionalFWrequest",
   },
   {
     title: "Farmer",
-    description: "Learn how we can help you achieve your goals.",
+    description: "Achieve The New World.",
     icon: UserIcon,
     href:"/adminviewfarmer",
   },
   {
+    title: "Bio-Waste",
+    description: "Inventory For Slurry.",
+    icon: BuildingOffice2Icon,
+    href:"/adminviewbiogas",
+    
+  },
+  {
     title: "Transporter",
-    description: "Find the perfect solution for your needs.",
+    description: "Find Perfect from Choice.",
     icon: TruckIcon,
     href:"/adminviewtransporter",
   },
   {
     title: "Volunteers",
-    description: "Explore limited-time deals and bundles",
+    description: "Always in Service",
     icon: HandRaisedIcon,
     href:"/adminviewvolunteer",
   },
   {
-    title: "Admin",
-    description: "Explore limited-time deals and bundles",
-    icon: HandRaisedIcon,
-    href:"/viewadmin",
-  },
-  {
-    title: "Clerk",
-    description: "Explore limited-time deals and bundles",
-    icon: HandRaisedIcon,
-    href:"/viewClerk",
-  },
-  {
     title: "Route",
-    description: "Explore limited-time deals and bundles",
+    description: "Explore Routes And Collect Food",
     icon: MapPinIcon,
     href:"/adminviewroute",
   },
+  {
+    title: "Donation",
+    description: "Feel Free to Contribute",
+    icon: CurrencyRupeeIcon,
+    href:"/adminviewdonation",
+  },
+  
 ];
  
 function NavListMenu() {

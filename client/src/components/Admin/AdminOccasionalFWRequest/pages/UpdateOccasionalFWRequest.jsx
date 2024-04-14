@@ -13,7 +13,7 @@ function UpdateOccasionalFWRequest() {
   return (
     <>
     <div className="container mt-5">
-      <Typography variant='h3' className="text-center mb-4">Edit OccasionalFWRequest</Typography>
+      <Typography variant='h3' className="text-center mb-4">Edit Occasional Food-Waste Request</Typography>
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
           <tbody className='text-center'>
