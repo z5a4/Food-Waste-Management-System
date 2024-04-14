@@ -1,134 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Tooltip,
-} from "@material-tailwind/react";
-
+import { Button } from '@material-tailwind/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faEnvelope, faPhone, faBuilding, faUser, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-
-
+import { faEnvelope, faPhone, faBuilding, faUser, faMapMarkerAlt, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import profileimg from "../common/Images/profile.png";
 
 function Profile()  {
   const [userData, setUserData] = useState(null);
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   
   useEffect(() => {
     const fetchUserData = async () => {
         try {
-           // Log the document.cookie to see all cookies
-           console.log(document.cookie);
-           console.log("sessioncookie stored");
             const response = await axios.get('http://localhost:5000/api/user', { withCredentials: true });
             setUserData(response.data);
+            setLoading(false);
         } catch (error) {
             console.error(error.response.data.error);
+            setError(error.response.data.error);
+            setLoading(false);
         }
     };
     fetchUserData();
-}, []);
-
-
+  }, []);
 
   return (
     <>
-    {userData && (
-                <div>
-    
-    <Card className="mx-auto" style={{ maxWidth: '600px' }}>
-      <CardBody className="text-center">
-        <FontAwesomeIcon icon={faUserCircle} className="mr-2"/> 
-        
-        <Typography variant="h4" color="blue-gray" className="mb-2">
-        {userData.username}
-        </Typography>
-        <br></br>
-        <Typography variant="h6" color="green" className="mb-2">Personal Information
-        </Typography>
-        
-        <Typography color="blue-gray" className="font-medium" textGradient>
-        <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-                {userData.email}
-        </Typography>
-        <br></br>
-        <Typography color="blue-gray" className="font-medium" textGradient>
-                <FontAwesomeIcon icon={faPhone} className="mr-2" /> {userData.mobileNo}
-              </Typography>
-              <br />
-              <Typography color="blue-gray" className="font-medium" textGradient>
-                <FontAwesomeIcon icon={faBuilding} className="mr-2" /> {userData.organisationName}
-              </Typography>
-              <br />
-              <Typography color="blue-gray" className="font-medium" textGradient>
-                <FontAwesomeIcon icon={faUser} className="mr-2" /> {userData.name}
-              </Typography>
-              <br />
-              <Typography color="blue-gray" className="font-medium" textGradient>
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> {userData.address}
-              </Typography>
-      
-
-
-      </CardBody>
-      <CardFooter className="flex justify-center gap-7 pt-2">
-        <Tooltip content="Like">
-          <Typography
-            as="a"
-            href="#facebook"
-            variant="lead"
-            color="blue"
-            textGradient
-          >
-            <i className="fab fa-facebook" />
-          </Typography>
-        </Tooltip>
-        <Tooltip content="Follow">
-          <Typography
-            as="a"
-            href="#twitter"
-            variant="lead"
-            color="light-blue"
-            textGradient
-          >
-            <i className="fab fa-twitter" />
-          </Typography>
-        </Tooltip>
-        <Tooltip content="Follow">
-          <Typography
-            as="a"
-            href="#instagram"
-            variant="lead"
-            color="purple"
-            textGradient
-          >
-            <i className="fab fa-instagram" />
-          </Typography>
-        </Tooltip>
-      </CardFooter>
-    </Card>
-      </div>
-            )}
-
-
-
-   <div className='space'><br></br></div>
-       
-<div className='space'><br></br></div>
-
-
-     
-    
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {userData && (
+        <div className="w-full h-screen flex flex-col justify-center items-center bg-gray-400">
+          <div className="w-2/3 h-3/4 bg-white flex justify-between items-center px-8 py-4 rounded-lg shadow-xl">
+            <div className="w-1/2 flex justify-center">
+              {/* User image */}
+              <img src={profileimg} alt="User" className="w-full h-auto" />
+            </div>
+            <div className="w-1/2 flex flex-col justify-center pl-16">
+              
+              {/* User data */}
+              <div className="flex items-center mb-4">
+                <FontAwesomeIcon icon={faUser} className="text-2xl text-blue-gray-500 mr-4" />
+                <span className="text-lg">{userData.name}</span>
+              </div>
+              <div className="flex items-center mb-4">
+                <FontAwesomeIcon icon={faBuilding} className="text-2xl text-blue-gray-500 mr-4" />
+                <span className="text-lg">{userData.organisationName}</span>
+              </div>
+              <div className="flex items-center mb-4">
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="text-2xl text-blue-gray-500 mr-4" />
+                <span className="text-lg">{userData.address}</span>
+              </div>
+              <div className="flex items-center mb-4">
+                <FontAwesomeIcon icon={faPhone} className="text-2xl text-blue-gray-500 mr-4" />
+                <span className="text-lg">{userData.mobileNo}</span>
+              </div>
+              <div className="flex items-center mb-4">
+                <FontAwesomeIcon icon={faEnvelope} className="text-2xl text-blue-gray-500 mr-4" />
+                <span className="text-lg">{userData.email}</span>
+              </div>
+              <Button color="light-blue" size="lg" className='mb-2 me-2' onClick={() => window.history.back()}>Back</Button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
 
 export default Profile;
-
-
- 
