@@ -19,6 +19,25 @@ function UpdateReg() {
         <form onSubmit={handleSubmit} className="mt-4">
           <table className="table table-bordered">
             <tbody className='text-center'>
+            <tr>
+                <th>ID:</th>
+                <td>
+                  <Input variant='standard' type="text" name="regid" value={formData.regid} onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
+                <th>Category:</th>
+                <td>
+                  <Input variant='standard' type="text" name="category" value={formData.category} onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
+                <th>Organisation Name:</th>
+                <td>
+                  <Input variant='standard' type="text" name="organisationName" value={formData.organisationName} onChange={handleChange} />
+                </td>
+              </tr>
+              
               <tr>
                 <th>Name:</th>
                 <td>

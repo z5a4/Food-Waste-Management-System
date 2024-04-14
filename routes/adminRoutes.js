@@ -4,6 +4,7 @@ const router = express.Router();
 const adminController = require('../controllers/adminController');
 
 router.post('/api/createadmin', adminController.registerUser);
+
 router.get('/api/admins', adminController.getAdmins);
 
 router.put('/api/admins/:id', adminController.updateAdmin);

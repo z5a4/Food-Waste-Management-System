@@ -39,6 +39,9 @@ function ViewRegistrations() {
         <table className="table-auto w-full text-center">
           <thead className="bg-gray-800 text-white">
             <tr>
+            <th className="px-4 py-2">ID</th>
+            <th className="px-4 py-2">Category</th>
+            <th className="px-4 py-2">Organisation Name</th>
               <th className="px-4 py-2">Name</th>
               <th className="px-4 py-2">Email</th>
               <th className="px-4 py-2">Mobile No</th>
@@ -54,6 +57,9 @@ function ViewRegistrations() {
           <tbody>
             {registrations.map(registration => (
               <tr key={registration._id} className="text-center">
+                <td className="px-4 py-2">{registration.regid}</td>
+                <td className="px-4 py-2">{registration.category}</td>
+                <td className="px-4 py-2">{registration.organisationName}</td>
                 <td className="px-4 py-2">{registration.name}</td>
                 <td className="px-4 py-2">{registration.email}</td>
                 <td className="px-4 py-2">{registration.mobileNo}</td>

@@ -1,13 +1,32 @@
 import React from 'react';
-import { Carousel, Typography, Button } from '@material-tailwind/react';
+import { Carousel, Typography } from '@material-tailwind/react';
 import foodwaste from './Images/Foodwaste.jpg';
 import farmer2 from './Images/farmer2.jpg';
 import Slurry from './Images/slurry2.jpg';
+import styled, { keyframes } from 'styled-components';
+
+// Define a keyframe animation for slide-in effect from the left
+const slideInAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+// Styled component for the slide with animation applied
+const AnimatedSlide = styled.div`
+  opacity: 0;
+  animation: ${slideInAnimation} 2.0s ease forwards;
+`;
 
 export function CommonCarousel() {
   return (
     <Carousel autoplay interval={2000} className="rounded-xl">
-      <div className="relative h-100">
+      <AnimatedSlide className="relative h-100">
         <img
           src={foodwaste}
           alt="image 1"
@@ -33,8 +52,8 @@ export function CommonCarousel() {
             </Typography>
           </div>
         </div>
-      </div>
-      <div className="relative h-100">
+      </AnimatedSlide>
+      <AnimatedSlide className="relative h-100">
         <img
           src={Slurry}
           alt="image 2"
@@ -60,8 +79,8 @@ export function CommonCarousel() {
             </Typography>
           </div>
         </div>
-      </div>
-      <div className="relative h-100">
+      </AnimatedSlide>
+      <AnimatedSlide className="relative h-100">
         <img
           src={farmer2}
           alt="image 3"
@@ -87,7 +106,7 @@ export function CommonCarousel() {
             </Typography>
           </div>
         </div>
-      </div>
+      </AnimatedSlide>
     </Carousel>
   );
 }

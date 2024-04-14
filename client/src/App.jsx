@@ -150,7 +150,8 @@ import FarmerRequest from './components/others/FarmerRequest';
 
 
 import CreateAdmin from './components/Admin/ManageAdmin/pages/CreateAdmin'
-
+import ViewAdmin from './components/Admin/ManageAdmin/pages/ViewAdmin'
+import UpdateAdmin from './components/Admin/ManageAdmin/pages/UpdateAdmin'
 
 function App() {
   
@@ -173,6 +174,9 @@ function App() {
     <Router>
       <Routes>
         <Route path='/createadmin' element={<CreateAdmin/>}/>
+        <Route path='/viewadmin' element={<ViewAdmin/>}/>
+        <Route path='/update/admin/:id' element={<UpdateAdmin/>}/>
+
       <Route path="/routeselect" element={<RouteSelect/>}/>
         <Route path='/adminrouteform' element={<RouteForm/>}/>
         <Route path='/adminviewroute' element={<AdminViewRoute/>}/>

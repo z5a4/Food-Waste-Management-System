@@ -27,7 +27,7 @@ import {
   UserIcon,
   TruckIcon,
   HandRaisedIcon,
- 
+ MapPinIcon
 } from "@heroicons/react/24/solid";
 
 
@@ -92,7 +92,7 @@ const navListMenuItems = [
     title: "Admin",
     description: "Explore limited-time deals and bundles",
     icon: HandRaisedIcon,
-    href:"",
+    href:"/viewadmin",
   },
   {
     title: "Clerk",
@@ -103,7 +103,7 @@ const navListMenuItems = [
   {
     title: "Route",
     description: "Explore limited-time deals and bundles",
-    icon: HandRaisedIcon,
+    icon: MapPinIcon,
     href:"/adminviewroute",
   },
 ];
