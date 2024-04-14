@@ -2,8 +2,8 @@ import  { useState } from 'react';
 import Axios from 'axios';
 
 const FBioGasForm = () => {
+  const [biogasId, setbiogasId] = useState('');
   const [formData, setFormData] = useState({
-    biogasId: '',
     biogasName: '',
     biogasAddress: '',
     biogasMobileNo: '',
@@ -28,7 +28,7 @@ const FBioGasForm = () => {
     e.preventDefault();
 
      // Validation checks
-    const { biogasEmail, biogasMobileNo, biogasAddress, biogasName } = formData;
+    const { biogasEmail, biogasMobileNo, biogasAddress, biogasName ,biogasSlurryLimit} = formData;
     const mobileNoRegex = /^[6-9]\d{9}$/;
 
     if (!biogasEmail.includes('@')) {
@@ -76,8 +76,8 @@ const FBioGasForm = () => {
 
         // Display a success message
         alert(response.data.message);
+        setbiogasId(response.data.biogasId);
         setFormData({
-          biogasId: '',
     biogasName: '',
     biogasAddress: '',
     biogasMobileNo: '',
@@ -95,7 +95,7 @@ const FBioGasForm = () => {
    
   };
 
-  return { formData,handleInputChange, handleSubmit,errorMessage,showAlert };
+  return { formData,handleInputChange, handleSubmit,errorMessage,showAlert,biogasId };
 };
 
 export default FBioGasForm;

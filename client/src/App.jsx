@@ -159,12 +159,34 @@ import ViewClerk from './components/Admin/ManageClerk/pages/ViewClerk'
 import UpdateClerk from './components/Admin/ManageClerk/pages/UpdateClerk'
 import DeleteClerk from './components/Admin/ManageClerk/pages/DeleteCkerk'
 
+import { CustomSpinner } from './Spinner'; // Import the CustomSpinner component
+
+
+
 function App() {
   
- 
+  const [loading, setLoading] = useState(true); // State variable to manage loading state
+
+  useEffect(() => {
+    // Simulate loading data (you can replace this with your actual data fetching logic)
+    const fetchData = async () => {
+      // Simulate loading for 2 seconds
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false); // Update loading state to false when data fetching is complete
+    };
+
+    fetchData();
+  }, []); // Run this effect only once when the component mounts
+
 
   return (
+
     <>
+   
+   {loading ? ( // Conditionally render the spinner based on the loading state
+        <CustomSpinner />
+      ) : (
+
     <Router>
       <Routes>
         <Route path='/createadmin' element={<CreateAdmin/>}/>
@@ -288,11 +310,11 @@ function App() {
     
 
       {/*Common.jsx Route*/}
-      <Route path="/" element={<Common/>}/>
+      <Route path="/" element={<Common />}/>
       <Route path="/commonregistration" element={<CommonRegistrationForm/>}/>
       <Route path="/login" element={<LoginForm/>}/>
       <Route path='/profile' element={<Profile/>}/>
-      <Route path="/aboutUs" element={<About/>} />
+      <Route path="/aboutUs" element={<About />} />
       
 
 
@@ -324,7 +346,7 @@ function App() {
       </Routes>
     </Router>
    
-
+      )}
 
 
 <div className='details'>
