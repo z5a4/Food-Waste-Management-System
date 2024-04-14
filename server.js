@@ -17,7 +17,8 @@ const RegularFWRequestRoutes=require('./routes/RegularFWRequestRoutes');
 const OccasionalFWRequestRoutes=require('./routes/OccasionalFWRequestRoutes');
 const ScheduleRoutes=require('./routes/ScheduleRoutes');
 const routeRoutes=require('./routes/routeRoutes');
-const CurrentScheduleRoutes = require('./routes/CurrentScheduleRoutes'); // Add this line
+const CurrentScheduleRoutes = require('./routes/CurrentScheduleRoutes');
+const CreateAdmin=require('./routes/adminRoutes'); // Add this line
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -35,7 +36,7 @@ app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(bodyParser.json());
 connectDB();
 
-
+app.use('/',CreateAdmin);
 app.use('/', registrationRoutes);
 app.use('/',loginRoutes);
 app.use('/', sourceTableRoutes);

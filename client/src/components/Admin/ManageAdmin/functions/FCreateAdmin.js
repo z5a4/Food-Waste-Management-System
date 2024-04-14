@@ -54,12 +54,7 @@ const CreateAdmin = () => {
             return;
         }
 
-        if (organisationName.match(/[0-9!@#$%^&*]/)) {
-            setShowAlert(true);
-            setErrorMessage('Organisation Name should not contain any digits or special characters.');
-            return;
-        }
-
+      
         if (!password.match(passwordRegex)) {
             setShowAlert(true);
             setErrorMessage('Password should contain at least one digit, one special character, and have a minimum length of 8 characters.');

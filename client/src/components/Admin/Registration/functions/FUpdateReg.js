@@ -3,6 +3,9 @@ import axios from 'axios';
 
 const FUpdateReg = (registration, navigate) => {
   const [formData, setFormData] = useState({
+    regid:registration.regid,
+    category: registration.category,
+    organisationName: registration.organisationName,
     name: registration.name,
     email: registration.email,
     mobileNo: registration.mobileNo,
