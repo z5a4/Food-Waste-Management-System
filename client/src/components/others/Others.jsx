@@ -40,14 +40,17 @@ const handleLogout = async () => {
 
   return (
     <>
-    <div className="flex flex-col md:flex-row items-center">
-        <Typography variant="h1"  className="ml-6 mt-6 font-bold text-3xl text-amber-500">
-          Food Waste Management System
-        </Typography>
-        <div className="mt-6 md:ml-auto">
-          <OthersSidebar />
-        </div>
-      </div>
+   
+  <div className="flex flex-col md:flex-row items-center">
+    <Typography variant="h1" className="ml-6 mt-6 font-bold text-3xl text-amber-500">
+      Food Waste Management System
+    </Typography>
+    <div className="mt-6 md:ml-auto">
+      <OthersSidebar />
+    </div>
+  </div>
+
+
       <div className="space mb-6"></div>
       <OthersImage/>
       <div className="space"><br></br></div>

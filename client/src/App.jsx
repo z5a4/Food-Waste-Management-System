@@ -154,7 +154,7 @@ import ViewAdmin from './components/Admin/ManageAdmin/pages/ViewAdmin'
 import UpdateAdmin from './components/Admin/ManageAdmin/pages/UpdateAdmin'
 import Deleteadmin from './components/Admin/ManageAdmin/pages/DeleteAdmin'
 
-import CreateClerk from './components/Admin/ManageClerk/functions/FCreateClerk';
+import CreateClerk from './components/Admin/ManageClerk/pages/CreateClerk';
 import ViewClerk from './components/Admin/ManageClerk/pages/ViewClerk'
 import UpdateClerk from './components/Admin/ManageClerk/pages/UpdateClerk'
 import DeleteClerk from './components/Admin/ManageClerk/pages/DeleteCkerk'

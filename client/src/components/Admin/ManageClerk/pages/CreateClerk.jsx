@@ -25,19 +25,6 @@ const CreateClerk = () => {
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody>
-            <tr>
-                <td  className="form-label font-bold"> ID: </td>
-                <td>
-                  <Input 
-                  variant='standard' 
-                  type="text" 
-                  id="cid" 
-                  name="cid" 
-                  value={formData.cid} 
-                  onChange={handleChange} 
-                  placeholder="Name" />
-                </td>
-              </tr>
               
               <tr>
                 <td  className="form-label font-bold"> Name: </td>

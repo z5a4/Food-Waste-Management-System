@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { Input, Button, Typography } from '@material-tailwind/react';
 import FOMember from '../functions/FOMember';
 import Footer from '../../../Footer/Footer';
+import { OthersSidebar } from '../../Sidebar';
 
 const OMember = () => {
   const { formData, errors, handleInputChange, handleSubmit,id } = FOMember();
@@ -29,6 +30,14 @@ const OMember = () => {
 
   return (
     <>
+    <div className="flex flex-col md:flex-row items-center bg-gray-100" >
+        <Typography variant="h1"  className="ml-6 mt-6 font-bold text-3xl text-amber-500">
+          Food Waste Management System
+        </Typography>
+        <div className="mt-6 md:ml-auto">
+          <OthersSidebar />
+        </div>
+      </div>
     <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
       <Typography variant='h3' className="text-center mb-4">Register Member</Typography>
       <form onSubmit={handleSubmit} className="mt-4">

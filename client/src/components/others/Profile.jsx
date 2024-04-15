@@ -4,6 +4,7 @@ import { Button } from '@material-tailwind/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faBuilding, faUser, faMapMarkerAlt, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import profileimg from "../common/Images/profile.png";
+import { OthersSidebar } from './Sidebar';
 
 function Profile()  {
   const [userData, setUserData] = useState(null);
