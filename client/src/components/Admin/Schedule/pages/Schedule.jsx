@@ -60,7 +60,7 @@ const Schedule = () => {
 
     const handleViewRoute = () => {
         setShowRoute(true);
-        setShowRoute(false);
+       
     };
 
   // Update handleRouteChange to store selected route for each request ID

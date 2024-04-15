@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Axios from 'axios';
 
 const FTransporterForm = () => {
+  const [transporterId,settransporterId]=useState('');
   const [formData, setFormData] = useState({
-    transporterId: '',
     vehicleNo: '',
     vehicleType: '',
     driverName: '',
@@ -91,6 +91,7 @@ const FTransporterForm = () => {
 
         // Display a success message
         alert(response.data.message);
+        settransporterId(response.data.transporterId);
       } catch (error) {
         console.error('Error submitting form:', error);
         // Display an error message
@@ -101,7 +102,7 @@ const FTransporterForm = () => {
     }
   };
 
-  return { formData, errors, handleInputChange, handleSubmit };
+  return { formData, errors, handleInputChange, handleSubmit, transporterId };
 };
 
 export default FTransporterForm;

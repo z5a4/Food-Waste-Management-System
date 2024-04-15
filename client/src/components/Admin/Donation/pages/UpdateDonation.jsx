@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FUpdateDonation from '../functions/FUpdateDonation';
 import { Button, Input, Typography } from '@material-tailwind/react';
+import { CreditCardIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 
@@ -20,42 +21,140 @@ function UpdateDonation() {
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody className="text-center">
+            <tr>
+                <td className="form-label font-bold">Donation Type:</td>
+                <td>
+                  <select
+                    name="donationType"
+                    value={formData.donationType}
+                    onChange={handleChange}
+                    
+                    className="form-select"
+                  >
+                    <option value="">select Donation Type</option>
+                    <option value="Non-Monetary">Monetary</option>
+                    <option value="Non-Monetary">Non-Monetary</option>
+                  </select>
+                </td>
+              </tr>
               <tr>
-                <th className="px-4 py-2 font-bold">Name:</th>
-                <td className="px-4 py-2">
+                <td className="form-label font-bold">Description:</td>
+                <td>
+                  <Input
+                    variant='standard'
+                    type="text"
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    placeholder="Description"
+                                      />
+                </td>
+              </tr>
+              <tr>
+                <td className="form-label font-bold">Donation Date:</td>
+                <td>
+                  <Input
+                    variant='standard'
+                    type="date"
+                    name="donationDate"
+                    value={formData.donationDate}
+                    onChange={handleChange}
+                    
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="form-label font-bold">Donor Name:</td>
+                <td>
                   <Input
                     variant='standard'
                     type="text"
                     name="donorName"
                     value={formData.donorName}
                     onChange={handleChange}
-                    placeholder="Name"
+                    placeholder="Donor Name"
+                                    />
+                </td>
+              </tr>
+              <tr>
+                <td className="form-label font-bold">Donor Mobile No:</td>
+                <td>
+                  <Input
+                    variant='standard'
+                    type="tel"
+                    name="donorMobileNo"
+                    value={formData.donorMobileNo}
+                    onChange={handleChange}
+                    placeholder="Donor Mobile No"
+                    
                   />
                 </td>
               </tr>
               <tr>
-                <th className="px-4 py-2 font-bold">Email:</th>
-                <td className="px-4 py-2">
+                <td className="form-label font-bold">Donor Email:</td>
+                <td>
                   <Input
                     variant='standard'
                     type="email"
                     name="donorEmail"
                     value={formData.donorEmail}
                     onChange={handleChange}
-                    placeholder="Email"
-                  />
+                    placeholder="Donor Email"
+                                     />
                 </td>
               </tr>
+              <Typography variant='h4' className="mb-2 mt-2">CARD-DETAILS</Typography>
+       
               <tr>
-                <th className="px-4 py-2 font-bold">Mobile No:</th>
-                <td className="px-4 py-2">
+                <td className="form-label font-bold" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CreditCardIcon style={{ width: '20px', height: '20px' }}/></td>
+                <td>
                   <Input
                     variant='standard'
                     type="text"
-                    name="donorMobileNo"
-                    value={formData.donorMobileNo}
+                    name="cardNumber"
+                    value={formData.cardNumber}
                     onChange={handleChange}
-                    placeholder="Mobile No"
+                    placeholder="*********9786"
+                                     />
+                </td>
+              </tr>
+              <tr><td className="form-label font-bold">Expiry:</td>
+                <td>
+                  <Input
+                    variant='standard'
+                    type="text"
+                    name="expiry"
+                    value={formData.expiry}
+                    onChange={handleChange}
+                    placeholder="MM/YY"
+                                 />
+                </td>
+              </tr>
+              <tr>
+                <td className="form-label font-bold">CVV</td>
+                <td>
+                  <Input
+                    variant='standard'
+                    type="text"
+                    name="cvv"
+                    value={formData.cvv}
+                    onChange={handleChange}
+                    placeholder="CVV"
+                              />
+                  </td>
+              </tr>
+              
+              <tr>
+              <td className="form-label font-bold" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CurrencyRupeeIcon style={{ width: '20px', height: '20px' }}/></td>
+                <td>
+                  <Input
+                    variant='standard'
+                    type="number"
+                    name="donationAmount"
+                    value={formData.donationAmount}
+                    onChange={handleChange}
+                    placeholder="In Rupees."
+                    
                   />
                 </td>
               </tr>

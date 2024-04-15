@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const FODeleteMember = () => {
+const FDeleteMember = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { state } = location || {};
@@ -34,4 +34,4 @@ const FODeleteMember = () => {
   return { member, handleDelete };
 };
 
-export default FODeleteMember;
+export default FDeleteMember;
