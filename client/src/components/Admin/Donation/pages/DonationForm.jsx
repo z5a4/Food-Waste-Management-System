@@ -7,7 +7,7 @@ import Footer from '../../../Footer/Footer';
 import { CreditCardIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 
 const DonationForm = () => {
-  const { formData, errors, handleInputChange, handleSubmit } = FDonationForm();
+  const { formData, errors, handleInputChange, handleSubmit,donationId } = FDonationForm();
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -22,20 +22,6 @@ const DonationForm = () => {
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody>
-              <tr>
-                <td className="form-label font-bold">Donation ID:</td>
-                <td>
-                  <Input
-                    variant='standard'
-                    type="text"
-                    name="donationId"
-                    value={formData.donationId}
-                    onChange={handleInputChange}
-                    placeholder="Donation ID"
-                    error={errors.donationId}
-                  />
-                </td>
-              </tr>
               <tr>
                 <td className="form-label font-bold">Donation Type:</td>
                 <td>

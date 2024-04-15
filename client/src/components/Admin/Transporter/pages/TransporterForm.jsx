@@ -7,7 +7,7 @@ import Footer from '../../../Footer/Footer';
 
 
 const TransporterForm = () => {
-  const { formData, errors, handleInputChange, handleSubmit } = FTransporterForm();
+  const { formData, errors, handleInputChange, handleSubmit, transporterId } = FTransporterForm();
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -21,23 +21,6 @@ const TransporterForm = () => {
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
           <tbody>
-            <tr>
-              <td>
-                <label htmlFor="transporterId" className="font-bold form-label">Transporter ID:</label>
-              </td>
-              <td>
-                <Input
-                  variant='standard'
-                  type="text"
-                  id="transporterId"
-                  name="transporterId"
-                  placeholder="Enter Transporter ID"
-                  value={formData.transporterId}
-                  onChange={handleInputChange}
-                />
-                {errors.transporterId && <span className="text-danger">{errors.transporterId}</span>}
-              </td>
-            </tr>
             <tr>
               <td>
                 <label htmlFor="vehicleNo" className="font-bold form-label">Vehicle No:</label>

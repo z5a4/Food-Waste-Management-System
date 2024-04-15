@@ -20,6 +20,10 @@ function UpdateMember() {
       <form onSubmit={handleSubmit}>
         <table className="table table-bordered">
           <tbody className='text-center'>
+          <tr>
+              <th><label className="font-bold">ID:</label></th>
+              <td><Input variant='standard' type="text" name="id" value={formData.id} disabled onChange={handleChange} size="sm" placeholder="Name" /></td>
+            </tr>
             <tr>
               <th><label className="font-bold">Name:</label></th>
               <td><Input variant='standard' type="text" name="name" value={formData.name} onChange={handleChange} size="sm" placeholder="Name" /></td>
@@ -51,6 +55,10 @@ function UpdateMember() {
             <tr>
               <th><label className="font-bold">Answer:</label></th>
               <td><Input variant='standard' type="text" name="answer" value={formData.answer} onChange={handleChange} size="sm" placeholder="Answer" /></td>
+            </tr>
+            <tr>
+              <th><label className="font-bold">Be Volunteer :</label></th>
+              <td><Input variant='standard' type="text" name="BeVolunteer" value={formData.BeVolunteer} onChange={handleChange} size="sm" placeholder="Answer" /></td>
             </tr>
             <tr>
               <td colSpan="2" className="text-center">

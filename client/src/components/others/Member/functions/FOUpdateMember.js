@@ -12,6 +12,7 @@ const FOUpdateMember = (member, navigate) => {
     username: member.username || '',
     password: member.password || '',
     securityQuestion: member.securityQuestion || '',
+    BeVolunteer:member.BeVolunteer || '',
     answer: member.answer || '',
 
   });

@@ -37,6 +37,7 @@ function OViewMember() {
             <th>Date of Birth</th>
             <th>Username</th>
             <th>Password</th>
+            <th>Volunteer Request</th>
             <th>Security Question</th>
             <th>Answer</th>
             <th>Actions</th>
@@ -53,6 +54,7 @@ function OViewMember() {
               <td>{member.dateOfBirth}</td>
               <td>{member.username}</td>
               <td>{member.password}</td>
+              <td>{member.BeVolunteer}</td>
               <td>{member.securityQuestion}</td>
               <td>{member.answer}</td>
               <td>

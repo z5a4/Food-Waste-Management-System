@@ -21,6 +21,11 @@ function DeleteMember() {
       <form onSubmit={handleDelete} className="mt-4">
         <table className="table table-bordered">
           <tbody className='text-center'>
+          <tr>
+              <th>ID:</th>
+              <td><Input type="text" value={member.id} disabled className="form-control" /></td>
+            </tr>
+            
             <tr>
               <th>Name:</th>
               <td><Input type="text" value={member.name} disabled className="form-control" /></td>
@@ -37,6 +42,28 @@ function DeleteMember() {
               <th>Address:</th>
               <td><Input type="text" value={member.address} disabled className="form-control" /></td>
             </tr>
+            <tr>
+              <th>Username:</th>
+              <td><Input  type="text"  value={member.username}  disabled className="form-control"/></td>
+            </tr>
+            <tr>
+              <th>Password:</th>
+              <td><Input type="password" value={member.password} disabled className="form-control" /></td>
+            </tr>
+            <tr>
+              <th>Security Question:</th>
+              <td><Input type="text" value={member.securityQuestion} disabled className="form-control" /></td>
+            </tr>
+            <tr>
+              <th><label className="font-bold">Answer:</label></th>
+              <td><Input variant='standard' type="text" name="answer" value={member.answer} className="form-control" disabled /></td>
+            </tr>
+            <tr>
+              <th><label className="font-bold">Volunteer Request:</label></th>
+              <td><input type="text" value={member.BeVolunteer} disabled className="form-control" /></td>
+            </tr>
+           
+           
             <tr>
               <td colSpan="2" className="text-center">
                 <Button type="submit" color="green" size="lg">Delete</Button>

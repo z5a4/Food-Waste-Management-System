@@ -4,7 +4,7 @@ import FOMember from '../functions/FOMember';
 import Footer from '../../../Footer/Footer';
 
 const OMember = () => {
-  const { formData, errors, handleInputChange, handleSubmit } = FOMember();
+  const { formData, errors, handleInputChange, handleSubmit,id } = FOMember();
   const [isVolunteerEnabled, setIsVolunteerEnabled] = useState(false);
 
   useEffect(() => {
@@ -34,15 +34,6 @@ const OMember = () => {
       <form onSubmit={handleSubmit} className="mt-4">
         <table className="table table-bordered">
           <tbody>
-          <tr>
-              <td>
-                <Typography className="form-label font-bold">Member ID:</Typography>
-              </td>
-              <td>
-                <Input variant="standard" type="text" name="id" value={formData.id} onChange={handleInputChange} />
-                
-              </td>
-            </tr>
             
             <tr>
               <td>

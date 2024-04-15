@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const LastRequestId = require('./LastRequestId'); 
+
 
 const transporterSchema = new mongoose.Schema({
   transporterId: {
     type: String,
-    required: true,
     unique: true,
   },
   vehicleNo: {
@@ -39,6 +40,36 @@ const transporterSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+transporterSchema.pre('save', async function (next) {
+  try {
+    // Fetch the lastRequestId document for YourModel
+    let lastRequestIdDoc = await LastRequestId.findOne({ collectionName: 'Transporter' });
+
+    // If no document found, create a new one with initial lastId
+    if (!lastRequestIdDoc) {
+      lastRequestIdDoc = new LastRequestId({ collectionName: 'Transporter', lastId: 'T00' });
+      await lastRequestIdDoc.save();
+    }
+
+    // Generate new routeId based on lastId
+    const lastIdNumber = parseInt(lastRequestIdDoc.lastId.slice(2)); // Extract the number part
+    const newRouteIdNumber = lastIdNumber + 1;
+    const transporterId = 'M' + String(newRouteIdNumber).padStart(3, '0');
+
+    // Set the routeId for the current document
+    this.transporterId = transporterId;
+
+    // Update the lastId for YourModel
+    lastRequestIdDoc.lastId = transporterId;
+    await lastRequestIdDoc.save();
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 const Transporter = mongoose.model('Transporter', transporterSchema);
 

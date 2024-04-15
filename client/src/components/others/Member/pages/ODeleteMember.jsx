@@ -15,6 +15,11 @@ function ODeleteMember() {
       <form onSubmit={handleDelete} className="mt-4">
         <table className="table table-bordered">
           <tbody className='text-center'>
+          <tr>
+              <th>ID:</th>
+              <td><input type="text" value={member.id} disabled className="form-control" /></td>
+            </tr>
+           
             <tr>
               <th>Name:</th>
               <td><input type="text" value={member.name} disabled className="form-control" /></td>
@@ -31,6 +36,11 @@ function ODeleteMember() {
               <th>Address:</th>
               <td><input type="text" value={member.address} disabled className="form-control" /></td>
             </tr>
+            <tr>
+              <th>Volunteer Request:</th>
+              <td><input type="text" value={member.BeVolunteer} disabled className="form-control" /></td>
+            </tr>
+           
             <tr>
               <td colSpan="2" className="text-center">
                 <button type="submit" className="btn btn-danger btn-lg">Delete</button>
