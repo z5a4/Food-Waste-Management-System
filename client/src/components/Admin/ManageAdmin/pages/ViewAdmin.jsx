@@ -24,7 +24,7 @@ function Viewadmin() {
       <div className="container mt-4 pt-4">
         <Typography variant='h3' className="text-center mb-3">View Admin</Typography>
         <div className="flex justify-center mb-3">
-          <Link to="/commonadmin">
+          <Link to="/createadmin">
             <Button className='mr-2' color="green" >
               Add New
             </Button>
