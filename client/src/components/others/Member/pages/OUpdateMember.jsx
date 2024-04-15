@@ -40,6 +40,11 @@ function OUpdateMember() {
               <td><input type="password" name="password" value={formData.password} onChange={handleChange} className="form-control" /></td>
             </tr>
             <tr>
+              <th><label className="form-label">Be Volunteer:</label></th>
+              <td><input type="text" name="BeVolunteer" value={formData.BeVolunteer} onChange={handleChange} className="form-control" /></td>
+            </tr>
+            
+            <tr>
               <th><label className="form-label">Security Question:</label></th>
               <td><input type="text" name="securityQuestion" value={formData.securityQuestion} onChange={handleChange} className="form-control" /></td>
             </tr>

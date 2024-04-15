@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Axios from 'axios';
 
 const FDonationForm = () => {
+  const [donationId, setdonationId] = useState('');
   const [formData, setFormData] = useState({
-    donationId: '',
     donationType: '',
     description: '',
     donationDate: '',
@@ -61,6 +61,20 @@ const FDonationForm = () => {
 
         // Display a success message
         alert(response.data.message);
+        setdonationId(response.data.donationId);
+        setFormData({
+          donationType: '',
+    description: '',
+    donationDate: '',
+    donorName: '',
+    donorMobileNo: '',
+    donorEmail: '',
+    cardNumber: '',
+    expiry: '',
+    cvv: '',
+    donationAmount: '',
+              });
+      
       } catch (error) {
         console.error('Error submitting donation form:', error);
         // Display an error message
@@ -71,7 +85,7 @@ const FDonationForm = () => {
     }
   };
 
-  return { formData, errors, handleInputChange, handleSubmit };
+  return { formData, errors, handleInputChange, handleSubmit,donationId };
 };
 
 export default FDonationForm;

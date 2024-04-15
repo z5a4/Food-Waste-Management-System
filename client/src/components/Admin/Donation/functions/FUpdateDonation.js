@@ -8,11 +8,12 @@ const FUpdateDonation = (donation, navigate) => {
         description: donation.description || '',
         donationDate: donation.donationDate || '',
         donorName: donation.donorName || '',
-        donorAddress: donation.donorAddress || '',
         donorMobileNo: donation.donorMobileNo || '',
         donorEmail: donation.donorEmail || '',
-        donationPaymentMode: donation.donationPaymentMode || '',
         donationAmount: donation.donationAmount || '',
+        cardNumber:donation.cardNumber || '',
+        expiry : donation.expiry || '',
+        cvv : donation.cvv || '',
       });
  
   const handleChange = (e) => {

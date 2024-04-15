@@ -11,7 +11,7 @@ const FCurrentRoutes = () => {
 
   const fetchroutes = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/routes/current');
+      const response = await axios.get('http://localhost:5000/api/routes/viewdailyroute');
       setroutes(response.data);
     } catch (error) {
       setError('Error fetching Routes');

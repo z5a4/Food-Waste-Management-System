@@ -52,3 +52,19 @@ exports.fetchRoutesByCurrentDate = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+
+//fetch according to yesterday date
+exports.viewdailyroutes = async(req,res)=>{
+
+  try {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1); // Get yesterday's date
+    const formattedDate = currentDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+    const route = await Route.find({ date: formattedDate });
+    res.json(route);
+} catch (error) {
+    console.error('Error fetching Route:', error);
+    res.status(500).json({ error: 'Failed to fetch Route' });
+}
+};

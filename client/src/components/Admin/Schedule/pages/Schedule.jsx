@@ -4,6 +4,8 @@ import FSchedule from '../functions/FSchedule';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import CurrentRoutes from '../../Route/pages/CurrentRoutes'; // Import ViewRoute component
+import { Button, Typography } from '@material-tailwind/react';
+import Footer from '../../../Footer/Footer';
 //import RouteSelect from './RouteSelect'; // Import RouteSelect component
 
 const Schedule = () => {
@@ -60,7 +62,7 @@ const Schedule = () => {
 
     const handleViewRoute = () => {
         setShowRoute(true);
-        setShowRoute(false);
+       
     };
 
   // Update handleRouteChange to store selected route for each request ID
@@ -96,10 +98,10 @@ requestDataWithRoute.status = 'Approved';
     return (
         <>
             <div className="container mt-5 pt-5">
-                <h1 className="text-center">Regular And Occasional FW Request Table</h1>
+                <Typography variant='h3' className="text-center mb-3">Regular And Occasional FW Request Table</Typography>
                 <div className="d-flex justify-content-center mb-3">
-                    <Link to="/adminRegularFWRequestform" className="btn btn-danger btn-lg me-2" color="green">Add New</Link>
-                    <Link to="/admin" className="btn btn-danger btn-lg" color="light-blue">Back</Link>
+                    <Link to="/adminRegularFWRequestform"><Button className="me-2" color="green">Add New</Button></Link>
+                    <Link to="/admin"><Button color="light-blue">Back</Button></Link>
                 </div>
                 {error && <p className="text-danger">{error}</p>}
                 <table className="table-auto w-full border border-collapse rounded">
@@ -153,14 +155,14 @@ requestDataWithRoute.status = 'Approved';
                     </tbody>
                 </table>
                 <div className="text-center mt-3">
-                    <button onClick={handleViewRoute} className="btn btn-primary me-2">View Route</button>
+                    <Button onClick={handleViewRoute} color='light-blue' className="me-2">View Route</Button>
                     </div>
 
                 {showRoute && <CurrentRoutes/>}
                
               
             </div>
-           
+           <Footer/>
         </>
     );
 };

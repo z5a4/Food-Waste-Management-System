@@ -4,9 +4,10 @@ import FDonationForm from '../functions/FDonationForm';
 import { Input, Button, Typography } from '@material-tailwind/react'; 
 import { CommonNavbar } from '../../../common/commonNavbar';
 import Footer from '../../../Footer/Footer';
+import { CreditCardIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 
 const DonationForm = () => {
-  const { formData, errors, handleInputChange, handleSubmit } = FDonationForm();
+  const { formData, errors, handleInputChange, handleSubmit,donationId } = FDonationForm();
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -21,20 +22,6 @@ const DonationForm = () => {
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody>
-              <tr>
-                <td className="form-label font-bold">Donation ID:</td>
-                <td>
-                  <Input
-                    variant='standard'
-                    type="text"
-                    name="donationId"
-                    value={formData.donationId}
-                    onChange={handleInputChange}
-                    placeholder="Donation ID"
-                    error={errors.donationId}
-                  />
-                </td>
-              </tr>
               <tr>
                 <td className="form-label font-bold">Donation Type:</td>
                 <td>
@@ -123,7 +110,7 @@ const DonationForm = () => {
               <Typography variant='h4' className="mb-2 mt-2">CARD-DETAILS</Typography>
        
               <tr>
-                <td className="form-label font-bold">Card Number:</td>
+                <td className="form-label font-bold" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CreditCardIcon style={{ width: '20px', height: '20px' }}/></td>
                 <td>
                   <Input
                     variant='standard'
@@ -165,7 +152,7 @@ const DonationForm = () => {
               </tr>
               
               <tr>
-                <td className="form-label font-bold">Donation Amount:</td>
+              <td className="form-label font-bold" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CurrencyRupeeIcon style={{ width: '20px', height: '20px' }}/></td>
                 <td>
                   <Input
                     variant='standard'

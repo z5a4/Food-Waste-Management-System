@@ -62,30 +62,19 @@ const LoginForm = () => {
                     className="w-full h-auto" />
                 </div>
                 <div className="md:w-1/2 p-4 mt-12">
-                    <h1 className="text-3xl font-semibold mb-4">Login</h1>
+                    <h1 className="text-3xl font-semibold mb-4">Forgot Password</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
-                            <label htmlFor="username" className="block mb-1">Username:</label>
+                            <label htmlFor="username" className="block mb-1">Enter Email:</label>
                             <Input variant='standard' type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="password" className="block mb-1">Password:</label>
+                            <label htmlFor="password" className="block mb-1">New Password:</label>
                             <Input variant='standard' type="password" id="password" name="password" value={formData.password} onChange={handleChange}  />
                         </div>
-                        <div className="mb-4">
-                            <label htmlFor="category" className="block mb-1">Category:</label>
-                            <select id="category" name="category" value={formData.category} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded">
-                                <option value="">Select Category</option>
-                                <option value="Hotel">Hotel</option>
-                                <option value="Hostel">Hostel</option>
-                                <option value="Farmer">Farmer</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </div>
-                        <Button className='mr-2' type="submit" color="green" size="lg">Login</Button>
-                        <a href='/forgotpassword'> <Button type="button" color="blue" size="lg">Forgot Password</Button></a>
+                        <Button className='mr-2' type="submit" color="green" size="lg">Send Email</Button>
+                        <Button type="button" color="blue" size="lg">Submit</Button>
                     </form>
-                    <Typography color="blue-gray" className="mt-4">Don't have an account ? <a href='/commonregistration' className="font-medium text-gray-600">Sign-Up</a></Typography>
                     <br></br>
                     {errorMessage &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">{errorMessage}</Alert>}
                     <br></br>

@@ -154,10 +154,12 @@ import ViewAdmin from './components/Admin/ManageAdmin/pages/ViewAdmin'
 import UpdateAdmin from './components/Admin/ManageAdmin/pages/UpdateAdmin'
 import Deleteadmin from './components/Admin/ManageAdmin/pages/DeleteAdmin'
 
-import CreateClerk from './components/Admin/ManageClerk/functions/FCreateClerk';
+import CreateClerk from './components/Admin/ManageClerk/pages/CreateClerk';
 import ViewClerk from './components/Admin/ManageClerk/pages/ViewClerk'
 import UpdateClerk from './components/Admin/ManageClerk/pages/UpdateClerk'
 import DeleteClerk from './components/Admin/ManageClerk/pages/DeleteCkerk'
+
+import ForgotPassword from './components/common/Login/ForgotPassword'
 
 import { CustomSpinner } from './Spinner'; // Import the CustomSpinner component
 
@@ -189,6 +191,8 @@ function App() {
 
     <Router>
       <Routes>
+      <Route path='/forgotpassword' element={<ForgotPassword/>}/>
+        
         <Route path='/createadmin' element={<CreateAdmin/>}/>
         <Route path='/viewadmin' element={<ViewAdmin/>}/>
         <Route path='/update/admin/:id' element={<UpdateAdmin/>}/>
