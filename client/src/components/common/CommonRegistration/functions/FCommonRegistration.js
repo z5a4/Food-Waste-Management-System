@@ -18,8 +18,7 @@ const FCommonRegistrationForm = () => {
     });
 
     const [errorMessage, setErrorMessage] = useState('');
-    const [showAlert, setShowAlert] = useState(false); // State for controlling alert visibility
-
+  
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -28,10 +27,7 @@ const FCommonRegistrationForm = () => {
         });
     };
 
-    const handleCloseAlert = () => {
-        setShowAlert(false);
-    };
-
+   
     const handleSubmit = async (e) => {
         e.preventDefault();
 
