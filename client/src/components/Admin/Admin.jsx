@@ -3,9 +3,7 @@ import AdminNavbar from './AdminNavbar'
 import { AdminReportCard, AdminReportCard1, AdminReportCard2, AdminReportCard3 } from './AdminReportCard'
 import Footer1 from '../Footer/Footer1'
 import Footer from '../Footer/Footer'
-
-
-import { Typography } from '@material-tailwind/react';
+import { Typography } from '@material-tailwind/react'
 
 function Admin()  {
 

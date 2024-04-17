@@ -43,10 +43,8 @@ function ViewRegistrations() {
             <th className="px-4 py-2">Category</th>
             <th className="px-4 py-2">Organisation Name</th>
               <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Email</th>
               <th className="px-4 py-2">Mobile No</th>
               <th className="px-4 py-2">Username</th>
-              <th className="px-4 py-2">Password</th>
               <th className="px-4 py-2">Actions</th>
             </tr>
           </thead>
@@ -57,10 +55,8 @@ function ViewRegistrations() {
                 <td className="border px-4 py-2">{registration.category}</td>
                 <td className="border px-4 py-2">{registration.organisationName}</td>
                 <td className="border px-4 py-2">{registration.name}</td>
-                <td className="border px-4 py-2">{registration.email}</td>
                 <td className="border px-4 py-2">{registration.mobileNo}</td>
                 <td className="border px-4 py-2">{registration.username}</td>
-                <td className="border px-4 py-2">{registration.password}</td>
                 <td className="border px-4 py-2">
                   <div className="flex justify-center">
                     <Button color="green" size="sm" className="me-2" onClick={() => handleUpdate(registration)}>

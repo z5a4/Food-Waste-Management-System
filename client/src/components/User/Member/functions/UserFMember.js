@@ -2,15 +2,16 @@ import  { useState } from 'react';
 import Axios from 'axios';
 
 const UserFMember = () => {
+  const [id, setid] = useState('');
   const [formData, setFormData] = useState({
-    id: '',
     name: '',
     address: '',
     email: '',
     mobileNo: '',
     username: '',
     password: '',
-    dateOfBirth: '', // New field for Date of Birth
+    dateOfBirth: '', 
+    BeVolunteer:'',// New field for Date of Birth
     securityQuestion: '',
     answer: '',
   });
@@ -71,13 +72,13 @@ const UserFMember = () => {
       try {
         const response = await Axios.post('http://localhost:5000/api/member-table', formData);
         alert(response.data.message);
+        setid(response.data.id);
       } catch (error) {
         console.error('Error submitting form:', error);
         alert('Registration failed. Please try again.');
       }
     }
   };
-
   return { formData, errors, handleInputChange, handleSubmit };
 };
 

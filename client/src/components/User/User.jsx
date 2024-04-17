@@ -1,12 +1,9 @@
 // Admin.js
 import UserNavbar from "./UserNavbar";
-import AdminCarousel from './UserCarousel'
-import AdminCard from './UserCard'
-import AdminCard1 from './UserCard1'
+import { AdminReportCard, AdminReportCard1, AdminReportCard2, AdminReportCard3 } from "../Admin/AdminReportCard";
 import Footer1 from '../Footer/Footer1'
 import Footer from '../Footer/Footer'
-import LineChart from './LineChart'
-import BarChart from './BarChart'
+import { Typography } from "@material-tailwind/react";
 
 function User()  {
   return (
@@ -14,15 +11,22 @@ function User()  {
     
        <UserNavbar/>
 <div className='space'><br></br></div>
-<LineChart/>
-<div className='space'><br></br></div>
-<BarChart/>
-<div className='space'><br></br></div>
+<Typography variant='h3' className="text-center mt-4">Reports</Typography>
+       <div className='space'><br></br></div>
+       <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+      <AdminReportCard/>
+      <AdminReportCard1/>
+      <AdminReportCard2/>
+      </div>
+      <div className='space'><br></br></div>
+      <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+      <AdminReportCard3/>
+      </div>
+      <div className='space'><br></br></div>
 
 <Footer1/>
 <div className='space'><br></br></div>
 <Footer/>
-
      
     
     </>

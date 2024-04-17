@@ -30,7 +30,7 @@ const FUpdateMember = (member, navigate) => {
     try {
       await axios.put(`http://localhost:5000/api/members/${member._id}`, formData);
       // Redirect to the registrations list after successful update
-      navigate('/admin');
+      window.history.back();
     } catch (error) {
       console.error('Error updating member:', error);
     }

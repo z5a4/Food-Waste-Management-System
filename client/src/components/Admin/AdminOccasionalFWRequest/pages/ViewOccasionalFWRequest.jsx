@@ -41,7 +41,7 @@ const ViewOccasionalFWRequest = () => {
         </Link>
         </div>
         {error && <p className="text-red-500">{error}</p>}
-        <table className="table-auto w-full bg-white border-collapse border border-gray-300">
+        <table className="table-auto w-full border border-collapse rounded">
           <thead className="bg-gray-800 text-white">
             <tr>
               <th className="py-2 px-4">Request ID</th>
@@ -50,7 +50,6 @@ const ViewOccasionalFWRequest = () => {
               <th className="py-2 px-4">Date</th>
               <th className="py-2 px-4">Address</th>
               <th className="py-1 px-2">Mobile No</th>
-              <th className="py-2 px-4">Email</th>
               <th className="py-1 px-2">approxQuantity</th>
               <th className="py-2 px-4">Actions</th>
             </tr>
@@ -64,7 +63,6 @@ const ViewOccasionalFWRequest = () => {
                 <td className="border py-2 px-4">{OccasionalFWRequest.date}</td>
                 <td className="border py-2 px-4">{OccasionalFWRequest.address}</td>
                 <td className="border py-1 px-2">{OccasionalFWRequest.mobileNo}</td>
-                <td className="border py-2 px-4">{OccasionalFWRequest.email}</td>
                 <td className="border py-1 px-2">{OccasionalFWRequest.approxQuantity}</td>
                 <td className="border py-2 px-4">
                   <div className="flex">

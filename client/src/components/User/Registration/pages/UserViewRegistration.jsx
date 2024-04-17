@@ -41,9 +41,6 @@ function UserViewRegistrations() {
               <th className="px-4 py-2">Address</th>
               <th className="px-4 py-2">Date of Birth</th>
               <th className="px-4 py-2">Username</th>
-              <th className="px-4 py-2">Password</th>
-              <th className="px-4 py-2">Security Question</th>
-              <th className="px-4 py-2">Answer</th>
               <th className="px-4 py-2">Actions</th>
             </tr>
           </thead>
@@ -56,9 +53,6 @@ function UserViewRegistrations() {
                 <td className="px-4 py-2">{registration.address}</td>
                 <td className="px-4 py-2">{registration.dateOfBirth}</td>
                 <td className="px-4 py-2">{registration.username}</td>
-                <td className="px-4 py-2">{registration.password}</td>
-                <td className="px-4 py-2">{registration.securityQuestion}</td>
-                <td className="px-4 py-2">{registration.answer}</td>
                 <td className="px-4 py-2">
                   <div className="flex justify-center">
                     <Button color="green" size="sm" className="me-2" onClick={() => handleUpdate(registration)}>

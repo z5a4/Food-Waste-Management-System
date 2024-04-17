@@ -28,7 +28,7 @@ const ViewDonation = () => {
       <div className="container mt-4 pt-4">
         <Typography variant='h3' className="text-center mb-4">Donations</Typography>
         <div className="flex justify-center mb-3">
-          <Link to="/admindonationform">
+          <Link to="/donationform">
             <Button color="green" className="mr-2">Add New</Button>
           </Link>
           <Link to="/admin">
@@ -36,7 +36,7 @@ const ViewDonation = () => {
           </Link>
         </div>
         {error && <p className="text-red-500">{error}</p>}
-        <table className="table-auto w-full text-center">
+        <table className="table-auto w-full border border-collapse rounded">
           <thead className='bg-gray-800 text-white'>
             <tr>
               <th className="px-4 py-2">Donation ID</th>
@@ -45,7 +45,6 @@ const ViewDonation = () => {
               <th className="px-4 py-2">Donation Date</th>
               <th className="px-4 py-2">Donor Name</th>
               <th className="px-4 py-2">Donor Mobile No</th>
-              <th className="px-4 py-2">Donor Email</th>
               <th className="px-4 py-2">Donation Amount</th>
               <th className="px-4 py-2">Actions</th>
             </tr>
@@ -59,7 +58,6 @@ const ViewDonation = () => {
                 <td className="border px-4 py-2">{donation.donationDate}</td>
                 <td className="border px-4 py-2">{donation.donorName}</td>
                 <td className="border px-4 py-2">{donation.donorMobileNo}</td>
-                <td className="border px-4 py-2">{donation.donorEmail}</td>
                 <td className="border px-4 py-2">{donation.donationAmount}</td>
                 <td className="border px-4 py-2">
                   <div className="flex">

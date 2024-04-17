@@ -16,9 +16,7 @@ const CreateAdmin = () => {
         answer: '',
     });
 
-    const [errorMessage, setErrorMessage] = useState('');
-    const [showAlert, setShowAlert] = useState(false); // State for controlling alert visibility
-
+   
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -30,66 +28,46 @@ const CreateAdmin = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validation checks
-        const { dateOfBirth, email, mobileNo, organisationName, password } = formData;
-        const currentDate = new Date().toISOString().split('T')[0];
-        const mobileNoRegex = /^[6-9]\d{9}$/;
-        const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-
-        if (new Date(dateOfBirth) > new Date(currentDate)) {
-            setShowAlert(true);
-            setErrorMessage('Date of Birth cannot be after the current date.');
-            return;
-        }
-
-        if (!email.includes('@')) {
-            setShowAlert(true);
-            setErrorMessage('Invalid email format.');
-            return;
-        }
-
-        if (!mobileNo.match(mobileNoRegex)) {
-            setShowAlert(true);
-            setErrorMessage('Invalid mobile number format.');
-            return;
-        }
-
-      
-        if (!password.match(passwordRegex)) {
-            setShowAlert(true);
-            setErrorMessage('Password should contain at least one digit, one special character, and have a minimum length of 8 characters.');
-            return;
-        }
-
+       
         try {
             // Send the form data to the server
             const response = await Axios.post('http://localhost:5000/api/createadmin', formData);
-    
+            if (!response.data.success && response.data.focus) {
+                const field = document.getElementById(response.data.focus);
+                if (field) {
+                    field.focus();
+                }
+            }
             // Display a success message
             alert(response.data.message);
             setaid(response.data.aid);
+
+
+             // Redirect to login page after successful registration
+             if (response.data.message === 'Registration successful') {
+                setFormData({
+                    name: '',
+                    address: '',
+                    dateOfBirth: '',
+                    email: '',
+                    mobileNo: '',
+                    username: '',
+                    password: '',
+                    securityQuestion: '',
+                    answer: '',
+                  });
+            }
+           
+               
             
-            setFormData({
             
-            
-            name: '',
-            address: '',
-            dateOfBirth: '',
-            email: '',
-            mobileNo: '',
-            username: '',
-            password: '',
-            securityQuestion: '',
-            answer: '',
-                });
-        
           } catch (error) {
             console.error('Error submitting form:', error);
             // Display an error message
             alert('Registration failed. Please try again.');
           } // Handle form submission logic here
     };
-    return { formData, handleChange, handleSubmit ,errorMessage,showAlert,aid};
+    return { formData, handleChange, handleSubmit ,aid};
 }
 export default CreateAdmin;
 

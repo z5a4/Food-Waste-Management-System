@@ -8,6 +8,7 @@ import { CommonParagraph } from "./CommonParagraph";
 import { CommonBlurImg } from "./CommonBlurImg";
 import { CommonService, CommonService1, CommonService2 } from "./CommonService";
 import Skeleton from '../../Skeleton';
+import CommonStats from './commonstats';
 
 import Footer from "../Footer/Footer";
 
@@ -22,19 +23,24 @@ function Common() {
     return () => clearTimeout(timer);
   }, []);
 
+  const translateToHindi = () => {
+    // Add logic to translate the webpage content to Hindi
+    // This could involve fetching translated content from an API, 
+    // replacing text content in components with translated strings, etc.
+  };
+
   return (
     <>
       {loading ? (
         <Skeleton /> // Render the skeleton while loading
       ) : (
         <div>
+          <button onClick={translateToHindi} style={{ position: 'fixed', top: '85px', right: '10px', color:'red' }}>Translate to Hindi</button>
           <CommonNavbar/>
           <div className='space'><br></br></div>   
           <CommonCarousel/>
           <div className="space"><br></br></div>
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            {/* Add your content here */}
-          </div>
+          <CommonStats/>
           <div className="space"><br></br></div>
           <CommonParagraph/>
           <div className="space"><br></br></div>

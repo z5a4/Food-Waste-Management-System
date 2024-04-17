@@ -91,12 +91,13 @@ const OccasionalFWRequest = () => {
                 </label>
               </td>
               <td>
-                <Input
-                  variant='standard'
-                  type="text"
+                <textarea
+                  id="address"
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
+                  rows={4}
+                  className="border border-gray-300 p-2 rounded-md w-full"
                   placeholder="Enter Address"
                 />
               </td>

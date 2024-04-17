@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FViewMember from '../functions/FViewMember';
-import { Button } from '@material-tailwind/react';
+import {Typography, Button } from '@material-tailwind/react';
 import AdminNavbar from '../../AdminNavbar';
 
 function OViewMember() {
@@ -22,7 +22,7 @@ function OViewMember() {
     <>
     <AdminNavbar/>
     <div className="container mt-5 pt-5">
-      
+    <Typography variant="h3" className="text-center mb-3">Members</Typography>
       <div className="flex justify-center mb-3">
           <Link to="/adminmemberform">
             <Button className='mr-2' color="green" >

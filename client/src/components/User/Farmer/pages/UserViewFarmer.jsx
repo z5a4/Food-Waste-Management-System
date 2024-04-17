@@ -34,7 +34,7 @@ function UserViewFarmer() {
         </Link>
       </div>
       {error && <p className="text-red-500">{error}</p>}
-      <table className="table-auto w-full bg-white border-collapse border border-gray-300">
+      <table className="table-auto w-full border border-collapse rounded">
         <thead className="bg-gray-800 text-white">
           <tr>
             <th className="px-4 py-2">ID</th>
@@ -44,8 +44,6 @@ function UserViewFarmer() {
             <th className="px-4 py-2">Address</th>
             <th className="px-4 py-2">Username</th>
             <th className="px-4 py-2">Password</th>
-            <th className="px-4 py-2">Security Question</th>
-            <th className="px-4 py-2">Answer</th>
             <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
@@ -59,8 +57,6 @@ function UserViewFarmer() {
               <td className="border px-4 py-2">{farmer.farmerAddress}</td>
               <td className="border px-4 py-2">{farmer.farmerUsername}</td>
               <td className="border px-4 py-2">{farmer.farmerPassword}</td>
-              <td className="border px-4 py-2">{farmer.farmerSecurityQuestion}</td>
-              <td className="border px-4 py-2">{farmer.farmerAnswer}</td>
               <td className="border px-4 py-2">
                 <div className="flex">
                   <Button color='green' size='sm' className="me-2" onClick={() => handleUpdate(farmer)}>Edit</Button>
