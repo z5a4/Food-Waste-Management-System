@@ -1,14 +1,15 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import FCommonRegistrationForm from '../functions/FCommonRegistration';
 import { Button, Input, Alert, Typography } from '@material-tailwind/react';
 import { CommonNavbar } from '../../commonNavbar';
 import Footer from '../../../Footer/Footer';
 
-const CommonRegistrationForm = () => {
-  const { formData, handleChange, handleSubmit, errorMessage, showAlert, regid } = FCommonRegistrationForm();
-  const navigate = useNavigate();
 
+const CommonRegistrationForm = () => {
+  const { formData, handleChange, handleSubmit, errorMessage, showAlert, handleCloseAlert,regid } = FCommonRegistrationForm();
+  const navigate = useNavigate();
+  
   const handleBack = () => {
     navigate('/');
   };
@@ -16,10 +17,9 @@ const CommonRegistrationForm = () => {
   return (
     <>
       <CommonNavbar />
-      <div className='mt-5'>
-      {errorMessage && <Alert color="red">{errorMessage}</Alert>}
-        <br />
-        {showAlert && <Alert color="red">Please fill in all fields</Alert>}
+      <div className='mt-2'>
+    
+            
       <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
         <Typography variant='h3' className="text-center mb-4">Register..</Typography>
         <form onSubmit={handleSubmit}>
