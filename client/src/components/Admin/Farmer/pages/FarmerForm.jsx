@@ -30,6 +30,7 @@ const FarmerForm = () => {
                   name="farmerId"
                   value={formData.farmerId}
                   onChange={handleInputChange}
+                  placeholder="Enter Farmer ID"
                 />
                 {errors.farmerId && <span className="text-danger">{errors.farmerId}</span>}
               </td>
@@ -45,6 +46,7 @@ const FarmerForm = () => {
                   name="farmerName"
                   value={formData.farmerName}
                   onChange={handleInputChange}
+                  placeholder="Enter Farmer Name"
                 />
                 {errors.farmerName && <span className="text-danger">{errors.farmerName}</span>}
               </td>
@@ -60,6 +62,7 @@ const FarmerForm = () => {
                   name="farmerMobileNo"
                   value={formData.farmerMobileNo}
                   onChange={handleInputChange}
+                  placeholder="Enter Farmer Mobile No"
                 />
                 {errors.farmerMobileNo && <span className="text-danger">{errors.farmerMobileNo}</span>}
               </td>
@@ -75,6 +78,7 @@ const FarmerForm = () => {
                   name="farmerEmail"
                   value={formData.farmerEmail}
                   onChange={handleInputChange}
+                  placeholder="Enter Farmer Email"
                 />
                 {errors.farmerEmail && <span className="text-danger">{errors.farmerEmail}</span>}
               </td>
@@ -83,14 +87,15 @@ const FarmerForm = () => {
               <td>
                 <label htmlFor="farmerAddress" className="form-label font-bold">Farmer Address:</label>
                 </td><td>
-                <Input
-                  variant='standard'
-                  type="text"
+                <textarea
+                  className="border border-gray-300 p-2 rounded-md w-full"
+                  rows={4}
                   id="farmerAddress"
                   name="farmerAddress"
                   value={formData.farmerAddress}
                   onChange={handleInputChange}
-                  style={{ widtd: '100%' }}
+                  style={{ width: '100%' }}
+                  placeholder="Enter Farmer Address"
                 />
                 {errors.farmerAddress && <span className="text-danger">{errors.farmerAddress}</span>}
               </td>
@@ -106,6 +111,7 @@ const FarmerForm = () => {
                   name="farmerUsername"
                   value={formData.farmerUsername}
                   onChange={handleInputChange}
+                  placeholder="Enter Farmer Username"
                 />
                 {errors.farmerUsername && <span className="text-danger">{errors.farmerUsername}</span>}
               </td>
@@ -121,6 +127,7 @@ const FarmerForm = () => {
                   name="farmerPassword"
                   value={formData.farmerPassword}
                   onChange={handleInputChange}
+                  placeholder="Enter Farmer Password"
                 />
                 {errors.farmerPassword && <span className="text-danger">{errors.farmerPassword}</span>}
               </td>
@@ -135,6 +142,7 @@ const FarmerForm = () => {
                   name="farmerSecurityQuestion"
                   value={formData.farmerSecurityQuestion}
                   onChange={handleInputChange}
+                  placeholder="Select Farmer Security Question"
                 >
                   <option value="">Select Security Question</option>
                   <option value="favFood">Favorite Food</option>
@@ -155,6 +163,7 @@ const FarmerForm = () => {
                   name="farmerAnswer"
                   value={formData.farmerAnswer}
                   onChange={handleInputChange}
+                  placeholder="Enter Farmer Answer"
                 />
                 {errors.farmerAnswer && <span className="text-danger">{errors.farmerAnswer}</span>}
               </td>

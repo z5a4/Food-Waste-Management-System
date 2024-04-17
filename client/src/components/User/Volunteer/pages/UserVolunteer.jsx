@@ -56,8 +56,6 @@ const UserVolunteer = () => {
                     </div>
               </td>
             </tr>
-           
-
             <tr>
               <td>
                 <div className="mb-3">

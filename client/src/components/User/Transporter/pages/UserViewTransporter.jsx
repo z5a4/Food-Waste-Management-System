@@ -32,7 +32,7 @@ function UserViewTransporter() {
         </Link>
         </div>
         {error && <p className="text-red-500">{error}</p>}
-        <table className="table-auto border-collapse border border-black">
+        <table className="table-auto w-full border border-collapse rounded">
           <thead className="bg-gray-800 text-white text-center">
             <tr>
               <th className="px-4 py-2">ID</th>

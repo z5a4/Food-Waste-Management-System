@@ -93,7 +93,7 @@ const FCommonRegistrationForm = () => {
         }
     };
 
-    return { formData, handleChange, handleSubmit, errorMessage, showAlert, regid };
+    return { formData, handleChange, handleSubmit, errorMessage, regid };
 };
 
 export default FCommonRegistrationForm;
