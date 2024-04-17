@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Axios from 'axios';
 
 const UserFVolunteer = () => {
-  const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
     volunteerId: '',
+    id:'',
     volunteerName: '',
     dateOfBirth: '', // New field for Date of Birth
     volunteeraddress: '',
@@ -15,9 +16,8 @@ const UserFVolunteer = () => {
     answer: '',
   });
 
-  const [errors, setErrors] = useState({});
-
-  const handleInputChange = (e) => {
+  
+  const handleInputChange = async (e) => {
     const { name, value } = e.target;
 
     setFormData({
@@ -25,28 +25,26 @@ const UserFVolunteer = () => {
       [name]: value,
     });
 
-    setErrors({
-      ...errors,
-      [name]: '',
-    });
-  };
-
- 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-   
+    if (name === 'id' && (!formData.name || !formData.mobileNo || !formData.address || !formData.email || formData.dateOfBirth )) {
       try {
-        const response = await Axios.post('http://localhost:5000/api/volunteer-table', formData);
-        alert(response.data.message);
+        const response = await Axios.get(`http://localhost:5000/api/Member/${value}`);
+        const { name, mobileNo, address, email, dateOfBirth } = response.data;
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          volunteerName: prevFormData.volunteerName || name,
+          volunteermobileNo: prevFormData.volunteermobileNo || mobileNo,
+          volunteeraddress: prevFormData.volunteeraddress || address,
+          email: prevFormData.email || email,
+          dateOfBirth: prevFormData.dateOfBirth || dateOfBirth,
+         
+        }));
       } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('Registration failed. Please try again.');
+        console.error('Error fetching data:', error);
       }
     }
-  
-
-  return { formData, errors, handleInputChange, handleSubmit };
+  } 
+ 
+  return { formData, handleInputChange };
 
 };
 

@@ -64,14 +64,14 @@ const UserBioGasForm = () => {
               <tr>
                 <td className="form-label font-bold">Biogas Address:</td>
                 <td>
-                  <Input
-                    type="text"
+                <textarea
                     name="biogasAddress"
                     value={formData.biogasAddress}
                     onChange={handleInputChange}
-                    size="md"
+                    rows={4} // Set the number of visible rows
+                    cols={50} // Set the number of visible columns
                     placeholder="Biogas Address"
-                    variant="standard"
+                    className="border border-gray-300 p-2 rounded-md w-full"
                   />
                 </td>
               </tr>

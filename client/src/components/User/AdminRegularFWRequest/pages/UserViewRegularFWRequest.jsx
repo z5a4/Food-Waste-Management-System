@@ -40,32 +40,30 @@ const UserViewRegularFWRequest = () => {
         </Link>
         </div>
         {error && <p className="text-danger">{error}</p>}
-        <table className="table table-striped border rounded">
-          <thead className="table-dark text-center">
-            <tr>
-              <th>Request ID</th>
-              <th>Organisation Name</th>
-              <th>Requester Name</th>
-              <th>Date</th>
-              <th>Address</th>
-              <th>Mobile No</th>
-              <th>Email</th>
-              <th>approxQuantity</th>
-              <th>Actions</th>
+        <table className="table-auto w-full border border-collapse rounded">
+          <thead className="bg-gray-800 text-white">
+          <tr>
+              <th className="px-4 py-2">Request ID</th>
+              <th className="px-4 py-2">Organisation Name</th>
+              <th className="px-4 py-2">Requester Name</th>
+              <th className="px-4 py-2">Date</th>
+              <th className="px-4 py-2">Address</th>
+              <th className="px-4 py-2">Mobile No</th>
+              <th className="px-1 py-1">approxQuantity</th>
+              <th className="px-4 py-2">Actions</th>
             </tr>
           </thead>
           <tbody>
             {regularFWRequests.map(regularFWRequest => (
               <tr key={regularFWRequest._id}>
-                <td>{regularFWRequest.requestId}</td>
-                <td>{regularFWRequest.organisationName}</td>
-                <td>{regularFWRequest.requesterName}</td>
-                <td>{regularFWRequest.date}</td>
-                <td>{regularFWRequest.address}</td>
-                <td>{regularFWRequest.mobileNo}</td>
-                <td>{regularFWRequest.email}</td>
-                <td>{regularFWRequest.approxQuantity}</td>
-                <td>
+                <td className="border px-4 py-2">{regularFWRequest.requestId}</td>
+                <td className="border px-4 py-2">{regularFWRequest.organisationName}</td>
+                <td className="border px-4 py-2">{regularFWRequest.requesterName}</td>
+                <td className="border px-4 py-2">{regularFWRequest.date}</td>
+                <td className="border px-4 py-2">{regularFWRequest.address}</td>
+                <td className="border px-4 py-2">{regularFWRequest.mobileNo}</td>
+                <td className="border px-1 py-1">{regularFWRequest.approxQuantity}</td>
+                <td className="border px-4 py-2">
                   <div className="d-flex">
                     <Button color='green' size='sm' className=" me-2" onClick={() => handleUpdate(regularFWRequest)}>Edit</Button>
                   </div>

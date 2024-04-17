@@ -169,7 +169,7 @@ const DonationForm = () => {
           </table>
           <div className="text-center mt-4">
             <Button type="submit" color="green" size="lg" className="me-2">Submit Donation</Button>
-            <Button type="button" color="light-blue" size="lg" onClick={handleBack}>Back</Button>
+            <Button color="light-blue" size="lg" className="ms-2" onClick={() => window.history.back()}>Back</Button>
           </div>
         </form>
       </div>

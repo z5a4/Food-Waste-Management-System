@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Input, Button } from "@material-tailwind/react";
 import FRegularFWRequest from '../functions/FRegularFWRequest';
 import Footer from '../../../Footer/Footer';
-import { OthersSidebar } from '../../Sidebar';
 
 const RegularFWRequest = () => {
-  const { formData, requestId, handleInputChange,handleSubmit } = FRegularFWRequest();
+  const { formData, handleInputChange, handleSubmit } = FRegularFWRequest();
   const navigate = useNavigate();
 
   const getCurrentDate = () => {
@@ -25,81 +23,82 @@ const RegularFWRequest = () => {
     handleInputChange({ target: { name: 'date', value: currentDate } });
   }, []);
 
- 
   const handleBack = () => {
     navigate('/');
   };
 
   return (
     <>
-    <div>
-    <div className="flex flex-col md:flex-row items-center bg-gray-100" >
-        <Typography variant="h1"  className="ml-6 mt-6 font-bold text-3xl text-amber-500">
-          Food Waste Management System
-        </Typography>
-        <div className="mt-6 md:ml-auto">
-          <OthersSidebar />
-        </div>
+      <div>
+        <div className="flex flex-col md:flex-row items-center bg-gray-100" />
       </div>
       <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
         <Typography variant="h3" className="text-center mb-4">Regular Food Waste Request</Typography>
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody>
-              
-                <tr>
+              <tr>
                 <td>
                   <label htmlFor="Oname" className="block text-sm font-bold text-gray-700">Organisation Name:</label>
-                  </td>
-                  <td>
+                </td>
+                <td>
                   <Input variant='standard' type="text" name="organisationName" value={formData.organisationName} onChange={handleInputChange} placeholder="Enter Organisation Name" />
                 </td>
               </tr>
               <tr>
                 <td>
                   <label htmlFor="Rname" className="block text-sm font-bold text-gray-700">Requester Name:</label>
-                  </td>
-                  <td>
+                </td>
+                <td>
                   <Input variant='standard' type="text" name="requesterName" value={formData.requesterName} onChange={handleInputChange} placeholder="Enter Requester Name" />
                 </td>
-                </tr>
-                <tr>
+              </tr>
+              <tr>
                 <td>
                   <label htmlFor="Tdate" className="block text-sm font-bold text-gray-700">Date :</label>
-                  </td>
-                  <td>
+                </td>
+                <td>
                   <Input variant='standard' type="date" name="date" value={formData.date} readOnly />
                 </td>
               </tr>
               <tr>
                 <td>
                   <label htmlFor="address" className="block text-sm font-bold text-gray-700">Address:</label>
-                  </td>
-                  <td>
-                  <Input variant='standard' type="text" name="address" value={formData.address} onChange={handleInputChange} placeholder="Enter Address" />
                 </td>
-                </tr>
-                <tr>
+                <td>
+                  <textarea
+                    id="address"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    rows={4} // Set the number of visible rows
+                    cols={50} // Set the number of visible columns
+                    placeholder="Enter Address"
+                    className="border border-gray-300 p-2 rounded-md w-full"
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>
                   <label htmlFor="email" className="block text-sm font-bold text-gray-700">Email:</label>
-                  </td>
-                  <td>
+                </td>
+                <td>
                   <Input variant='standard' type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Enter Email" />
                 </td>
               </tr>
               <tr>
                 <td>
                   <label htmlFor="mobileNo" className="block text-sm font-bold text-gray-700">Mobile No:</label>
-                  </td>
-                  <td>
+                </td>
+                <td>
                   <Input variant='standard' type="tel" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} placeholder="Enter Mobile No" />
                 </td>
-                </tr>
-                <tr>
+              </tr>
+              <tr>
                 <td>
-                  <label htmlFor="aaproxqty" className="block text-sm font-bold text-gray-700">Approx Quantity:</label>
-                  </td>
-                  <td>
+                  <label htmlFor="approxQuantity" className="block text-sm font-bold text-gray-700">Approx Quantity:</label>
+                </td>
+                <td>
                   <Input variant='standard' type="text" name="approxQuantity" value={formData.approxQuantity} onChange={handleInputChange} placeholder="Enter Approx Quantity" />
                 </td>
               </tr>
@@ -111,8 +110,7 @@ const RegularFWRequest = () => {
           </div>
         </form>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   )
 };

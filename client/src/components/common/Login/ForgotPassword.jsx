@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
-import { Input, Button,Typography} from '@material-tailwind/react';
-import {Alert} from '@material-tailwind/react'
-import loginimg from "../Images/login.png";
+import { Input, Button, Typography } from '@material-tailwind/react';
+import { Alert } from '@material-tailwind/react';
+import Lottie from 'lottie-react';
+import animationData from '../../../assets/Videos/forgotpsw.json';
 import { CommonNavbar } from '../commonNavbar';
 import Footer from '../../Footer/Footer';
 
@@ -56,10 +57,8 @@ const LoginForm = () => {
         <CommonNavbar/>
         <div className="container mx-auto mt-8 mr-4 ml-4">
             <div className="flex flex-col md:flex-row border border-gray-300 rounded-md">
-                <div className="md:w-1/2 p-4 border-r border-gray-300">
-                    <img src={loginimg} 
-                    alt="Login Image" 
-                    className="w-full h-auto" />
+                <div className="md:w-1/2 p-4 border-r border-gray-300" style={{ backgroundColor: '#add8e6', paddingTop: '20px' }}>
+                    <Lottie animationData={animationData} style={{ marginTop: '70px' }} />
                 </div>
                 <div className="md:w-1/2 p-4 mt-12">
                     <h1 className="text-3xl font-semibold mb-4">Forgot Password</h1>

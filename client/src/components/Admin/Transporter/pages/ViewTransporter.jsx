@@ -36,7 +36,7 @@ function ViewTransporter() {
         </div>
         {error && <p className="text-red-500">{error}</p>}
         <table className="table-auto border-collapse border border-black">
-          <thead className="bg-gray-700 text-white text-center">
+          <thead className="bg-gray-800 text-white text-center">
             <tr>
               <th className="px-4 py-2">ID</th>
               <th className="px-4 py-2">Driver Name</th>
@@ -44,7 +44,6 @@ function ViewTransporter() {
               <th className="px-4 py-2">Vehicle Type</th>
               <th className="px-4 py-2">License No</th>
               <th className="px-4 py-2">Mobile No</th>
-              <th className="px-4 py-2">Email</th>
               <th className="px-4 py-2">Rent Rate</th>
               <th className="px-4 py-2">Actions</th>
             </tr>
@@ -58,7 +57,6 @@ function ViewTransporter() {
                 <td className="border px-4 py-2">{transporter.vehicleType}</td>
                 <td className="border px-4 py-2">{transporter.licenseNo}</td>
                 <td className="border px-4 py-2">{transporter.mobileNo}</td>
-                <td className="border px-4 py-2">{transporter.email}</td>
                 <td className="border px-4 py-2">{transporter.rentRate}</td>
                 <td className="border px-4 py-2">
                   <div className="flex">

@@ -31,16 +31,13 @@ function UserViewVolunteer() {
       <table className="table-auto w-full border border-collapse rounded">
         <thead className="bg-gray-700 text-white text-center">
           <tr>
-            <th className="px-4 py-2">ID</th>
+            <th className="px-4 py-2">Volunteer ID</th>
+            <th className="px-4 py-2">MemberID</th>
             <th className="px-4 py-2">Name</th>
             <th className="px-4 py-2">Email</th>
             <th className="px-4 py-2">Mobile No</th>
             <th className="px-4 py-2">Address</th>
             <th className="px-4 py-2">Date of Birth</th>
-            <th className="px-4 py-2">Username</th>
-            <th className="px-4 py-2">Password</th>
-            <th className="px-4 py-2">Security Question</th>
-            <th className="px-4 py-2">Answer</th>
             <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
@@ -48,15 +45,12 @@ function UserViewVolunteer() {
           {volunteers.map(volunteer => (
             <tr key={volunteer._id} className="text-center">
               <td className="border px-4 py-2">{volunteer.volunteerId}</td>
+              <td className="border px-4 py-2">{volunteer.id}</td>
               <td className="border px-4 py-2">{volunteer.volunteerName}</td>
               <td className="border px-4 py-2">{volunteer.email}</td>
               <td className="border px-4 py-2">{volunteer.volunteermobileNo}</td>
               <td className="border px-4 py-2">{volunteer.volunteeraddress}</td>
               <td className="border px-4 py-2">{volunteer.dateOfBirth}</td>
-              <td className="border px-4 py-2">{volunteer.username}</td>
-              <td className="border px-4 py-2">{volunteer.password}</td>
-              <td className="border px-4 py-2">{volunteer.securityQuestion}</td>
-              <td className="border px-4 py-2">{volunteer.answer}</td>
               <td className="border px-4 py-2">
                 <div className="flex justify-center">
                   <Button color="green" onClick={() => handleUpdate(volunteer)} className="me-2">Edit</Button>

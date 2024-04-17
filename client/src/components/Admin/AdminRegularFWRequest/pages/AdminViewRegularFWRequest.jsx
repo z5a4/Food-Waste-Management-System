@@ -49,7 +49,6 @@ const AdminViewRegularFWRequest = () => {
               <th className="px-4 py-2">Date</th>
               <th className="px-4 py-2">Address</th>
               <th className="px-4 py-2">Mobile No</th>
-              <th className="px-2 py-1">Email</th>
               <th className="px-1 py-1">approxQuantity</th>
               <th className="px-4 py-2">Actions</th>
             </tr>
@@ -63,7 +62,6 @@ const AdminViewRegularFWRequest = () => {
                 <td className="border px-4 py-2">{regularFWRequest.date}</td>
                 <td className="border px-4 py-2">{regularFWRequest.address}</td>
                 <td className="border px-4 py-2">{regularFWRequest.mobileNo}</td>
-                <td className="border px-2 py-1">{regularFWRequest.email}</td>
                 <td className="border px-1 py-1">{regularFWRequest.approxQuantity}</td>
                 <td className="border px-4 py-2">
                   <div className="d-flex">
