@@ -22,12 +22,19 @@ function Common() {
     return () => clearTimeout(timer);
   }, []);
 
+  const translateToHindi = () => {
+    // Add logic to translate the webpage content to Hindi
+    // This could involve fetching translated content from an API, 
+    // replacing text content in components with translated strings, etc.
+  };
+
   return (
     <>
       {loading ? (
         <Skeleton /> // Render the skeleton while loading
       ) : (
         <div>
+          <button onClick={translateToHindi} style={{ position: 'fixed', top: '85px', right: '10px', color:'red' }}>Translate to Hindi</button>
           <CommonNavbar/>
           <div className='space'><br></br></div>   
           <CommonCarousel/>

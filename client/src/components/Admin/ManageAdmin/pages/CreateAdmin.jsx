@@ -17,9 +17,7 @@ const CreateAdmin = () => {
     <>
       <AdminNavbar />
       <div className='mt-5'>
-      {errorMessage && <Alert color="red">{errorMessage}</Alert>}
-        <br />
-        {showAlert && <Alert color="red">Please fill in all fields</Alert>}
+      
       <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
         <Typography variant='h3' className="text-center mb-4">Create Admin</Typography>
         <form onSubmit={handleSubmit}>
