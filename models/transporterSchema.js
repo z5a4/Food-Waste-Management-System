@@ -55,7 +55,7 @@ transporterSchema.pre('save', async function (next) {
     // Generate new routeId based on lastId
     const lastIdNumber = parseInt(lastRequestIdDoc.lastId.slice(2)); // Extract the number part
     const newRouteIdNumber = lastIdNumber + 1;
-    const transporterId = 'M' + String(newRouteIdNumber).padStart(3, '0');
+    const transporterId = 'T' + String(newRouteIdNumber).padStart(3, '0');
 
     // Set the routeId for the current document
     this.transporterId = transporterId;

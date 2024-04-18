@@ -35,8 +35,7 @@ const TransporterForm = () => {
                   value={formData.vehicleNo}
                   onChange={handleInputChange}
                 />
-                {errors.vehicleNo && <span className="text-danger">{errors.vehicleNo}</span>}
-              </td>
+                              </td>
             </tr>
             <tr>
               <td>
@@ -52,7 +51,7 @@ const TransporterForm = () => {
                   value={formData.vehicleType}
                   onChange={handleInputChange}
                 />
-                {errors.vehicleType && <span className="text-danger">{errors.vehicleType}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -69,7 +68,7 @@ const TransporterForm = () => {
                   value={formData.driverName}
                   onChange={handleInputChange}
                 />
-                {errors.driverName && <span className="text-danger">{errors.driverName}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -86,7 +85,7 @@ const TransporterForm = () => {
                   value={formData.licenseNo}
                   onChange={handleInputChange}
                 />
-                {errors.licenseNo && <span className="text-danger">{errors.licenseNo}</span>}
+               
               </td>
             </tr>
             <tr>
@@ -103,7 +102,7 @@ const TransporterForm = () => {
                   value={formData.mobileNo}
                   onChange={handleInputChange}
                 />
-                {errors.mobileNo && <span className="text-danger">{errors.mobileNo}</span>}
+              
               </td>
             </tr>
             <tr>
@@ -120,7 +119,7 @@ const TransporterForm = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                 />
-                {errors.email && <span className="text-danger">{errors.email}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -137,7 +136,7 @@ const TransporterForm = () => {
                   onChange={handleInputChange}
                   rows={4}
                 />
-                {errors.address && <span className="text-danger">{errors.address}</span>}
+                
               </td>
             </tr>
             <tr>
@@ -154,7 +153,7 @@ const TransporterForm = () => {
                   value={formData.rentRate}
                   onChange={handleInputChange}
                 />
-                {errors.rentRate && <span className="text-danger">{errors.rentRate}</span>}
+               
               </td>
             </tr>
           </tbody>

@@ -38,7 +38,6 @@ const BioGasForm = () => {
                   <textarea
                     id='biogasAddress'
                     name="biogasAddress"
-                    id="biogasAddress"
                     value={formData.biogasAddress}
                     onChange={handleInputChange}
                     size="md"

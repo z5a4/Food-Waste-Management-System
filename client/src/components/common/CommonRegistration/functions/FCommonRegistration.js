@@ -76,13 +76,9 @@ const FCommonRegistrationForm = () => {
         }
     };
 
-<<<<<<< HEAD
     return { formData, errorMessage, handleChange, handleSubmit,regid };
 
        
-=======
-    return { formData, handleChange, handleSubmit, errorMessage, regid };
->>>>>>> 89d03d85a3605c4ec1a54db0caf90acd600ec890
 };
 
 export default FCommonRegistrationForm;

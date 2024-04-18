@@ -10,7 +10,7 @@ import FRouteForm from '../functions/FRouteForm';
 
 
 const RouteForm = () => {
-  const { formData, handleChange } = FRouteForm();
+  const { formData, handleChange,setFormData } = FRouteForm();
   const navigate = useNavigate();
   const [routeId, setRouteId] = useState('');
   const [showVolunteer, setShowVolunteer] = useState(false);
@@ -39,10 +39,42 @@ const handleViewTransporter = () => {
 
     try {
         const response = await axios.post('http://localhost:5000/api/routee', formData);
+        if (response.data.success) {
         alert(response.data.message);
         setRouteId(response.data.routeId);
-        navigate('/admin');
-      } catch (error) {
+          // Reset form fields
+          setFormData({
+            routeName: '',
+    routeLandmark: '',
+    transporterId: '',
+    transporterdriveName: '',
+    transportermobileNo: '',
+    transportervehicleNo: '',
+    transporterlicenseNo: '',
+    transporteraddress: '',
+    transporterrentRate: '',
+    volunteerId: '',
+    volunteerName: '',
+    volunteeraddress: '',  
+    volunteermobileNo: '',
+   
+        });
+    
+        // Redirect to login page
+        window.location.href = '/admin';
+    } else {
+        // If registration failed and there's a field to focus on
+        if (response.data.focus) {
+            const field = document.getElementById(response.data.focus);
+            if (field) {
+                field.focus();
+            }
+        }
+        
+        // Display error message
+        window.alert(response.data.message);
+    } 
+   } catch (error) {
         console.error('Error submitting form:', error);
         alert('Registration failed. Please try again.');
       }
@@ -63,25 +95,11 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="routeId"
+                  
                   value={routeId}
                   onChange={handleChange}
                   readOnly
                   placeholder="Route ID"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label htmlFor="date" className="form-label font-bold">Date:</label>
-              </td>
-              <td>
-                <Input
-                  variant='standard'
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  placeholder="Date"
                 />
               </td>
             </tr>
@@ -94,6 +112,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="routeName"
+                  id="routeName"
                   value={formData.routeName}
                   onChange={handleChange}
                   placeholder="Route Name"
@@ -109,6 +128,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="routeLandmark"
+                  id="routeLandmark"
                   value={formData.routeLandmark}
                   onChange={handleChange}
                   placeholder="Route Landmark"
@@ -124,6 +144,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="transporterId"
+                  id="transporterId"
                   value={formData.transporterId}
                   onChange={handleChange}
                   placeholder="Transporter ID"
@@ -139,6 +160,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="transporterdriveName"
+                  id="transporterdriverName"
                   value={formData.transporterdriveName}
                   onChange={handleChange}
                   placeholder="Driver Name"
@@ -154,6 +176,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="transportervehicleNo"
+                  id="transportervehicleNo"
                   value={formData.transportervehicleNo}
                   onChange={handleChange}
                   placeholder="Vehicle No"
@@ -169,6 +192,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="transporterlicenseNo"
+                  id="transporterlicenseNo"
                   value={formData.transporterlicenseNo}
                   onChange={handleChange}
                   placeholder="License No"
@@ -184,6 +208,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="transporterrentRate"
+                  id="transporterrentRate"
                   value={formData.transporterrentRate}
                   onChange={handleChange}
                   placeholder="Rent Rate"
@@ -199,6 +224,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="transportermobileNo"
+                  id="transportermobileNo"
                   value={formData.transportermobileNo}
                   onChange={handleChange}
                   placeholder="Mobile No"
@@ -211,9 +237,9 @@ const handleViewTransporter = () => {
               </td>
               <td>
                 <textarea
-                  id='transporteraddress'
                   type="text"
                   name="transporteraddress"
+                  id="transporteraddress"
                   value={formData.transporteraddress}
                   onChange={handleChange}
                   placeholder="Address"
@@ -231,6 +257,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="volunteerId"
+                  id="volunteerId"
                   value={formData.volunteerId}
                   onChange={handleChange}
                   placeholder="Volunteer ID"
@@ -246,6 +273,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="volunteerName"
+                  id="volunteerName"
                   value={formData.volunteerName}
                   onChange={handleChange}
                   placeholder="Volunteer Name"
@@ -258,9 +286,9 @@ const handleViewTransporter = () => {
               </td>
               <td>
                 <textarea
-                  id='volunteeraddress'
                   type="text"
                   name="volunteeraddress"
+                  id="volunteeraddress"
                   value={formData.volunteeraddress}
                   onChange={handleChange}
                   placeholder="Volunteer Address"
@@ -278,6 +306,7 @@ const handleViewTransporter = () => {
                   variant='standard'
                   type="text"
                   name="volunteermobileNo"
+                  id="volunteermobileNo"
                   value={formData.volunteermobileNo}
                   onChange={handleChange}
                   placeholder="Volunteer Mobile No"

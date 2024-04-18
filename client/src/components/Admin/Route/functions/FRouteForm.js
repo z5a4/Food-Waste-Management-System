@@ -5,7 +5,6 @@ const FRouteForm = () => {
   const [formData, setFormData] = useState({
     routeName: '',
     routeLandmark: '',
-    date: '',
     transporterId: '',
     transporterdriveName: '',
     transportermobileNo: '',
@@ -66,7 +65,7 @@ const FRouteForm = () => {
   };
   
 
-  return { formData, handleChange };
+  return { formData, handleChange ,setFormData};
 };
 
 export default FRouteForm;

@@ -29,55 +29,55 @@ function Updateadmin() {
               <tr>
                 <th>Name:</th>
                 <td>
-                  <Input variant='standard' type="text" name="name" value={formData.name} onChange={handleChange} />
+                  <Input variant='standard' type="text" name="name" id="name" value={formData.name} onChange={handleChange} />
                 </td>
               </tr>
               <tr>
                 <th>Email:</th>
                 <td>
-                  <Input variant='standard' type="email" name="email" value={formData.email} onChange={handleChange} />
+                  <Input variant='standard' type="email" name="email" id="email" value={formData.email} onChange={handleChange} />
                 </td>
               </tr>
               <tr>
                 <th>Mobile No:</th>
                 <td>
-                  <Input variant='standard' type="text" name="mobileNo" value={formData.mobileNo} onChange={handleChange} />
+                  <Input variant='standard' type="text" name="mobileNo"id="mobileNo" value={formData.mobileNo} onChange={handleChange} />
                 </td>
               </tr>
               <tr>
                 <th>Address:</th>
                 <td>
-                  <Input variant='standard' type="text" name="address" value={formData.address} onChange={handleChange} />
+                  <Input variant='standard' type="text" name="address" id="address" value={formData.address} onChange={handleChange} />
                 </td>
               </tr>
               <tr>
                 <th>Date of Birth:</th>
                 <td>
-                  <Input variant='standard' type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} />
+                  <Input variant='standard' type="date" name="dateOfBirth" id="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} />
                 </td>
               </tr>
               <tr>
                 <th>Username:</th>
                 <td>
-                  <Input variant='standard' type="text" name="username" value={formData.username} onChange={handleChange} />
+                  <Input variant='standard' type="text" name="username" id="username" value={formData.username} onChange={handleChange} />
                 </td>
               </tr>
               <tr>
                 <th>Password:</th>
                 <td>
-                  <Input variant='standard' type="password" name="password" value={formData.password} onChange={handleChange} />
+                  <Input variant='standard' type="password" name="password" id="password" value={formData.password} onChange={handleChange} />
                 </td>
               </tr>
               <tr>
                 <th>Security Question:</th>
                 <td>
-                  <Input variant='standard' type="text" name="securityQuestion" value={formData.securityQuestion} onChange={handleChange} />
+                  <Input variant='standard' type="text" name="securityQuestion" id="securityQuestion" value={formData.securityQuestion} onChange={handleChange} />
                 </td>
               </tr>
               <tr>
                 <th>Answer:</th>
                 <td>
-                  <Input variant='standard' type="text" name="answer" value={formData.answer} onChange={handleChange} />
+                  <Input variant='standard' type="text" name="answer" id="answer" value={formData.answer} onChange={handleChange} />
                 </td>
               </tr>
             </tbody>

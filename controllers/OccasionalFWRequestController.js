@@ -13,7 +13,7 @@ exports.createFWOccasionalRequest = async (req, res) => {
 
     
     if(!mobileNo){
-      return res.json({success:false,message:'Mobile No is Required',focus:'MobileNo'});
+      return res.json({success:false,message:'Mobile No is Required',focus:'mobileNo'});
     }
 
     if(!requesterName){
@@ -55,7 +55,7 @@ exports.createFWOccasionalRequest = async (req, res) => {
     await newOFWRequest.save();
     const { password, ...clearedFormData } = formData;
     // Send success response with message and registration ID
-    return res.json({ success: true, message: 'Registration done successfully', regid: newRegistration._id })     
+    return res.json({ success: true, message: 'Thanks for the request!. We will respond you in few Moments.', requestId: newOFWRequest._id })     
        }
        catch (error) {
     console.error('Error creating Occasional FWRequest:', error);

@@ -27,6 +27,7 @@ const FUpdateadmin = (admin, navigate) => {
     e.preventDefault();
     try {
       await axios.put(`http://localhost:5000/api/admins/${admin._id}`, formData);
+      
       // Redirect to the admins list after successful update
       window.history.back();
     } catch (error) {

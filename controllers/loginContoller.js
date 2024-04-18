@@ -6,9 +6,7 @@ exports.loginUser = async (req, res) => {
   const formData=req.body;
   const { username, password, category } = formData;
 
-  const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-  const usernameRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-
+ 
   if (!category) {
     return res.json({ success: false, message: 'Select a category', focus: 'category' });
   }
@@ -19,16 +17,7 @@ exports.loginUser = async (req, res) => {
     return res.json({success:false,message:'Password is Required',focus:'password'})
   }
   
-  if (!username.match(usernameRegex)) {
-    return res.json({ success: false, message: 'Username should contain at least one digit, one special character, and have a minimum length of 8 characters', focus: 'username' });
-  }
-
-
-  // Check if the password matches the regex pattern
-  if (!password.match(passwordRegex)) {
-    return res.json({ success: false, message: 'Password should contain at least one digit, one special character, and have a minimum length of 8 characters', focus: 'password' });
-  }
-
+  
   try {
  
 

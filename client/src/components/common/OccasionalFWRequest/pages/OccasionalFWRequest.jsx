@@ -43,6 +43,7 @@ const OccasionalFWRequest = () => {
                   variant='standard'
                   type="text"
                   name="description"
+                  id="description"
                   value={formData.description}
                   onChange={handleInputChange}
                   placeholder="Enter Description"
@@ -60,6 +61,7 @@ const OccasionalFWRequest = () => {
                   variant='standard'
                   type="text"
                   name="requesterName"
+                  id="requesterName"
                   value={formData.requesterName}
                   onChange={handleInputChange}
                   placeholder="Enter Requester Name"
@@ -77,6 +79,7 @@ const OccasionalFWRequest = () => {
                   variant='standard'
                   type="date"
                   name="date"
+                  id="date"
                   value={formData.date}
                   readOnly
                   onChange={handleInputChange}
@@ -86,7 +89,7 @@ const OccasionalFWRequest = () => {
             </tr>
             <tr>
               <td>
-                <label htmlFor="address" className="form-label font-bold">
+                <label htmlFor="Address" className="form-label font-bold">
                   Address:
                 </label>
               </td>
@@ -104,7 +107,7 @@ const OccasionalFWRequest = () => {
             </tr>
             <tr>
               <td>
-                <label htmlFor="email" className="form-label font-bold">
+                <label htmlFor="Email" className="form-label font-bold">
                   Email:
                 </label>
               </td>
@@ -113,6 +116,7 @@ const OccasionalFWRequest = () => {
                   variant='standard'
                   type="email"
                   name="email"
+                  id="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Enter Email"
@@ -121,15 +125,16 @@ const OccasionalFWRequest = () => {
             </tr>
             <tr>
               <td>
-                <label htmlFor="mobileNo" className="form-label font-bold">
+                <label htmlFor="MobileNo" className="form-label font-bold">
                   Mobile No:
                 </label>
               </td>
               <td>
                 <Input
                   variant='standard'
-                  type="tel"
+                  type="text"
                   name="mobileNo"
+                  id="mobileNo"
                   value={formData.mobileNo}
                   onChange={handleInputChange}
                   placeholder="Enter Mobile No"
@@ -147,6 +152,7 @@ const OccasionalFWRequest = () => {
                   variant='standard'
                   type="text"
                   name="approxQuantity"
+                  id="approxQuantity"
                   value={formData.approxQuantity}
                   onChange={handleInputChange}
                   placeholder="Enter Approx Quantity"

@@ -3,10 +3,60 @@ const Route = require('../models/Route');
 
 
 exports.createRoute = async (req, res) => {
+  const formData=req.body;
+  // Additional validation checks
+  const { routeName,routeLandmark,transporterId,transporterdriveName,transportervehicleNo,transporterlicenseNo,transportermobileNo,transporteraddress,transporterrentRate,volunteerId,volunteerName,volunteeraddress,volunteermobileNo} = formData;
+
+  if(!routeName){
+    return res.json({success:false,message:'Route Name is Required',focus:'routeName'});
+  }
+
+  if(!routeLandmark){
+    return res.json({success:false,message:'Landmark is Mandatory',focus:'routeLandmark'});
+  }
+  if(!transporterId){
+    return res.json({success:false,message:'ID Of Transporter is Mandatory',focus:'transporterId'});
+  }
+  if(!transporterdriveName){
+    return res.json({success:false,message:'Driver Name is Required',focus:'transporterdriveName'});
+  }
+  
+  if(!transportervehicleNo){
+    return res.json({success:false,message:'Vehicle no is Required',focus:' transportervehicleNo'});
+  }
+  if(!transportermobileNo){
+    return res.json({success:false,message:'Transporter Mobile no is Required',focus:'transportermobileNo'});
+  }
+  if(!transporterlicenseNo){
+    return res.json({success:false,message:'Transporter Lisence no is Required',focus:'transporterlisenceNo'});
+  }
+  if(!transporteraddress){
+    return res.json({success:false,message:'Transporter Address is Required',focus:'transporteraddress'});
+  }
+  if(!transporterrentRate){
+    return res.json({success:false,message:'Transporter Rent-Rate is Required',focus:'transporterrent-Rate'});
+  }
+  if(!volunteerId){
+    return res.json({success:false,message:'ID of Volunteer is Mandatory',focus:'volunteerId'});
+  }
+  if(!volunteerName){
+    return res.json({success:false,message:'Volunteer Name is Required',focus:'volunteerName'});
+  }
+  if(!volunteermobileNo){
+    return res.json({success:false,message:'Volunteer Mobile No is Required',focus:'volunteermobileNo'});
+  }
+  if(!volunteeraddress){
+    return res.json({success:false,message:'Volunteer Address is Required',focus:'volunteeraddress'});
+  }
+
+
   try {
-    const newRoute = new Route(req.body);
+    const newRoute = new Route(formData);
     await newRoute.save();
-    res.json({ message: 'Route registered successfully' });
+    const { password, ...clearedFormData } = formData;
+    // Send success response with message and registration ID
+    return res.json({ success: true, message: 'Route is defined. Now make a Schedule.', routeId: newRoute._id })     
+  
   } catch (error) {
     console.error('Error creating Route:', error);
     res.status(500).json({ message: 'Registration failed. Please try again.' });

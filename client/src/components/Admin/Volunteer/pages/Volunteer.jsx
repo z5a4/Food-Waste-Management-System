@@ -8,7 +8,7 @@ import Footer from '../../../Footer/Footer';
 
 
 const Volunteer = () => {
-  const { formData, handleInputChange } = FVolunteer();
+  const { formData, handleInputChange,setFormData } = FVolunteer();
   const [volunteerId, setvolunteerId] = useState('');
   
   const navigate = useNavigate();
@@ -23,8 +23,37 @@ const Volunteer = () => {
    
       try {
         const response = await Axios.post('http://localhost:5000/api/volunteer-table', formData);
+        if (response.data.success) {
         alert(response.data.message);
         setvolunteerId(response.data.volunteerId);
+        setFormData({
+          volunteerId: '',
+          id:'',
+          volunteerName: '',
+          dateOfBirth: '', // New field for Date of Birth
+          volunteeraddress: '',
+          email: '',
+         volunteermobileNo: '',
+          username: '',
+          password: '',
+          securityQuestion: '',
+          answer: '',
+      });
+  
+      // Redirect to login page
+      window.location.href = '/admin';
+  } else {
+      // If registration failed and there's a field to focus on
+      if (response.data.focus) {
+          const field = document.getElementById(response.data.focus);
+          if (field) {
+              field.focus();
+          }
+      }
+      
+      // Display error message
+      window.alert(response.data.message);
+  } 
         
       } catch (error) {
         console.error('Error submitting form:', error);
@@ -65,7 +94,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="id" value={formData.id} onChange={handleInputChange} placeholder="Enter Volunteer ID" />
+                  <Input variant='standard' type="text" name="id" id="id" value={formData.id} onChange={handleInputChange} placeholder="Enter Volunteer ID" />
                     </div>
               </td>
             </tr>
@@ -79,7 +108,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="volunteerName" value={formData.volunteerName} onChange={handleInputChange} placeholder="Enter Volunteer Name" />
+                  <Input variant='standard' type="text" name="volunteerName" id="volunteerName" value={formData.volunteerName} onChange={handleInputChange} placeholder="Enter Volunteer Name" />
                  
                 </div>
               </td>
@@ -92,7 +121,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} placeholder="Select Date of Birth" />
+                  <Input variant='standard' type="text" name="dateOfBirth" id="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} placeholder="Select Date of Birth" />
                   
                 </div>
               </td>
@@ -106,7 +135,7 @@ const Volunteer = () => {
               <td>
                 <div className="mb-3">
                   <textarea 
-                  id='volunteeraddress' 
+                  id="volunteeraddress" 
                   className="border border-gray-300 p-2 rounded-md w-full" 
                   rows={4} type="text" 
                   name="volunteeraddress"
@@ -125,7 +154,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="email" value={formData.email} onChange={handleInputChange} placeholder="Enter Email" />
+                  <Input variant='standard' type="text" name="email" id="email" value={formData.email} onChange={handleInputChange} placeholder="Enter Email" />
                  
                 </div>
               </td>
@@ -138,7 +167,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="volunteermobileNo" value={formData.volunteermobileNo} onChange={handleInputChange} placeholder="Enter Mobile No" />
+                  <Input variant='standard' type="text" name="volunteermobileNo" id="volunteermobileNo" value={formData.volunteermobileNo} onChange={handleInputChange} placeholder="Enter Mobile No" />
                  
                 </div>
               </td>
@@ -151,7 +180,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder="Enter Username" />
+                  <Input variant='standard' type="text" name="username" id="username" value={formData.username} onChange={handleInputChange} placeholder="Enter Username" />
                  
                 </div>
               </td>
@@ -164,7 +193,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Enter Password" />
+                  <Input variant='standard' type="password" name="password" id="password" value={formData.password} onChange={handleInputChange} placeholder="Enter Password" />
                  
                 </div>
               </td>
@@ -177,7 +206,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <select name="securityQuestion" value={formData.securityQuestion} onChange={handleInputChange} className="form-select">
+                  <select name="securityQuestion" id="securityQuestion" value={formData.securityQuestion} onChange={handleInputChange} className="form-select">
                     <option value="">Select Security Question</option>
                     <option value="favFood">Favorite Food</option>
                     <option value="favHobby">Favorite Hobby</option>
@@ -195,7 +224,7 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="answer" value={formData.answer} onChange={handleInputChange} placeholder="Enter Answer" />
+                  <Input variant='standard' type="text" name="answer" id="answer" value={formData.answer} onChange={handleInputChange} placeholder="Enter Answer" />
                   
                 </div>
               </td>
