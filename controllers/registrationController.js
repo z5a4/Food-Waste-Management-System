@@ -11,6 +11,7 @@ exports.registerUser = async (req, res) => {
   const currentDate = new Date().toISOString().split('T')[0];
   const mobileNoRegex = /^[6-9]\d{9}$/;
   const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+  const usernameRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
 
   if (!category) {
     return res.json({ success: false, message: 'Select a category', focus: 'category' });
@@ -33,13 +34,13 @@ exports.registerUser = async (req, res) => {
     return res.json({ success: false, message: 'Organisation Name is required', focus: 'organisationName' });
   }
   if(!dateOfBirth){
-    return res.json({success:false,message:'date of birth is required', focus:dateOfBirth});
+    return res.json({success:false,message:'date of birth is required', focus:'dateOfBirth'});
   }
   if(!username){
-    return res.json({success:false,message:'Username is required',focus:username});
+    return res.json({success:false,message:'Username is required',focus:'username'});
   }
   if(!mobileNo) {
-    return res.json({success:false,message:'Mobile number is required',focus:mobileNo});
+    return res.json({success:false,message:'Mobile number is required',focus:'mobileNo'});
   }
 
   // Check if the date of birth is after the current date
@@ -62,6 +63,15 @@ exports.registerUser = async (req, res) => {
     return res.json({ success: false, message: 'Organisation Name should not contain any digits or special characters', focus: 'organisationName' });
   }
 
+  if (name.match(/[0-9!@#$%^&*]/)) {
+    return res.json({ success: false, message: 'Name should not contain any digits or special characters', focus: 'name' });
+  }
+
+  if (!username.match(usernameRegex)) {
+    return res.json({ success: false, message: 'Username should contain at least one digit, one special character, and have a minimum length of 8 characters', focus: 'username' });
+  }
+
+
   // Check if the password matches the regex pattern
   if (!password.match(passwordRegex)) {
     return res.json({ success: false, message: 'Password should contain at least one digit, one special character, and have a minimum length of 8 characters', focus: 'password' });
@@ -69,24 +79,23 @@ exports.registerUser = async (req, res) => {
 
   try {
     // Check if the username, email, or mobile number already exists in the database
-    const user = await Registration.findOne({ $or: [{ username }, { email }, { mobileNo }] });
+    const user = await Registration.findOne({ $or: [{ username: formData.username }, { email: formData.email }, { mobileNo: formData.mobileNo }] });
 
-    if (user) {
-      if (user.username === username) {
-        return res.json({ success: false, message: 'Username already occupied', focus: 'username' });
-      } else if (user.email === email) {
-        return res.json({ success: false, message: 'Email already registered', focus: 'email' });
-      } else {
-        return res.json({ success: false, message: 'Mobile number already registered', focus: 'mobileNo' });
-      }
-    } else {
+        if (user) {
+            if (user.username === formData.username) {
+                return res.json({ success: false, message: 'Username already occupied', focus: 'username' });
+            } else if (user.email === formData.email) {
+                return res.json({ success: false, message: 'Email already registered', focus: 'email' });
+            } else {
+                return res.json({ success: false, message: 'Mobile number already registered', focus: 'mobileNo' });
+            } } else {
       // If none of username, email, or mobile number are occupied, proceed to save the new registration
       const newRegistration = new Registration(formData);
       await newRegistration.save();
  // Clear the form data after successful registration
-      // Send success response with message
-      return res.json({ message: 'Registration done successful'});
-      
+ const { password, ...clearedFormData } = formData;
+ // Send success response with message and registration ID
+ return res.json({ success: true, message: 'Registration done successfully', regid: newRegistration._id })     
     }
   } catch (error) {
     console.error('Error registering user:', error);

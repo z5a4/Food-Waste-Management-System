@@ -53,7 +53,7 @@ exports.registerUser = async (req, res) => {
 
   // Check if the organisation name contains digits or special characters
   if (name.match(/[0-9!@#$%^&*]/)) {
-    return res.json({ success: false, message: 'Organisation Name should not contain any digits or special characters', focus: 'organisationName' });
+    return res.json({ success: false, message: 'Admin Name should not contain any digits or special characters', focus: 'name' });
   }
 
   // Check if the password matches the regex pattern
@@ -63,21 +63,26 @@ exports.registerUser = async (req, res) => {
 
   try {
     // Check if the username, email, or mobile number already exists in the database
-    const user = await Admin.findOne({ $or: [{ username }, { email }, { mobileNo }] });
+    const user = await Admin.findOne({ $or: [{ username: formData.username }, { email: formData.email }, { mobileNo: formData.mobileNo }] });
 
-    if (user) {
-      if (user.username === username) {
-        return res.json({ success: false, message: 'Username already occupied', focus: 'username' });
-      } else if (user.email === email) {
-        return res.json({ success: false, message: 'Email already registered', focus: 'email' });
-      } else {
-        return res.json({ success: false, message: 'Mobile number already registered', focus: 'mobileNo' });
-      }
-    } else {
+        if (user) {
+            if (user.username === formData.username) {
+                return res.json({ success: false, message: 'Username already occupied', focus: 'username' });
+            } else if (user.email === formData.email) {
+                return res.json({ success: false, message: 'Email already registered', focus: 'email' });
+            } else {
+                return res.json({ success: false, message: 'Mobile number already registered', focus: 'mobileNo' });
+            } 
+          }
+           else
+           {
     const newAdmin = new Admin(formData);
     await newAdmin.save();
-    res.json({ message: 'Admin successful' });
-    }
+     // Clear the form data after successful registration
+ const { password, ...clearedFormData } = formData;
+ // Send success response with message and registration ID
+ return res.json({ success: true, message: 'Admin done successfully', aid: newAdmin._id })     
+}
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).json({ error: 'Internal Server Error' });

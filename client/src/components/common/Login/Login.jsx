@@ -14,9 +14,7 @@ const LoginForm = () => {
         password: '',
         category: '',
     });
-    const [errorMessage, setErrorMessage] = useState('');
-    const [showAlert, setShowAlert] = useState(false); // State for controlling alert visibility
-
+   
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -28,26 +26,38 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Basic client-side validation
-        if (!formData.username || !formData.password || !formData.category) {
-            setShowAlert(true); // Show the alert
-            return;
-        }
-
+      
         try {
             const response = await axios.post('http://localhost:5000/api/login', formData, { withCredentials: true });
 
-            if (response.status === 200) {
+            if (response.status === 200 && response.data.success) {
                 // Successful login
-                console.log(response.data.message);
-                // Redirect to /others
-                navigate('/others');
+                alert(response.data.message);
+                setFormData({
+                    category: '',
+                    username: '',
+                    password: '',
+                   
+                });
+            
+                // Redirect to login page
+                window.location.href = '/others';
             } else {
-                // Login failed
-                setErrorMessage(response.data.message);
-            }
+                // If registration failed and there's a field to focus on
+                if (response.data.focus) {
+                    const field = document.getElementById(response.data.focus);
+                    if (field) {
+                        field.focus();
+                    }
+                }
+                
+                // Display error message
+                window.alert(response.data.message);
+            }  
+            
         } catch (error) {
            // console.error('Error during login:', error);
-            setErrorMessage('Invalid Credentials. Please try again.');
+            alert('Invalid Credentials. Please try again.');
         }
     };
 
@@ -87,9 +97,6 @@ const LoginForm = () => {
                     </form>
                     <Typography color="blue-gray" className="mt-4">Don't have an account ? <a href='/commonregistration' className="font-medium text-gray-600">Sign-Up</a></Typography>
                     <br></br>
-                    {errorMessage &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">{errorMessage}</Alert>}
-                    <br></br>
-                    {showAlert &&  <Alert className="rounded-none border-l-4 border-[#2ec946] bg-[#2ec946]/10 font-medium text-[#2ec946]">Please fill in all fields</Alert>} {/* Conditionally render the alert */}
                 </div>
             </div>
         </div>

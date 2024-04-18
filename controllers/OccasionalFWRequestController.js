@@ -1,12 +1,63 @@
 const OccasionalFWRequestModel = require('../models/OccasionalFWRequestModel');
 
 exports.createFWOccasionalRequest = async (req, res) => {
+    const formData=req.body;
+    // Additional validation checks
+    const { description, mobileNo,requesterName ,address,email,approxQuantity} = formData;
+    const currentDate = new Date().toISOString().split('T')[0];
+    const mobileNoRegex = /^[6-9]\d{9}$/;
+   
+    if(!description){
+      return res.json({success:false,message:'Description is Required',focus:'description'});
+    }
+
+    
+    if(!mobileNo){
+      return res.json({success:false,message:'Mobile No is Required',focus:'MobileNo'});
+    }
+
+    if(!requesterName){
+      return res.json({success:false,message:'Requester Name is Required',focus:'requesterName'});
+    }
+
+    if(!email){
+      return res.json({success:false,message:'Email Is Required',focus:'email'});
+    }
+
+    if(!address){
+      return res.json({success:false,message:'Address Is Required',focus:'address'});
+    }
+
+    if(!approxQuantity){
+      return res.json({success:false,message:'ApproxQuantity Is Required',focus:'approxQuantity'});
+    }
+
+    // Check if the email is in a valid format
+  if (!email.includes('@')) {
+    return res.json({ success: false, message: 'Invalid email format', focus: 'email' });
+  }
+
+  // Check if the mobile number matches the regex pattern
+  if (!mobileNo.match(mobileNoRegex)) {
+    return res.json({ success: false, message: 'Invalid mobile number format', focus: 'mobileNo' });
+  }
+
+ 
+  if (requesterName.match(/[0-9!@#$%^&*]/)) {
+    return res.json({ success: false, message: 'Name should not contain any digits or special characters', focus: 'requesterName' });
+  }
+
+
+  
   try {
     
-    const newOFWRequest = new OccasionalFWRequestModel(req.body);
+    const newOFWRequest = new OccasionalFWRequestModel(formData);
     await newOFWRequest.save();
-    res.json({ message: 'Occasional Food Waste Request registered successfully' });
-  } catch (error) {
+    const { password, ...clearedFormData } = formData;
+    // Send success response with message and registration ID
+    return res.json({ success: true, message: 'Registration done successfully', regid: newRegistration._id })     
+       }
+       catch (error) {
     console.error('Error creating Occasional FWRequest:', error);
     res.status(500).json({ message: 'Occasional Food Waste Request failed. Please try again.' });
   }

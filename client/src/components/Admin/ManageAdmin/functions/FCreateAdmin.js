@@ -32,20 +32,17 @@ const CreateAdmin = () => {
         try {
             // Send the form data to the server
             const response = await Axios.post('http://localhost:5000/api/createadmin', formData);
-            if (!response.data.success && response.data.focus) {
-                const field = document.getElementById(response.data.focus);
-                if (field) {
-                    field.focus();
-                }
-            }
+            if (response.data.success) {
+           
             // Display a success message
             alert(response.data.message);
             setaid(response.data.aid);
 
-
-             // Redirect to login page after successful registration
-             if (response.data.message === 'Registration successful') {
+ 
+                // Reset form fields
                 setFormData({
+                    category: '',
+                    organisationName: '',
                     name: '',
                     address: '',
                     dateOfBirth: '',
@@ -55,12 +52,22 @@ const CreateAdmin = () => {
                     password: '',
                     securityQuestion: '',
                     answer: '',
-                  });
-            }
-           
-               
+                });
             
-            
+                // Redirect to login page
+                window.location.href = '/viewadmin';
+            } else {
+                // If registration failed and there's a field to focus on
+                if (response.data.focus) {
+                    const field = document.getElementById(response.data.focus);
+                    if (field) {
+                        field.focus();
+                    }
+                }
+                
+                // Display error message
+                window.alert(response.data.message);
+            }  
           } catch (error) {
             console.error('Error submitting form:', error);
             // Display an error message

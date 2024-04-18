@@ -27,6 +27,7 @@ const DonationForm = () => {
                 <td>
                   <select
                     name="donationType"
+                    id="donationType"
                     value={formData.donationType}
                     onChange={handleInputChange}
                     error={errors.donationType}
@@ -45,23 +46,11 @@ const DonationForm = () => {
                     variant='standard'
                     type="text"
                     name="description"
+                    id="description"
                     value={formData.description}
                     onChange={handleInputChange}
                     placeholder="Description"
                     error={errors.description}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td className="form-label font-bold">Donation Date:</td>
-                <td>
-                  <Input
-                    variant='standard'
-                    type="date"
-                    name="donationDate"
-                    value={formData.donationDate}
-                    onChange={handleInputChange}
-                    error={errors.donationDate}
                   />
                 </td>
               </tr>
@@ -72,6 +61,7 @@ const DonationForm = () => {
                     variant='standard'
                     type="text"
                     name="donorName"
+                    id="donorName"
                     value={formData.donorName}
                     onChange={handleInputChange}
                     placeholder="Donor Name"
@@ -84,8 +74,9 @@ const DonationForm = () => {
                 <td>
                   <Input
                     variant='standard'
-                    type="tel"
+                    type="text"
                     name="donorMobileNo"
+                    id="donorMobileNo"
                     value={formData.donorMobileNo}
                     onChange={handleInputChange}
                     placeholder="Donor Mobile No"
@@ -100,6 +91,7 @@ const DonationForm = () => {
                     variant='standard'
                     type="email"
                     name="donorEmail"
+                    id="donorEmail"
                     value={formData.donorEmail}
                     onChange={handleInputChange}
                     placeholder="Donor Email"
@@ -116,6 +108,7 @@ const DonationForm = () => {
                     variant='standard'
                     type="text"
                     name="cardNumber"
+                    id="cardNumber"
                     value={formData.cardNumber}
                     onChange={handleInputChange}
                     placeholder="*********9786"
@@ -129,6 +122,7 @@ const DonationForm = () => {
                     variant='standard'
                     type="text"
                     name="expiry"
+                    id="expiry"
                     value={formData.expiry}
                     onChange={handleInputChange}
                     placeholder="MM/YY"
@@ -143,6 +137,7 @@ const DonationForm = () => {
                     variant='standard'
                     type="text"
                     name="cvv"
+                    id="cvv"
                     value={formData.cvv}
                     onChange={handleInputChange}
                     placeholder="CVV"
@@ -158,6 +153,7 @@ const DonationForm = () => {
                     variant='standard'
                     type="number"
                     name="donationAmount"
+                    id="donationAmount"
                     value={formData.donationAmount}
                     onChange={handleInputChange}
                     placeholder="In Rupees."

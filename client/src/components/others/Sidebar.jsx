@@ -44,8 +44,12 @@ export function OthersSidebar() {
   
       const response = await axios.post('http://localhost:5000/api/logout');
       if (response.status === 200) {
+        localStorage.removeItem('token');
+
         // Redirect to login page after successful logout
         navigate('/');
+        // Disable window.history.back() after logout
+      window.history.pushState(null, null, window.location.pathname);
       } else {
         console.error('Logout failed:', response.data.error);
       }
