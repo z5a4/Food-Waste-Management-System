@@ -18,41 +18,18 @@ const UserBioGasForm = () => {
   return (
     <>
       <UserNavbar />
-      <div className='pt-3 content-center pr-32 pl-32'>
-         {errorMessage && <Alert  open={open}
-        onClose={() => setOpen(false)}
-        animate={{
-          mount: { y: 0 },
-          unmount: { y: 100 },
-        }} className="rounded-none border-l-4 border-[#c92e2e] bg-[#dcc0c1] font-medium text-[#c92e2e]">{errorMessage}.Please fill in all fields</Alert>}
-       
-     </div>
-      <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
+       <div className="container mt-4 border border-gray-400 rounded p-4 pl-6 pr-6">
         <Typography variant='h3' className="text-center mb-4">Add Biogas Plant</Typography>
         <form onSubmit={handleSubmit}>
           <table className="table table-bordered">
             <tbody>
-              <tr>
-                <td className="form-label font-bold">Biogas ID:</td>
-                <td>
-                  <Input
-                    type="text"
-                    name="biogasId"
-                    value={formData.biogasId}
-                    onChange={handleInputChange}
-                    size="md"
-                    placeholder="Biogas ID"
-                   
-                    variant="standard"
-                  />
-                </td>
-              </tr>
               <tr>
                 <td className="form-label font-bold">Biogas Name:</td>
                 <td>
                   <Input
                     type="text"
                     name="biogasName"
+                    id="biogasName"
                     value={formData.biogasName}
                     onChange={handleInputChange}
                     size="md"
@@ -66,6 +43,7 @@ const UserBioGasForm = () => {
                 <td>
                 <textarea
                     name="biogasAddress"
+                    id="biogasAddress"
                     value={formData.biogasAddress}
                     onChange={handleInputChange}
                     rows={4} // Set the number of visible rows
@@ -81,6 +59,7 @@ const UserBioGasForm = () => {
                   <Input
                     type="text"
                     name="biogasMobileNo"
+                    id="biogasMobileNo"
                     value={formData.biogasMobileNo}
                     onChange={handleInputChange}
                     size="md"
@@ -95,6 +74,7 @@ const UserBioGasForm = () => {
                   <Input
                     type="email"
                     name="biogasEmail"
+                    id="biogasEmail"
                     value={formData.biogasEmail}
                     onChange={handleInputChange}
                     size="md"
@@ -109,6 +89,7 @@ const UserBioGasForm = () => {
                   <Input
                     type="text"
                     name="biogasSlurryLimit"
+                    id="biogasSlurryLimit"
                     value={formData.biogasSlurryLimit}
                     onChange={handleInputChange}
                     size="md"

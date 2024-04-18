@@ -146,10 +146,9 @@ exports.updateAdmin = async (req, res) => {
     return res.json({ success: false, message: 'Invalid email format', focus: 'email' });
   }
 
-  // Check if the mobile number matches the regex pattern
-  if (!mobileNo.match(mobileNoRegex)) {
+  if (typeof mobileNo === 'string' && !mobileNo.match(mobileNoRegex)) {
     return res.json({ success: false, message: 'Invalid mobile number format', focus: 'mobileNo' });
-  }
+}
 
   // Check if the organisation name contains digits or special characters
   if (name.match(/[0-9!@#$%^&*]/)) {
@@ -162,20 +161,9 @@ exports.updateAdmin = async (req, res) => {
   }
 
   try {
-    // Check if the username, email, or mobile number already exists in the database
-    const user = await Admin.findOne({ $or: [{ username: formData.username }, { email: formData.email }, { mobileNo: formData.mobileNo }] });
-
-        if (user) {
-            if (user.username === formData.username) {
-                return res.json({ success: false, message: 'Username already occupied', focus: 'username' });
-            } else if (user.email === formData.email) {
-                return res.json({ success: false, message: 'Email already registered', focus: 'email' });
-            } else {
-                return res.json({ success: false, message: 'Mobile number already registered', focus: 'mobileNo' });
-            } 
-          }
-           else
-           {
+   
+       
+          
       const admin = await Admin.findByIdAndUpdate(id, formData, { new: true });
 
     if (!admin) {
@@ -183,7 +171,7 @@ exports.updateAdmin = async (req, res) => {
     }
 
     res.status(200).json(admin);
-  }
+  
  }
   catch (error) {
     console.error('Error updating Admin:', error);

@@ -5,7 +5,7 @@ import Footer from '../../../Footer/Footer';
 
 
 const UserTransporterForm = () => {
-  const { formData, errors, handleInputChange, handleSubmit } = UserFTransporterForm();
+  const { formData, errors, handleInputChange, handleSubmit,transporterId } = UserFTransporterForm();
 
   return (
     <>
@@ -25,10 +25,9 @@ const UserTransporterForm = () => {
                   id="transporterId"
                   name="transporterId"
                   placeholder="Enter Transporter ID"
-                  value={formData.transporterId}
+                  value={transporterId}
                   onChange={handleInputChange}
                 />
-                {errors.transporterId && <span className="text-danger">{errors.transporterId}</span>}
               </td>
             </tr>
             <tr>
@@ -45,8 +44,7 @@ const UserTransporterForm = () => {
                   value={formData.vehicleNo}
                   onChange={handleInputChange}
                 />
-                {errors.vehicleNo && <span className="text-danger">{errors.vehicleNo}</span>}
-              </td>
+               </td>
             </tr>
             <tr>
               <td>
@@ -62,8 +60,7 @@ const UserTransporterForm = () => {
                   value={formData.vehicleType}
                   onChange={handleInputChange}
                 />
-                {errors.vehicleType && <span className="text-danger">{errors.vehicleType}</span>}
-              </td>
+                </td>
             </tr>
             <tr>
               <td>
@@ -79,8 +76,7 @@ const UserTransporterForm = () => {
                   value={formData.driverName}
                   onChange={handleInputChange}
                 />
-                {errors.driverName && <span className="text-danger">{errors.driverName}</span>}
-              </td>
+               </td>
             </tr>
             <tr>
               <td>
@@ -96,7 +92,6 @@ const UserTransporterForm = () => {
                   value={formData.licenseNo}
                   onChange={handleInputChange}
                 />
-                {errors.licenseNo && <span className="text-danger">{errors.licenseNo}</span>}
               </td>
             </tr>
             <tr>
@@ -113,7 +108,6 @@ const UserTransporterForm = () => {
                   value={formData.mobileNo}
                   onChange={handleInputChange}
                 />
-                {errors.mobileNo && <span className="text-danger">{errors.mobileNo}</span>}
               </td>
             </tr>
             <tr>
@@ -130,12 +124,11 @@ const UserTransporterForm = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                 />
-                {errors.email && <span className="text-danger">{errors.email}</span>}
-              </td>
+               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor="address" className="font-bold form-label">Address:</label>
+                <label htmlFor="Address" className="font-bold form-label">Address:</label>
               </td>
               <td>
                 <textarea
@@ -147,7 +140,6 @@ const UserTransporterForm = () => {
                   rows={4}
                   className="border border-gray-300 p-2 rounded-md w-full"
                 />
-                {errors.address && <span className="text-danger">{errors.address}</span>}
               </td>
             </tr>
             <tr>
@@ -164,7 +156,6 @@ const UserTransporterForm = () => {
                   value={formData.rentRate}
                   onChange={handleInputChange}
                 />
-                {errors.rentRate && <span className="text-danger">{errors.rentRate}</span>}
               </td>
             </tr>
           </tbody>

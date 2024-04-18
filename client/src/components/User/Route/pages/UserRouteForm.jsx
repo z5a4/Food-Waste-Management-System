@@ -7,7 +7,7 @@ import { Typography, Button, Input } from '@material-tailwind/react';
 import UserFRouteForm from '../functions/UserFRouteForm';
 
 const UserRouteForm = () => {
-  const { formData, handleChange } = UserFRouteForm();
+  const { formData, handleChange ,setFormData} = UserFRouteForm();
   const navigate = useNavigate();
   const [routeId, setRouteId] = useState('');
   const [showVolunteer, setShowVolunteer] = useState(false);
@@ -28,9 +28,41 @@ const UserRouteForm = () => {
 
     try {
       const response = await axios.post('http://localhost:5000/api/routee', formData);
-      alert(response.data.message);
-      setRouteId(response.data.routeId);
-      navigate('/user');
+      if (response.data.success) {
+        alert(response.data.message);
+        setRouteId(response.data.routeId);
+          // Reset form fields
+          setFormData({
+            routeName: '',
+    routeLandmark: '',
+    transporterId: '',
+    transporterdriveName: '',
+    transportermobileNo: '',
+    transportervehicleNo: '',
+    transporterlicenseNo: '',
+    transporteraddress: '',
+    transporterrentRate: '',
+    volunteerId: '',
+    volunteerName: '',
+    volunteeraddress: '',  
+    volunteermobileNo: '',
+   
+        });
+    
+        // Redirect to login page
+        window.location.href = '/user';
+    } else {
+        // If registration failed and there's a field to focus on
+        if (response.data.focus) {
+            const field = document.getElementById(response.data.focus);
+            if (field) {
+                field.focus();
+            }
+        }
+        
+        // Display error message
+        window.alert(response.data.message);
+    } 
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Registration failed. Please try again.');
@@ -68,6 +100,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="date"
                   name="date"
+                  id="date"
                   value={formData.date}
                   onChange={handleChange}
                   placeholder="Date"
@@ -83,6 +116,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="routeName"
+                  id="routeName"
                   value={formData.routeName}
                   onChange={handleChange}
                   placeholder="Route Name"
@@ -98,6 +132,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="routeLandmark"
+                  id="routeLandmark"
                   value={formData.routeLandmark}
                   onChange={handleChange}
                   placeholder="Route Landmark"
@@ -113,6 +148,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="transporterId"
+                  id="transporterId"
                   value={formData.transporterId}
                   onChange={handleChange}
                   placeholder="Transporter ID"
@@ -128,6 +164,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="transporterdriveName"
+                  id="transporterdriveName"
                   value={formData.transporterdriveName}
                   onChange={handleChange}
                   placeholder="Driver Name"
@@ -143,6 +180,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="transportervehicleNo"
+                  id="transportervehicleNo"
                   value={formData.transportervehicleNo}
                   onChange={handleChange}
                   placeholder="Vehicle No"
@@ -158,6 +196,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="transporterlicenseNo"
+                  id="transporterlicenseNo"
                   value={formData.transporterlicenseNo}
                   onChange={handleChange}
                   placeholder="License No"
@@ -173,6 +212,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="transporterrentRate"
+                  id="transporterrentRate"
                   value={formData.transporterrentRate}
                   onChange={handleChange}
                   placeholder="Rent Rate"
@@ -188,6 +228,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="transportermobileNo"
+                  id="transportermobileNo"
                   value={formData.transportermobileNo}
                   onChange={handleChange}
                   placeholder="Mobile No"
@@ -200,7 +241,7 @@ const UserRouteForm = () => {
               </td>
               <td>
                 <textarea
-                  id='transporteraddress'
+                  id="transporteraddress"
                   type="text"
                   name="transporteraddress"
                   value={formData.transporteraddress}
@@ -220,6 +261,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="volunteerId"
+                  id="volunteerId"
                   value={formData.volunteerId}
                   onChange={handleChange}
                   placeholder="Volunteer ID"
@@ -235,6 +277,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="volunteerName"
+                  id="volunteerName"
                   value={formData.volunteerName}
                   onChange={handleChange}
                   placeholder="Volunteer Name"
@@ -247,7 +290,7 @@ const UserRouteForm = () => {
               </td>
               <td>
                 <textarea
-                  id='volunteeraddress'
+                  id="volunteeraddress"
                   type="text"
                   name="volunteeraddress"
                   value={formData.volunteeraddress}
@@ -267,6 +310,7 @@ const UserRouteForm = () => {
                   variant='standard'
                   type="text"
                   name="volunteermobileNo"
+                  id="volunteermobileNo"
                   value={formData.volunteermobileNo}
                   onChange={handleChange}
                   placeholder="Volunteer Mobile No"

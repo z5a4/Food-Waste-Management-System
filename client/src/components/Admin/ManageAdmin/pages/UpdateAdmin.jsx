@@ -53,7 +53,7 @@ function Updateadmin() {
               <tr>
                 <th>Date of Birth:</th>
                 <td>
-                  <Input variant='standard' type="date" name="dateOfBirth" id="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} />
+                  <Input variant='standard' type="text" name="dateOfBirth" id="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} />
                 </td>
               </tr>
               <tr>

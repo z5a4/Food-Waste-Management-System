@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Axios from 'axios';
 
 const UserFTransporterForm = () => {
+  const [transporterId,settransporterId]=useState('');
   const [formData, setFormData] = useState({
-    transporterId: '',
     vehicleNo: '',
     vehicleType: '',
     driverName: '',
@@ -22,86 +22,52 @@ const UserFTransporterForm = () => {
       ...formData,
       [name]: value,
     });
-    // Clear the error for the current field when it's updated
-    setErrors({
-      ...errors,
-      [name]: '',
-    });
-  };
-
-  const validateForm = () => {
-    let isValid = true;
-    const newErrors = {};
-
-    // Example validation rules, adjust as needed
-    if (!formData.transporterId) {
-      newErrors.transporterId = 'Transporter ID is required';
-      isValid = false;
-    }
-
-    if (!formData.vehicleNo) {
-      newErrors.vehicleNo = 'Vehicle No is required';
-      isValid = false;
-    }
-
-    if (!formData.vehicleType) {
-      newErrors.vehicleType = 'Vehicle Type is required';
-      isValid = false;
-    }
-
-    if (!formData.driverName) {
-      newErrors.driverName = 'Driver Name is required';
-      isValid = false;
-    }
-
-    if (!formData.licenseNo) {
-      newErrors.licenseNo = 'License No is required';
-      isValid = false;
-    }
-
-    if (!formData.mobileNo || !/^\d{10}$/.test(formData.mobileNo)) {
-      newErrors.mobileNo = 'Valid 10-digit Mobile No is required';
-      isValid = false;
-    }
-
-    if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Valid email is required';
-      isValid = false;
-    }
-    if (!formData.address) {
-      newErrors.address = 'Address is required';
-      isValid = false;
-    }
-    if (!formData.rentRate || isNaN(formData.rentRate) || formData.rentRate <= 0) {
-      newErrors.rentRate = 'Valid Rent Rate is required';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
       try {
         // Send the form data to the server
         const response = await Axios.post('http://localhost:5000/api/transporters', formData);
-
-        // Display a success message
-        alert(response.data.message);
-      } catch (error) {
+        if (response.data.success) {
+          // Display a success message
+          alert(response.data.message);
+          settransporterId(response.data.transporterId);
+            // Reset form fields
+            setFormData({
+              vehicleNo: '',
+      vehicleType: '',
+      driverName: '',
+      licenseNo: '',
+      mobileNo: '',
+      email: '',
+      rentRate: '',
+      address: '',
+          });
+      
+          // Redirect to login page
+          window.location.href = '/user';
+      } else {
+          // If registration failed and there's a field to focus on
+          if (response.data.focus) {
+              const field = document.getElementById(response.data.focus);
+              if (field) {
+                  field.focus();
+              }
+          }
+          
+          // Display error message
+          window.alert(response.data.message);
+      }      } catch (error) {
         console.error('Error submitting form:', error);
         // Display an error message
         alert('Transporter creation failed. Please try again.');
       }
-    } else {
-      alert('Form validation failed. Please check the fields.');
-    }
-  };
+    } 
+  
 
-  return { formData, errors, handleInputChange, handleSubmit };
+  return { formData, errors, handleInputChange, handleSubmit,transporterId };
 };
 
 export default UserFTransporterForm;

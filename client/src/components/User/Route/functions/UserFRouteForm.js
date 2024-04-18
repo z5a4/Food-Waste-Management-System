@@ -66,7 +66,7 @@ const UserFRouteForm = () => {
   };
   
 
-  return { formData, handleChange };
+  return { formData, handleChange,setFormData };
 };
 
 export default UserFRouteForm;

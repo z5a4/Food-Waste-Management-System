@@ -80,7 +80,7 @@ const CreateAdmin = () => {
                 <td>
                   <Input 
                   variant='standard' 
-                  type="tel" 
+                  type="text" 
                   id="mobileNo" 
                   name="mobileNo" 
                   value={formData.mobileNo} 
