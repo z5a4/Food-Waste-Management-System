@@ -105,7 +105,14 @@ const Volunteer = () => {
               </td>
               <td>
                 <div className="mb-3">
-                  <Input variant='standard' type="text" name="volunteeraddress" value={formData.volunteeraddress} onChange={handleInputChange} placeholder="Enter Address" />
+                  <textarea 
+                  id='volunteeraddress' 
+                  className="border border-gray-300 p-2 rounded-md w-full" 
+                  rows={4} type="text" 
+                  name="volunteeraddress"
+                  value={formData.volunteeraddress} 
+                  onChange={handleInputChange} 
+                  placeholder="Enter Address" />
                   
                 </div>
               </td>

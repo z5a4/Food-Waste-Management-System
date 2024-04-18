@@ -226,18 +226,6 @@ function NavList() {
           Schedule
         </ListItem>
       </Typography>
-
-      <Typography
-        as="a"
-        href="#"
-        variant="h6"
-        color="blue-gray"
-        className="font-h6"
-      >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">
-          Reports
-        </ListItem>
-      </Typography>
     </List>
   );
 }

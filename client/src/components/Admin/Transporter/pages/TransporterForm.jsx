@@ -128,14 +128,14 @@ const TransporterForm = () => {
                 <label htmlFor="address" className="font-bold form-label">Address:</label>
               </td>
               <td>
-                <Input
-                  variant='standard'
-                  type="text"
+                <textarea
+                className="border border-gray-300 p-2 rounded-md w-full"
                   id="address"
                   name="address"
                   placeholder="Enter Address"
                   value={formData.address}
                   onChange={handleInputChange}
+                  rows={4}
                 />
                 {errors.address && <span className="text-danger">{errors.address}</span>}
               </td>

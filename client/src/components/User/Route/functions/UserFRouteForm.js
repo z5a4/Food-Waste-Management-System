@@ -1,7 +1,7 @@
 import  { useState } from 'react';
 import axios from 'axios';
 
-const FRouteForm = () => {
+const UserFRouteForm = () => {
   const [formData, setFormData] = useState({
     routeName: '',
     routeLandmark: '',
@@ -69,4 +69,4 @@ const FRouteForm = () => {
   return { formData, handleChange };
 };
 
-export default FRouteForm;
+export default UserFRouteForm;

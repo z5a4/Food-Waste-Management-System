@@ -2,21 +2,16 @@ import React,{useEffect,useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import FCommonRegistrationForm from '../functions/FCommonRegistration';
 import { Button, Input, Alert, Typography } from '@material-tailwind/react';
-import { CommonNavbar } from '../../commonNavbar';
 import Footer from '../../../Footer/Footer';
 
 
 const CommonRegistrationForm = () => {
   const { formData, handleChange, handleSubmit, errorMessage, showAlert, handleCloseAlert,regid } = FCommonRegistrationForm();
-  const navigate = useNavigate();
   
-  const handleBack = () => {
-    navigate('/');
-  };
+
 
   return (
     <>
-      <CommonNavbar />
       <div className='mt-2'>
     
             
@@ -72,9 +67,9 @@ const CommonRegistrationForm = () => {
               <tr>
                 <td  className="form-label font-bold">Address: </td>
                 <td>
-                  <Input
-                   variant='standard' 
-                   type="text" 
+                  <textarea
+                   rows={4}
+                   className="border border-gray-300 p-2 rounded-md w-full" 
                    id="address" 
                    name="address"
                   value={formData.address} 
@@ -177,7 +172,7 @@ const CommonRegistrationForm = () => {
             </tbody>
           </table>
           <Button type="submit" color='green' size='lg' className='me-2'>Submit</Button>
-          <Button type="button" color="light-blue" size="lg" onClick={handleBack}>Back</Button>
+          <Button color="light-blue" size="lg" className="ms-2" onClick={() => window.history.back()}>Back</Button>
         </form>
         <br />
        

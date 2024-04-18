@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const FViewRoute = () => {
+const UserFViewRoute = () => {
   const navigate = useNavigate();
 
   const fetchRoutes = async () => {
@@ -19,15 +19,10 @@ const FViewRoute = () => {
     navigate(`/update/routes/${route._id}`, { state: { route } });
   };
 
-  const handleDelete = async (route) => {
-    navigate(`/delete/routes/${route._id}`, { state: { route } });
-  };
-
   return {
     fetchRoutes,
     handleUpdate,
-    handleDelete,
   };
 };
 
-export default FViewRoute;
+export default UserFViewRoute;

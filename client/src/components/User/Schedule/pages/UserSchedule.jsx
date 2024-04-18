@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import FSchedule from '../functions/FSchedule';
+import UserFSchedule from '../functions/UserFSchedule';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import CurrentRoutes from '../../Route/pages/CurrentRoutes'; // Import ViewRoute component
@@ -8,13 +8,13 @@ import { Button, Typography } from '@material-tailwind/react';
 import Footer from '../../../Footer/Footer';
 //import RouteSelect from './RouteSelect'; // Import RouteSelect component
 
-const Schedule = () => {
+const UserSchedule = () => {
     const [combinedRequests, setCombinedRequests] = useState([]);
     const [routes, setRoutes] = useState([]);
     const [selectedRoutes, setSelectedRoutes] = useState('');  
     const [showRoute, setShowRoute] = useState(false);
    const [error, setError] = useState(null);
-    const { fetchCombinedRequests, handleInputChange} = FSchedule();
+    const { fetchCombinedRequests, handleInputChange} = UserFSchedule();
     
  
     useEffect(() => {
@@ -87,9 +87,9 @@ requestDataWithRoute.status = 'Approved';
         // Display a success message or update UI as needed
         alert(response.data.message);
     } catch (error) {
-        console.error('Error adding to current schedule:', error);
+        console.error('Error adding to current Userschedule:', error);
         // Display an error message or update UI as needed
-        alert('Failed to add request to current schedule. Please try again.');
+        alert('Failed to add request to current Userschedule. Please try again.');
     }
 };
 
@@ -100,7 +100,7 @@ requestDataWithRoute.status = 'Approved';
             <div className="container mt-5 pt-5">
                 <Typography variant='h3' className="text-center mb-3">Regular And Occasional FW Request Table</Typography>
                 <div className="d-flex justify-content-center mb-3">
-                    <Link to="/adminRegularFWRequestform"><Button className="me-2" color="green">Add New</Button></Link>
+                    <Link to="/RegularFWRequestform"><Button className="me-2" color="green">Add New</Button></Link>
                     <Button color="light-blue" size="lg" onClick={() => window.history.back()}>Back</Button>
                 </div>
                 {error && <p className="text-danger">{error}</p>}
@@ -156,7 +156,7 @@ requestDataWithRoute.status = 'Approved';
                 </table>
                 <div className="text-center mt-3">
                     <Button onClick={handleViewRoute} color='green' className="me-2">View Route</Button>
-                    <Link to="/adminrouteform">
+                    <Link to="/userrouteform">
                     <Button color="light-blue" className="mr-2">
                         Add New
                       </Button>
@@ -172,4 +172,4 @@ requestDataWithRoute.status = 'Approved';
     );
 };
 
-export default Schedule;
+export default UserSchedule;

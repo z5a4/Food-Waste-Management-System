@@ -122,6 +122,7 @@ import ReportViewOccasionalFWRequest from './components/Reports/Foodwaste Reques
 import OccasionalFWRequest from './components/common/OccasionalFWRequest/pages/OccasionalFWRequest';
 
 import Schedule from './components/Admin/Schedule/pages/Schedule';
+import UserSchedule from './components/User/Schedule/pages/UserSchedule';
 import ScheduleTransporter from './components/Admin/Schedule/pages/ScheduleTransporter';
 import ScheduleVolunteer from './components/Admin/Schedule/pages/ScheduleVolunteer';
 
@@ -162,6 +163,9 @@ import DeleteClerk from './components/Admin/ManageClerk/pages/DeleteCkerk'
 import ForgotPassword from './components/common/Login/ForgotPassword'
 
 import { CustomSpinner } from './Spinner'; // Import the CustomSpinner component
+
+import UserViewRoute from './components/User/Route/pages/UserViewRoute';
+import UserRouteForm from './components/User/Route/pages/UserRouteForm';
 
 
 
@@ -310,6 +314,7 @@ function App() {
 
 
       <Route path="/schedule" element={<Schedule/>}/>
+      <Route path="/userschedule" element={<UserSchedule/>}/>
       
     
 
@@ -344,6 +349,9 @@ function App() {
       <Route path="/reporttransporter" element={<ReportViewTransporter/>}/>
       <Route path="/reportregularfoodwaste" element={<ReportAdminViewRegularFWRequest/>}/>
       <Route path="/reportoccasionalfoodwaste" element={<ReportViewOccasionalFWRequest/>}/>
+
+      <Route path="/userviewroute" element={<UserViewRoute/>}/>
+      <Route path="/userrouteform" element={<UserRouteForm/>}/>
 
 
 

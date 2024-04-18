@@ -35,15 +35,16 @@ const BioGasForm = () => {
               <tr>
                 <td className="form-label font-bold">Biogas Address:</td>
                 <td>
-                  <Input
-                    type="text"
+                  <textarea
+                    id='biogasAddress'
                     name="biogasAddress"
                     id="biogasAddress"
                     value={formData.biogasAddress}
                     onChange={handleInputChange}
                     size="md"
                     placeholder="Biogas Address"
-                    variant="standard"
+                    className="border border-gray-300 p-2 rounded-md w-full"
+                    rows={4}
                   />
                 </td>
               </tr>

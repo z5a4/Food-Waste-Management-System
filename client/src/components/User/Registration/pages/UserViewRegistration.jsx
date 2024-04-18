@@ -32,7 +32,7 @@ function UserViewRegistrations() {
           </Link>
         </div>
         {error && <p className="text-red-500">{error}</p>}
-        <table className="table-auto w-full text-center">
+        <table className="table-auto w-full border border-collapse rounded">
           <thead className="bg-gray-800 text-white">
             <tr>
               <th className="px-4 py-2">Name</th>
@@ -47,13 +47,13 @@ function UserViewRegistrations() {
           <tbody>
             {registrations.map(registration => (
               <tr key={registration._id} className="text-center">
-                <td className="px-4 py-2">{registration.name}</td>
-                <td className="px-4 py-2">{registration.email}</td>
-                <td className="px-4 py-2">{registration.mobileNo}</td>
-                <td className="px-4 py-2">{registration.address}</td>
-                <td className="px-4 py-2">{registration.dateOfBirth}</td>
-                <td className="px-4 py-2">{registration.username}</td>
-                <td className="px-4 py-2">
+                <td className="border px-4 py-2">{registration.name}</td>
+                <td className="border px-4 py-2">{registration.email}</td>
+                <td className="border px-4 py-2">{registration.mobileNo}</td>
+                <td className="border px-4 py-2">{registration.address}</td>
+                <td className="border px-4 py-2">{registration.dateOfBirth}</td>
+                <td className="border px-4 py-2">{registration.username}</td>
+                <td className="border px-4 py-2">
                   <div className="flex justify-center">
                     <Button color="green" size="sm" className="me-2" onClick={() => handleUpdate(registration)}>
                       Edit

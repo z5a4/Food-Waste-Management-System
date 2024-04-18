@@ -92,7 +92,7 @@ const navListMenuItems = [
     title: "Route",
     description: "Explore Routes And Collect Food",
     icon: MapPinIcon,
-    href:"/adminviewroute",
+    href:"/userviewroute",
   },
 ];
  
@@ -182,7 +182,7 @@ function NavList() {
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 ">
       <Typography
         as="a"
-        href="#"
+        href="/userschedule"
         variant="h6"
         color="blue-gray"
         className="font-h6"
@@ -202,25 +202,13 @@ function NavList() {
       <NavListMenu />
       <Typography
         as="a"
-        href="/schedule"
+        href="/schedulemain"
         variant="h6"
         color="blue-gray"
         className="font-h6"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Schedule
-        </ListItem>
-      </Typography>
-
-      <Typography
-        as="a"
-        href="#"
-        variant="h6"
-        color="blue-gray"
-        className="font-h6"
-      >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">
-          Reports
         </ListItem>
       </Typography>
     </List>

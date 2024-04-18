@@ -1,51 +1,40 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ScheduleTransporter from '../../Schedule/pages/ScheduleTransporter';
 import ScheduleVolunteer from '../../Schedule/pages/ScheduleVolunteer';
 import { Typography, Button, Input } from '@material-tailwind/react';
+import UserFRouteForm from '../functions/UserFRouteForm';
 
-
-import FRouteForm from '../functions/FRouteForm';
-
-
-const RouteForm = () => {
-  const { formData, handleChange } = FRouteForm();
+const UserRouteForm = () => {
+  const { formData, handleChange } = UserFRouteForm();
   const navigate = useNavigate();
   const [routeId, setRouteId] = useState('');
   const [showVolunteer, setShowVolunteer] = useState(false);
-    const [showTransporter, setShowTransporter] = useState(false);
-    
-
-  const handleBack = () => {
-    navigate('/admin');
-  };
+  const [showTransporter, setShowTransporter] = useState(false);
 
   const handleViewVolunteer = () => {
     setShowVolunteer(true);
     setShowTransporter(false);
-};
+  };
 
-const handleViewTransporter = () => {
+  const handleViewTransporter = () => {
     setShowTransporter(true);
     setShowVolunteer(false);
-};
-
-
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Corrected spelling
-
+    e.preventDefault();
 
     try {
-        const response = await axios.post('http://localhost:5000/api/routee', formData);
-        alert(response.data.message);
-        setRouteId(response.data.routeId);
-        navigate('/admin');
-      } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('Registration failed. Please try again.');
-      }
+      const response = await axios.post('http://localhost:5000/api/routee', formData);
+      alert(response.data.message);
+      setRouteId(response.data.routeId);
+      navigate('/user');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Registration failed. Please try again.');
+    }
   };
 
   return (
@@ -305,4 +294,4 @@ const handleViewTransporter = () => {
   );
 };
 
-export default RouteForm;
+export default UserRouteForm;

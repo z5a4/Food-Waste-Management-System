@@ -10,7 +10,7 @@ const CreateAdmin = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/');
+    navigate('/admin');
   };
 
   return (
@@ -39,9 +39,9 @@ const CreateAdmin = () => {
               <tr>
                 <td  className="form-label font-bold">Address: </td>
                 <td>
-                  <Input
-                   variant='standard' 
-                   type="text" 
+                  <textarea
+                   rows={4} 
+                   className="border border-gray-300 p-2 rounded-md w-full"
                    id="address" 
                    name="address"
                   value={formData.address} 
