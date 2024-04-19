@@ -166,6 +166,7 @@ import { CustomSpinner } from './Spinner'; // Import the CustomSpinner component
 
 import UserViewRoute from './components/User/Route/pages/UserViewRoute';
 import UserRouteForm from './components/User/Route/pages/UserRouteForm';
+import EditProfile from './components/others/ProfileEdit';
 
 
 
@@ -323,6 +324,7 @@ function App() {
       <Route path="/commonregistration" element={<CommonRegistrationForm/>}/>
       <Route path="/login" element={<LoginForm/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      <Route path="/editprofile" element={<EditProfile/>}/>
       <Route path="/aboutUs" element={<About />} />
       
 

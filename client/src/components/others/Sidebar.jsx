@@ -100,7 +100,8 @@ export function OthersSidebar() {
               <ListItemPrefix>
                 <PencilSquareIcon className="h-5 w-5" />
               </ListItemPrefix>
-              Edit Profile
+              <a href="/editprofile">
+              Edit Profile</a>
             </ListItem>
             <ListItem onClick={handleLogout}> 
               <ListItemPrefix>

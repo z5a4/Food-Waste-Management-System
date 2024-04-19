@@ -20,6 +20,7 @@ const routeRoutes=require('./routes/routeRoutes');
 const CurrentScheduleRoutes = require('./routes/CurrentScheduleRoutes');
 const CreateAdmin=require('./routes/adminRoutes'); // Add this line
 const CreateClerk=require('./routes/clerkRoutes');
+const slurryrequestRoutes=require('./routes/slurryrequestRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -54,6 +55,7 @@ app.use('/',OccasionalFWRequestRoutes);
 app.use('/',ScheduleRoutes);
 app.use('/',routeRoutes);
 app.use('/', CurrentScheduleRoutes); // Add this line
+app.use('/',slurryrequestRoutes);
 
 
 app.listen(PORT, () => {
