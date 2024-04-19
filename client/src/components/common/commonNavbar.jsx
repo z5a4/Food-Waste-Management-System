@@ -8,6 +8,9 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import { CommonMenu, CommonMenu1, CommonMenu2 } from "./CommonMenu";
+import fwms from "./Images/FWMS.jpeg";
+
  
 export function CommonNavbar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -20,28 +23,31 @@ export function CommonNavbar() {
   }, []);
  
   const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-    as="li"
-    variant="h6"
-    color="blue-gray"
-    className="flex items-center gap-x-2 p-2 font-h6"
-    >
-    <FaHome size={18} color="Black" /> 
+    <ul className="mt-2 mb-4 flex flex-col gap-1 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+      <Typography className="pt-3 pl-4">
     <a href="/" className="flex items-center">
-       Home
+    <Button
+    variant="text" 
+    size="lg" 
+    color="blue" 
+    className="font-bold" 
+    style={{ fontSize: '1.15rem', fontFamily: 'Arial, sans-serif' }}>
+      Home
+    </Button>
+
     </a>
       </Typography>
-      <Typography
-    as="li"
-    variant="h6"
-    color="blue-gray"
-    className="flex items-center gap-x-2 p-2 font-h6"
-    >
-    <BsPersonLinesFill size={18} color="Black" /> 
-    <a href="/aboutUs" className="flex items-center">
-       About Us
-    </a>
+      
+      <Typography className="pt-3">
+    <CommonMenu/>
+      </Typography>
+
+      <Typography className="pt-3">
+    <CommonMenu1/>
+      </Typography>
+
+      <Typography className="pt-3">
+    <CommonMenu2/>
       </Typography>
     </ul>
   );
@@ -49,25 +55,28 @@ export function CommonNavbar() {
   return (
     <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4" style={{ opacity: 0.9, backdropFilter: 'blur(50px)' }}>
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          variant="h5"
-          href="#"
-          className="mr-4 cursor-pointer py-.5 font-bold"
-          color='brown'
-        >
-          Food Waste Management System
-        </Typography>
+      <div className="flex items-center">
+          <img src={fwms} alt="Logo" className="h-10 mr-4" />
+          <Typography
+            as="a"
+            variant="h2"
+            href="/"
+            className="cursor-pointer py-.5 font-bold"
+            color='green'
+          >
+            FWMS
+          </Typography>
+        </div>
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-">
-          <Button variant="text" size="sm" className="hidden lg:inline-block">
+          <Button variant="text" size="lg" className="hidden lg:inline-block">
             <a href="/login">
             <span>Sign-In</span>
             </a>
           </Button>
           <Button
             variant="gradient"
-            size="sm"
+            size="lg"
             className="hidden lg:inline-block"
             color="light-green"
           ><a href="/donationform">

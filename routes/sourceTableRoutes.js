@@ -1,20 +1,21 @@
-// routes/sourceTableRoutes.js
+// slurryrequestRoutes.js
 const express = require('express');
 const router = express.Router();
-const sourceTableController = require('../controllers/sourceTableController');
+const SlurryRequestController = require('../controllers/slurryRequestController');
 
-router.post('/api/source-table', sourceTableController.createSource);
+// Route for creating a new slurry request
+router.post('/slurryRequest', SlurryRequestController.createRequest);
 
-// Change the route to be more RESTful
-//router.get('/:sourceId', sourceTableController.getSourceById);
+// Route for fetching all slurry requests
+router.get('/slurryRequests', SlurryRequestController.getAllSlurryRequests);
 
-router.get('/api/source-table/:sourceId', sourceTableController.getSourceData);
+// Route for fetching a single slurry request by ID
+router.get('/slurryRequests/:id', SlurryRequestController.getSlurryRequestById);
 
-router.get('/api/sources', sourceTableController.getSources);
+// Route for updating a single slurry request by ID
+router.put('/slurryRequests/:id', SlurryRequestController.updateSlurryRequest);
 
-
-router.put('/api/sources/:id', sourceTableController.updateSource);
-
-router.delete('/api/sources/:id',sourceTableController.deleteSource)
+// Route for deleting a single slurry request by ID
+router.delete('/slurryRequests/:id', SlurryRequestController.deleteSlurryRequest);
 
 module.exports = router;
