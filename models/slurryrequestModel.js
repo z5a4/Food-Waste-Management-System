@@ -3,9 +3,13 @@ const mongoose = require('mongoose');
 // Create a schema for the slurry request
 const slurryRequestSchema = new mongoose.Schema({
   farmerName: String,
-  phoneNumber: String,
+  mobileNo: String,
   address: String,
-  date: Date
+  date: Date,
+  status: {
+    type: String,
+    default: 'pending'
+  }
 });
 
 const SlurryRequest = mongoose.model('SlurryRequest', slurryRequestSchema);

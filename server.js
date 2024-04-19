@@ -20,6 +20,10 @@ const routeRoutes=require('./routes/routeRoutes');
 const CurrentScheduleRoutes = require('./routes/CurrentScheduleRoutes');
 const CreateAdmin=require('./routes/adminRoutes'); // Add this line
 const CreateClerk=require('./routes/clerkRoutes');
+const slurryRequestRoutes = require('./routes/slurryrequestRoutes');
+const foodWasteSlurryRoutes = require('./routes/FoodWasteSlurryRoutes');
+const slurryDistributionRoutes = require('./routes/slurryDistributionRoutes');
+const forgotpasswordRoutes = require('./routes/forgotpasswordRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -53,7 +57,12 @@ app.use('/',RegularFWRequestRoutes);
 app.use('/',OccasionalFWRequestRoutes);
 app.use('/',ScheduleRoutes);
 app.use('/',routeRoutes);
-app.use('/', CurrentScheduleRoutes); // Add this line
+app.use('/', CurrentScheduleRoutes);
+app.use('/api', slurryRequestRoutes);
+app.use('/api', foodWasteSlurryRoutes);
+app.use('/api', slurryDistributionRoutes);
+app.use('/api', forgotpasswordRoutes);
+
 
 
 app.listen(PORT, () => {

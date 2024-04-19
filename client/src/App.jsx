@@ -167,6 +167,22 @@ import { CustomSpinner } from './Spinner'; // Import the CustomSpinner component
 import UserViewRoute from './components/User/Route/pages/UserViewRoute';
 import UserRouteForm from './components/User/Route/pages/UserRouteForm';
 
+{/*Admin Stock */}
+import FoodWasteSlurryForm from './components/Admin/Stock/FoodWasteSlurryForm';
+import AdminViewStock from './components/Admin/Stock/StockCrud/pages/FViewFoodWasteSlurries';
+import UpdateFoodWasteSlurry from './components/Admin/Stock/StockCrud/pages/UpdateFoodWasteSlurry';
+import DeleteFoodWasteSlurry from './components/Admin/Stock/StockCrud/pages/DeleteFoodWasteSlurry';
+
+
+{/*Admin-Slurry-Farmer */}
+import FViewSlurryRequests from './components/Admin/SlurryRequest/pages/FViewSlurryRequests';
+import AddSlurryDistributionForm from './components/Admin/SlurryRequest/pages/AddSlurryDistributionForm';
+import UpdateSlurryDistribution from './components/Admin/SlurryRequest/pages/UpdateSlurryDistribution';
+import DeleteSlurryDistribution from './components/Admin/SlurryRequest/pages/DeleteSlurryDistribution';
+import DeleteSlurryRequests from './components/Admin/SlurryRequest/pages/DeleteSlurryRequests';
+import UpdateSlurryRequests from './components/Admin/SlurryRequest/pages/UpdateSlurryRequests';
+import FViewSlurryDistributions from './components/Admin/SlurryRequest/pages/FViewSlurryDistributions';
+
 
 
 function App() {
@@ -352,6 +368,21 @@ function App() {
 
       <Route path="/userviewroute" element={<UserViewRoute/>}/>
       <Route path="/userrouteform" element={<UserRouteForm/>}/>
+
+      {/*Admin Stock */}
+     <Route path="/foodwasteslurryform" element={<FoodWasteSlurryForm />} />
+      <Route path="/adminviewstock" element={<AdminViewStock />} />
+      <Route path="/updateFoodWasteSlurry/:id" element={<UpdateFoodWasteSlurry />} />
+      <Route path="/deleteFoodWasteSlurry/:id" element={<DeleteFoodWasteSlurry />} />
+
+      {/*Admin-Slurry-Farmer*/}
+      <Route path="/viewslurryrequest" element={<FViewSlurryRequests />} />
+      <Route path="/viewslurrydistributions" element={<FViewSlurryDistributions />} />
+      <Route path="/addSlurryRequest/:id" element={<AddSlurryDistributionForm/>} />
+      <Route path="/updateslurrydistibution/:id" element={<UpdateSlurryDistribution/>} />
+      <Route path="/deleteslurrydistribution/:id" element={<DeleteSlurryDistribution/>} />
+      <Route path="/updateslurryrequest/:id" element={<UpdateSlurryRequests/>} />
+      <Route path="/deleteslurryrequest/:id" element={<DeleteSlurryRequests/>} />
 
 
 

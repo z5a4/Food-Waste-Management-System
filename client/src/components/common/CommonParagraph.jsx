@@ -36,7 +36,7 @@ export function CommonParagraph() {
       }}
     >
       <>
-        <Typography variant="h2" color="amber">About Us</Typography>
+      <Typography variant="h2" color="amber" style={{ fontStyle: 'italic' }}>About Us</Typography>
         
         <Typography variant="lead" className="mt-6 ml-8 mr-8 mb-12 item-center" style={{ textAlign: 'justify-center' }}>
           Food Waste Management System's scope is defined by a collaborative network involving hotels ensuring the systematic collection of leftover food. Managed by the trust, dedicated volunteers enhance outreach, making the process both broad and efficient. The system's core lies in advanced operations at the bio-gas plant, converting collected food waste into nutrient-rich slurry, thus fostering sustainable agricultural practices.<br/><br/>
