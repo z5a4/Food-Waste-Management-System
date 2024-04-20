@@ -5,7 +5,7 @@ import Footer from '../../../Footer/Footer';
 import { OthersSidebar } from '../../Sidebar';
 
 const OMember = () => {
-  const { formData, errors, handleInputChange, handleSubmit,id } = FOMember();
+  const { formData, error, handleInputChange, handleSubmit,id ,loading,successMessage} = FOMember();
   const [isVolunteerEnabled, setIsVolunteerEnabled] = useState(false);
 
   useEffect(() => {
@@ -27,6 +27,15 @@ const OMember = () => {
       setIsVolunteerEnabled(age >= 18);
     }
   }, [formData.dateOfBirth]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+}
+
+if (error) {
+    return <p style={{ color: 'red' }}>{error}</p>;
+}
+
 
   return (
     <>
@@ -149,6 +158,7 @@ const OMember = () => {
           <Button color="light-blue" size="lg" className="ms-2" onClick={() => window.history.back()}>Back</Button>
         </div>
       </form>
+      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
     </div>
     <Footer/>
     </>

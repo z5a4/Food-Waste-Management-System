@@ -5,7 +5,7 @@ import FRegularFWRequest from '../functions/FRegularFWRequest';
 import Footer from '../../../Footer/Footer';
 
 const RegularFWRequest = () => {
-  const { formData, handleInputChange, handleSubmit } = FRegularFWRequest();
+  const { formData, handleInputChange, handleSubmit,loading,successMessage,error } = FRegularFWRequest();
   const navigate = useNavigate();
 
   const getCurrentDate = () => {
@@ -26,6 +26,13 @@ const RegularFWRequest = () => {
   const handleBack = () => {
     navigate('/');
   };
+  if (loading) {
+    return <p>Loading...</p>;
+}
+
+if (error) {
+    return <p style={{ color: 'red' }}>{error}</p>;
+}
 
   return (
     <>
@@ -109,6 +116,7 @@ const RegularFWRequest = () => {
             <Button color="light-blue" size="lg" onClick={() => window.history.back()}>Back</Button>
           </div>
         </form>
+        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
       </div>
       <Footer />
     </>

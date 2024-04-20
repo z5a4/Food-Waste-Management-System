@@ -1,4 +1,7 @@
-const Registration = require('../models/registrationSchema'); // Import the existing schema
+const Registration = require('../models/registrationSchema');
+const RegularFWRequestModel=require('../models/RegularFWRequestModel');
+const MemberModel=require('../models/memberSchema');
+const FarmerModel=require('../models/slurryrequestModel');  // Import the existing schema
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
@@ -52,20 +55,72 @@ exports.loginUser = async (req, res) => {
 
 exports.getUserDetails = async (req, res) => {
   try {
+      // Check if user is authenticated
       if (!req.session.userId) {
           throw new Error('Unauthorized');
       }
+
+      // Retrieve the user from the database
       const user = await Registration.findById(req.session.userId);
       if (!user) {
           throw new Error('User not found');
       }
-      const { username, email, mobileNo, organisationName, name,address } = user;
-      res.status(200).json({ username, email, mobileNo,organisationName,name,address});
+
+      // Destructure user details
+      const { username, email, mobileNo, organisationName, name, address, category } = user;
+
+      // Initialize response data object
+      let responseData = { username, email, mobileNo, organisationName, name, address, category };
+
+      // Retrieve additional data based on category
+      if (category === 'Hotel' || category === 'Hostel') {
+          // Retrieve data from RegularFWRequestModel if category is Hotel or Hostel
+          const regularFWData = await RegularFWRequestModel.findOne({ email: email });
+          if (regularFWData) {
+              responseData = {
+                  ...responseData,
+                  date: regularFWData.date,
+                  requesterName: regularFWData.requesterName,
+                  approxQuantity: regularFWData.approxQuantity,
+                  status: regularFWData.status,
+                  requestId: regularFWData.requestId
+              };
+          }
+      } else if (category === 'Member') {
+          // Retrieve data from Member model if category is Member
+          const memberData = await MemberModel.findOne({ email: email });
+          if (memberData) {
+              responseData = {
+                  ...responseData,
+                  dateOfBirth: memberData.dateOfBirth,
+                  username: memberData.username,
+                  password: memberData.password,
+                  securityQuestion: memberData.securityQuestion,
+                  answer: memberData.answer,
+                  id: memberData.id,
+                  BeVolunteer: memberData.BeVolunteer
+              };
+          }
+      } else if (category === 'Farmer') {
+          // Retrieve data from Farmer model if category is Farmer
+          const farmerData = await FarmerModel.findOne({ email: email });
+          if (farmerData) {
+              responseData = {
+                  ...responseData,
+                  farmerName: farmerData.farmerName,
+                  mobileNo: farmerData.mobileNo,
+                  address: farmerData.address,
+                  date: farmerData.date,
+              };
+          }
+      }
+
+      // Return the response data
+      res.status(200).json(responseData);
   } catch (error) {
       res.status(401).json({ error: error.message });
   }
 };
-
 exports.logout = (req, res) => {
   try {
       req.session.destroy((err) => {

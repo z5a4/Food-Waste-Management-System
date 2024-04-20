@@ -89,6 +89,7 @@ const LoginForm = () => {
                                 <option value="Hotel">Hotel</option>
                                 <option value="Hostel">Hostel</option>
                                 <option value="Farmer">Farmer</option>
+                                <option value="Member">Member</option>
                                 <option value="Others">Others</option>
                             </select>
                         </div>
