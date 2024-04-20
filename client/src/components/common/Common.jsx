@@ -32,8 +32,7 @@ function Common() {
         <Skeleton /> 
       ) : (
         <div>
-          <button onClick={translateToHindi} style={{ position: 'fixed', top: '85px', right: '10px', color:'red' }}>Translate to Hindi</button>
-          <CommonNavbar/>
+         <CommonNavbar/>
           <div className='space'><br></br></div>   
           <CommonCarousel/>
           <div className="space"><br></br></div>

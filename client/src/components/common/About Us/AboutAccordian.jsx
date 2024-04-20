@@ -29,7 +29,7 @@ export function AboutAccordion() {
     <>
       <Accordion open={open === 1} icon={<Icon id={1} open={open} className="mt-6 pt-6"/>}>
         <AccordionHeader onClick={() => handleOpen(1)}>What is DVT(Divyang Vikas Trust)?</AccordionHeader>
-        <AccordionBody>
+        <AccordionBody >
           DVT (Divyang Vikas Trust) is a NGO based organization, which is engaged in helping 
           and empowering handicaps and disabled person. We organize various events, camps and 
           sports events for handicaps. Our goal is to support handicaps.
