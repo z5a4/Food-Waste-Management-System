@@ -69,7 +69,7 @@ exports.ScheduleRegular = async(req,res)=>{
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() - 1); // Get yesterday's date
     const formattedDate = currentDate.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
-    const RegularFWRequests = await RegularFWRequestModel.find({ date: formattedDate });
+    const RegularFWRequests = await RegularFWRequestModel.find({status:'Pending'});
     res.json(RegularFWRequests);
 } catch (error) {
     console.error('Error fetching Regular:', error);

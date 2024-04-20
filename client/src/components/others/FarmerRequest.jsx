@@ -4,6 +4,9 @@ import { Input, Button, Typography } from '@material-tailwind/react';
 import Footer from '../Footer/Footer';
 
 const FarmerRequest = () => {
+    const currentDate = new Date().toISOString().split('T')[0];
+    const [selectedDate, setSelectedDate] = useState(currentDate);
+
     // State management
     const [formData, setFormData] = useState({
         farmerName: '',
@@ -52,6 +55,10 @@ const FarmerRequest = () => {
             [name]: value
         });
     };
+    const handleChangeDate = (e) => {
+        setSelectedDate(e.target.value);
+    };
+
 
     // Handle form submission
     const handleSubmit = async (e) => {
@@ -61,15 +68,10 @@ const FarmerRequest = () => {
         setSuccessMessage(null);
 
         try {
-            const response = await Axios.post('http://localhost:5000/api/farmer-request', formData);
+            const response = await Axios.post('http://localhost:5000/api/slurryRequest', formData);
             setSuccessMessage(response.data.message);
             // Reset form data
-            setFormData({
-                farmerName: '',
-                mobileNo: '',
-                address: '',
-                date: ''
-            });
+           
         } catch (error) {
             console.error('Error submitting form:', error);
             setError('Error submitting form. Please try again.');

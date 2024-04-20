@@ -20,15 +20,10 @@ const routeRoutes=require('./routes/routeRoutes');
 const CurrentScheduleRoutes = require('./routes/CurrentScheduleRoutes');
 const CreateAdmin=require('./routes/adminRoutes');
 const CreateClerk=require('./routes/clerkRoutes');
-<<<<<<< HEAD
-const slurryrequestRoutes=require('./routes/slurryrequestRoutes');
-const forgotpasswordRoutes = require('./routes/forgotpasswordRoutes'); // Add this line
-=======
 const slurryRequestRoutes = require('./routes/slurryrequestRoutes');
 const foodWasteSlurryRoutes = require('./routes/FoodWasteSlurryRoutes');
 const slurryDistributionRoutes = require('./routes/slurryDistributionRoutes');
 const forgotpasswordRoutes = require('./routes/forgotpasswordRoutes');
->>>>>>> 4db8f47d94bc1d0592fa71c625b9027f2a9f4aa4
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -60,18 +55,12 @@ app.use('/',RegularFWRequestRoutes);
 app.use('/',OccasionalFWRequestRoutes);
 app.use('/',ScheduleRoutes);
 app.use('/',routeRoutes);
-<<<<<<< HEAD
-app.use('/', CurrentScheduleRoutes); 
-app.use('/',forgotpasswordRoutes);// Add this line
-app.use('/',slurryrequestRoutes);
-=======
 app.use('/', CurrentScheduleRoutes);
-app.use('/api', slurryRequestRoutes);
+app.use('/', slurryRequestRoutes);
 app.use('/api', foodWasteSlurryRoutes);
-app.use('/api', slurryDistributionRoutes);
+app.use('/', slurryDistributionRoutes);
 app.use('/api', forgotpasswordRoutes);
 
->>>>>>> 4db8f47d94bc1d0592fa71c625b9027f2a9f4aa4
 
 
 app.listen(PORT, () => {

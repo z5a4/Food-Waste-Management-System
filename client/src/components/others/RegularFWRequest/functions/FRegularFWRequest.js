@@ -27,12 +27,12 @@ const FRegularFWRequest = () => {
                 if (userDetails.category === 'Hotel'|| userDetails.category === 'Hostel') {
                     // Pre-fill form data based on fetched user data
                     setFormData({
-                        organisationName: userData.organisationName || '',
-                        requesterName: userData.name || '',
+                        organisationName: userDetails.organisationName || '',
+                        requesterName: userDetails.name || '',
                         date: new Date().toISOString().slice(0, 10), // Default to today's date
-                        address: userData.address || '',
-                        email: userData.email || '',
-                        mobileNo: userData.mobileNo || '',
+                        address: userDetails.address || '',
+                        email: userDetails.email || '',
+                        mobileNo: userDetails.mobileNo || '',
                         approxQuantity: '', // Initialize approxQuantity as empty
                     });
                     
