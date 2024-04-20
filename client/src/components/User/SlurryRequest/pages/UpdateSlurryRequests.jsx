@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useUpdateSlurryRequests from '../functions/useUpdateSlurryRequests';
 import { Button, Typography, Input } from '@material-tailwind/react';
+import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 
 function UpdateSlurryRequests() {
@@ -14,6 +15,7 @@ function UpdateSlurryRequests() {
 
   return (
     <>
+    <AdminNavbar/>
     <div className="container mt-4 pt-4">
       <Typography variant="h3" className="text-center mb-4">Update Slurry Request</Typography>
       <form onSubmit={() => handleSubmit(id)}>

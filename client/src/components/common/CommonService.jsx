@@ -77,7 +77,7 @@ export function CommonService1() {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
-        <Button color="cyan">Click here</Button>
+        <Button color="cyan"><a href='/login'>Click here</a></Button>
       </CardFooter>
     </AnimatedCard>
   );

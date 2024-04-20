@@ -1,31 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import useFViewSlurryDistributions from '../functions/useFViewSlurryDistributions';
+import ReportuseFViewSlurryDistributions from './ReportuseFViewSlurryDistributions';
 import { Button, Typography } from '@material-tailwind/react';
-import AdminNavbar from '../../AdminNavbar';
-import Footer from '../../../Footer/Footer';
+import Footer from '../../Footer/Footer';
+import SlurryDistributionPrintView from './SlurryDistributionPrintView';
 
-
-
-function FViewSlurryDistributions() {
-  const { slurryDistributions, error } = useFViewSlurryDistributions();
+function ReportFViewSlurryDistributions() {
+  const { slurryDistributions, error } = ReportuseFViewSlurryDistributions();
   const navigate = useNavigate();
+  const [printViewData, setPrintViewData] = React.useState(null);
 
-  const handleEdit = (distribution) => {
-    navigate(`/updateslurrydistibution/${distribution._id}`, { state: { distribution } });
-  };
-
-  const handleDelete = (distribution) => {
-    navigate(`/deleteslurrydistribution/${distribution._id}`, { state: { distribution } });
+  const handleViewPrint = (data) => {
+    setPrintViewData(data);
   };
   
+  const totalQuantity = slurryDistributions.reduce((total, distribution) => total + distribution.quantity, 0);
 
   return (
     <>
-    <AdminNavbar/>
       <div className="container mt-4 pt-4">
         <Typography variant="h3" className="text-center mb-2">Slurry Distributions</Typography>
-        <Button color="light-blue" size="lg" className="mb-2" onClick={() => window.history.back()}>Back</Button>
+        <Typography variant="h5" color='green' className="text-center mb-2">Total Slurry Distributed: {totalQuantity}Kgs</Typography>
+        <Link to="/adminviewstock">
+          <Button color="green" className="mr-2 mb-3">
+           View Remaining Slurry
+          </Button>
+        </Link>
+        <Button color="light-blue" size="lg" className="mb-3" onClick={() => window.history.back()}>Back</Button>
         {error && <Typography color="red" className="text-danger">{error}</Typography>}
         <table className="table-auto w-full border border-collapse rounded">
           <thead className="bg-gray-800 text-white">
@@ -47,11 +49,10 @@ function FViewSlurryDistributions() {
                 <td className='border px-4 py-2'>{distribution.address}</td>
                 <td className='border px-4 py-2'>{new Date(distribution.date).toLocaleDateString()}</td>
                 <td className='border px-4 py-2'>{distribution.quantity}</td>
-                <td className='border px-4 py-2'>{new Date(distribution.submissionDate).toLocaleDateString()}</td> {/* Show submission date */}
+                <td className='border px-4 py-2'>{new Date(distribution.submissionDate).toLocaleDateString()}</td>
                 <td className='border px-4 py-2'>
-                <div className="flex justify-center">
-                  <Button color="green" className="me-2" onClick={() => handleEdit(distribution)}>Edit</Button>
-                  <Button color="light-blue" onClick={() => handleDelete(distribution)}>Delete</Button>
+                  <div className="flex justify-center">
+                    <Button color="green" onClick={() => handleViewPrint(distribution)}>View</Button>
                   </div>
                 </td>
               </tr>
@@ -59,9 +60,10 @@ function FViewSlurryDistributions() {
           </tbody>
         </table>
       </div>
-      <Footer/>
+      <Footer />
+      {printViewData && <SlurryDistributionPrintView data={printViewData} onClose={() => setPrintViewData(null)} />}
     </>
   );
 }
 
-export default FViewSlurryDistributions;
+export default ReportFViewSlurryDistributions;

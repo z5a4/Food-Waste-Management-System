@@ -27,8 +27,13 @@ import {
   UserIcon,
   TruckIcon,
   HandRaisedIcon,
-  MapPinIcon
+  MapPinIcon,
+  ClipboardDocumentListIcon,
+ CheckCircleIcon,
+ PlusCircleIcon
 } from "@heroicons/react/24/solid";
+
+import AgricultureIcon from '@mui/icons-material/Agriculture';
 
 
  
@@ -71,9 +76,27 @@ const navListMenuItems = [
     href:"/userviewoccasionalFWrequest",
   },
   {
+    title: "Stock",
+    description: "Slurry and Food Waste Stock.",
+    icon: ClipboardDocumentListIcon,
+    href:"/userviewstock",
+  },
+  {
+    title: "Slurry Request",
+    description: "All Slurry Requests.",
+    icon: PlusCircleIcon,
+    href:"/userviewslurryrequest",
+  },
+  {
+    title: "Slurry Distribution",
+    description: "Distributed Slurry.",
+    icon: CheckCircleIcon,
+    href:"/userviewslurrydistributions",
+  },
+  {
     title: "Farmer",
     description: "Learn how we can help you achieve your goals.",
-    icon: UserIcon,
+    icon: AgricultureIcon,
     href:"/userviewfarmer",
   },
   {

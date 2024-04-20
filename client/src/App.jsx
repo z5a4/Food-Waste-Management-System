@@ -114,7 +114,8 @@ import ReportViewVolunteer from './components/Reports/Volunteer/ReportViewVolunt
 import ReportViewTransporter from './components/Reports/Transporter/ReportViewTransporter';
 import ReportAdminViewRegularFWRequest from './components/Reports/Foodwaste Request/Regular/ReportViewRegularFWRequest';
 import ReportViewOccasionalFWRequest from './components/Reports/Foodwaste Request/Occasional/ReportViewOccasionalFWRequest';
-
+import ReportFViewSlurryDistributions from './components/Reports/Slurry Distributed/ReportFViewSlurryDistributions';
+import ReportSchedule from './components/Reports/Schedule/ReportSchedule';
 
 
 
@@ -174,6 +175,10 @@ import AdminViewStock from './components/Admin/Stock/StockCrud/pages/FViewFoodWa
 import UpdateFoodWasteSlurry from './components/Admin/Stock/StockCrud/pages/UpdateFoodWasteSlurry';
 import DeleteFoodWasteSlurry from './components/Admin/Stock/StockCrud/pages/DeleteFoodWasteSlurry';
 
+{/*User Stock */}
+import UserFoodWasteSlurryForm from './components/User/Stock/UserFoodWasteSlurryForm';
+import UserViewStock from "./components/User/Stock/StockCrud/pages/UserFViewFoodWasteSlurries";
+
 
 {/*Admin-Slurry-Farmer */}
 import FViewSlurryRequests from './components/Admin/SlurryRequest/pages/FViewSlurryRequests';
@@ -183,6 +188,13 @@ import DeleteSlurryDistribution from './components/Admin/SlurryRequest/pages/Del
 import DeleteSlurryRequests from './components/Admin/SlurryRequest/pages/DeleteSlurryRequests';
 import UpdateSlurryRequests from './components/Admin/SlurryRequest/pages/UpdateSlurryRequests';
 import FViewSlurryDistributions from './components/Admin/SlurryRequest/pages/FViewSlurryDistributions';
+
+
+{/*User-Slurry-Farmer */}
+import UserFViewSlurryRequests from './components/User/SlurryRequest/pages/UserFViewSlurryRequests';
+import UserAddSlurryDistributionForm from './components/User/SlurryRequest/pages/UserAddSlurryDistributionForm';
+import UserFViewSlurryDistributions from './components/User/SlurryRequest/pages/UserFViewSlurryDistributions';
+
 
 
 
@@ -367,15 +379,24 @@ function App() {
       <Route path="/reporttransporter" element={<ReportViewTransporter/>}/>
       <Route path="/reportregularfoodwaste" element={<ReportAdminViewRegularFWRequest/>}/>
       <Route path="/reportoccasionalfoodwaste" element={<ReportViewOccasionalFWRequest/>}/>
+      <Route path="/reportslurrydistribution" element={<ReportFViewSlurryDistributions/>}/>
+      <Route path="/reportschedule" element={<ReportSchedule/>}/>
+
 
       <Route path="/userviewroute" element={<UserViewRoute/>}/>
       <Route path="/userrouteform" element={<UserRouteForm/>}/>
 
       {/*Admin Stock */}
-     <Route path="/foodwasteslurryform" element={<FoodWasteSlurryForm />} />
+      <Route path="/foodwasteslurryform" element={<FoodWasteSlurryForm />} />
       <Route path="/adminviewstock" element={<AdminViewStock />} />
       <Route path="/updateFoodWasteSlurry/:id" element={<UpdateFoodWasteSlurry />} />
       <Route path="/deleteFoodWasteSlurry/:id" element={<DeleteFoodWasteSlurry />} />
+
+      {/*User Stock */}
+      <Route path="/userfoodwasteslurryform" element={<UserFoodWasteSlurryForm />} />
+      <Route path="/userviewstock" element={<UserViewStock/>} />
+
+
 
       {/*Admin-Slurry-Farmer*/}
       <Route path="/viewslurryrequest" element={<FViewSlurryRequests />} />
@@ -386,6 +407,10 @@ function App() {
       <Route path="/updateslurryrequest/:id" element={<UpdateSlurryRequests/>} />
       <Route path="/deleteslurryrequest/:id" element={<DeleteSlurryRequests/>} />
 
+      {/*User-Slurry-Farmer*/}
+      <Route path="/userviewslurryrequest" element={<UserFViewSlurryRequests/>} />
+      <Route path="/useraddSlurryRequest/:id" element={<UserAddSlurryDistributionForm/>} />
+      <Route path="/userviewslurrydistributions" element={<UserFViewSlurryDistributions />} />
 
 
       </Routes>

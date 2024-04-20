@@ -101,6 +101,7 @@ const LoginForm = () => {
                 </div>
             </div>
         </div>
+        <Button color="red" size="lg" className="mt-3 ms-2" onClick={() => window.history.back()}>Back</Button>
         <Footer/>
         </>
     );

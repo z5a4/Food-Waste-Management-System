@@ -33,7 +33,7 @@ const DonationForm = () => {
                     error={errors.donationType}
                     className="form-select"
                   >
-                    <option value="">select Donation Type</option>
+                    <option value="">Select Donation Type</option>
                     <option value="Non-Monetary">Monetary</option>
                     <option value="Non-Monetary">Non-Monetary</option>
                   </select>

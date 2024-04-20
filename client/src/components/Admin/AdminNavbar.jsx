@@ -24,7 +24,6 @@ import {
   UserPlusIcon,
   InboxArrowDownIcon,
   ArrowDownOnSquareIcon,
-  UserIcon,
   TruckIcon,
   HandRaisedIcon,
  MapPinIcon,
