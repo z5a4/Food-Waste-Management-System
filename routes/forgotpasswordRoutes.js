@@ -5,7 +5,7 @@ const router = express.Router();
 const forgotpasswordController = require('../controllers/forgotpasswordController');
 
 // Route for validating user
-router.get('/registrations', forgotpasswordController.validateUser);
+//router.get('/registrations', forgotpasswordController.validateUser);
 
 // Route for resetting password
 router.put('/registrations', forgotpasswordController.resetPassword);

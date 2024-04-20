@@ -56,9 +56,9 @@ app.use('/',OccasionalFWRequestRoutes);
 app.use('/',ScheduleRoutes);
 app.use('/',routeRoutes);
 app.use('/', CurrentScheduleRoutes);
-app.use('/api', slurryRequestRoutes);
+app.use('/', slurryRequestRoutes);
 app.use('/api', foodWasteSlurryRoutes);
-app.use('/api', slurryDistributionRoutes);
+app.use('/', slurryDistributionRoutes);
 app.use('/api', forgotpasswordRoutes);
 
 

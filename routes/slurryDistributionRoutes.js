@@ -3,19 +3,19 @@ const express = require('express');
 const router = express.Router();
 const SlurryController = require('../controllers/slurryController');
 
-router.get('/viewslurrydistributions', SlurryController.getSlurryDistributions);
+router.get('/api/viewslurrydistributions', SlurryController.getSlurryDistributions);
 
-router.get('/viewslurrydistributions/:id', SlurryController.getSlurryDistributionById);
+router.get('/api//viewslurrydistributions/:id', SlurryController.getSlurryDistributionById);
 
 
 // POST /api/slurrydistributions
-router.post('/slurrydistributions', SlurryController.addSlurryDistribution);
+router.post('/api/slurrydistributions', SlurryController.addSlurryDistribution);
 
 // Route for fetching a single slurry request by ID
-router.get('/fetchslurryRequests/:id', SlurryController.getSlurryRequestById);
+router.get('/api/fetchslurryRequests/:id', SlurryController.getSlurryRequestById);
 
-router.put('/updateslurrydistributions/:id', SlurryController.updateSlurryDistribution);
+router.put('/api/updateslurrydistributions/:id', SlurryController.updateSlurryDistribution);
 
-router.delete('/deleteslurrydistributions/:id', SlurryController.deleteSlurryDistribution);
+router.delete('/api/deleteslurrydistributions/:id', SlurryController.deleteSlurryDistribution);
 
 module.exports = router;
