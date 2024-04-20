@@ -57,7 +57,7 @@ const routeSchema = new mongoose.Schema({
     type: String,
     required:true, // Change to String type
   },
-  volunteerName:
+  volunterName:
   { 
    type: String,
   },
