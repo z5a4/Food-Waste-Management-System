@@ -112,7 +112,7 @@ function EditProfile() {
                                 </div>
                                 
                                 {/* Submit button */}
-                                <Button color="light-blue" size="lg" type="submit">
+                                <Button color="green" size="lg" className='mb-2 mr-2' type="submit">
                                     Submit
                                 </Button>
                                 <Button color="light-blue" size="lg" className='mb-2 me-2' onClick={() => window.history.back()}>

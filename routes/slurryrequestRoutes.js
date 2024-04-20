@@ -3,13 +3,8 @@ const express = require('express');
 const router = express.Router();
 const SlurryRequestController = require('../controllers/slurryRequestController');
 
-<<<<<<< HEAD
-// Route to handle farmer requests
-router.post('/api/slurryRequest', requestController.createRequest);
-=======
 // Route for creating a new slurry request
 router.post('/slurryRequest', SlurryRequestController.createRequest);
->>>>>>> 162967050dc9789cf14797ee9d4ae2b8e1434ead
 
 // Route for fetching all slurry requests
 router.get('/slurryRequests', SlurryRequestController.getAllSlurryRequests);

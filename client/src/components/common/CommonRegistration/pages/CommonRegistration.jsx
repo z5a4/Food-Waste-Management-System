@@ -174,7 +174,8 @@ const CommonRegistrationForm = () => {
           <Button type="submit" color='green' size='lg' className='me-2'>Submit</Button>
           <Button color="light-blue" size="lg" className="ms-2" onClick={() => window.history.back()}>Back</Button>
         </form>
-        <br />
+        <Typography color="blue-gray" className="mt-4">Already have an account ? <a href='/login' className="font-medium text-gray-600">Sign-In</a></Typography>
+                    <br></br>
        
       </div>
       </div>

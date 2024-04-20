@@ -39,7 +39,7 @@ export function AboutAccordion() {
         <AccordionHeader onClick={() => handleOpen(2)}>
           What is Food Waste Management System?
         </AccordionHeader>
-        <AccordionBody>
+        <AccordionBody >
         The Food Waste Management System is an innovative project aimed at addressing the critical 
         issue of food waste in a sustainable and environmentally friendly manner. 
         This system focuses on creating a comprehensive solution that involves the 

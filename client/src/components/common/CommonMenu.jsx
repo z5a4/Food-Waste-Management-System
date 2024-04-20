@@ -120,7 +120,7 @@ import {
               </MenuItem>
             </MenuHandler>
             <MenuList>
-            <Link to={"/commonregistration"}>
+            <Link to={"/login"}>
             <MenuItem className="font-bold">Regular</MenuItem>
             </Link>
             <Link to={"/common/occasionalFWrequest"}>
