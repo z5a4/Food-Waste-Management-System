@@ -83,6 +83,25 @@ exports.logout = (req, res) => {
   }
 };
 
+exports.updateUserProfile = async (req, res) => {
+  try {
+      const userId = req.session.userId; // Assuming you have authentication middleware to get user ID from the request
+      const updatedData = req.body; // The updated data from the request body
+
+      // Find the user by ID and update their profile
+      const user = await Registration.findByIdAndUpdate(userId, updatedData, { new: true });
+
+      if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+      }
+
+      // Return the updated user profile as a JSON response
+      res.json(user);
+  } catch (error) {
+      console.error('Failed to update profile:', error);
+      res.status(500).json({ error: 'Failed to update profile' });
+  }
+};
 
 // controllers/authController.js
 

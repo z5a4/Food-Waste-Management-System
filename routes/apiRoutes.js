@@ -8,6 +8,9 @@ router.post('/api/login', LoginController.loginUser);
 
 router.get('/api/user', LoginController.getUserDetails);
 
+router.put('/api/users', LoginController.updateUserProfile);
+
+
 router.post('/api/logout', LoginController.logout);
 
 
