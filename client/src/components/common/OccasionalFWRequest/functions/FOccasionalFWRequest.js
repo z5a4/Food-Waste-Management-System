@@ -10,12 +10,12 @@ const FRegularFWRequest = () => {
     email: '',
     date:'',
     mobileNo: '',
-    date: '', // New field for Date of Birth
+    date: '', 
     approxQuantity: '',
   });
 
   const [errorMessage, setErrorMessage] = useState('');
-  const [showAlert, setShowAlert] = useState(false); // State for controlling alert visibility
+  const [showAlert, setShowAlert] = useState(false);
 
  
   const handleInputChange = (e) => {
@@ -36,21 +36,18 @@ const FRegularFWRequest = () => {
         if (response.data.success) {
         alert(response.data.message);
         setrequestId(response.data.requestId);
-         // Reset form fields
          setFormData({
           description: '',
           requesterName:'',
           address: '',
           email: '',
           mobileNo: '',
-          date: '', // New field for Date of Birth
+          date: '', 
           approxQuantity: '',
       });
   
-      // Redirect to login page
       window.location.href = '/';
   } else {
-      // If registration failed and there's a field to focus on
       if (response.data.focus) {
           const field = document.getElementById(response.data.focus);
           if (field) {
@@ -58,7 +55,6 @@ const FRegularFWRequest = () => {
           }
       }
       
-      // Display error message
       window.alert(response.data.message);
   }
       } catch (error) {

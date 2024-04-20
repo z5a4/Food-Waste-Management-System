@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FUpdateMember from '../functions/FUpdateMember';
-import { Button, Typography, Input } from '@material-tailwind/react'; // Import Material Tailwind components
+import { Button, Typography, Input } from '@material-tailwind/react'; 
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 

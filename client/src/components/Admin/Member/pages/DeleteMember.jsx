@@ -1,7 +1,7 @@
 import React from 'react';
 import FDeleteMember from '../functions/FDeleteMember';
 import { Link } from 'react-router-dom';
-import { Typography, Button, Input } from '@material-tailwind/react'; // Import Material Tailwind components
+import { Typography, Button, Input } from '@material-tailwind/react';
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 

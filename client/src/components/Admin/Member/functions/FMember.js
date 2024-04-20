@@ -11,7 +11,7 @@ const FMember = () => {
     username: '',
     password: '',
     dateOfBirth: '', 
-    BeVolunteer:'',// New field for Date of Birth
+    BeVolunteer:'',
     securityQuestion: '',
     answer: '',
   });

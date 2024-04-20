@@ -30,7 +30,7 @@ const Volunteer = () => {
           volunteerId: '',
           id:'',
           volunteerName: '',
-          dateOfBirth: '', // New field for Date of Birth
+          dateOfBirth: '', 
           volunteeraddress: '',
           email: '',
          volunteermobileNo: '',
@@ -40,10 +40,8 @@ const Volunteer = () => {
           answer: '',
       });
   
-      // Redirect to login page
       window.location.href = '/admin';
   } else {
-      // If registration failed and there's a field to focus on
       if (response.data.focus) {
           const field = document.getElementById(response.data.focus);
           if (field) {
@@ -51,7 +49,6 @@ const Volunteer = () => {
           }
       }
       
-      // Display error message
       window.alert(response.data.message);
   } 
         

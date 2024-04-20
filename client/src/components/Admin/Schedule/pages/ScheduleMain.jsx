@@ -7,7 +7,6 @@ import SchedulePrintView from './SchedulePrintView';
 
 function ScheduleMain() {
   const { schedule, error } = FScheduleMain();
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [printViewData, setPrintViewData] = useState(null);
 

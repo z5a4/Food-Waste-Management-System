@@ -6,7 +6,7 @@ const FVolunteer = () => {
     volunteerId: '',
     id:'',
     volunteerName: '',
-    dateOfBirth: '', // New field for Date of Birth
+    dateOfBirth: '',
     volunteeraddress: '',
     email: '',
    volunteermobileNo: '',

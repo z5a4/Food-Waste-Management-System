@@ -10,7 +10,7 @@ function DeleteSlurryRequests() {
   const { fetchSlurry, handleDelete, deleteMessage, slurry } = useDeleteSlurryRequests();
 
   useEffect(() => {
-    fetchSlurry(id); // Fetch slurry data when the component mounts
+    fetchSlurry(id);
   }, [id, fetchSlurry]);
 
   return (

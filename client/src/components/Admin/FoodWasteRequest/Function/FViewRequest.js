@@ -16,7 +16,6 @@ const FViewRequest = () => {
 
   
   const handleUpdate = (request) => {
-    // Implement update logic here
     navigate(`/update/foodwasterequests/${request._id}`, { state: { request } });
   };
 

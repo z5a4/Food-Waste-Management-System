@@ -15,7 +15,6 @@ const FViewRoute = () => {
   };
 
   const handleUpdate = (route) => {
-    // Implement update logic here
     navigate(`/update/routes/${route._id}`, { state: { route } });
   };
 

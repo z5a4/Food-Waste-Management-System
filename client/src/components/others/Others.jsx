@@ -62,7 +62,6 @@ const handleLogout = async () => {
       <div className="space"><br></br></div>
       <Footer/>
 <div className='space'><br></br></div>
-<button type='submit' onClick={handleLogout}>Logout</button>
 
 
      

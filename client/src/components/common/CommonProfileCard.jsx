@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-// Define a keyframe animation for fade-in effect with slide from right
 const fadeInAnimation = keyframes`
   from {
     opacity: 0;
@@ -20,7 +19,6 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-// Styled component for the card with animation applied
 const AnimatedCard = styled(Card)`
   opacity: 0;
   animation: ${fadeInAnimation} 1s ease-in-out forwards;
@@ -28,7 +26,7 @@ const AnimatedCard = styled(Card)`
 `;
 
 export function CommonProfileCard() {
-  const { ref, inView } = useInView({ threshold: 0.5 }); // Adjust threshold as needed
+  const { ref, inView } = useInView({ threshold: 0.5 }); 
 
   return (
     <AnimatedCard
@@ -52,7 +50,7 @@ export function CommonProfileCard() {
 }
 
 export function CommonProfileCard1() {
-  const { ref, inView } = useInView({ threshold: 0.5 }); // Adjust threshold as needed
+  const { ref, inView } = useInView({ threshold: 0.5 }); 
 
   return (
     <AnimatedCard

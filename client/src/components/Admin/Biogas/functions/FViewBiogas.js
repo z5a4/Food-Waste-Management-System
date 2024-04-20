@@ -16,7 +16,6 @@ const FViewBiogas = () => {
 
   
   const handleUpdate = (biogas) => {
-    // Implement update logic here
     navigate(`/update/biogas/${biogas._id}`, { state: { biogas } });
   };
 

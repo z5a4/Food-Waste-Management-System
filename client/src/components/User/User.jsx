@@ -1,4 +1,3 @@
-// Admin.js
 import UserNavbar from "./UserNavbar";
 import { 
   AdminReportCard, 

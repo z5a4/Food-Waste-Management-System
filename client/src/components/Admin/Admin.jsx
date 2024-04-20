@@ -1,4 +1,3 @@
-// Admin.js
 import AdminNavbar from './AdminNavbar'
 import { 
   AdminReportCard, 

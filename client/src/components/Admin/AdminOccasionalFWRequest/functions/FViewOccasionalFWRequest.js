@@ -16,7 +16,6 @@ const FViewOccasionalFWRequest = () => {
 
   
   const handleUpdate = (OccasionalFWRequest) => {
-    // Implement update logic here
     navigate(`/update/Occasional/${OccasionalFWRequest._id}`, { state: { OccasionalFWRequest } });
   };
 

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import Link and useNavigate
+import { useNavigate } from 'react-router-dom';
 import { Button, Input, Typography } from '@material-tailwind/react';
 import UserNavbar from '../UserNavbar';
 import Footer from '../../Footer/Footer';
 
 const UserFoodWasteSlurryForm = () => {
-    const navigate = useNavigate(); // Get navigate function
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         quantity: '',
     });
@@ -24,7 +24,7 @@ const UserFoodWasteSlurryForm = () => {
                 alert(`${type === 'foodWaste' ? 'Food waste' : 'Slurry'} data added successfully!`);
             }
 
-            setFormData({ quantity: '' }); // Clear input after submission
+            setFormData({ quantity: '' });
         } catch (error) {
             console.error('Error adding data:', error);
             alert(`Failed to add ${type === 'foodWaste' ? 'food waste' : 'slurry'} data. Please try again.`);

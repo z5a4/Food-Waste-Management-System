@@ -32,29 +32,27 @@ export const useUpdateSlurryDistribution = () => {
     try {
       await axios.put(`http://localhost:5000/api/updateslurrydistributions/${id}`, formData);
       window.alert('Slurry distribution updated successfully!');
-      // Handle successful update (e.g., clear form, display success message)
     } catch (error) {
       console.error('Error updating slurry distribution:', error);
       window.alert('Failed to update slurry distribution.');
-      // Handle update error (e.g., display error message)
     }
   };
 
   const fetchSlurryDistribution = async () => {
-    setLoading(true); // Show loading indicator while fetching
+    setLoading(true);
     try {
       const response = await axios.get(`http://localhost:5000/api/viewslurrydistributions/${id}`);
       setFormData(response.data);
     } catch (error) {
       console.error('Error fetching slurry distribution:', error);
     } finally {
-      setLoading(false); // Hide loading indicator after fetching
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchSlurryDistribution();
-  }, [id]); // Fetch data only when id changes
+  }, [id]); 
 
   return { formData, handleChange, handleSubmit, loading, navigate };
 };

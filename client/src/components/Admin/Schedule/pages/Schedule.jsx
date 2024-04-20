@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import FSchedule from '../functions/FSchedule';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import CurrentRoutes from '../../Route/pages/CurrentRoutes'; // Import ViewRoute component
+import CurrentRoutes from '../../Route/pages/CurrentRoutes';
 import { Button, Typography } from '@material-tailwind/react';
 import Footer from '../../../Footer/Footer';
-//import RouteSelect from './RouteSelect'; // Import RouteSelect component
 
 const Schedule = () => {
     const [combinedRequests, setCombinedRequests] = useState([]);
@@ -35,7 +34,7 @@ const Schedule = () => {
     
         const intervalId = setInterval(() => {
             fetchData();
-        }, 60000); // Fetch data every minute
+        }, 60000);
     
         return () => clearInterval(intervalId);
 
@@ -43,11 +42,10 @@ const Schedule = () => {
     },[fetchCombinedRequests]);
 
 
-    // Fetch routes from the backend API
   useEffect(() => {
     async function fetchRoutes() {
       try {
-        const response = await fetch('http://localhost:5000/api/routes/current'); // Assuming this is your backend route
+        const response = await fetch('http://localhost:5000/api/routes/current');
         const data = await response.json();
         setRoutes(data.routeNames);
       } catch (error) {
@@ -56,7 +54,7 @@ const Schedule = () => {
     }
 
     fetchRoutes();
-  }, []); // Empty dependency array to run the effect only once when the component mounts
+  }, []);
 
     
 
@@ -65,7 +63,6 @@ const Schedule = () => {
        
     };
 
-  // Update handleRouteChange to store selected route for each request ID
 const handleRouteChange = (event, requestId) => {
     setSelectedRoutes(prevState => ({
       ...prevState,
@@ -76,19 +73,14 @@ const handleRouteChange = (event, requestId) => {
   
   const handleAddToCurrentSchedule = async (requestData) => {
     try {
-        // Include the selected route in the requestData
         const requestDataWithRoute = { ...requestData, routeName: selectedRoutes[requestData._id] };
          
-// Update the status to "Approved"
 requestDataWithRoute.status = 'Approved';
-        // Send the updated requestData to the server
         const response = await axios.post('http://localhost:5000/api/currentschedule', requestDataWithRoute);
 
-        // Display a success message or update UI as needed
         alert(response.data.message);
     } catch (error) {
         console.error('Error adding to current schedule:', error);
-        // Display an error message or update UI as needed
         alert('Failed to add request to current schedule. Please try again.');
     }
 };

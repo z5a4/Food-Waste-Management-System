@@ -13,7 +13,7 @@ const FSchedule = () => {
         address: '',
         approxQuantity: '',
         routeName: '',
-        status:'',// Add routeName field
+        status:'',
        
     });
 

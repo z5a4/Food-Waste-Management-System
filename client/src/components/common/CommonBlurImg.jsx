@@ -1,7 +1,6 @@
 import { Typography } from "@material-tailwind/react";
 import styled, { keyframes } from 'styled-components';
 
-// Define a keyframe animation for the bounce effect
 const bounceAnimation = keyframes`
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -14,7 +13,6 @@ const bounceAnimation = keyframes`
   }
 `;
 
-// Styled component for the figure with animation applied
 const BouncingFigure = styled.figure`
   animation: ${bounceAnimation} 1s ease infinite;
 `;

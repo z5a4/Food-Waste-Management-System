@@ -18,11 +18,11 @@ const useDeleteSlurryRequests = () => {
     try {
       await axios.delete(`http://localhost:5000/api/slurryRequests/${id}`);
       setDeleteMessage('Record deleted successfully');
-      window.alert('Record deleted successfully'); // Alert when record is deleted
+      window.alert('Record deleted successfully');
     } catch (error) {
       console.error('Error deleting slurry request:', error);
       setDeleteMessage('Failed to delete record');
-      window.alert('Failed to delete record'); // Alert when deletion fails
+      window.alert('Failed to delete record');
     }
   };
 

@@ -23,7 +23,6 @@ const FUpdateSource = (source, navigate) => {
     e.preventDefault();
     try {
       await axios.put(`http://localhost:5000/api/sources/${source._id}`, formData);
-      // Redirect to the registrations list after successful update
       navigate('/admin');
     } catch (error) {
       console.error('Error updating Source:', error);

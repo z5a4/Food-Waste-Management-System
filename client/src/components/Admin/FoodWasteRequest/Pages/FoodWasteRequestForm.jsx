@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import FFoodWasteRequestForm from '../Function/FFoodWasteRequestForm';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const FoodWasteRequestForm = () => {
   const { formData, handleChange } = FFoodWasteRequestForm();
@@ -14,7 +14,7 @@ const FoodWasteRequestForm = () => {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Corrected spelling
+    e.preventDefault();
 
 
     try {

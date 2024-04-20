@@ -8,7 +8,7 @@ import { CommonNavbar } from '../commonNavbar';
 import Footer from '../../Footer/Footer';
 
 const LoginForm = () => {
-    const navigate = useNavigate(); // Initialize useNavigate hook
+    const navigate = useNavigate(); 
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -25,13 +25,11 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Basic client-side validation
       
         try {
             const response = await axios.post('http://localhost:5000/api/login', formData, { withCredentials: true });
 
             if (response.status === 200 && response.data.success) {
-                // Successful login
                 alert(response.data.message);
                 setFormData({
                     category: '',
@@ -40,10 +38,8 @@ const LoginForm = () => {
                    
                 });
             
-                // Redirect to login page
                 window.location.href = '/others';
             } else {
-                // If registration failed and there's a field to focus on
                 if (response.data.focus) {
                     const field = document.getElementById(response.data.focus);
                     if (field) {
@@ -51,12 +47,10 @@ const LoginForm = () => {
                     }
                 }
                 
-                // Display error message
                 window.alert(response.data.message);
             }  
             
         } catch (error) {
-           // console.error('Error during login:', error);
             alert('Invalid Credentials. Please try again.');
         }
     };

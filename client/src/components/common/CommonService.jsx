@@ -13,7 +13,6 @@ import hamburgerImage from "./Images/Hamburger.png";
 import FarmerImage from "./Images/Farmer.png";
 import memberImage from "./Images/Member.png";
 
-// Define a keyframe animation for slide-in effect from the bottom
 const slideInFromBottom = keyframes`
   from {
     opacity: 0;
@@ -25,7 +24,6 @@ const slideInFromBottom = keyframes`
   }
 `;
 
-// Styled component for the card with animation applied
 const AnimatedCard = styled(Card)`
   opacity: 0;
   animation: ${slideInFromBottom} 1.0s ease forwards;

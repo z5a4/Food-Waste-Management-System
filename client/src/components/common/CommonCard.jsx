@@ -9,7 +9,6 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-// Define a keyframe animation for fade-in effect with slide from right
 const fadeInAnimation = keyframes`
   from {
     opacity: 0;
@@ -21,7 +20,6 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-// Styled component for the card with animation applied
 const AnimatedCard = styled(Card)`
   opacity: 0;
   animation: ${fadeInAnimation} 1s ease-in-out forwards;

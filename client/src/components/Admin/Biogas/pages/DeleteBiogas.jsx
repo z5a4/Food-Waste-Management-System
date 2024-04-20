@@ -1,8 +1,8 @@
 import React from 'react';
 import FDeleteBiogas from '../functions/FDeleteBiogas';
 import { Link } from 'react-router-dom';
-import { Button, Typography, Input } from '@material-tailwind/react'; // Import Material Tailwind Button
-import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
+import { Button, Typography, Input } from '@material-tailwind/react';
+import 'tailwindcss/tailwind.css';
 import AdminNavbar from '../../AdminNavbar';
 import Footer from '../../../Footer/Footer';
 

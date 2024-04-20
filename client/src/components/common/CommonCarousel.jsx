@@ -5,7 +5,6 @@ import farmer2 from './Images/farmer2.jpg';
 import Slurry from './Images/slurry2.jpg';
 import styled, { keyframes } from 'styled-components';
 
-// Define a keyframe animation for slide-in effect from the left
 const slideInAnimation = keyframes`
   from {
     opacity: 0;
@@ -17,7 +16,6 @@ const slideInAnimation = keyframes`
   }
 `;
 
-// Styled component for the slide with animation applied
 const AnimatedSlide = styled.div`
   opacity: 0;
   animation: ${slideInAnimation} 2.0s ease forwards;

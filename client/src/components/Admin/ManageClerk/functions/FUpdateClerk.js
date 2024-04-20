@@ -27,7 +27,6 @@ const FUpdateclerk = (clerk, navigate) => {
     e.preventDefault();
     try {
       await axios.put(`http://localhost:5000/api/clerks/${clerk._id}`, formData);
-      // Redirect to the clerks list after successful update
       window.history.back();
     } catch (error) {
       console.error('Error updating clerk:', error);

@@ -12,12 +12,12 @@ export function CommonContactUs() {
   const [open, setOpen] = React.useState(false);
   
   const openDrawer = (e) => {
-    e.preventDefault(); // Prevent default behavior (scrolling to the top)
+    e.preventDefault(); 
     setOpen(true);
   };
   
   const closeDrawer = (e) => {
-    e.preventDefault(); // Prevent default behavior (scrolling to the top)
+    e.preventDefault();
     setOpen(false);
   };
  

@@ -83,14 +83,11 @@ const FSourceTable = () => {
 
     if (validateForm()) {
       try {
-        // Send the form data to the server
         const response = await Axios.post('http://localhost:5000/api/source-table', formData);
 
-        // Display a success message
         alert(response.data.message);
       } catch (error) {
         console.error('Error submitting form:', error);
-        // Display an error message
         alert('Registration failed. Please try again.');
       }
     }

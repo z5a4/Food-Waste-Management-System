@@ -22,20 +22,16 @@ const FTransporterForm = () => {
       ...formData,
       [name]: value,
     });
-    // Clear the error for the current field when it's updated
   };
  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
       try {
-        // Send the form data to the server
         const response = await Axios.post('http://localhost:5000/api/transporters', formData);
         if (response.data.success) {
-        // Display a success message
         alert(response.data.message);
         settransporterId(response.data.transporterId);
-          // Reset form fields
           setFormData({
             vehicleNo: '',
     vehicleType: '',
@@ -47,10 +43,8 @@ const FTransporterForm = () => {
     address: '',
         });
     
-        // Redirect to login page
         window.location.href = '/admin';
     } else {
-        // If registration failed and there's a field to focus on
         if (response.data.focus) {
             const field = document.getElementById(response.data.focus);
             if (field) {
@@ -58,12 +52,10 @@ const FTransporterForm = () => {
             }
         }
         
-        // Display error message
         window.alert(response.data.message);
     } 
       } catch (error) {
         console.error('Error submitting form:', error);
-        // Display an error message
         alert('Transporter creation failed. Please try again.');
       }
   }  

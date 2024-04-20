@@ -5,10 +5,10 @@ import Lottie from 'lottie-react';
 import animationData from '../../../assets/Videos/forgotpsw.json';
 import { CommonNavbar } from '../commonNavbar';
 import Footer from '../../Footer/Footer';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
+import { useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate(); 
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -27,11 +27,14 @@ const ForgotPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!formData.username || !formData.email || !formData.password) {
+            window.alert('Please fill in all details.');
+            return;
+        }
         try {
             const response = await axios.put('http://localhost:5000/api/registrations', formData);
             if (response.status === 200) {
                 console.log('Password reset successful');
-                setSuccessMessage('Password reset successful');
                 setErrorMessage('');
                 setFormData({
                     username: '',
@@ -43,7 +46,7 @@ const ForgotPassword = () => {
             }
         } catch (error) {
             console.error('Error resetting password:', error.message);
-            setErrorMessage('An error occurred. Please try again.');
+            window.alert('User not found.');
             setSuccessMessage('');
         }
     };
@@ -74,8 +77,6 @@ const ForgotPassword = () => {
                             <Button type="submit" color="green" size="lg">Reset Password</Button>
                         </form>
                         <br />
-                        {errorMessage && <Alert className="rounded-none border-l-4 border-red-500 bg-red-100 font-medium text-red-700">{errorMessage}</Alert>}
-                        {successMessage && <Alert className="rounded-none border-l-4 border-green-500 bg-green-100 font-medium text-green-700">{successMessage}</Alert>}
                     </div>
                 </div>
             </div>

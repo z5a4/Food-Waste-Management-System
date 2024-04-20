@@ -18,21 +18,18 @@ function Common() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // Display skeleton for 3 seconds
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
 
   const translateToHindi = () => {
-    // Add logic to translate the webpage content to Hindi
-    // This could involve fetching translated content from an API, 
-    // replacing text content in components with translated strings, etc.
   };
 
   return (
     <>
       {loading ? (
-        <Skeleton /> // Render the skeleton while loading
+        <Skeleton /> 
       ) : (
         <div>
           <button onClick={translateToHindi} style={{ position: 'fixed', top: '85px', right: '10px', color:'red' }}>Translate to Hindi</button>

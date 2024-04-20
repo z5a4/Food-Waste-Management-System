@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FSourceTable from '../functions/FSourceTable';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SourceTable = () => {
   const { formData, errors, handleInputChange, handleSubmit } = FSourceTable();

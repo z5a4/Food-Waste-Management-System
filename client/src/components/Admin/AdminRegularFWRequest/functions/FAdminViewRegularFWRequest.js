@@ -16,7 +16,6 @@ const FAdminViewRegularFWRequest = () => {
 
   
   const handleUpdate = (RegularFWRequest) => {
-    // Implement update logic here
     navigate(`/update/Regular/${RegularFWRequest._id}`, { state: { RegularFWRequest } });
   };
 

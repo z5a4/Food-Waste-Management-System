@@ -16,7 +16,6 @@ const FViewSourceTable = () => {
 
   
   const handleUpdate = (source) => {
-    // Implement update logic here
     navigate(`/update/sources/${source._id}`, { state: { source } });
   };
 

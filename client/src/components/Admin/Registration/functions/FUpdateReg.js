@@ -29,7 +29,6 @@ const FUpdateReg = (registration, navigate) => {
     e.preventDefault();
     try {
       await axios.put(`http://localhost:5000/api/registrations/${registration._id}`, formData);
-      // Redirect to the registrations list after successful update
       window.history.back();
     } catch (error) {
       console.error('Error updating registration:', error);

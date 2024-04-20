@@ -10,7 +10,7 @@ const useUpdateFoodWasteSlurry = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log('Updated field:', name, value); // Log updated field and value
+    console.log('Updated field:', name, value);
     setFormData(prevState => ({
       ...prevState,
       [name]: value

@@ -9,7 +9,7 @@ const OccasionalFWRequest = () => {
 
   const getCurrentDate = () => {
     const now = new Date();
-    now.setDate(now.getDate() - 1); // Subtract one day from the current date
+    now.setDate(now.getDate() - 1);
 
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -18,10 +18,9 @@ const OccasionalFWRequest = () => {
   };
 
   useEffect(() => {
-    // Set formData.date to the current date when the component mounts
     const currentDate = getCurrentDate();
     handleInputChange({ target: { name: 'date', value: currentDate } });
-  }, []); // Empty dependency array ensures this useEffect runs only once on mount
+  }, []);
 
   return (
     <>

@@ -4,7 +4,6 @@ import styled, { keyframes } from 'styled-components';
 import { Button, Typography } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
 
-// Define a keyframe animation for fade-in effect with slide from bottom
 const fadeInAnimation = keyframes`
   from {
     opacity: 0;
@@ -16,7 +15,6 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-// Styled component for the paragraph with animation applied
 const AnimatedParagraph = styled.div`
   opacity: 0;
   animation: ${fadeInAnimation} 1s ease-in-out forwards;
@@ -32,7 +30,7 @@ export function CommonParagraph() {
       className="mt-12"
       style={{
         visibility: inView ? 'visible' : 'hidden',
-        animationPlayState: inView ? 'running' : 'paused' // Ensures animation plays only when in view
+        animationPlayState: inView ? 'running' : 'paused'
       }}
     >
       <>

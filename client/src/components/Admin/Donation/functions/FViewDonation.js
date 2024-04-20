@@ -16,7 +16,6 @@ const FViewDonation = () => {
 
   
   const handleUpdate = (donation) => {
-    // Implement update logic here
     navigate(`/update/Donation/${donation._id}`, { state: { donation } });
   };
 
