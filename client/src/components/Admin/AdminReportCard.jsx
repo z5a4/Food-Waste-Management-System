@@ -9,6 +9,8 @@ import {
   import transporterimg from "../common/Images/transporter.png";
   import waste1 from "../common/Images/waste1.png";
   import waste2 from "../common/Images/Waste2.png";
+  import farm from "../common/Images/slurrydistribute.png";
+  import schedule from "../common/Images/schedule.png";
 
    
   export function AdminReportCard() {
@@ -35,7 +37,7 @@ import {
   export function AdminReportCard1() {
     return (
       <Card className="w-96">
-        <CardHeader color="cyan" floated={false} className="h-full">
+        <CardHeader color="blue-gray" floated={false} className="h-full">
           <img src={transporterimg} alt="profile-picture" />
         </CardHeader>
         <CardBody className="text-center">
@@ -55,7 +57,7 @@ import {
   export function AdminReportCard2() {
     return (
       <Card className="w-96">
-        <CardHeader color="cyan" floated={false} className="h-full">
+        <CardHeader color="yellow" floated={false} className="h-full">
           <img src={waste1} alt="profile-picture" />
         </CardHeader>
         <CardBody className="text-center">
@@ -83,6 +85,48 @@ import {
             Occasional Food Waste
           </Typography>
           <a href="/reportoccasionalfoodwaste" className="inline-block">
+            <Button color="green" className="flex items-center gap-2">
+            View
+            </Button>
+            </a>
+        </CardBody>
+      </Card>
+    );
+  }
+
+
+  export function AdminReportCard4() {
+    return (
+      <Card className="w-96">
+        <CardHeader color="cyan" floated={false} className="h-full">
+          <img src={farm} alt="farm" />
+        </CardHeader>
+        <CardBody className="text-center">
+          <Typography variant="h4" color="blue-gray" className="mb-2">
+            Slurry Distributed
+          </Typography>
+          <a href="/reportslurrydistribution" className="inline-block">
+            <Button color="green" className="flex items-center gap-2">
+            View
+            </Button>
+            </a>
+        </CardBody>
+      </Card>
+    );
+  }
+
+
+  export function AdminReportCard5() {
+    return (
+      <Card className="w-96">
+        <CardHeader color="teal" floated={false} className="h-full">
+          <img src={schedule} alt="schedule" />
+        </CardHeader>
+        <CardBody className="text-center">
+          <Typography variant="h4" color="blue-gray" className="mb-2">
+            Schedules
+          </Typography>
+          <a href="/reportschedule" className="inline-block">
             <Button color="green" className="flex items-center gap-2">
             View
             </Button>

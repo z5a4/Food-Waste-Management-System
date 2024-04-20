@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import Link and useNavigate
 import { Button, Input, Typography } from '@material-tailwind/react';
-import AdminNavbar from '../AdminNavbar';
+import UserNavbar from '../UserNavbar';
 import Footer from '../../Footer/Footer';
 
-const FoodWasteSlurryForm = () => {
+const UserFoodWasteSlurryForm = () => {
     const navigate = useNavigate(); // Get navigate function
     const [formData, setFormData] = useState({
         quantity: '',
@@ -33,7 +33,7 @@ const FoodWasteSlurryForm = () => {
 
     return (
         <>
-        <AdminNavbar/>
+        <UserNavbar/>
         <div className="container mt-5 border border-gray-400 rounded p-4 pl-6 pr-6">
             <div className="row">
                 <div className="col-md-6">
@@ -74,4 +74,4 @@ const FoodWasteSlurryForm = () => {
     );
 };
 
-export default FoodWasteSlurryForm;
+export default UserFoodWasteSlurryForm;

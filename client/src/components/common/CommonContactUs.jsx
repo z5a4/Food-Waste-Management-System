@@ -55,8 +55,8 @@ export function CommonContactUs() {
           <Typography variant="h6" color="blue-gray" className="-mb-3">
             Your Email
           </Typography>
-          <Input type="email" label="Email" />
-          <Input label="Subject" />
+          <Input variant="standard" type="email" label="Email" />
+          <Input variant="standard" label="Subject" />
           <Textarea rows={6} label="Message" />
           <Button color="light-green">Send Message</Button>
         </form>

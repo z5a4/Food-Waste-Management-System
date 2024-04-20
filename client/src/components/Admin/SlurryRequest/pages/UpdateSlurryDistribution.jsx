@@ -1,13 +1,15 @@
 import React from 'react';
 import { Button, Typography, Input } from '@material-tailwind/react';
-import { useUpdateSlurryDistribution } from '../functions/useUpdateSlurryDistribution'; // Import the custom hook
+import { useUpdateSlurryDistribution } from '../functions/useUpdateSlurryDistribution';
+import Footer from '../../../Footer/Footer';
 
 const UpdateSlurryDistribution = () => {
   const { formData, handleChange, handleSubmit, loading, navigate } = useUpdateSlurryDistribution();
 
   return (
-    <div className="container mt-5 pt-5">
-      <Typography color="blueGray" variant="h1" className="text-center">Update Slurry Distribution</Typography>
+    <>
+    <div className="container mt-4 pt-4">
+      <Typography variant="h3" className="text-center mb-4">Update Slurry Distribution</Typography>
       {loading ? (
         <p>Loading slurry distribution data...</p>
       ) : (
@@ -41,11 +43,7 @@ const UpdateSlurryDistribution = () => {
               <tr>
                 <th colSpan="2" className="text-center">
                   <Button color="green" size="lg" type="submit">Update</Button>
-                </th>
-              </tr>
-              <tr>
-                <th colSpan="2" className="text-center">
-                  <Button color="black" className="mt-3" onClick={() => navigate(-1)}>Back</Button>
+                  <Button color="light-blue" size="lg" className="ml-2" onClick={() => window.history.back()}>Back</Button>
                 </th>
               </tr>
             </tbody>
@@ -53,6 +51,8 @@ const UpdateSlurryDistribution = () => {
         </form>
       )}
     </div>
+    <Footer/>
+    </>
   );
 };
 

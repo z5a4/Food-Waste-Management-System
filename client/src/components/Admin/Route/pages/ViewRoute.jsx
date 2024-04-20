@@ -4,6 +4,8 @@ import Footer from "../../../Footer/Footer";
 import FViewRoute from '../functions/FViewRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Typography } from '@material-tailwind/react';
+import AdminNavbar from '../../AdminNavbar';
+
 
 const ViewRoute = () => {
   const [routes, setRoutes] = useState([]);
@@ -24,6 +26,7 @@ const ViewRoute = () => {
 
   return (
     <>
+    <AdminNavbar/>
     <div className="container mt-5 pt-5">
       <Typography variant='h3' className="text-center mb-3">Routes</Typography>
       <div className="flex justify-center mb-3">

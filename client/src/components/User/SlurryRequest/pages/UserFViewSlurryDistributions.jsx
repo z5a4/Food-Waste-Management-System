@@ -1,28 +1,24 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useFViewSlurryDistributions from '../functions/useFViewSlurryDistributions';
+import UseruseFViewSlurryDistributions from '../functions/UseruseFViewSlurryDistributions';
 import { Button, Typography } from '@material-tailwind/react';
-import AdminNavbar from '../../AdminNavbar';
+import UserNavbar from '../../UserNavbar';
 import Footer from '../../../Footer/Footer';
 
 
 
-function FViewSlurryDistributions() {
-  const { slurryDistributions, error } = useFViewSlurryDistributions();
+function UserFViewSlurryDistributions() {
+  const { slurryDistributions, error } = UseruseFViewSlurryDistributions();
   const navigate = useNavigate();
 
   const handleEdit = (distribution) => {
     navigate(`/updateslurrydistibution/${distribution._id}`, { state: { distribution } });
   };
-
-  const handleDelete = (distribution) => {
-    navigate(`/deleteslurrydistribution/${distribution._id}`, { state: { distribution } });
-  };
   
 
   return (
     <>
-    <AdminNavbar/>
+    <UserNavbar/>
       <div className="container mt-4 pt-4">
         <Typography variant="h3" className="text-center mb-2">Slurry Distributions</Typography>
         <Button color="light-blue" size="lg" className="mb-2" onClick={() => window.history.back()}>Back</Button>
@@ -51,7 +47,6 @@ function FViewSlurryDistributions() {
                 <td className='border px-4 py-2'>
                 <div className="flex justify-center">
                   <Button color="green" className="me-2" onClick={() => handleEdit(distribution)}>Edit</Button>
-                  <Button color="light-blue" onClick={() => handleDelete(distribution)}>Delete</Button>
                   </div>
                 </td>
               </tr>
@@ -64,4 +59,4 @@ function FViewSlurryDistributions() {
   );
 }
 
-export default FViewSlurryDistributions;
+export default UserFViewSlurryDistributions;
