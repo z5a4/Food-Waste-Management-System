@@ -27,10 +27,10 @@ const PORT = process.env.PORT || 5000;
 
 // Session middleware setup
 app.use(session({
-  secret: 'mongodbfwms1', // Replace with your actual secret key
+  secret: 'mongodbfwms1',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // Set secure to true if using HTTPS
+  cookie: { secure: false }
 }));
 
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
@@ -53,7 +53,7 @@ app.use('/',RegularFWRequestRoutes);
 app.use('/',OccasionalFWRequestRoutes);
 app.use('/',ScheduleRoutes);
 app.use('/',routeRoutes);
-app.use('/', CurrentScheduleRoutes); // Add this line
+app.use('/', CurrentScheduleRoutes);
 
 
 app.listen(PORT, () => {
